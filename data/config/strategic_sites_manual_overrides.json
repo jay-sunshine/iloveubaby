@@ -1,0 +1,688 @@
+{
+	"input_coordinates_use_north_positive_z": true,
+	"sites": [
+		{
+			"id": "ferry_baidi_cheng",
+			"position": {
+				"x": -4000.0,
+				"z": 8000.0
+			}
+		},
+		{
+			"id": "ferry_baima_jin",
+			"position": {
+				"x": 4000,
+				"z": -1000
+			}
+		},
+		{
+			"id": "ferry_caishi_jin",
+			"position": {
+				"x": 12000.0,
+				"z": 3000.0
+			}
+		},
+		{
+			"id": "ferry_chaisang_gang",
+			"position": {
+				"x": 6000.0,
+				"z": 6000.0
+			}
+		},
+		{
+			"id": "ferry_chibi_jin",
+			"position": {
+				"x": 3000.0,
+				"z": 6500.0
+			}
+		},
+		{
+			"id": "ferry_dengzhou_gang",
+			"position": {
+				"x": 7000.0,
+				"z": -6000.0
+			}
+		},
+		{
+			"id": "ferry_donglai_gang",
+			"position": {
+				"x": 6000.0,
+				"z": -5000.0
+			}
+		},
+		{
+			"id": "ferry_fengling_du",
+			"position": {
+				"x": -4000.0,
+				"z": -500.0
+			}
+		},
+		{
+			"id": "ferry_gongan_gang",
+			"position": {
+				"x": 500.0,
+				"z": 7200.0
+			}
+		},
+		{
+			"id": "ferry_guandu_jin",
+			"position": {
+				"x": 3500,
+				"z": -500
+			}
+		},
+		{
+			"id": "ferry_guangling_gang",
+			"position": {
+				"x": 11000.0,
+				"z": 1000.0
+			}
+		},
+		{
+			"id": "ferry_guangling_sheyang_gang",
+			"position": {
+				"x": 10000.0,
+				"z": 0.0
+			}
+		},
+		{
+			"id": "ferry_hanjin_gang",
+			"position": {
+				"x": 3500.0,
+				"z": 5800.0
+			}
+		},
+		{
+			"id": "ferry_hepu_gang",
+			"position": {
+				"x": 3000.0,
+				"z": 11000.0
+			}
+		},
+		{
+			"id": "ferry_houguan_gang",
+			"position": {
+				"x": 13000.0,
+				"z": 9000.0
+			}
+		},
+		{
+			"id": "ferry_huarong_jin",
+			"position": {
+				"x": 2500.0,
+				"z": 6800.0
+			}
+		},
+		{
+			"id": "ferry_hukou_gang",
+			"position": {
+				"x": 5500.0,
+				"z": 7000.0
+			}
+		},
+		{
+			"id": "ferry_jiangling_gang",
+			"position": {
+				"x": 1000.0,
+				"z": 7000.0
+			}
+		},
+		{
+			"id": "ferry_jiangzhou_gang",
+			"position": {
+				"x": -5000.0,
+				"z": 7000.0
+			}
+		},
+		{
+			"id": "ferry_jingkou_gang",
+			"position": {
+				"x": 13000.0,
+				"z": 2000.0
+			}
+		},
+		{
+			"id": "ferry_juzhang_gang",
+			"position": {
+				"x": 14000.0,
+				"z": 6000.0
+			}
+		},
+		{
+			"id": "ferry_langya_gang",
+			"position": {
+				"x": 8000.0,
+				"z": -2000.0
+			}
+		},
+		{
+			"id": "ferry_longbian_gang",
+			"position": {
+				"x": 6000.0,
+				"z": 13000.0
+			}
+		},
+		{
+			"id": "ferry_niuzhu_gang",
+			"position": {
+				"x": 11500.0,
+				"z": 3500.0
+			}
+		},
+		{
+			"id": "ferry_panyu_gang",
+			"position": {
+				"x": 5000.0,
+				"z": 12000.0
+			}
+		},
+		{
+			"id": "ferry_puban_jin",
+			"position": {
+				"x": -5000.0,
+				"z": -1000.0
+			}
+		},
+		{
+			"id": "ferry_qua_gang",
+			"position": {
+				"x": 13500.0,
+				"z": 3000.0
+			}
+		},
+		{
+			"id": "ferry_quren_gang",
+			"position": {
+				"x": -6000.0,
+				"z": 7800.0
+			}
+		},
+		{
+			"id": "ferry_ruxukou",
+			"position": {
+				"x": 10000.0,
+				"z": 4000.0
+			}
+		},
+		{
+			"id": "ferry_shouchun_gang",
+			"position": {
+				"x": 8000.0,
+				"z": 2000.0
+			}
+		},
+		{
+			"id": "ferry_tajin_gang",
+			"position": {
+				"x": 8000.0,
+				"z": -8000.0
+			}
+		},
+		{
+			"id": "ferry_wankou_gang",
+			"position": {
+				"x": 8500.0,
+				"z": 4500.0
+			}
+		},
+		{
+			"id": "ferry_xiakou_gang",
+			"position": {
+				"x": 4000.0,
+				"z": 6000.0
+			}
+		},
+		{
+			"id": "ferry_xuwen_gang",
+			"position": {
+				"x": 4000.0,
+				"z": 13000.0
+			}
+		},
+		{
+			"id": "ferry_yanjin",
+			"position": {
+				"x": 3000,
+				"z": -1500
+			}
+		},
+		{
+			"id": "ferry_yongning_gang",
+			"position": {
+				"x": 13500.0,
+				"z": 7500.0
+			}
+		},
+		{
+			"id": "ferry_youjiangkou_gang",
+			"position": {
+				"x": 300.0,
+				"z": 7300.0
+			}
+		},
+		{
+			"id": "ferry_yuyang_gang",
+			"position": {
+				"x": 4000.0,
+				"z": -9000.0
+			}
+		},
+		{
+			"id": "ferry_zigui_gang",
+			"position": {
+				"x": -3000.0,
+				"z": 7500.0
+			}
+		},
+		{
+			"id": "fort_aocang",
+			"position": {
+				"x": 2000,
+				"z": 0
+			}
+		},
+		{
+			"id": "fort_baibolei",
+			"position": {
+				"x": -4500.0,
+				"z": 1500.0
+			}
+		},
+		{
+			"id": "fort_bowang",
+			"position": {
+				"x": -500,
+				"z": -3500
+			}
+		},
+		{
+			"id": "fort_cangting",
+			"position": {
+				"x": 5000.0,
+				"z": 1000.0
+			}
+		},
+		{
+			"id": "fort_changban",
+			"position": {
+				"x": 3000,
+				"z": -5000
+			}
+		},
+		{
+			"id": "fort_changyi",
+			"position": {
+				"x": 5500,
+				"z": -1000
+			}
+		},
+		{
+			"id": "fort_changzi",
+			"position": {
+				"x": -1000.0,
+				"z": 4000.0
+			}
+		},
+		{
+			"id": "fort_chenxian",
+			"position": {
+				"x": 3000.0,
+				"z": -9500.0
+			}
+		},
+		{
+			"id": "fort_dingjunshan",
+			"position": {
+				"x": -6500.0,
+				"z": -3000.0
+			}
+		},
+		{
+			"id": "fort_dingtao",
+			"position": {
+				"x": 5000,
+				"z": -500
+			}
+		},
+		{
+			"id": "fort_gaoliu",
+			"position": {
+				"x": 0.0,
+				"z": 5000.0
+			}
+		},
+		{
+			"id": "fort_guangxin",
+			"position": {
+				"x": 2000.0,
+				"z": -11000.0
+			}
+		},
+		{
+			"id": "fort_hanchang",
+			"position": {
+				"x": 3500,
+				"z": -7500
+			}
+		},
+		{
+			"id": "fort_huanyuan",
+			"position": {
+				"x": 2000,
+				"z": -1000
+			}
+		},
+		{
+			"id": "fort_jiangdu",
+			"position": {
+				"x": 10000.0,
+				"z": -500.0
+			}
+		},
+		{
+			"id": "fort_jiangyang",
+			"position": {
+				"x": -6000.0,
+				"z": -7500.0
+			}
+		},
+		{
+			"id": "fort_jieqiao",
+			"position": {
+				"x": 2500.0,
+				"z": 2000.0
+			}
+		},
+		{
+			"id": "fort_jieting",
+			"position": {
+				"x": -9000.0,
+				"z": -1000.0
+			}
+		},
+		{
+			"id": "fort_juxian",
+			"position": {
+				"x": 7000.0,
+				"z": 3000.0
+			}
+		},
+		{
+			"id": "fort_lieliucheng",
+			"position": {
+				"x": -9200.0,
+				"z": -800.0
+			}
+		},
+		{
+			"id": "fort_linyuan",
+			"position": {
+				"x": -1000,
+				"z": -8000
+			}
+		},
+		{
+			"id": "fort_liyang",
+			"position": {
+				"x": 3500.0,
+				"z": 2000.0
+			}
+		},
+		{
+			"id": "fort_luofengpo",
+			"position": {
+				"x": -7800.0,
+				"z": -5800.0
+			}
+		},
+		{
+			"id": "fort_luoxian",
+			"position": {
+				"x": 3000,
+				"z": -8500
+			}
+		},
+		{
+			"id": "fort_mianzhu",
+			"position": {
+				"x": -8500.0,
+				"z": -6500.0
+			}
+		},
+		{
+			"id": "fort_pingqiu",
+			"position": {
+				"x": 4500,
+				"z": -800
+			}
+		},
+		{
+			"id": "fort_qiantang",
+			"position": {
+				"x": 13000.0,
+				"z": -4000.0
+			}
+		},
+		{
+			"id": "fort_qiaoxian",
+			"position": {
+				"x": 6000.0,
+				"z": -1500.0
+			}
+		},
+		{
+			"id": "fort_qixian",
+			"position": {
+				"x": -8000.0,
+				"z": -6500.0
+			}
+		},
+		{
+			"id": "fort_quanling",
+			"position": {
+				"x": 0.0,
+				"z": -10000.0
+			}
+		},
+		{
+			"id": "fort_shanyin",
+			"position": {
+				"x": 11000.0,
+				"z": -7000.0
+			}
+		},
+		{
+			"id": "fort_shiyang",
+			"position": {
+				"x": 4500,
+				"z": -6500
+			}
+		},
+		{
+			"id": "fort_tuyin",
+			"position": {
+				"x": 7000.0,
+				"z": 10000.0
+			}
+		},
+		{
+			"id": "fort_wanxian",
+			"position": {
+				"x": 8500.0,
+				"z": -3500.0
+			}
+		},
+		{
+			"id": "fort_wuyang",
+			"position": {
+				"x": -9000.0,
+				"z": -7500.0
+			}
+		},
+		{
+			"id": "fort_xicheng",
+			"position": {
+				"x": -9500.0,
+				"z": 500.0
+			}
+		},
+		{
+			"id": "fort_yidu",
+			"position": {
+				"x": -1500,
+				"z": -7200
+			}
+		},
+		{
+			"id": "fort_yijing",
+			"position": {
+				"x": 4000.0,
+				"z": 7000.0
+			}
+		},
+		{
+			"id": "fort_yinpingdao",
+			"position": {
+				"x": -9000.0,
+				"z": -4000.0
+			}
+		},
+		{
+			"id": "fort_zhangan",
+			"position": {
+				"x": 14000.0,
+				"z": -7000.0
+			}
+		},
+		{
+			"id": "fort_zhending",
+			"position": {
+				"x": 1000.0,
+				"z": 4000.0
+			}
+		},
+		{
+			"id": "fort_zhongmou",
+			"position": {
+				"x": 1500,
+				"z": -300
+			}
+		},
+		{
+			"id": "fort_zhuyai",
+			"position": {
+				"x": 5000.0,
+				"z": -14000.0
+			}
+		},
+		{
+			"id": "hulao_pass",
+			"position": {
+				"x": 7503.0,
+				"z": -2001.0
+			},
+			"prefab_scene": ""
+		},
+		{
+			"id": "pass_baishui",
+			"position": {
+				"x": -7500.0,
+				"z": -4000.0
+			}
+		},
+		{
+			"id": "pass_dasanguan",
+			"position": {
+				"x": -6000.0,
+				"z": 1500.0
+			}
+		},
+		{
+			"faction_id": "shu",
+			"id": "pass_hangu",
+			"name": "虎牢关",
+			"position": {
+				"x": 5526,
+				"z": -2616
+			}
+		},
+		{
+			"id": "pass_huguan",
+			"position": {
+				"x": -2000.0,
+				"z": 4000.0
+			}
+		},
+		{
+			"id": "pass_jiameng",
+			"position": {
+				"x": -6500.0,
+				"z": -4500.0
+			}
+		},
+		{
+			"id": "pass_jianmen",
+			"position": {
+				"x": -8000.0,
+				"z": -6000.0
+			}
+		},
+		{
+			"id": "pass_juyong",
+			"position": {
+				"x": 2000.0,
+				"z": 10000.0
+			}
+		},
+		{
+			"id": "pass_qutang_baidi",
+			"position": {
+				"x": -4000.0,
+				"z": -8000.0
+			}
+		},
+		{
+			"id": "pass_tongguan",
+			"position": {
+				"x": 3521,
+				"z": -2700
+			}
+		},
+		{
+			"id": "pass_wuguan",
+			"position": {
+				"x": -5500.0,
+				"z": -1000.0
+			}
+		},
+		{
+			"id": "pass_xiegu",
+			"position": {
+				"x": -5500.0,
+				"z": 0.0
+			}
+		},
+		{
+			"id": "pass_xiling_yiling",
+			"position": {
+				"x": -2000,
+				"z": -7000
+			}
+		},
+		{
+			"id": "pass_yangping",
+			"position": {
+				"x": -7000.0,
+				"z": -3000.0
+			}
+		},
+		{
+			"id": "pass_yanmen",
+			"position": {
+				"x": -5000.0,
+				"z": 8000.0
+			}
+		}
+	],
+	"source": "manual_editor_adjustment"
+}

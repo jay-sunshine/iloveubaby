@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/vfx/tactic_success_vfx.gd" id="1_script"]
+
+[sub_resource type="StandardMaterial3D" id="1_ring_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 1.5
+albedo_color = Color(1, 0.9, 0.42, 0.0)
+emission = Color(1, 0.9, 0.42, 1)
+
+[sub_resource type="CylinderMesh" id="2_ring_mesh"]
+top_radius = 0.78
+bottom_radius = 0.9
+height = 0.05
+radial_segments = 28
+
+[sub_resource type="StandardMaterial3D" id="3_core_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 1.8
+albedo_color = Color(1, 0.98, 0.8, 0.0)
+emission = Color(1, 0.98, 0.8, 1)
+
+[sub_resource type="CylinderMesh" id="4_core_mesh"]
+top_radius = 0.5
+bottom_radius = 0.58
+height = 0.035
+radial_segments = 24
+
+[sub_resource type="StandardMaterial3D" id="5_beam_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 1.4
+albedo_color = Color(1, 0.88, 0.38, 0.0)
+emission = Color(1, 0.88, 0.38, 1)
+
+[sub_resource type="BoxMesh" id="6_beam_mesh"]
+size = Vector3(0.12, 1.55, 0.58)
+
+[sub_resource type="StandardMaterial3D" id="7_flash_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 1.2
+albedo_color = Color(1, 1, 1, 0.0)
+emission = Color(1, 0.96, 0.9, 1)
+
+[sub_resource type="QuadMesh" id="8_flash_mesh"]
+size = Vector2(1.85, 1.85)
+
+[sub_resource type="StandardMaterial3D" id="9_dust_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 0.45
+albedo_color = Color(0.72, 0.64, 0.52, 0.0)
+emission = Color(0.9, 0.76, 0.28, 1)
+
+[sub_resource type="QuadMesh" id="10_dust_mesh"]
+size = Vector2(1.2, 0.9)
+
+[node name="TacticSuccessVfx" type="Node3D"]
+script = ExtResource("1_script")
+visible = false
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+material_override = SubResource("1_ring_mat")
+mesh = SubResource("2_ring_mesh")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+cast_shadow = 0
+material_override = SubResource("3_core_mat")
+mesh = SubResource("4_core_mesh")
+
+[node name="BeamA" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.978148, 0, 0.207912, 0, 1, 0, -0.207912, 0, 0.978148, -0.26, 0.74, 0.08)
+cast_shadow = 0
+material_override = SubResource("5_beam_mat")
+mesh = SubResource("6_beam_mesh")
+
+[node name="BeamB" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, 0.26, 0.66, -0.06)
+cast_shadow = 0
+material_override = SubResource("5_beam_mat")
+mesh = SubResource("6_beam_mesh")
+
+[node name="Flash" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+cast_shadow = 0
+material_override = SubResource("7_flash_mat")
+mesh = SubResource("8_flash_mesh")
+
+[node name="DustA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 0.62, 0, 0, 0, 1.1, -0.48, 0.03, 0.32)
+cast_shadow = 0
+material_override = SubResource("9_dust_mat")
+mesh = SubResource("10_dust_mesh")
+
+[node name="DustB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 0.62, 0, 0, 0, 1.1, 0.48, 0.03, 0.32)
+cast_shadow = 0
+material_override = SubResource("9_dust_mat")
+mesh = SubResource("10_dust_mesh")
+
+[node name="DustC" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 0.7, 0, 0, 0, 1.45, 0, 0.03, 0.52)
+cast_shadow = 0
+material_override = SubResource("9_dust_mat")
+mesh = SubResource("10_dust_mesh")

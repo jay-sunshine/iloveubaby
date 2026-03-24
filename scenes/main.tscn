@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bpkloip0mptv7"]
+
+[ext_resource type="Script" uid="uid://cqh2xoa8tiake" path="res://scripts/engine/strategy_bootstrap.gd" id="1_mx7i0"]
+[ext_resource type="Script" uid="uid://b146b4u6isr3m" path="res://scripts/presentation/strategy_map_view.gd" id="2_kd1fm"]
+[ext_resource type="Script" uid="uid://cg2gybv11lvup" path="res://scripts/presentation/strategy_ui_layer.gd" id="3_pf8hd"]
+[ext_resource type="Script" uid="uid://cmv6g3rof14c8" path="res://scripts/engine/preload_manager.gd" id="4_wm5vy"]
+[ext_resource type="Script" uid="uid://b6okmjl0cnemw" path="res://scripts/presentation/map_camera_controller.gd" id="5_w8b2d"]
+[ext_resource type="Script" uid="uid://uikjrxmt1o5l" path="res://scripts/presentation/strategic_site_manager.gd" id="6_sites"]
+
+[node name="StrategyMain" type="Node3D" unique_id=634200655]
+script = ExtResource("1_mx7i0")
+
+[node name="MapView" type="Node3D" parent="." unique_id=721269487]
+script = ExtResource("2_kd1fm")
+
+[node name="WorldEnv" type="WorldEnvironment" parent="MapView" unique_id=1884331461]
+
+[node name="SunLight" type="DirectionalLight3D" parent="MapView" unique_id=1265898335]
+
+[node name="TerrainVisuals" type="Node3D" parent="MapView" unique_id=475136621]
+
+[node name="TerrainNavigation" type="Node3D" parent="MapView" unique_id=871403093]
+
+[node name="GroundBody" type="StaticBody3D" parent="MapView" unique_id=738059967]
+
+[node name="GroundShape" type="CollisionShape3D" parent="MapView/GroundBody" unique_id=320018129]
+
+[node name="MapCamera" type="Camera3D" parent="MapView" unique_id=1743400464]
+current = true
+fov = 58.0
+script = ExtResource("5_w8b2d")
+
+[node name="BuildingMarkers" type="Node3D" parent="MapView" unique_id=435774088]
+
+[node name="BuildingColliders" type="Node3D" parent="MapView" unique_id=1227670003]
+
+[node name="BuildingLabels" type="Node3D" parent="MapView" unique_id=722098021]
+
+[node name="StrategicSites" type="Node3D" parent="MapView" unique_id=1115475909]
+script = ExtResource("6_sites")
+anchor_path = NodePath("../MapCamera")
+max_spawn_per_tick = 6
+
+[node name="SiteInstances" type="Node3D" parent="MapView/StrategicSites" unique_id=1746210734]
+
+[node name="RefreshTimer" type="Timer" parent="MapView/StrategicSites" unique_id=464990027]
+wait_time = 0.6
+autostart = true
+
+[node name="CitySites" type="Node3D" parent="MapView" unique_id=556901717]
+script = ExtResource("6_sites")
+data_path = "res://data/config/city_sites.json"
+manual_override_path = "res://data/config/city_sites_manual_overrides.json"
+anchor_path = NodePath("../MapCamera")
+max_spawn_per_tick = 4
+
+[node name="SiteInstances" type="Node3D" parent="MapView/CitySites" unique_id=1892155509]
+
+[node name="RefreshTimer" type="Timer" parent="MapView/CitySites" unique_id=1902873467]
+wait_time = 0.6
+autostart = true
+
+[node name="BattleRoot" type="Node3D" parent="." unique_id=1642384421]
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1881183894]
+script = ExtResource("3_pf8hd")
+
+[node name="PreloadManager" type="Node" parent="." unique_id=1871254501]
+script = ExtResource("4_wm5vy")

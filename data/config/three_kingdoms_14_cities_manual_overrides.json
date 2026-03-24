@@ -1,0 +1,400 @@
+{
+	"input_coordinates_use_north_positive_z": true,
+	"source": "manual_editor_adjustment",
+	"three_kingdoms_14_cities": [
+		{
+			"city_name": "上庸",
+			"coordinate": {
+				"x": 1125,
+				"z": 1382
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "下邳",
+			"coordinate": {
+				"x": 9590,
+				"z": 3557
+			},
+			"state": "徐州"
+		},
+		{
+			"city_name": "临淄",
+			"coordinate": {
+				"x": 9975,
+				"z": 6247
+			},
+			"state": "青州"
+		},
+		{
+			"city_name": "云南",
+			"coordinate": {
+				"x": -9375,
+				"z": -6375
+			},
+			"state": "益州"
+		},
+		{
+			"city_name": "交趾",
+			"coordinate": {
+				"x": -3375,
+				"z": -10682
+			},
+			"state": "交州"
+		},
+		{
+			"city_name": "会稽",
+			"coordinate": {
+				"x": 12418,
+				"z": -1071
+			},
+			"state": "扬州"
+		},
+		{
+			"city_name": "北平",
+			"coordinate": {
+				"x": 8893,
+				"z": 9675
+			},
+			"state": "幽州"
+		},
+		{
+			"city_name": "北海",
+			"coordinate": {
+				"x": 10854,
+				"z": 6129
+			},
+			"state": "青州"
+		},
+		{
+			"city_name": "南海",
+			"coordinate": {
+				"x": 4575,
+				"z": -8432
+			},
+			"state": "交州"
+		},
+		{
+			"city_name": "南皮",
+			"coordinate": {
+				"x": 8239,
+				"z": 7554
+			},
+			"state": "冀州"
+		},
+		{
+			"city_name": "吴",
+			"coordinate": {
+				"x": 12407,
+				"z": 343
+			},
+			"state": "扬州"
+		},
+		{
+			"city_name": "天水",
+			"coordinate": {
+				"x": -3514,
+				"z": 3836
+			},
+			"state": "凉州"
+		},
+		{
+			"city_name": "安定",
+			"coordinate": {
+				"x": -2518,
+				"z": 4843
+			},
+			"state": "凉州"
+		},
+		{
+			"city_name": "宛",
+			"coordinate": {
+				"x": 3793,
+				"z": 2154
+			},
+			"state": "豫州"
+		},
+		{
+			"city_name": "寿春",
+			"coordinate": {
+				"x": 8336,
+				"z": 1682
+			},
+			"state": "扬州"
+		},
+		{
+			"city_name": "小沛",
+			"coordinate": {
+				"x": 8486,
+				"z": 4007
+			},
+			"state": "徐州"
+		},
+		{
+			"city_name": "平原",
+			"coordinate": {
+				"x": 7929,
+				"z": 6589
+			},
+			"state": "冀州"
+		},
+		{
+			"city_name": "广陵",
+			"coordinate": {
+				"x": 11196,
+				"z": 1521
+			},
+			"state": "徐州"
+		},
+		{
+			"city_name": "庐江",
+			"coordinate": {
+				"x": 8850,
+				"z": 268
+			},
+			"state": "扬州"
+		},
+		{
+			"city_name": "建业",
+			"coordinate": {
+				"x": 10479,
+				"z": 1125
+			},
+			"state": "扬州"
+		},
+		{
+			"city_name": "建宁",
+			"coordinate": {
+				"x": -6729,
+				"z": -5893
+			},
+			"state": "益州"
+		},
+		{
+			"city_name": "建安",
+			"coordinate": {
+				"x": 11036,
+				"z": -5271
+			},
+			"state": "扬州"
+		},
+		{
+			"city_name": "弘农",
+			"coordinate": {
+				"x": 772,
+				"z": 3755
+			},
+			"state": "司隶"
+		},
+		{
+			"city_name": "成都",
+			"coordinate": {
+				"x": -5288,
+				"z": -364
+			},
+			"state": "益州"
+		},
+		{
+			"city_name": "新野",
+			"coordinate": {
+				"x": 3343,
+				"z": 1661
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "晋阳",
+			"coordinate": {
+				"x": 3814,
+				"z": 7361
+			},
+			"state": "并州"
+		},
+		{
+			"city_name": "柴桑",
+			"coordinate": {
+				"x": 7468,
+				"z": -1393
+			},
+			"state": "扬州"
+		},
+		{
+			"city_name": "桂阳",
+			"coordinate": {
+				"x": 4307,
+				"z": -5593
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "梓潼",
+			"coordinate": {
+				"x": -4114,
+				"z": 686
+			},
+			"state": "益州"
+		},
+		{
+			"city_name": "武威",
+			"coordinate": {
+				"x": -6814,
+				"z": 7425
+			},
+			"state": "凉州"
+		},
+		{
+			"city_name": "武陵",
+			"coordinate": {
+				"x": 2882,
+				"z": -2089
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "永安",
+			"coordinate": {
+				"x": 611,
+				"z": 43
+			},
+			"state": "益州"
+		},
+		{
+			"city_name": "汉中",
+			"coordinate": {
+				"x": -2111,
+				"z": 2229
+			},
+			"state": "益州"
+		},
+		{
+			"city_name": "汝南",
+			"coordinate": {
+				"x": 5764,
+				"z": 2143
+			},
+			"state": "豫州"
+		},
+		{
+			"city_name": "江夏",
+			"coordinate": {
+				"x": 5711,
+				"z": -482
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "江州",
+			"coordinate": {
+				"x": -2614,
+				"z": -1543
+			},
+			"state": "益州"
+		},
+		{
+			"city_name": "江陵",
+			"coordinate": {
+				"x": 3439,
+				"z": -696
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "洛阳",
+			"coordinate": {
+				"x": 2820,
+				"z": 3702
+			},
+			"state": "司隶"
+		},
+		{
+			"city_name": "濮阳",
+			"coordinate": {
+				"x": 6461,
+				"z": 5057
+			},
+			"state": "兖州"
+		},
+		{
+			"city_name": "蓟",
+			"coordinate": {
+				"x": 7864,
+				"z": 9557
+			},
+			"state": "幽州"
+		},
+		{
+			"city_name": "襄平",
+			"coordinate": {
+				"x": 16481,
+				"z": 11014
+			},
+			"state": "幽州"
+		},
+		{
+			"city_name": "襄阳",
+			"coordinate": {
+				"x": 3364,
+				"z": 1093
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "许昌",
+			"coordinate": {
+				"x": 5164,
+				"z": 3311
+			},
+			"state": "豫州"
+		},
+		{
+			"city_name": "谯",
+			"coordinate": {
+				"x": 7264,
+				"z": 3054
+			},
+			"state": "豫州"
+		},
+		{
+			"city_name": "邺",
+			"coordinate": {
+				"x": 5754,
+				"z": 5689
+			},
+			"state": "冀州"
+		},
+		{
+			"city_name": "长安",
+			"coordinate": {
+				"x": -1132,
+				"z": 4076
+			},
+			"state": "司隶"
+		},
+		{
+			"city_name": "长沙",
+			"coordinate": {
+				"x": 4286,
+				"z": -2979
+			},
+			"state": "荆州"
+		},
+		{
+			"city_name": "陈留",
+			"coordinate": {
+				"x": 5775,
+				"z": 3964
+			},
+			"state": "兖州"
+		},
+		{
+			"city_name": "零陵",
+			"coordinate": {
+				"x": 2796,
+				"z": -4896
+			},
+			"state": "荆州"
+		}
+	],
+	"world_offset_x": 3800.0,
+	"world_offset_z": 6000.0
+}

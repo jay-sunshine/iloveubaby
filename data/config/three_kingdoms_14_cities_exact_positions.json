@@ -1,0 +1,86 @@
+{
+    "map_base_info": {
+        "map_size": "30km×30km",
+        "origin": "正方形中心(0,0)",
+        "coordinate_rule": "Godot 3D坐标系：X+为东、X-为西；Z+为北、Z-为南，单位：米",
+        "dem_geo_range": "东经95°E~123°E、北纬17°N~45°N，中心基准经纬度：东经109°E、北纬31°N",
+        "conversion_coefficient": "1°经纬度 ≈ 1071.43米"
+    },
+    "three_kingdoms_14_46_cities": {
+        "司隶": [
+            {"city_name": "洛阳", "coordinate": {"x": 3894, "z": 4012}},
+            {"city_name": "长安", "coordinate": {"x": -70, "z": 3498}},
+            {"city_name": "弘农", "coordinate": {"x": 1982, "z": 3846}}
+        ],
+        "幽州": [
+            {"city_name": "襄平", "coordinate": {"x": 15000, "z": 11014}},
+            {"city_name": "北平", "coordinate": {"x": 8893, "z": 9675}},
+            {"city_name": "蓟", "coordinate": {"x": 7864, "z": 9557}}
+        ],
+        "冀州": [
+            {"city_name": "邺", "coordinate": {"x": 5754, "z": 5689}},
+            {"city_name": "南皮", "coordinate": {"x": 8239, "z": 7554}},
+            {"city_name": "平原", "coordinate": {"x": 7929, "z": 6589}}
+        ],
+        "并州": [
+            {"city_name": "晋阳", "coordinate": {"x": 3814, "z": 7361}}
+        ],
+        "青州": [
+            {"city_name": "北海", "coordinate": {"x": 10854, "z": 6129}},
+            {"city_name": "临淄", "coordinate": {"x": 9975, "z": 6247}}
+        ],
+        "兖州": [
+            {"city_name": "陈留", "coordinate": {"x": 5775, "z": 3964}},
+            {"city_name": "濮阳", "coordinate": {"x": 6461, "z": 5057}}
+        ],
+        "豫州": [
+            {"city_name": "许昌", "coordinate": {"x": 5164, "z": 3311}},
+            {"city_name": "汝南", "coordinate": {"x": 5764, "z": 2143}},
+            {"city_name": "谯", "coordinate": {"x": 7264, "z": 3054}},
+            {"city_name": "宛", "coordinate": {"x": 3793, "z": 2154}}
+        ],
+        "徐州": [
+            {"city_name": "下邳", "coordinate": {"x": 9590, "z": 3557}},
+            {"city_name": "小沛", "coordinate": {"x": 8486, "z": 4007}},
+            {"city_name": "广陵", "coordinate": {"x": 11196, "z": 1521}}
+        ],
+        "扬州": [
+            {"city_name": "寿春", "coordinate": {"x": 8336, "z": 1682}},
+            {"city_name": "庐江", "coordinate": {"x": 8850, "z": 268}},
+            {"city_name": "建业", "coordinate": {"x": 10479, "z": 1125}},
+            {"city_name": "吴", "coordinate": {"x": 12407, "z": 343}},
+            {"city_name": "会稽", "coordinate": {"x": 12418, "z": -1071}},
+            {"city_name": "柴桑", "coordinate": {"x": 7468, "z": -1393}},
+            {"city_name": "建安", "coordinate": {"x": 11036, "z": -5271}}
+        ],
+        "荆州": [
+            {"city_name": "襄阳", "coordinate": {"x": 3364, "z": 1093}},
+            {"city_name": "新野", "coordinate": {"x": 3343, "z": 1661}},
+            {"city_name": "江陵", "coordinate": {"x": 3439, "z": -696}},
+            {"city_name": "江夏", "coordinate": {"x": 5711, "z": -482}},
+            {"city_name": "上庸", "coordinate": {"x": 1125, "z": 1382}},
+            {"city_name": "武陵", "coordinate": {"x": 2882, "z": -2089}},
+            {"city_name": "长沙", "coordinate": {"x": 4286, "z": -2979}},
+            {"city_name": "零陵", "coordinate": {"x": 2796, "z": -4896}},
+            {"city_name": "桂阳", "coordinate": {"x": 4307, "z": -5593}}
+        ],
+        "益州": [
+            {"city_name": "汉中", "coordinate": {"x": -2111, "z": 2229}},
+            {"city_name": "梓潼", "coordinate": {"x": -4114, "z": 686}},
+            {"city_name": "成都", "coordinate": {"x": -5288, "z": -364}},
+            {"city_name": "永安", "coordinate": {"x": 611, "z": 43}},
+            {"city_name": "江州", "coordinate": {"x": -2614, "z": -1543}},
+            {"city_name": "建宁", "coordinate": {"x": -6729, "z": -5893}},
+            {"city_name": "云南", "coordinate": {"x": -9375, "z": -6375}}
+        ],
+        "凉州": [
+            {"city_name": "武威", "coordinate": {"x": -6814, "z": 7425}},
+            {"city_name": "天水", "coordinate": {"x": -3514, "z": 3836}},
+            {"city_name": "安定", "coordinate": {"x": -2518, "z": 4843}}
+        ],
+        "交州": [
+            {"city_name": "南海", "coordinate": {"x": 4575, "z": -8432}},
+            {"city_name": "交趾", "coordinate": {"x": -3375, "z": -10682}}
+        ]
+    }
+}

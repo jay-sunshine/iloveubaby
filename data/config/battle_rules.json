@@ -1,0 +1,477 @@
+{
+  "hostile_relation_threshold": -35.0,
+  "skirmish_distance": 1200.0,
+  "base_daily_casualty_ratio": 0.0008,
+  "relation_pressure_multiplier": 0.9,
+  "security_loss_per_skirmish": 0.06,
+  "demo_units_per_team": 6,
+  "demo_soldiers_per_unit": 4200,
+  "demo_team_spacing_x": 20.0,
+  "demo_front_offset_z": 82.0,
+  "demo_unit_node_scale": 6.75,
+  "demo_raycast_length": 120000.0,
+  "demo_infantry_scale_mul": 1.8,
+  "demo_cavalry_scale_mul": 4.0,
+  "demo_spear_scale_mul": 2.0,
+  "demo_archer_scale_mul": 2.0,
+  "demo_archer_attack_range": 24.0,
+  "demo_archer_attack_interval": 1.05,
+  "demo_unit_max_hp": 5000.0,
+  "demo_unit_attack_damage": 3.4,
+  "demo_auto_release_eval_interval": 0.46,
+  "demo_auto_release_skill_will_reserve_ratio": 0.24,
+  "demo_lod_enabled": true,
+  "demo_lod_update_interval": 0.22,
+  "demo_lod_soldier_visible_depth": 1400.0,
+  "demo_lod_soldier_hysteresis_depth": 240.0,
+  "demo_lod_engaged_hold_sec": 1.0,
+  "demo_lod_tag_visible_max_depth": 5200.0,
+  "demo_unit_tag_near_distance": 180.0,
+  "demo_unit_tag_far_distance": 1800.0,
+  "demo_commander_report_enabled": true,
+  "demo_commander_report_duration": 4.4,
+  "demo_commander_report_keep_lines": 6,
+  "demo_commander_report_supply_events_enabled": true,
+  "demo_commander_report_facility_events_enabled": true,
+  "demo_commander_report_supply_cooldown_sec": 8.0,
+  "demo_unit_tag_near_ops_depth": 900.0,
+  "demo_tag_text_refresh_interval": 0.25,
+  "demo_tag_position_refresh_interval": 0.09,
+  "demo_lod_player_ops_preserve_depth": 1100.0,
+  "demo_tag_far_perf_enabled": true,
+  "demo_tag_far_depth": 1200.0,
+  "demo_tag_very_far_depth": 2600.0,
+  "demo_tag_far_position_stride": 2,
+  "demo_tag_very_far_position_stride": 4,
+  "demo_tag_far_text_stride": 2,
+  "demo_tag_very_far_text_stride": 5,
+  "demo_skill_cd_charge": 15.0,
+  "demo_skill_cd_breakthrough": 22.0,
+  "demo_skill_cd_sweep": 19.0,
+  "demo_skill_spirit_cost_charge": 14.0,
+  "demo_skill_spirit_cost_breakthrough": 20.0,
+  "demo_skill_spirit_cost_sweep": 18.0,
+  "demo_skill_will_cost_charge": 14.0,
+  "demo_skill_will_cost_breakthrough": 20.0,
+  "demo_skill_will_cost_sweep": 18.0,
+  "demo_role_tech_enabled": true,
+  "demo_role_tech_default_level": 0,
+  "demo_role_tech_levels": {
+    "default": 0,
+    "infantry": 0,
+    "shield": 0,
+    "spear": 0,
+    "archer": 0,
+    "crossbow": 0,
+    "cavalry": 0,
+    "scout": 0,
+    "siege": 0,
+    "naval": 0,
+    "strategist": 0
+  },
+  "demo_role_tech_traits": {
+    "default": [
+      {
+        "id": "formation_drill",
+        "name": "军阵整训",
+        "description": "基础阵法与攻防协同训练，提升前线稳定度。",
+        "unlock_level": 1,
+        "duration_sec": 0.0,
+        "stack_rule": "additive",
+        "max_stacks": 1,
+        "effects": {
+          "tech_attack_bonus_pct": 0.03,
+          "tech_defense_bonus_pct": 0.03
+        }
+      },
+      {
+        "id": "march_rhythm",
+        "name": "行军节律",
+        "description": "统一步调与号令节奏，提升机动并降低战意消耗压力。",
+        "unlock_level": 2,
+        "duration_sec": 0.0,
+        "stack_rule": "additive",
+        "max_stacks": 1,
+        "effects": {
+          "tech_speed_bonus_pct": 0.04,
+          "tech_spirit_cost_reduction_pct": 0.08
+        }
+      },
+      {
+        "id": "elite_logistics",
+        "name": "精锐后勤",
+        "description": "后勤与军纪深化，抬升士气与战意上限并增强持续战能力。",
+        "unlock_level": 3,
+        "duration_sec": 0.0,
+        "stack_rule": "additive",
+        "max_stacks": 1,
+        "effects": {
+          "tech_morale_cap_bonus": 8.0,
+          "tech_spirit_cap_bonus": 8.0
+        }
+      }
+    ],
+    "strategist": [
+      {
+        "id": "signal_command",
+        "name": "号令统筹",
+        "description": "策士体系确立后，施策节奏与防护协同明显改善。",
+        "unlock_level": 1,
+        "duration_sec": 0.0,
+        "stack_rule": "additive",
+        "max_stacks": 1,
+        "effects": {
+          "tech_magic_attack_bonus_pct": 0.05,
+          "tech_magic_defense_bonus_pct": 0.05
+        }
+      },
+      {
+        "id": "battlefield_formula",
+        "name": "阵前术式",
+        "description": "术法推演深入，策士输出与协同效率提高。",
+        "unlock_level": 2,
+        "duration_sec": 0.0,
+        "stack_rule": "additive",
+        "max_stacks": 1,
+        "effects": {
+          "tech_magic_attack_bonus_pct": 0.08,
+          "tech_spirit_cost_reduction_pct": 0.08
+        }
+      },
+      {
+        "id": "mystic_mastery",
+        "name": "奇门总纲",
+        "description": "高阶奇门体系完成后，术法压制与控场能力更稳定。",
+        "unlock_level": 3,
+        "duration_sec": 0.0,
+        "stack_rule": "additive",
+        "max_stacks": 1,
+        "effects": {
+          "tech_magic_attack_bonus_pct": 0.1,
+          "tech_magic_defense_bonus_pct": 0.05,
+          "tech_range_bonus_flat": 1.0
+        }
+      }
+    ]
+  },
+  "demo_player_force_chase_sec": 18.0,
+  "demo_player_force_chase_max_distance": 320.0,
+  "demo_player_force_chase_never_timeout": true,
+  "demo_player_force_chase_ignore_distance": true,
+  "demo_nav_goal_retry_max_attempts": 3,
+  "demo_nav_goal_retry_radius_step": 3.0,
+  "demo_nav_goal_retry_directions": 12,
+  "demo_nav_goal_retry_snap_distance_mul": 1.35,
+  "demo_morale_loss_per_10pct_troop": 10.0,
+  "demo_morale_stat_penalty_per_10": 0.05,
+  "demo_morale_zero_hp_loss_per_sec": 0.012,
+  "demo_rout_troop_ratio_normal": 0.2,
+  "demo_rout_troop_ratio_garrison": 0.1,
+  "demo_garrison_morale_loss_mul": 0.5,
+  "demo_morale_loss_countered_bonus": 1.2,
+  "demo_morale_loss_flanked_bonus": 3.0,
+  "demo_morale_loss_out_of_supply_per_sec": 2.2,
+  "demo_morale_loss_special_terrain_per_sec": 1.2,
+  "demo_morale_loss_burning_per_sec": 1.0,
+  "demo_terrain_adaptation_enabled": true,
+  "demo_terrain_adaptation_interval_sec": 0.35,
+  "demo_terrain_status_hold_sec": 0.8,
+  "demo_naval_enabled": true,
+  "demo_naval_auto_embark": true,
+  "demo_naval_ferry_radius": 9.0,
+  "demo_naval_shoal_radius": 5.0,
+  "demo_naval_default_ship_type": "zouge",
+  "demo_naval_default_ship_type_by_role": {
+    "siege": "lou_chuan",
+    "naval": "lou_chuan"
+  },
+  "demo_recon_enabled": true,
+  "demo_recon_tick_interval": 0.25,
+  "demo_recon_spot_duration_sec": 12.0,
+  "demo_recon_scout_vision_mul": 1.35,
+  "demo_recon_player_team_id": 0,
+  "demo_siege_vs_facility_enabled": true,
+  "demo_siege_vs_facility_dps_scale": 1.8,
+  "demo_siege_durability_loss_scale": 1.0,
+  "demo_siege_facility_destroy_log_enabled": true,
+  "demo_siege_ai_priority_enabled": true,
+  "demo_siege_ai_apply_to_player_team": false,
+  "demo_siege_ai_order_interval": 0.9,
+  "demo_siege_ai_retarget_tolerance": 8.0,
+  "demo_siege_ai_only_facility_mode": true,
+  "demo_siege_debug_overlay_enabled": true,
+  "demo_siege_debug_overlay_refresh_sec": 0.35,
+  "demo_siege_objective_enabled": true,
+  "demo_siege_objective_require_all_city_falls": true,
+  "demo_siege_objective_report_enabled": true,
+  "demo_siege_objective_status_hold_sec": 4.2,
+  "demo_siege_objective_panel_enabled": true,
+  "demo_siege_objective_panel_refresh_sec": 0.35,
+  "demo_siege_objective_panel_show_prediction": true,
+  "demo_siege_variant_skill_enabled": true,
+  "demo_siege_skill_cd_ram": 14.0,
+  "demo_siege_skill_cd_ladder": 12.0,
+  "demo_siege_skill_cd_catapult": 16.0,
+  "demo_siege_skill_ram_bonus_sec": 2.0,
+  "demo_siege_skill_ladder_bonus_sec": 1.6,
+  "demo_siege_skill_catapult_bonus_sec": 2.4,
+  "demo_siege_facility_hp_by_type": {
+    "default": 360.0,
+    "jianlou": 260.0,
+    "gaojijianlou": 360.0,
+    "muzhai": 520.0,
+    "chengzhai": 880.0,
+    "zhalan": 220.0,
+    "taigutai": 300.0,
+    "junyuetai": 340.0,
+    "granary": 420.0
+  },
+  "demo_siege_facility_attack_radius_by_type": {
+    "default": 12.0,
+    "jianlou": 15.0,
+    "gaojijianlou": 17.0,
+    "muzhai": 12.0,
+    "chengzhai": 14.0,
+    "zhalan": 11.0,
+    "taigutai": 12.0,
+    "junyuetai": 12.0,
+    "granary": 12.0
+  },
+  "demo_siege_role_damage_mul": {
+    "default": 0.38,
+    "siege": 1.35,
+    "shield": 0.48,
+    "spear": 0.42,
+    "archer": 0.3,
+    "crossbow": 0.55,
+    "cavalry": 0.26,
+    "scout": 0.18,
+    "strategist": 0.22,
+    "naval": 0.5
+  },
+  "demo_siege_target_damage_mul": {
+    "default": 1.0,
+    "jianlou": 1.15,
+    "gaojijianlou": 1.22,
+    "muzhai": 1.0,
+    "chengzhai": 1.08,
+    "zhalan": 1.35,
+    "taigutai": 0.95,
+    "junyuetai": 0.95,
+    "granary": 1.05
+  },
+  "demo_siege_variant_effects": {
+    "ram": {
+      "unit_damage_mul": 1.04,
+      "target_role_mul": {
+        "shield": 1.18,
+        "infantry": 1.08,
+        "default": 1.0
+      },
+      "facility_damage_mul": 1.26,
+      "facility_target_mul": {
+        "zhalan": 1.2,
+        "muzhai": 1.16,
+        "chengzhai": 1.2,
+        "default": 1.0
+      },
+      "on_hit_burn_chance": 0.26,
+      "on_hit_burn_duration_sec": 4.8,
+      "on_hit_burn_dps": 5.8,
+      "on_hit_proc_cooldown_sec": 2.4,
+      "facility_burn_radius": 6.2,
+      "facility_burn_chance": 0.34,
+      "facility_burn_duration_sec": 4.8,
+      "facility_burn_dps": 4.4,
+      "facility_proc_cooldown_sec": 2.8
+    },
+    "ladder": {
+      "unit_damage_mul": 1.08,
+      "target_role_mul": {
+        "shield": 1.12,
+        "spear": 1.1,
+        "archer": 1.16,
+        "crossbow": 1.16,
+        "strategist": 1.2,
+        "default": 1.0
+      },
+      "facility_damage_mul": 0.94,
+      "on_hit_morale_damage": 5.0,
+      "on_hit_proc_cooldown_sec": 1.8,
+      "facility_morale_per_sec": 1.4,
+      "facility_effect_radius": 8.0
+    },
+    "catapult": {
+      "unit_damage_mul": 0.96,
+      "ranged_damage_mul": 1.12,
+      "target_role_mul": {
+        "archer": 1.12,
+        "crossbow": 1.12,
+        "shield": 0.92,
+        "default": 1.0
+      },
+      "facility_damage_mul": 1.34,
+      "facility_target_mul": {
+        "chengzhai": 1.22,
+        "gaojijianlou": 1.18,
+        "default": 1.0
+      },
+      "on_hit_splash_ratio": 0.22,
+      "on_hit_splash_radius": 5.8,
+      "on_hit_morale_damage": 2.4,
+      "on_hit_proc_cooldown_sec": 2.8,
+      "facility_splash_ratio": 0.18,
+      "facility_splash_radius": 6.4,
+      "facility_proc_cooldown_sec": 2.8
+    }
+  },
+  "demo_recon_lost_log_enabled": true,
+  "demo_recon_day_phase_vision_mul": {
+    "day": 1.0,
+    "night": 0.88
+  },
+  "demo_recon_weather_vision_mul": {
+    "sunny": 1.0,
+    "cloudy": 0.96,
+    "windy": 0.94,
+    "rain": 0.9,
+    "storm": 0.86,
+    "fog": 0.82
+  },
+  "demo_recon_day_phase_spot_duration_mul": {
+    "day": 1.0,
+    "night": 0.92
+  },
+  "demo_recon_weather_spot_duration_mul": {
+    "sunny": 1.0,
+    "cloudy": 0.98,
+    "windy": 0.95,
+    "rain": 0.9,
+    "storm": 0.86,
+    "fog": 0.88
+  },
+  "demo_role_counter_damage_matrix": {
+    "spear": {
+      "cavalry": 1.12,
+      "scout": 1.07
+    },
+    "cavalry": {
+      "archer": 1.05,
+      "crossbow": 1.04,
+      "siege": 1.09,
+      "strategist": 1.12
+    },
+    "archer": {
+      "spear": 1.03
+    },
+    "crossbow": {
+      "shield": 1.2,
+      "spear": 1.05
+    },
+    "shield": {
+      "archer": 1.05
+    },
+    "siege": {
+      "shield": 1.1,
+      "infantry": 1.06
+    },
+    "scout": {},
+    "strategist": {
+      "spear": 1.08,
+      "shield": 1.12
+    },
+    "naval": {
+      "siege": 1.05
+    }
+  },
+  "demo_role_terrain_profiles": {
+    "infantry": {
+      "advantage": ["grass", "road"],
+      "disadvantage": ["water"]
+    },
+    "shield": {
+      "advantage": ["forest", "mountain"],
+      "disadvantage": ["water", "swamp"]
+    },
+    "spear": {
+      "advantage": ["hill", "mountain", "forest"],
+      "disadvantage": ["swamp", "water"]
+    },
+    "cavalry": {
+      "advantage": ["grass", "road"],
+      "disadvantage": ["forest", "swamp", "mountain", "water"]
+    },
+    "archer": {
+      "advantage": ["forest", "hill"],
+      "disadvantage": ["swamp", "water"]
+    },
+    "crossbow": {
+      "advantage": ["road", "grass"],
+      "disadvantage": ["swamp", "water", "forest"]
+    },
+    "siege": {
+      "advantage": ["road", "grass"],
+      "disadvantage": ["forest", "swamp", "mountain", "water"]
+    },
+    "scout": {
+      "advantage": ["road", "grass", "forest"],
+      "disadvantage": ["water", "swamp"]
+    },
+    "naval": {
+      "advantage": ["water"],
+      "disadvantage": ["forest", "swamp", "mountain", "road", "grass"]
+    }
+  },
+  "demo_height_advantage_enabled": true,
+  "demo_height_advantage_rules": {
+    "height_diff_threshold": 2.0,
+    "downhill_probe_distance": 6.0
+  },
+  "demo_role_height_modifiers": {
+    "archer": {
+      "high_to_low_attack_mul": 1.15
+    },
+    "crossbow": {
+      "high_to_low_attack_mul": 1.1
+    },
+    "cavalry": {
+      "downhill_speed_mul": 1.2
+    }
+  },
+  "demo_soldier_formation_spacing": 0.18,
+  "demo_tactic_vfx_intensity_mul": 1.2,
+  "demo_thunder_vfx_size_mul": 56.0,
+  "demo_thunder_vfx_cloud_mul": 62.4,
+  "demo_soft_repulsion_include_same_team": true,
+  "demo_soft_repulsion_same_team_strength": 2.6,
+  "demo_soft_repulsion_enemy_strength": 4.6,
+  "demo_soft_repulsion_base_padding": 0.55,
+  "demo_soft_repulsion_radius_mul": 0.9,
+  "demo_show_tag_when_near": true,
+  "demo_show_unit_tags": true,
+  "demo_team_a_unit_roles": ["infantry", "infantry", "siege_catapult", "shield", "archer", "strategist_a"],
+  "demo_team_b_unit_roles": ["shield", "spear", "archer", "crossbow", "strategist_b", "cavalry"],
+  "demo_tag_height_offset": 8.6,
+  "demo_tag_near_scale": 1.2,
+  "demo_tag_far_scale": 0.5,
+  "demo_use_model_albedo_texture": true,
+  "demo_team_tint_strength": 0.35,
+  "demo_melee_frontline_width_mul": 1.3,
+  "demo_melee_frontline_depth_mul": 0.85,
+  "demo_melee_contact_distance_mul": 1.18,
+  "demo_melee_contact_distance_bias": 0.8,
+  "demo_melee_activity_radius_mul": 1.25,
+  "demo_melee_activity_radius_visual_weight": 0.8,
+  "demo_spear_override_model_path": "res://assets_imports/rpg_troops/troop_spear.glb",
+  "demo_spear_override_albedo_path": "",
+  "demo_archer_override_model_path": "res://assets_imports/rpg_troops/troop_archer.glb",
+  "demo_archer_override_albedo_path": "",
+  "demo_infantry_override_model_path": "res://assets_imports/rpg_troops/troop_infantry.glb",
+  "demo_infantry_override_albedo_path": "",
+  "demo_cavalry_override_model_path": "res://assets_imports/rpg_troops/troop_cavalry.glb",
+  "demo_cavalry_override_albedo_path": "",
+  "demo_shield_override_model_path": "res://assets_imports/rpg_troops/troop_infantry_shield.glb",
+  "troops_min": 0.0,
+  "security_min": 0.0,
+  "security_max": 100.0
+}

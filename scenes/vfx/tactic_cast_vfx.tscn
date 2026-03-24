@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/vfx/tactic_cast_vfx.gd" id="1_script"]
+
+[sub_resource type="StandardMaterial3D" id="1_ring_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 1.4
+albedo_color = Color(1, 0.82, 0.18, 0.9)
+emission = Color(1, 0.82, 0.18, 1)
+
+[sub_resource type="CylinderMesh" id="2_ring_mesh"]
+top_radius = 0.92
+bottom_radius = 1.02
+height = 0.06
+radial_segments = 24
+
+[sub_resource type="StandardMaterial3D" id="3_trail_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 1.2
+albedo_color = Color(1, 0.8, 0.18, 0.72)
+emission = Color(1, 0.8, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="4_trail_mesh"]
+size = Vector3(0.9, 0.04, 2.4)
+
+[sub_resource type="StandardMaterial3D" id="5_dust_mat"]
+transparency = 1
+shading_mode = 0
+cull_mode = 2
+emission_enabled = true
+emission_energy_multiplier = 0.6
+albedo_color = Color(0.72, 0.64, 0.52, 0.35)
+emission = Color(0.9, 0.74, 0.28, 1)
+
+[sub_resource type="CylinderMesh" id="6_dust_mesh"]
+top_radius = 1.05
+bottom_radius = 0.76
+height = 0.02
+radial_segments = 16
+
+[node name="TacticCastVfx" type="Node3D"]
+script = ExtResource("1_script")
+visible = false
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+cast_shadow = 0
+material_override = SubResource("1_ring_mat")
+mesh = SubResource("2_ring_mesh")
+
+[node name="Trail" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0.92)
+cast_shadow = 0
+material_override = SubResource("3_trail_mat")
+mesh = SubResource("4_trail_mesh")
+
+[node name="Dust" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.01, 0.7)
+cast_shadow = 0
+material_override = SubResource("5_dust_mat")
+mesh = SubResource("6_dust_mesh")

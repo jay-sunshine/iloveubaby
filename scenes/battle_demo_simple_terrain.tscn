@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/presentation/battle_test_terrain_scene.gd" id="1_root"]
+[ext_resource type="Script" path="res://scripts/battle_camera_controller.gd" id="2_cam"]
+[ext_resource type="Texture2D" uid="uid://dh4g34a54moll" path="res://绱犳潗/nature/textures/grass-02-alb.png" id="3_grass_alb"]
+[ext_resource type="Texture2D" uid="uid://cwj7r3nivojxy" path="res://绱犳潗/nature/textures/grass-02-nrm.png" id="4_grass_nrm"]
+[ext_resource type="Texture2D" uid="uid://dkttoapg125x5" path="res://绱犳潗/nature/textures/rock-alb.png" id="5_rock_alb"]
+[ext_resource type="Texture2D" uid="uid://ccbuw5ev72lhy" path="res://绱犳潗/nature/textures/rock-norm.png" id="6_rock_nrm"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 1
+background_color = Color(0.54, 0.73, 0.95, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.78, 0.8, 0.84, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.75
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(160, 160)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.34, 0.49, 0.31, 1)
+roughness = 0.95
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(160, 0.2, 160)
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_1"]
+_shader_parameters = {
+&"blend_sharpness": 0.92,
+&"macro_variation_slope": 0.33
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foliage"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_1"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_foliage")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 64.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_1"]
+name = "Grass"
+albedo_texture = ExtResource("3_grass_alb")
+normal_texture = ExtResource("4_grass_nrm")
+normal_depth = 0.32
+ao_strength = 1.0
+roughness = 0.97
+uv_scale = 0.075
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_2"]
+name = "Rock"
+id = 1
+albedo_texture = ExtResource("5_rock_alb")
+normal_texture = ExtResource("6_rock_nrm")
+normal_depth = 0.55
+ao_strength = 1.0
+roughness = 1.0
+uv_scale = 0.11
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_1"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_1")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_1"), SubResource("Terrain3DTextureAsset_2")])
+
+[node name="BattleDemoSimpleTerrain" type="Node3D"]
+script = ExtResource("1_root")
+
+[node name="WorldEnv" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="SunLight" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-52, -35, 0)
+light_energy = 2.2
+
+[node name="BattleCamera" type="Camera3D" parent="."]
+position = Vector3(0, 30, 26)
+rotation_degrees = Vector3(-52, 0, 0)
+current = true
+script = ExtResource("2_cam")
+zoom_speed = 3.0
+max_distance = 220.0
+
+[node name="GroundMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ground")
+material_override = SubResource("StandardMaterial3D_ground")
+
+[node name="GroundBody" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundBody"]
+position = Vector3(0, -0.1, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://data/terrain/battle_demo_simple/terrain_data"
+material = SubResource("Terrain3DMaterial_1")
+assets = SubResource("Terrain3DAssets_1")
+save_16_bit = true
+vertex_spacing = 4.0

@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cd1ytdobodg65"]
+
+[ext_resource type="Script" uid="uid://dhoh3ww7jcc8h" path="res://scripts/unit_controller.gd" id="1_unit"]
+
+[sub_resource type="StandardMaterial3D" id="Material_frame"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_frame"]
+size = Vector2(1.98, 1.06)
+
+[sub_resource type="StandardMaterial3D" id="Material_board"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_board"]
+size = Vector2(1.88, 0.96)
+
+[sub_resource type="StandardMaterial3D" id="Material_portrait_bg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_portrait_bg"]
+size = Vector2(0.57, 0.55)
+
+[sub_resource type="StandardMaterial3D" id="Material_portrait"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_portrait"]
+size = Vector2(0.54, 0.52)
+
+[sub_resource type="StandardMaterial3D" id="Material_supply_icon_bg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_icon"]
+size = Vector2(0.14, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="Material_morale_bg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_bar"]
+size = Vector2(0.44, 0.06)
+
+[sub_resource type="StandardMaterial3D" id="Material_morale_fill"]
+
+[sub_resource type="StandardMaterial3D" id="Material_will_bg"]
+
+[sub_resource type="StandardMaterial3D" id="Material_will_fill"]
+
+[node name="UnitController" type="Node3D" unique_id=186620218]
+script = ExtResource("1_unit")
+archer_arrow_use_anchor_nodes = false
+
+[node name="VfxRoot" type="Node3D" parent="." unique_id=101387236]
+
+[node name="ArcherArrowOriginAnchor" type="Node3D" parent="." unique_id=1548121207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.3, 0)
+
+[node name="ArcherArrowTargetAnchor" type="Node3D" parent="." unique_id=282427745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
+
+[node name="TagAnchor" type="Node3D" parent="." unique_id=2060600430]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 10, 0)
+
+[node name="TagFrame" type="MeshInstance3D" parent="TagAnchor" unique_id=1694327380]
+material_override = SubResource("Material_frame")
+mesh = SubResource("QuadMesh_frame")
+
+[node name="TagBoard" type="MeshInstance3D" parent="TagAnchor" unique_id=1179813158]
+material_override = SubResource("Material_board")
+mesh = SubResource("QuadMesh_board")
+
+[node name="TagPortraitBg" type="MeshInstance3D" parent="TagAnchor" unique_id=1519496134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.14, 0.016)
+material_override = SubResource("Material_portrait_bg")
+mesh = SubResource("QuadMesh_portrait_bg")
+
+[node name="TagPortrait" type="MeshInstance3D" parent="TagAnchor" unique_id=923778387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.14, 0.017)
+material_override = SubResource("Material_portrait")
+mesh = SubResource("QuadMesh_portrait")
+
+[node name="TagSupplyIconBg" type="MeshInstance3D" parent="TagAnchor" unique_id=270489645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.1, 0.016)
+material_override = SubResource("Material_supply_icon_bg")
+mesh = SubResource("QuadMesh_icon")
+
+[node name="TagMoraleBg" type="MeshInstance3D" parent="TagAnchor" unique_id=618612154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17, -0.12, 0.015)
+material_override = SubResource("Material_morale_bg")
+mesh = SubResource("QuadMesh_bar")
+
+[node name="TagMoraleFill" type="MeshInstance3D" parent="TagAnchor" unique_id=1733972872]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.5, -0.12, 0.016)
+material_override = SubResource("Material_morale_fill")
+mesh = SubResource("QuadMesh_bar")
+
+[node name="TagWillBg" type="MeshInstance3D" parent="TagAnchor" unique_id=845358537]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.5, -0.3, 0.015)
+material_override = SubResource("Material_will_bg")
+mesh = SubResource("QuadMesh_bar")
+
+[node name="TagWillFill" type="MeshInstance3D" parent="TagAnchor" unique_id=194102188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17, -0.3, 0.016)
+material_override = SubResource("Material_will_fill")
+mesh = SubResource("QuadMesh_bar")
+
+[node name="TagNameLabel" type="Label3D" parent="TagAnchor" unique_id=1388783860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.31, 0.016)
+pixel_size = 0.0038
+text = "Commander"
+font_size = 30
+
+[node name="TagTypeLabel" type="Label3D" parent="TagAnchor" unique_id=1938368793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69, 0.3, 0.016)
+pixel_size = 0.0038
+text = "Type"
+font_size = 24
+
+[node name="TagCountLabel" type="Label3D" parent="TagAnchor" unique_id=843558795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69, 0.12, 0.016)
+pixel_size = 0.0038
+text = "Troops"
+font_size = 24
+
+[node name="TagSupplyIconLabel" type="Label3D" parent="TagAnchor" unique_id=489019348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.1, 0.016)
+pixel_size = 0.0038
+text = "S"
+font_size = 20

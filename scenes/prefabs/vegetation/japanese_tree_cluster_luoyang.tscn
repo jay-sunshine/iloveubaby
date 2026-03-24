@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/presentation/japanese_tree_cluster.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/black_pine_tree_b_preview.tscn" id="2_pine"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/sakura_tree_a_preview.tscn" id="3_sakura"]
+
+[node name="JapaneseTreeClusterLuoyang" type="Node3D"]
+script = ExtResource("1_script")
+terrain_path = NodePath("../Terrain3D")
+
+[node name="BlackPine_A" parent="." instance=ExtResource("2_pine")]
+position = Vector3(-65, 0, 70)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlackPine_B" parent="." instance=ExtResource("2_pine")]
+position = Vector3(68, 0, 34)
+rotation_degrees = Vector3(0, -34, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="Sakura_A" parent="." instance=ExtResource("3_sakura")]
+position = Vector3(-8, 0, -86)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(0.94, 0.94, 0.94)

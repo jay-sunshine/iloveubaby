@@ -1,0 +1,62 @@
+﻿# Codex performance: ignore heavy/generated content first
+.godot/
+tmp/
+_tmp_plugins/
+docs/
+备忘录/
+素材/
+
+# Also ignore common heavy asset folders even if moved
+**/unity_imports/
+**/models/
+**/model/
+**/textures/
+**/texture/
+
+# Heavy binary/media files
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+*.tga
+*.exr
+*.hdr
+*.glb
+*.gltf
+*.fbx
+*.obj
+*.blend
+*.unitypackage
+*.zip
+*.rar
+*.7z
+*.bin
+*.dll
+*.a
+
+# Godot generated/import caches
+*.import
+*.res
+*.scn
+
+# Logs/temp
+*.log
+*.tmp
+
+# Keep code and core project config visible
+!project.godot
+!addons/
+!addons/**
+!scripts/
+!scripts/**
+!scenes/
+!scenes/**
+!tools/
+!tools/**
+
+# Keep lightweight game data configs visible
+!data/
+!data/**/*.json
+!data/**/*.gd
+!data/**/*.cfg

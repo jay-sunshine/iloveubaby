@@ -1,0 +1,416 @@
+[gd_scene format=3 uid="uid://dykf04j5hyk67"]
+
+[ext_resource type="PackedScene" uid="uid://dgyodvairchee" path="res://scenes/ui/time_weather_bar_widget.tscn" id="1_twbar"]
+
+[node name="StrategyUILayout" type="Control" unique_id=41751245]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TimeWeatherPanel" parent="." unique_id=842837247 instance=ExtResource("1_twbar")]
+layout_mode = 0
+
+[node name="DayLabel" type="Label" parent="." unique_id=1189607276]
+visible = false
+layout_mode = 0
+offset_left = 560.0
+offset_top = 16.0
+offset_right = 1710.0
+offset_bottom = 50.0
+
+[node name="PhaseLabel" type="Label" parent="." unique_id=1139308129]
+visible = false
+layout_mode = 0
+offset_left = 560.0
+offset_top = 52.0
+offset_right = 1840.0
+offset_bottom = 80.0
+
+[node name="StatusLabel" type="Label" parent="." unique_id=694346150]
+visible = false
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -44.0
+offset_right = 980.0
+offset_bottom = -12.0
+
+[node name="TerrainHintLabel" type="Label" parent="." unique_id=1338558186]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -580.0
+offset_top = -132.0
+offset_right = -18.0
+offset_bottom = -56.0
+
+[node name="ProceedButton" type="Button" parent="." unique_id=587817557]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 200.0
+offset_right = 130.0
+offset_bottom = 312.0
+text = "Proceed"
+
+[node name="BattlePauseButton" type="Button" parent="." unique_id=7066514]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 205.0
+offset_right = 245.0
+offset_bottom = 247.0
+text = "Pause"
+
+[node name="BattleSpeedButton" type="Button" parent="." unique_id=1074955682]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 250.0
+offset_right = 245.0
+offset_bottom = 292.0
+text = "Speed x1"
+
+[node name="PlayerBriefPanel" type="Panel" parent="." unique_id=1310013996]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 341.0
+offset_bottom = 190.0
+
+[node name="PlayerBriefBG" type="TextureRect" parent="PlayerBriefPanel" unique_id=2054715431]
+layout_mode = 0
+offset_right = 329.0
+offset_bottom = 180.0
+
+[node name="AvatarShell" type="Panel" parent="PlayerBriefPanel" unique_id=1486785158]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 50.0
+offset_right = 101.0
+offset_bottom = 126.0
+
+[node name="PlayerAvatar" type="TextureRect" parent="PlayerBriefPanel/AvatarShell" unique_id=673039138]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+
+[node name="PlayerAvatarFallback" type="Label" parent="PlayerBriefPanel/AvatarShell" unique_id=901237838]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+text = "?"
+
+[node name="PlayerFlagPanel" type="Panel" parent="PlayerBriefPanel" unique_id=887025457]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 50.0
+offset_right = 184.0
+offset_bottom = 114.0
+
+[node name="PlayerFlagLabel" type="Label" parent="PlayerBriefPanel/PlayerFlagPanel" unique_id=636026444]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="PlayerLordNameLabel" type="Label" parent="PlayerBriefPanel" unique_id=263960208]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 47.0
+offset_right = 338.0
+offset_bottom = 98.0
+
+[node name="PlayerOrdersLabel" type="Label" parent="PlayerBriefPanel" unique_id=1771078369]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 98.0
+offset_right = 322.0
+offset_bottom = 173.0
+
+[node name="HoverPanel" type="Panel" parent="." unique_id=1361376138]
+visible = false
+layout_mode = 0
+
+[node name="HoverBG" type="TextureRect" parent="HoverPanel" unique_id=1829270237]
+layout_mode = 0
+
+[node name="HoverText" type="RichTextLabel" parent="HoverPanel" unique_id=1040697669]
+layout_mode = 0
+
+[node name="CityMenuPanel" type="Panel" parent="." unique_id=712489039]
+visible = false
+layout_mode = 0
+
+[node name="CityMenuTitle" type="Label" parent="CityMenuPanel" unique_id=1938123665]
+layout_mode = 0
+
+[node name="BtnExpeditionStart" type="Button" parent="CityMenuPanel" unique_id=1702726240]
+layout_mode = 0
+text = "Expedition"
+
+[node name="BtnExpeditionCancel" type="Button" parent="CityMenuPanel" unique_id=1486933487]
+layout_mode = 0
+text = "Cancel Expedition"
+
+[node name="BtnRegroup" type="Button" parent="CityMenuPanel" unique_id=1165323975]
+layout_mode = 0
+text = "Regroup"
+
+[node name="BtnAides" type="Button" parent="CityMenuPanel" unique_id=304734150]
+layout_mode = 0
+text = "Aides"
+
+[node name="BtnMove" type="Button" parent="CityMenuPanel" unique_id=412603396]
+layout_mode = 0
+text = "Move"
+
+[node name="BtnMerchant" type="Button" parent="CityMenuPanel" unique_id=1928012561]
+layout_mode = 0
+text = "Merchant"
+
+[node name="BtnCityInfo" type="Button" parent="CityMenuPanel" unique_id=987339006]
+layout_mode = 0
+text = "City Info"
+
+[node name="MoveSubmenuPanel" type="Panel" parent="." unique_id=217442961]
+visible = false
+layout_mode = 0
+
+[node name="BtnMoveDispatch" type="Button" parent="MoveSubmenuPanel" unique_id=235399661]
+layout_mode = 0
+text = "Dispatch"
+
+[node name="BtnMoveRecall" type="Button" parent="MoveSubmenuPanel" unique_id=1378172423]
+layout_mode = 0
+text = "Recall"
+
+[node name="BtnMoveTransportResources" type="Button" parent="MoveSubmenuPanel" unique_id=754423080]
+layout_mode = 0
+text = "Transport Resources"
+
+[node name="BtnMoveTransportTroops" type="Button" parent="MoveSubmenuPanel" unique_id=995799107]
+layout_mode = 0
+text = "Transport Troops"
+
+[node name="CityMenuTipPanel" type="Panel" parent="." unique_id=351837984]
+visible = false
+layout_mode = 0
+
+[node name="CityMenuTipLabel" type="Label" parent="CityMenuTipPanel" unique_id=442540673]
+layout_mode = 0
+
+[node name="CommandPanel" type="Panel" parent="." unique_id=758937511]
+visible = false
+layout_mode = 0
+
+[node name="CommandBG" type="NinePatchRect" parent="CommandPanel" unique_id=584174913]
+layout_mode = 0
+
+[node name="AideRoleList" type="ItemList" parent="CommandPanel" unique_id=749015400]
+layout_mode = 0
+
+[node name="AideCurrentLabel" type="Label" parent="CommandPanel" unique_id=1265940104]
+layout_mode = 0
+
+[node name="AideOfficerList" type="ItemList" parent="CommandPanel" unique_id=1756319288]
+layout_mode = 0
+
+[node name="AideDismissToggle" type="CheckBox" parent="CommandPanel" unique_id=916672837]
+layout_mode = 0
+text = "Dismiss Current Role"
+
+[node name="AideDetailText" type="RichTextLabel" parent="CommandPanel" unique_id=564984945]
+layout_mode = 0
+
+[node name="RegroupCityLabel" type="Label" parent="CommandPanel" unique_id=1707079831]
+layout_mode = 0
+
+[node name="RegroupCategoryTitleLabel" type="Label" parent="CommandPanel" unique_id=1189119164]
+layout_mode = 0
+text = "Select Regroup Type"
+
+[node name="RegroupCategoryList" type="ItemList" parent="CommandPanel" unique_id=1071834477]
+layout_mode = 0
+
+[node name="RegroupUnitList" type="ItemList" parent="CommandPanel" unique_id=542451807]
+layout_mode = 0
+
+[node name="RegroupPortraitFrame" type="Panel" parent="CommandPanel" unique_id=847842876]
+layout_mode = 0
+
+[node name="RegroupPortraitLabel" type="Label" parent="CommandPanel/RegroupPortraitFrame" unique_id=1234403990]
+layout_mode = 0
+
+[node name="RegroupCostLabel" type="Label" parent="CommandPanel" unique_id=80417811]
+layout_mode = 0
+
+[node name="RegroupAmountSlider" type="HSlider" parent="CommandPanel" unique_id=1779939731]
+layout_mode = 0
+step = 100.0
+value = 100.0
+
+[node name="RegroupAmountValueLabel" type="Label" parent="CommandPanel" unique_id=686962044]
+layout_mode = 0
+text = "100"
+
+[node name="RegroupAmountSpin" type="SpinBox" parent="CommandPanel" unique_id=1004830124]
+visible = false
+layout_mode = 0
+step = 100.0
+value = 100.0
+
+[node name="RegroupAddButton" type="Button" parent="CommandPanel" unique_id=1995893995]
+layout_mode = 0
+text = "Add to Plan"
+
+[node name="RegroupRemoveButton" type="Button" parent="CommandPanel" unique_id=1195708115]
+layout_mode = 0
+text = "Remove from Plan"
+
+[node name="RegroupClearButton" type="Button" parent="CommandPanel" unique_id=2072908625]
+layout_mode = 0
+text = "Clear Plan"
+
+[node name="RegroupPlanList" type="ItemList" parent="CommandPanel" unique_id=2024909232]
+layout_mode = 0
+
+[node name="RegroupUnitDetailText" type="RichTextLabel" parent="CommandPanel" unique_id=1535957952]
+layout_mode = 0
+
+[node name="MoveHeaderLabel" type="Label" parent="CommandPanel" unique_id=570374261]
+layout_mode = 0
+
+[node name="MoveTargetLabel" type="Label" parent="CommandPanel" unique_id=118894771]
+layout_mode = 0
+text = "Target"
+
+[node name="MoveTargetList" type="ItemList" parent="CommandPanel" unique_id=258320569]
+layout_mode = 0
+
+[node name="MoveDispatchLabel" type="Label" parent="CommandPanel" unique_id=1691472966]
+layout_mode = 0
+text = "Dispatch"
+
+[node name="MoveDispatchList" type="ItemList" parent="CommandPanel" unique_id=768433214]
+layout_mode = 0
+select_mode = 2
+
+[node name="MoveRecallLabel" type="Label" parent="CommandPanel" unique_id=1500407852]
+layout_mode = 0
+text = "Recall"
+
+[node name="MoveRecallList" type="ItemList" parent="CommandPanel" unique_id=951374501]
+layout_mode = 0
+select_mode = 2
+
+[node name="MoveMoneyLabel" type="Label" parent="CommandPanel" unique_id=1877999571]
+layout_mode = 0
+text = "Money"
+
+[node name="MoveMoneySpin" type="HSlider" parent="CommandPanel" unique_id=1496117494]
+layout_mode = 0
+
+[node name="MoveMoneyValueLabel" type="Label" parent="CommandPanel" unique_id=198588368]
+layout_mode = 0
+text = "0 / 0"
+
+[node name="MoveFoodLabel" type="Label" parent="CommandPanel" unique_id=1815035324]
+layout_mode = 0
+text = "Food"
+
+[node name="MoveFoodSpin" type="HSlider" parent="CommandPanel" unique_id=1211496361]
+layout_mode = 0
+
+[node name="MoveFoodValueLabel" type="Label" parent="CommandPanel" unique_id=833196612]
+layout_mode = 0
+text = "0 / 0"
+
+[node name="MoveIronLabel" type="Label" parent="CommandPanel" unique_id=1984463700]
+layout_mode = 0
+text = "Iron"
+
+[node name="MoveIronSpin" type="HSlider" parent="CommandPanel" unique_id=680013574]
+layout_mode = 0
+
+[node name="MoveIronValueLabel" type="Label" parent="CommandPanel" unique_id=1709074417]
+layout_mode = 0
+text = "0 / 0"
+
+[node name="MoveWoodLabel" type="Label" parent="CommandPanel" unique_id=1017731081]
+layout_mode = 0
+text = "Wood"
+
+[node name="MoveWoodSpin" type="HSlider" parent="CommandPanel" unique_id=756126801]
+layout_mode = 0
+
+[node name="MoveWoodValueLabel" type="Label" parent="CommandPanel" unique_id=381340183]
+layout_mode = 0
+text = "0 / 0"
+
+[node name="MoveHorseLabel" type="Label" parent="CommandPanel" unique_id=1320467711]
+layout_mode = 0
+text = "Horses"
+
+[node name="MoveHorseSpin" type="HSlider" parent="CommandPanel" unique_id=1880648204]
+layout_mode = 0
+
+[node name="MoveHorseValueLabel" type="Label" parent="CommandPanel" unique_id=833127445]
+layout_mode = 0
+text = "0 / 0"
+
+[node name="MoveReserveLabel" type="Label" parent="CommandPanel" unique_id=849156774]
+layout_mode = 0
+text = "Reserves"
+
+[node name="MoveReserveSpin" type="HSlider" parent="CommandPanel" unique_id=486217736]
+layout_mode = 0
+
+[node name="MoveReserveValueLabel" type="Label" parent="CommandPanel" unique_id=2008048051]
+layout_mode = 0
+text = "0 / 0"
+
+[node name="MoveOrganizedLabel" type="Label" parent="CommandPanel" unique_id=536466236]
+layout_mode = 0
+text = "Organized Troops"
+
+[node name="MoveOrganizedSpin" type="HSlider" parent="CommandPanel" unique_id=1138343689]
+layout_mode = 0
+
+[node name="MoveOrganizedValueLabel" type="Label" parent="CommandPanel" unique_id=1365546203]
+layout_mode = 0
+text = "0 / 0"
+
+[node name="MoveTroopDetailText" type="RichTextLabel" parent="CommandPanel" unique_id=1027838627]
+layout_mode = 0
+
+[node name="MoveSummaryText" type="RichTextLabel" parent="CommandPanel" unique_id=625636481]
+layout_mode = 0
+
+[node name="CommandHintLabel" type="RichTextLabel" parent="CommandPanel" unique_id=688818135]
+layout_mode = 0
+
+[node name="CommandCancelButton" type="TextureButton" parent="CommandPanel" unique_id=1357301824]
+layout_mode = 0
+
+[node name="CommandCancelText" type="Label" parent="CommandPanel" unique_id=604812009]
+layout_mode = 0
+text = "Cancel"
+
+[node name="CommandDecideButton" type="TextureButton" parent="CommandPanel" unique_id=1929783527]
+layout_mode = 0
+
+[node name="CommandDecideText" type="Label" parent="CommandPanel" unique_id=2085336530]
+layout_mode = 0
+text = "Confirm"
+
+[node name="CommandTitleIcon" type="TextureRect" parent="." unique_id=1661222882]
+visible = false
+layout_mode = 0
+
+[node name="CommandTitleLabel" type="Label" parent="." unique_id=540786694]
+visible = false
+layout_mode = 0

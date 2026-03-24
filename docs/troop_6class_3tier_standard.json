@@ -1,0 +1,290 @@
+{
+  "meta": {
+	"name": "troop_6class_3tier_standard",
+	"version": "2.0.0",
+	"design_rule": "tech_unlock_and_reserve_reorganization"
+  },
+  "resources": {
+	"reorganization_cost_resources": ["wood", "iron", "gold", "arcane"],
+	"food_usage_rule": "food is only used as upkeep for reserve and deployed troops"
+  },
+  "reserve_system": {
+	"source_building": "兵营",
+	"reserve_unit_name": "预备兵",
+	"unlock_rule": "all troop types are unlocked by research tech only",
+	"conversion_rule": {
+	  "formula": "total_cost = per_soldier_cost * soldier_count",
+	  "reserve_formula": "total_reserve = reserve_per_soldier * soldier_count",
+	  "time_formula": "total_time_sec = (time_sec_per_100 / 100) * soldier_count"
+	}
+  },
+  "food_upkeep": {
+	"reserve_food_per_soldier_per_hour": 0.12,
+	"deployed_food_per_soldier_per_hour": {
+	  "cavalry": 0.34,
+	  "spear": 0.24,
+	  "shield": 0.26,
+	  "bow": 0.22,
+	  "crossbow": 0.24,
+	  "strategist": 0.2
+	}
+  },
+  "units": {
+	"cavalry": [
+	  {
+		"id": "cavalry_t1",
+		"name": "轻骑斥候",
+		"tier": 1,
+		"passive": { "name": "机动突袭", "effect": "连续移动3秒后首击物攻+15%，移速+20%持续5秒" },
+		"stats": { "physical_attack": 82, "magic_attack": 4, "physical_defense": 68, "magic_defense": 38, "move_speed": 7.2, "attack_range": 2.4, "attack_speed": 0.95 },
+		"unlock": { "tech": "骑术入门" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 100,
+		  "per_soldier_cost": { "wood": 1, "iron": 2, "gold": 4, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "cavalry_t2",
+		"name": "铁骑冲阵",
+		"tier": 2,
+		"passive": { "name": "骑枪贯阵", "effect": "连续移动3秒后首次命中无视目标30%物防" },
+		"stats": { "physical_attack": 108, "magic_attack": 6, "physical_defense": 88, "magic_defense": 48, "move_speed": 7.8, "attack_range": 2.6, "attack_speed": 0.88 },
+		"unlock": { "tech": "骑枪精训" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 120,
+		  "per_soldier_cost": { "wood": 1, "iron": 3, "gold": 6, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "cavalry_t3",
+		"name": "虎豹具装骑",
+		"tier": 3,
+		"passive": { "name": "铁蹄震慑", "effect": "冲锋命中使目标攻速-20%，持续2秒" },
+		"stats": { "physical_attack": 132, "magic_attack": 8, "physical_defense": 112, "magic_defense": 58, "move_speed": 8.1, "attack_range": 2.8, "attack_speed": 0.82 },
+		"unlock": { "tech": "具装骑练成" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 145,
+		  "per_soldier_cost": { "wood": 2, "iron": 5, "gold": 9, "arcane": 0 }
+		}
+	  }
+	],
+	"spear": [
+	  {
+		"id": "spear_t1",
+		"name": "长枪步卒",
+		"tier": 1,
+		"passive": { "name": "拒马枪", "effect": "受骑兵冲锋伤害-35%，对骑兵伤害+25%" },
+		"stats": { "physical_attack": 74, "magic_attack": 3, "physical_defense": 72, "magic_defense": 40, "move_speed": 4.8, "attack_range": 2.8, "attack_speed": 1.02 },
+		"unlock": { "tech": "枪阵入门" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 85,
+		  "per_soldier_cost": { "wood": 1, "iron": 2, "gold": 2, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "spear_t2",
+		"name": "重枪方阵",
+		"tier": 2,
+		"passive": { "name": "枪林阵", "effect": "静止2秒后物防+18%，对骑兵额外伤害+15%" },
+		"stats": { "physical_attack": 95, "magic_attack": 4, "physical_defense": 92, "magic_defense": 52, "move_speed": 4.6, "attack_range": 3.0, "attack_speed": 0.94 },
+		"unlock": { "tech": "密集枪阵" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 100,
+		  "per_soldier_cost": { "wood": 1, "iron": 3, "gold": 3, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "spear_t3",
+		"name": "龙骧枪卫",
+		"tier": 3,
+		"passive": { "name": "穿阵连刺", "effect": "每第4次攻击造成160%伤害并穿刺前方3米" },
+		"stats": { "physical_attack": 118, "magic_attack": 6, "physical_defense": 108, "magic_defense": 62, "move_speed": 4.7, "attack_range": 3.1, "attack_speed": 0.9 },
+		"unlock": { "tech": "破骑枪阵" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 120,
+		  "per_soldier_cost": { "wood": 2, "iron": 4, "gold": 5, "arcane": 0 }
+		}
+	  }
+	],
+	"shield": [
+	  {
+		"id": "shield_t1",
+		"name": "刀盾步兵",
+		"tier": 1,
+		"passive": { "name": "盾面格挡", "effect": "受到弓弩远程伤害-25%" },
+		"stats": { "physical_attack": 68, "magic_attack": 2, "physical_defense": 84, "magic_defense": 44, "move_speed": 4.5, "attack_range": 2.1, "attack_speed": 1.05 },
+		"unlock": { "tech": "盾阵入门" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 90,
+		  "per_soldier_cost": { "wood": 1, "iron": 2, "gold": 2, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "shield_t2",
+		"name": "重盾卫士",
+		"tier": 2,
+		"passive": { "name": "联盾壁垒", "effect": "周围友军步兵物防+12，法防+10" },
+		"stats": { "physical_attack": 82, "magic_attack": 3, "physical_defense": 110, "magic_defense": 58, "move_speed": 4.2, "attack_range": 2.2, "attack_speed": 0.95 },
+		"unlock": { "tech": "龟甲盾阵" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 110,
+		  "per_soldier_cost": { "wood": 1, "iron": 4, "gold": 4, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "shield_t3",
+		"name": "玄甲盾卫",
+		"tier": 3,
+		"passive": { "name": "不屈重甲", "effect": "生命低于50%时受到总伤害-20%" },
+		"stats": { "physical_attack": 96, "magic_attack": 5, "physical_defense": 132, "magic_defense": 74, "move_speed": 4.0, "attack_range": 2.3, "attack_speed": 0.9 },
+		"unlock": { "tech": "玄甲军制" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 130,
+		  "per_soldier_cost": { "wood": 2, "iron": 5, "gold": 6, "arcane": 0 }
+		}
+	  }
+	],
+	"bow": [
+	  {
+		"id": "bow_t1",
+		"name": "乡勇弓手",
+		"tier": 1,
+		"passive": { "name": "远程抛射", "effect": "攻击距离大于35米时物攻+18%" },
+		"stats": { "physical_attack": 76, "magic_attack": 4, "physical_defense": 40, "magic_defense": 42, "move_speed": 4.7, "attack_range": 62, "attack_speed": 0.92 },
+		"unlock": { "tech": "弓术入门" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 80,
+		  "per_soldier_cost": { "wood": 2, "iron": 1, "gold": 2, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "bow_t2",
+		"name": "神臂弓手",
+		"tier": 2,
+		"passive": { "name": "集火标记", "effect": "连续攻击同一目标时每次伤害+4%，最多+20%" },
+		"stats": { "physical_attack": 96, "magic_attack": 5, "physical_defense": 48, "magic_defense": 50, "move_speed": 4.8, "attack_range": 70, "attack_speed": 0.86 },
+		"unlock": { "tech": "复合弓技" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 95,
+		  "per_soldier_cost": { "wood": 3, "iron": 1, "gold": 3, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "bow_t3",
+		"name": "羽林长弓",
+		"tier": 3,
+		"passive": { "name": "穿杨劲射", "effect": "每第5次射击造成170%伤害并无视20%物防" },
+		"stats": { "physical_attack": 116, "magic_attack": 7, "physical_defense": 56, "magic_defense": 58, "move_speed": 4.9, "attack_range": 78, "attack_speed": 0.8 },
+		"unlock": { "tech": "羽林弓制" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 110,
+		  "per_soldier_cost": { "wood": 4, "iron": 2, "gold": 4, "arcane": 0 }
+		}
+	  }
+	],
+	"crossbow": [
+	  {
+		"id": "crossbow_t1",
+		"name": "机括弩手",
+		"tier": 1,
+		"passive": { "name": "破甲弩矢", "effect": "攻击无视目标25%物防" },
+		"stats": { "physical_attack": 88, "magic_attack": 3, "physical_defense": 52, "magic_defense": 44, "move_speed": 4.4, "attack_range": 56, "attack_speed": 0.72 },
+		"unlock": { "tech": "弩机入门" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 90,
+		  "per_soldier_cost": { "wood": 2, "iron": 2, "gold": 3, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "crossbow_t2",
+		"name": "连弩营",
+		"tier": 2,
+		"passive": { "name": "连机速发", "effect": "每次装填后的前2发攻速+35%" },
+		"stats": { "physical_attack": 110, "magic_attack": 4, "physical_defense": 60, "magic_defense": 50, "move_speed": 4.3, "attack_range": 62, "attack_speed": 0.78 },
+		"unlock": { "tech": "连弩改良" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 105,
+		  "per_soldier_cost": { "wood": 3, "iron": 3, "gold": 4, "arcane": 0 }
+		}
+	  },
+	  {
+		"id": "crossbow_t3",
+		"name": "强弩都",
+		"tier": 3,
+		"passive": { "name": "穿盾重矢", "effect": "对盾兵额外伤害+25%，并附加10%减速2秒" },
+		"stats": { "physical_attack": 136, "magic_attack": 6, "physical_defense": 72, "magic_defense": 58, "move_speed": 4.1, "attack_range": 68, "attack_speed": 0.66 },
+		"unlock": { "tech": "重弩总成" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 125,
+		  "per_soldier_cost": { "wood": 4, "iron": 4, "gold": 6, "arcane": 0 }
+		}
+	  }
+	],
+	"strategist": [
+	  {
+		"id": "strategist_t1",
+		"name": "方术谋士",
+		"tier": 1,
+		"passive": { "name": "五行引导", "effect": "每第6秒的下一次攻击附加40%法术溅射" },
+		"stats": { "physical_attack": 18, "magic_attack": 72, "physical_defense": 34, "magic_defense": 62, "move_speed": 4.3, "attack_range": 58, "attack_speed": 0.74 },
+		"unlock": { "tech": "兵法入门" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 85,
+		  "per_soldier_cost": { "wood": 1, "iron": 0, "gold": 4, "arcane": 2 }
+		}
+	  },
+	  {
+		"id": "strategist_t2",
+		"name": "军师祭酒",
+		"tier": 2,
+		"passive": { "name": "军略统摄", "effect": "周围友军法防+10，攻速+8%" },
+		"stats": { "physical_attack": 24, "magic_attack": 102, "physical_defense": 42, "magic_defense": 82, "move_speed": 4.4, "attack_range": 64, "attack_speed": 0.7 },
+		"unlock": { "tech": "军略精研" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 100,
+		  "per_soldier_cost": { "wood": 1, "iron": 1, "gold": 6, "arcane": 4 }
+		}
+	  },
+	  {
+		"id": "strategist_t3",
+		"name": "大贤策士",
+		"tier": 3,
+		"passive": { "name": "奇门压制", "effect": "命中目标后使其法防-18%，持续4秒，可叠2层" },
+		"stats": { "physical_attack": 30, "magic_attack": 136, "physical_defense": 52, "magic_defense": 108, "move_speed": 4.6, "attack_range": 72, "attack_speed": 0.66 },
+		"unlock": { "tech": "奇门遁甲" },
+		"reorganization": {
+		  "reserve_per_soldier": 1.0,
+		  "time_sec_per_100": 120,
+		  "per_soldier_cost": { "wood": 2, "iron": 1, "gold": 9, "arcane": 6 }
+		}
+	  }
+	]
+  },
+  "counter_relations": {
+	"damage_multiplier": {
+	  "cavalry": { "cavalry": 1.0, "spear": 0.7, "shield": 0.95, "bow": 1.35, "crossbow": 1.2, "strategist": 1.35 },
+	  "spear": { "cavalry": 1.45, "spear": 1.0, "shield": 1.05, "bow": 1.1, "crossbow": 1.0, "strategist": 1.0 },
+	  "shield": { "cavalry": 1.05, "spear": 0.95, "shield": 1.0, "bow": 1.25, "crossbow": 0.85, "strategist": 0.85 },
+	  "bow": { "cavalry": 0.75, "spear": 1.2, "shield": 0.75, "bow": 1.0, "crossbow": 1.05, "strategist": 1.1 },
+	  "crossbow": { "cavalry": 1.2, "spear": 1.05, "shield": 1.35, "bow": 1.1, "crossbow": 1.0, "strategist": 1.0 },
+	  "strategist": { "cavalry": 0.8, "spear": 1.25, "shield": 1.4, "bow": 1.1, "crossbow": 1.1, "strategist": 1.0 }
+	}
+  }
+}

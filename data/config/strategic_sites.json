@@ -1,0 +1,2822 @@
+{
+    "version": 1,
+    "source": "world_state.building_units",
+    "coordinate_rule": "Godot 3D: X+ east, X- west, Z+ north, Z- south",
+    "chunk_size": 3000,
+    "active_neighbor_radius": 1,
+    "sites": [
+        {
+            "name": "虎牢关",
+            "position": {
+                "x": 2500,
+                "z": -500
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "洛阳东部门户，嵩山北麓、汜水西岸，中原通往洛阳的必经要道",
+            "history_source": "《三国志・魏书・武帝纪》《后汉书・董卓传》",
+            "commandery": "河南尹",
+            "belong_city": "洛阳",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "190 年反董卓联盟虎牢关之战，曹操西进据成皋",
+            "faction_id": "wei",
+            "state": "司隶州",
+            "id": "hulao_pass"
+        },
+        {
+            "name": "函谷关",
+            "position": {
+                "x": -3500,
+                "z": 200
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "洛阳西部门户，崤函古道、黄河东岸，关中与中原的咽喉要道",
+            "history_source": "《三国志・魏书・武帝纪》《三国志・魏书・马超传》",
+            "commandery": "弘农郡",
+            "belong_city": "弘农",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "曹操西征马超、韩遂，函谷关 - 潼关防线争夺战",
+            "faction_id": "wei",
+            "state": "司隶州",
+            "id": "pass_hangu"
+        },
+        {
+            "name": "潼关",
+            "position": {
+                "x": -4500,
+                "z": 300
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "长安东部门户，黄河渭河交汇处、华山北麓，关中平原最后一道天险",
+            "history_source": "《三国志・魏书・武帝纪》《三国志・蜀书・马超传》",
+            "commandery": "弘农郡",
+            "belong_city": "弘农",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "建安十六年马超、韩遂潼关反曹之战",
+            "faction_id": "wei",
+            "state": "司隶州",
+            "id": "pass_tongguan"
+        },
+        {
+            "name": "大散关",
+            "position": {
+                "x": -6000,
+                "z": 1500
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "关中西南门户，秦岭北麓、渭水南岸，川陕交通咽喉要道",
+            "history_source": "《三国志・魏书・武帝纪》《三国志・蜀书・诸葛亮传》",
+            "commandery": "扶风郡",
+            "belong_city": "长安",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "曹操西征张鲁，诸葛亮第二次北伐出散关围陈仓",
+            "faction_id": "wei",
+            "state": "雍州",
+            "id": "pass_dasanguan"
+        },
+        {
+            "name": "阳平关",
+            "position": {
+                "x": -7000,
+                "z": -3000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "汉中盆地西部门户，汉水北岸、定军山西侧，益州通往关中的必经之路",
+            "history_source": "《三国志・魏书・武帝纪》《三国志・蜀书・先主传》",
+            "commandery": "汉中郡",
+            "belong_city": "汉中",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "曹操征张鲁阳平关之战，刘备汉中定军山之战核心防线",
+            "faction_id": "shu",
+            "state": "益州",
+            "id": "pass_yangping"
+        },
+        {
+            "name": "剑阁",
+            "position": {
+                "x": -8000,
+                "z": -6000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "成都北部门户，大小剑山金牛道，蜀中最后一道天险",
+            "history_source": "《三国志・蜀书・姜维传》《三国志・魏书・钟会传》",
+            "commandery": "梓潼郡",
+            "belong_city": "梓潼",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "蜀汉灭国之战，姜维剑阁拒钟会十万大军",
+            "faction_id": "shu",
+            "state": "益州",
+            "id": "pass_jianmen"
+        },
+        {
+            "name": "西陵关",
+            "position": {
+                "x": -2000,
+                "z": -7000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "荆州西部门户，长江西陵峡东口，东吴长江防线西起点",
+            "history_source": "《三国志・吴书・陆逊传》《三国志・蜀书・先主传》",
+            "commandery": "南郡",
+            "belong_city": "江陵",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "222 年夷陵之战，陆逊火烧连营破刘备",
+            "faction_id": "wu",
+            "state": "荆州",
+            "id": "pass_xiling_yiling"
+        },
+        {
+            "name": "葭萌关",
+            "position": {
+                "x": -6500,
+                "z": -4500
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "蜀中东北门户，嘉陵江上游，入蜀第一道关口",
+            "history_source": "《三国志・蜀书・先主传》《三国志・蜀书・马超传》",
+            "commandery": "广汉郡",
+            "belong_city": "广汉",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "刘备入蜀葭萌关起兵，张飞战马超",
+            "faction_id": "shu",
+            "state": "益州",
+            "id": "pass_jiameng"
+        },
+        {
+            "name": "白水关",
+            "position": {
+                "x": -7500,
+                "z": -4000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "益州北部门户，白龙江畔，汉中入蜀必经要道",
+            "history_source": "《三国志・蜀书・先主传》",
+            "commandery": "广汉郡",
+            "belong_city": "广汉",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "刘备入蜀白水关夺权，斩杀杨怀、高沛",
+            "faction_id": "shu",
+            "state": "益州",
+            "id": "pass_baishui"
+        },
+        {
+            "name": "瞿塘关（江关 / 白帝城）",
+            "position": {
+                "x": -4000,
+                "z": -8000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "益州东部门户，长江瞿塘峡西口，川东咽喉",
+            "history_source": "《三国志・蜀书・先主传》《三国志・吴书・陆逊传》",
+            "commandery": "巴东郡",
+            "belong_city": "永安",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "刘备夷陵战败退守白帝城，白帝城托孤",
+            "faction_id": "shu",
+            "state": "益州",
+            "id": "pass_qutang_baidi"
+        },
+        {
+            "name": "壶关",
+            "position": {
+                "x": -2000,
+                "z": 4000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "并州南部门户，太行山隘口，中原通往并州的要道",
+            "history_source": "《三国志・魏书・武帝纪》",
+            "commandery": "上党郡",
+            "belong_city": "上党",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "建安十一年曹操征高干壶关之战",
+            "faction_id": "wei",
+            "state": "并州",
+            "id": "pass_huguan"
+        },
+        {
+            "name": "雁门关",
+            "position": {
+                "x": -5000,
+                "z": 8000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "并州北部门户，长城隘口，抵御鲜卑的边关要塞",
+            "history_source": "《三国志・魏书・张辽传》《后汉书・鲜卑传》",
+            "commandery": "雁门郡",
+            "belong_city": "雁门",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "张辽镇守雁门，大破鲜卑轲比能",
+            "faction_id": "wei",
+            "state": "并州",
+            "id": "pass_yanmen"
+        },
+        {
+            "name": "居庸关",
+            "position": {
+                "x": 2000,
+                "z": 10000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "幽州西部门户，军都山隘口，抵御乌桓的边关要塞",
+            "history_source": "《三国志・魏书・武帝纪》《后汉书・乌桓传》",
+            "commandery": "广阳郡",
+            "belong_city": "蓟",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "曹操北征乌桓，攻破居庸关擒袁尚、袁熙",
+            "faction_id": "wei",
+            "state": "幽州",
+            "id": "pass_juyong"
+        },
+        {
+            "name": "斜谷关",
+            "position": {
+                "x": -5500,
+                "z": 0
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "关中通往汉中的要道，秦岭北麓斜谷北口",
+            "history_source": "《三国志・蜀书・诸葛亮传》",
+            "commandery": "扶风郡",
+            "belong_city": "长安",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "诸葛亮第一次北伐，赵云、邓芝箕谷疑兵之战",
+            "faction_id": "wei",
+            "state": "雍州",
+            "id": "pass_xiegu"
+        },
+        {
+            "name": "武关",
+            "position": {
+                "x": -5500,
+                "z": -1000
+            },
+            "show_label": true,
+            "prefab_scene": "res://scenes/prefabs/fortress_pass_instance.tscn",
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "site_scale": 1,
+            "label_pixel_size": 0.012,
+            "history_note": "关中东南门户，秦岭南麓，防荆州北上的要道",
+            "history_source": "《三国志・魏书・武帝纪》",
+            "commandery": "弘农郡",
+            "belong_city": "弘农",
+            "type": "pass",
+            "model_path": "res://素材/建模/建筑单位/guanai.glb",
+            "city_id": "",
+            "label_font_size": 20,
+            "history_event": "刘邦入秦武关之战，三国时期关中南线防御核心",
+            "faction_id": "wei",
+            "state": "司隶州",
+            "id": "pass_wuguan"
+        },
+        {
+            "id": "fort_bowang",
+            "name": "博望",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "南阳郡",
+            "belong_city": "博望",
+            "position": {
+                "x": -500,
+                "z": -3500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 次级县",
+            "history_position_desc": "南阳郡下辖非治所县，演义「火烧博望坡」核心战场，纯军事前哨，非宛城、新野主城，非关隘港口",
+            "history_event": "南阳郡下辖非治所县，演义「火烧博望坡」核心战场，纯军事前哨，非宛城、新野主城，非关隘港口"
+        },
+        {
+            "id": "fort_jieting",
+            "name": "街亭",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "凉州",
+            "commandery": "天水郡",
+            "belong_city": "街亭",
+            "position": {
+                "x": -9000,
+                "z": -1000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 军事据点",
+            "history_position_desc": "天水郡下辖纯军事隘口堡垒，演义「马谡失街亭」核心战场，非天水主城，非关隘港口",
+            "history_event": "天水郡下辖纯军事隘口堡垒，演义「马谡失街亭」核心战场，非天水主城，非关隘港口"
+        },
+        {
+            "id": "fort_aocang",
+            "name": "敖仓",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "司隶州",
+            "commandery": "河南尹",
+            "belong_city": "敖仓",
+            "position": {
+                "x": 2000,
+                "z": 0
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事据点",
+            "history_position_desc": "河南尹下辖纯军事粮仓堡垒，黄河沿线军粮转运核心，非洛阳主城，非关隘港口",
+            "history_event": "河南尹下辖纯军事粮仓堡垒，黄河沿线军粮转运核心，非洛阳主城，非关隘港口"
+        },
+        {
+            "id": "fort_zhongmou",
+            "name": "中牟",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "司隶州",
+            "commandery": "河南尹",
+            "belong_city": "中牟",
+            "position": {
+                "x": 1500,
+                "z": -300
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 次级县",
+            "history_position_desc": "河南尹下辖非治所县，演义「捉放曹」名场面发生地，官渡西线前哨，非洛阳主城，非关隘港口",
+            "history_event": "河南尹下辖非治所县，演义「捉放曹」名场面发生地，官渡西线前哨，非洛阳主城，非关隘港口"
+        },
+        {
+            "id": "fort_huanyuan",
+            "name": "轘辕",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "司隶州",
+            "commandery": "河南尹",
+            "belong_city": "轘辕",
+            "position": {
+                "x": 2000,
+                "z": -1000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事据点",
+            "history_position_desc": "河南尹下辖山地隘口堡垒，洛阳南线防御节点，非洛阳主城，非关隘港口",
+            "history_event": "河南尹下辖山地隘口堡垒，洛阳南线防御节点，非洛阳主城，非关隘港口"
+        },
+        {
+            "id": "fort_dingtao",
+            "name": "定陶",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "兖州",
+            "commandery": "济阴郡",
+            "belong_city": "定陶",
+            "position": {
+                "x": 5000,
+                "z": -500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "济阴郡下辖非治所县，曹操起家核心据点，兖州争夺战主战场，非濮阳、陈留主城，非关隘港口",
+            "history_event": "济阴郡下辖非治所县，曹操起家核心据点，兖州争夺战主战场，非濮阳、陈留主城，非关隘港口"
+        },
+        {
+            "id": "fort_changyi",
+            "name": "昌邑",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "兖州",
+            "commandery": "山阳郡",
+            "belong_city": "昌邑",
+            "position": {
+                "x": 5500,
+                "z": -1000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "山阳郡下辖非治所县，兖州旧治所，黄巾之乱防御核心，非兖州主城，非关隘港口",
+            "history_event": "山阳郡下辖非治所县，兖州旧治所，黄巾之乱防御核心，非兖州主城，非关隘港口"
+        },
+        {
+            "id": "fort_jieqiao",
+            "name": "界桥",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "冀州",
+            "commandery": "巨鹿郡",
+            "belong_city": "界桥",
+            "position": {
+                "x": 2500,
+                "z": 2000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事据点",
+            "history_position_desc": "巨鹿郡下辖纯军事战场据点，袁绍公孙瓒界桥之战核心战场，非邺城、南皮主城，非关隘港口",
+            "history_event": "巨鹿郡下辖纯军事战场据点，袁绍公孙瓒界桥之战核心战场，非邺城、南皮主城，非关隘港口"
+        },
+        {
+            "id": "fort_zhending",
+            "name": "真定",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "冀州",
+            "commandery": "常山郡",
+            "belong_city": "真定",
+            "position": {
+                "x": 1000,
+                "z": 4000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "常山郡下辖非治所县，赵云故乡，太行山沿线防御节点，非冀州主城，非关隘港口",
+            "history_event": "常山郡下辖非治所县，赵云故乡，太行山沿线防御节点，非冀州主城，非关隘港口"
+        },
+        {
+            "id": "fort_juxian",
+            "name": "剧县",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "青州",
+            "commandery": "北海国",
+            "belong_city": "剧县",
+            "position": {
+                "x": 7000,
+                "z": 3000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 次级县",
+            "history_position_desc": "北海国下辖非治所县，演义「孔融救孔融」核心据点，青州东线防御核心，非临淄主城，非关隘港口",
+            "history_event": "北海国下辖非治所县，演义「孔融救孔融」核心据点，青州东线防御核心，非临淄主城，非关隘港口"
+        },
+        {
+            "id": "fort_jiangdu",
+            "name": "江都",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "徐州",
+            "commandery": "广陵郡",
+            "belong_city": "江都",
+            "position": {
+                "x": 10000,
+                "z": -500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "广陵郡下辖非治所县，长江北岸南北渡江要道，曹魏南下江东前置跳板，非下邳主城，非关隘港口",
+            "history_event": "广陵郡下辖非治所县，长江北岸南北渡江要道，曹魏南下江东前置跳板，非下邳主城，非关隘港口"
+        },
+        {
+            "id": "fort_tuyin",
+            "name": "土垠",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "幽州",
+            "commandery": "右北平郡",
+            "belong_city": "土垠",
+            "position": {
+                "x": 7000,
+                "z": 10000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "右北平郡下辖非治所县，曹操北征乌桓核心前哨，辽西走廊防御节点，非蓟城主城，非关隘港口",
+            "history_event": "右北平郡下辖非治所县，曹操北征乌桓核心前哨，辽西走廊防御节点，非蓟城主城，非关隘港口"
+        },
+        {
+            "id": "fort_gaoliu",
+            "name": "高柳",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "幽州",
+            "commandery": "代郡",
+            "belong_city": "高柳",
+            "position": {
+                "x": 0,
+                "z": 5000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "代郡下辖非治所县，抵御鲜卑的北线边关，桑干河沿线粮道枢纽，非幽州主城，非关隘港口",
+            "history_event": "代郡下辖非治所县，抵御鲜卑的北线边关，桑干河沿线粮道枢纽，非幽州主城，非关隘港口"
+        },
+        {
+            "id": "fort_changzi",
+            "name": "长子",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "并州",
+            "commandery": "上党郡",
+            "belong_city": "长子",
+            "position": {
+                "x": -1000,
+                "z": 4000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "上党郡下辖非治所县，壶关之战主战场，太行山沿线防御枢纽，非晋阳主城，非关隘港口",
+            "history_event": "上党郡下辖非治所县，壶关之战主战场，太行山沿线防御枢纽，非晋阳主城，非关隘港口"
+        },
+        {
+            "id": "fort_xicheng",
+            "name": "西城",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "凉州",
+            "commandery": "天水郡",
+            "belong_city": "西城",
+            "position": {
+                "x": -9500,
+                "z": 500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 次级县",
+            "history_position_desc": "天水郡下辖非治所县，演义「空城计退司马懿」名场面发生地，陇西防线前哨，非天水主城，非关隘港口",
+            "history_event": "天水郡下辖非治所县，演义「空城计退司马懿」名场面发生地，陇西防线前哨，非天水主城，非关隘港口"
+        },
+        {
+            "id": "fort_qiaoxian",
+            "name": "谯县",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "豫州",
+            "commandery": "沛国",
+            "belong_city": "谯县",
+            "position": {
+                "x": 6000,
+                "z": -1500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "沛国下辖非治所县，曹操故乡，曹魏谯郡征兵核心，非许昌主城，非关隘港口",
+            "history_event": "沛国下辖非治所县，曹操故乡，曹魏谯郡征兵核心，非许昌主城，非关隘港口"
+        },
+        {
+            "id": "fort_liyang",
+            "name": "黎阳",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "冀州",
+            "commandery": "魏郡",
+            "belong_city": "黎阳",
+            "position": {
+                "x": 3500,
+                "z": 2000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事据点",
+            "history_position_desc": "魏郡下辖纯军事堡垒，黄河北岸袁曹对峙前哨，非邺城主城，非关隘港口",
+            "history_event": "魏郡下辖纯军事堡垒，黄河北岸袁曹对峙前哨，非邺城主城，非关隘港口"
+        },
+        {
+            "id": "fort_yijing",
+            "name": "易京",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "幽州",
+            "commandery": "涿郡",
+            "belong_city": "易京",
+            "position": {
+                "x": 4000,
+                "z": 7000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事堡垒",
+            "history_position_desc": "涿郡下辖纯军事堡垒，公孙瓒易京楼屯兵据点，幽州南线防御核心，非蓟城主城，非关隘港口",
+            "history_event": "涿郡下辖纯军事堡垒，公孙瓒易京楼屯兵据点，幽州南线防御核心，非蓟城主城，非关隘港口"
+        },
+        {
+            "id": "fort_lieliucheng",
+            "name": "列柳城",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "凉州",
+            "commandery": "天水郡",
+            "belong_city": "列柳城",
+            "position": {
+                "x": -9200,
+                "z": -800
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事据点",
+            "history_position_desc": "天水郡下辖纯军事隘口堡垒，街亭侧翼防御节点，诸葛亮第一次北伐战场，非天水主城，非关隘港口",
+            "history_event": "天水郡下辖纯军事隘口堡垒，街亭侧翼防御节点，诸葛亮第一次北伐战场，非天水主城，非关隘港口"
+        },
+        {
+            "id": "fort_baibolei",
+            "name": "白波垒",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "司隶州",
+            "commandery": "河东郡",
+            "belong_city": "白波垒",
+            "position": {
+                "x": -4500,
+                "z": 1500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事堡垒",
+            "history_position_desc": "河东郡下辖纯军事堡垒，汉末白波军起义核心据点，黄河东岸防御节点，非长安主城，非关隘港口",
+            "history_event": "河东郡下辖纯军事堡垒，汉末白波军起义核心据点，黄河东岸防御节点，非长安主城，非关隘港口"
+        },
+        {
+            "id": "fort_cangting",
+            "name": "仓亭",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "兖州",
+            "commandery": "东郡",
+            "belong_city": "仓亭",
+            "position": {
+                "x": 5000,
+                "z": 1000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事据点",
+            "history_position_desc": "东郡下辖纯军事战场据点，曹操仓亭破袁绍主战场，非濮阳主城，非关隘港口",
+            "history_event": "东郡下辖纯军事战场据点，曹操仓亭破袁绍主战场，非濮阳主城，非关隘港口"
+        },
+        {
+            "id": "fort_pingqiu",
+            "name": "平丘",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "兖州",
+            "commandery": "陈留郡",
+            "belong_city": "平丘",
+            "position": {
+                "x": 4500,
+                "z": -800
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "陈留郡下辖非治所县，曹操与吕布兖州争夺战核心据点，非陈留主城，非关隘港口",
+            "history_event": "陈留郡下辖非治所县，曹操与吕布兖州争夺战核心据点，非陈留主城，非关隘港口"
+        },
+        {
+            "id": "fort_changban",
+            "name": "长坂",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "江夏郡",
+            "belong_city": "长坂",
+            "position": {
+                "x": 3000,
+                "z": -5000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 军事据点",
+            "history_position_desc": "江夏郡下辖纯军事战场据点，演义「赵云长坂坡七进七出、张飞喝断当阳桥」名场面发生地，非襄阳、江陵主城，非关隘港口",
+            "history_event": "江夏郡下辖纯军事战场据点，演义「赵云长坂坡七进七出、张飞喝断当阳桥」名场面发生地，非襄阳、江陵主城，非关隘港口"
+        },
+        {
+            "id": "fort_yidu",
+            "name": "宜都",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "宜都郡",
+            "belong_city": "宜都",
+            "position": {
+                "x": -1500,
+                "z": -7200
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "宜都郡下辖非治所县，夷陵之战陆逊防线核心节点，非夷陵主城，非关隘港口",
+            "history_event": "宜都郡下辖非治所县，夷陵之战陆逊防线核心节点，非夷陵主城，非关隘港口"
+        },
+        {
+            "id": "fort_linyuan",
+            "name": "临沅",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "武陵郡",
+            "belong_city": "临沅",
+            "position": {
+                "x": -1000,
+                "z": -8000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "武陵郡下辖非治所县，荆南西线防御核心，非武陵郡治主城，非关隘港口",
+            "history_event": "武陵郡下辖非治所县，荆南西线防御核心，非武陵郡治主城，非关隘港口"
+        },
+        {
+            "id": "fort_quanling",
+            "name": "泉陵",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "零陵郡",
+            "belong_city": "泉陵",
+            "position": {
+                "x": 0,
+                "z": -10000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 次级县",
+            "history_position_desc": "零陵郡下辖非治所县，演义「诸葛亮取零陵、邢道荣出战」名场面发生地，非零陵郡治主城，非关隘港口",
+            "history_event": "零陵郡下辖非治所县，演义「诸葛亮取零陵、邢道荣出战」名场面发生地，非零陵郡治主城，非关隘港口"
+        },
+        {
+            "id": "fort_chenxian",
+            "name": "郴县",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "桂阳郡",
+            "belong_city": "郴县",
+            "position": {
+                "x": 3000,
+                "z": -9500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 次级县",
+            "history_position_desc": "桂阳郡下辖非治所县，演义「赵云取桂阳、拒娶樊氏」名场面发生地，非桂阳郡治主城，非关隘港口",
+            "history_event": "桂阳郡下辖非治所县，演义「赵云取桂阳、拒娶樊氏」名场面发生地，非桂阳郡治主城，非关隘港口"
+        },
+        {
+            "id": "fort_luoxian",
+            "name": "罗县",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "长沙郡",
+            "belong_city": "罗县",
+            "position": {
+                "x": 3000,
+                "z": -8500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "长沙郡下辖非治所县，湘水划界后东吴荆州南线防御节点，非长沙主城，非关隘港口",
+            "history_event": "长沙郡下辖非治所县，湘水划界后东吴荆州南线防御节点，非长沙主城，非关隘港口"
+        },
+        {
+            "id": "fort_hanchang",
+            "name": "汉昌",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "长沙郡",
+            "belong_city": "汉昌",
+            "position": {
+                "x": 3500,
+                "z": -7500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "长沙郡下辖非治所县，鲁肃屯兵据点，吴蜀荆州对峙前线节点，非长沙主城，非关隘港口",
+            "history_event": "长沙郡下辖非治所县，鲁肃屯兵据点，吴蜀荆州对峙前线节点，非长沙主城，非关隘港口"
+        },
+        {
+            "id": "fort_wanxian",
+            "name": "皖县",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "庐江郡",
+            "belong_city": "皖县",
+            "position": {
+                "x": 8500,
+                "z": -3500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "庐江郡下辖非治所县，吕蒙智取皖城主战场，淮南屯田核心节点，非寿春、合肥主城，非关隘港口",
+            "history_event": "庐江郡下辖非治所县，吕蒙智取皖城主战场，淮南屯田核心节点，非寿春、合肥主城，非关隘港口"
+        },
+        {
+            "id": "fort_qiantang",
+            "name": "钱唐",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "吴郡",
+            "belong_city": "钱唐",
+            "position": {
+                "x": 13000,
+                "z": -4000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "吴郡下辖非治所县，江东士族核心据点，非吴郡主城，非关隘港口",
+            "history_event": "吴郡下辖非治所县，江东士族核心据点，非吴郡主城，非关隘港口"
+        },
+        {
+            "id": "fort_shanyin",
+            "name": "山阴",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "会稽郡",
+            "belong_city": "山阴",
+            "position": {
+                "x": 11000,
+                "z": -7000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "会稽郡下辖非治所县，贺齐平定山越核心节点，非会稽郡治主城，非关隘港口",
+            "history_event": "会稽郡下辖非治所县，贺齐平定山越核心节点，非会稽郡治主城，非关隘港口"
+        },
+        {
+            "id": "fort_shiyang",
+            "name": "石阳",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "江夏郡",
+            "belong_city": "石阳",
+            "position": {
+                "x": 4500,
+                "z": -6500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "江夏郡下辖非治所县，东吴长江防线中线节点，非江夏主城，非关隘港口",
+            "history_event": "江夏郡下辖非治所县，东吴长江防线中线节点，非江夏主城，非关隘港口"
+        },
+        {
+            "id": "fort_zhangan",
+            "name": "章安",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "临海郡",
+            "belong_city": "章安",
+            "position": {
+                "x": 14000,
+                "z": -7000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "临海郡下辖非治所县，东吴东南沿海海运枢纽，非临海郡治主城，非关隘港口",
+            "history_event": "临海郡下辖非治所县，东吴东南沿海海运枢纽，非临海郡治主城，非关隘港口"
+        },
+        {
+            "id": "fort_dingjunshan",
+            "name": "定军山",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "汉中郡",
+            "belong_city": "定军山",
+            "position": {
+                "x": -6500,
+                "z": -3000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 军事据点",
+            "history_position_desc": "汉中郡下辖纯军事战场据点，演义「黄忠定军山斩夏侯渊」名场面发生地，非南郑主城，非关隘港口",
+            "history_event": "汉中郡下辖纯军事战场据点，演义「黄忠定军山斩夏侯渊」名场面发生地，非南郑主城，非关隘港口"
+        },
+        {
+            "id": "fort_luofengpo",
+            "name": "落凤坡",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "广汉郡",
+            "belong_city": "落凤坡",
+            "position": {
+                "x": -7800,
+                "z": -5800
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义 + 正史 + 三国志 14 军事据点",
+            "history_position_desc": "广汉郡下辖纯军事隘口据点，演义「庞统殒命落凤坡」名场面发生地，非雒城、成都主城，非关隘港口",
+            "history_event": "广汉郡下辖纯军事隘口据点，演义「庞统殒命落凤坡」名场面发生地，非雒城、成都主城，非关隘港口"
+        },
+        {
+            "id": "fort_mianzhu",
+            "name": "绵竹",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "广汉郡",
+            "belong_city": "绵竹",
+            "position": {
+                "x": -8500,
+                "z": -6500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "广汉郡下辖非治所县，刘备入蜀绵竹之战、邓艾灭蜀绵竹之战主战场，非成都主城，非关隘港口",
+            "history_event": "广汉郡下辖非治所县，刘备入蜀绵竹之战、邓艾灭蜀绵竹之战主战场，非成都主城，非关隘港口"
+        },
+        {
+            "id": "fort_qixian",
+            "name": "郪县",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "广汉郡",
+            "belong_city": "郪县",
+            "position": {
+                "x": -8000,
+                "z": -6500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "广汉郡下辖非治所县，蜀中北线防御节点，非成都主城，非关隘港口",
+            "history_event": "广汉郡下辖非治所县，蜀中北线防御节点，非成都主城，非关隘港口"
+        },
+        {
+            "id": "fort_jiangyang",
+            "name": "江阳",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "江阳郡",
+            "belong_city": "江阳",
+            "position": {
+                "x": -6000,
+                "z": -7500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "江阳郡下辖非治所县，蜀中东线水运枢纽，非江州主城，非关隘港口",
+            "history_event": "江阳郡下辖非治所县，蜀中东线水运枢纽，非江州主城，非关隘港口"
+        },
+        {
+            "id": "fort_wuyang",
+            "name": "武阳",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "犍为郡",
+            "belong_city": "武阳",
+            "position": {
+                "x": -9000,
+                "z": -7500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "犍为郡下辖非治所县，成都南线防御节点，非成都主城，非关隘港口",
+            "history_event": "犍为郡下辖非治所县，成都南线防御节点，非成都主城，非关隘港口"
+        },
+        {
+            "id": "fort_yinpingdao",
+            "name": "阴平道",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "阴平郡",
+            "belong_city": "阴平道",
+            "position": {
+                "x": -9000,
+                "z": -4000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 军事据点",
+            "history_position_desc": "阴平郡下辖纯军事隘口据点，邓艾偷渡阴平主战场，非汉中主城，非关隘港口",
+            "history_event": "阴平郡下辖纯军事隘口据点，邓艾偷渡阴平主战场，非汉中主城，非关隘港口"
+        },
+        {
+            "id": "fort_zhuyai",
+            "name": "朱崖",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "交州",
+            "commandery": "合浦郡",
+            "belong_city": "朱崖",
+            "position": {
+                "x": 5000,
+                "z": -14000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "合浦郡下辖非治所县，海南岛沿线据点，非交州主城，非关隘港口",
+            "history_event": "合浦郡下辖非治所县，海南岛沿线据点，非交州主城，非关隘港口"
+        },
+        {
+            "id": "fort_guangxin",
+            "name": "广信",
+            "type": "fort",
+            "faction_id": "",
+            "city_id": "",
+            "state": "交州",
+            "commandery": "苍梧郡",
+            "belong_city": "广信",
+            "position": {
+                "x": 2000,
+                "z": -11000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_outpost_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/wubao.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 三国志 14 次级县",
+            "history_position_desc": "苍梧郡下辖非治所县，交州北线防御节点，非番禺主城，非关隘港口",
+            "history_event": "苍梧郡下辖非治所县，交州北线防御节点，非番禺主城，非关隘港口"
+        },
+        {
+            "id": "ferry_ruxukou",
+            "name": "濡须口",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "庐江郡",
+            "belong_city": "濡须",
+            "position": {
+                "x": 10000,
+                "z": 4000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "濡须水入长江口，东吴长江防线核心水陆要塞",
+            "history_event": "曹操四征东吴濡须口之战，演义中曹操多次折戟于此"
+        },
+        {
+            "id": "ferry_jingkou_gang",
+            "name": "京口港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "吴郡",
+            "belong_city": "京口",
+            "position": {
+                "x": 13000,
+                "z": 2000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江南岸，东吴都城建业外港，长江下游水军大本营",
+            "history_event": "孙权迁都京口，演义中周瑜在此练水军"
+        },
+        {
+            "id": "ferry_xiakou_gang",
+            "name": "夏口港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "江夏郡",
+            "belong_city": "夏口",
+            "position": {
+                "x": 4000,
+                "z": 6000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "汉水入长江口，荆襄水道枢纽，长江中游核心港口",
+            "history_event": "孙权三征黄祖，赤壁之战孙刘联军水军集结地"
+        },
+        {
+            "id": "ferry_jiangling_gang",
+            "name": "江陵港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "南郡",
+            "belong_city": "江陵",
+            "position": {
+                "x": 1000,
+                "z": 7000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江北岸，荆州治所江陵水上门户，荆州水军母港",
+            "history_event": "刘备借荆州，演义中吕蒙白衣渡江奇袭江陵"
+        },
+        {
+            "id": "ferry_guangling_gang",
+            "name": "广陵港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "徐州",
+            "commandery": "广陵郡",
+            "belong_city": "广陵",
+            "position": {
+                "x": 11000,
+                "z": 1000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江北岸，曹魏东线水军核心港口，南北渡江要道",
+            "history_event": "曹操、曹丕广陵征吴，演义中曹丕在此被徐盛火攻大败"
+        },
+        {
+            "id": "ferry_jiangzhou_gang",
+            "name": "江州港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "巴郡",
+            "belong_city": "江州",
+            "position": {
+                "x": -5000,
+                "z": 7000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江、嘉陵江交汇处，蜀汉长江上游水军大本营",
+            "history_event": "刘备入蜀江州攻坚战，张飞义释严颜"
+        },
+        {
+            "id": "ferry_panyu_gang",
+            "name": "番禺港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "交州",
+            "commandery": "南海郡",
+            "belong_city": "番禺",
+            "position": {
+                "x": 5000,
+                "z": 12000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "南海北岸，东吴岭南核心港口，海上丝绸之路起点",
+            "history_event": "东吴步骘平交州，岭南通商核心港口"
+        },
+        {
+            "id": "ferry_donglai_gang",
+            "name": "东莱港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "青州",
+            "commandery": "东莱郡",
+            "belong_city": "东莱",
+            "position": {
+                "x": 6000,
+                "z": -5000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "渤海南岸，曹魏北方核心港口，连通辽东的海上通道",
+            "history_event": "曹操北征乌桓海上补给港，演义中东吴与辽东公孙氏通商联络港"
+        },
+        {
+            "id": "ferry_baidi_cheng",
+            "name": "白帝城",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "巴东郡",
+            "belong_city": "永安",
+            "position": {
+                "x": -4000,
+                "z": 8000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江瞿塘峡西口，益州东部门户港口",
+            "history_event": "刘备夷陵战败退守白帝城，演义中白帝城托孤"
+        },
+        {
+            "id": "ferry_chaisang_gang",
+            "name": "柴桑港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "豫章郡",
+            "belong_city": "柴桑",
+            "position": {
+                "x": 6000,
+                "z": 6000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江南岸，东吴西线水军大本营，周瑜练水军核心基地",
+            "history_event": "赤壁之战东吴前线大本营，演义中诸葛亮舌战群儒、草船借箭均围绕此地"
+        },
+        {
+            "id": "ferry_baima_jin",
+            "name": "白马津",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "兖州",
+            "commandery": "东郡",
+            "belong_city": "白马",
+            "position": {
+                "x": 4000,
+                "z": -1000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "黄河南岸渡口，中原通往河北要道",
+            "history_event": "关羽白马坡斩颜良，演义中官渡之战核心渡口"
+        },
+        {
+            "id": "ferry_yanjin",
+            "name": "延津",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "兖州",
+            "commandery": "陈留郡",
+            "belong_city": "延津",
+            "position": {
+                "x": 3000,
+                "z": -1500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "黄河南岸渡口，官渡西线核心要道",
+            "history_event": "曹操延津斩文丑，演义中官渡之战西线主战场"
+        },
+        {
+            "id": "ferry_puban_jin",
+            "name": "蒲坂津",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "司隶州",
+            "commandery": "河东郡",
+            "belong_city": "蒲坂",
+            "position": {
+                "x": -5000,
+                "z": -1000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "黄河西岸渡口，关中通往河东要道",
+            "history_event": "曹操西征马超偷渡蒲坂津，演义中潼关之战核心绕后点"
+        },
+        {
+            "id": "ferry_fengling_du",
+            "name": "风陵渡",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "司隶州",
+            "commandery": "河东郡",
+            "belong_city": "风陵",
+            "position": {
+                "x": -4000,
+                "z": -500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "黄河渭河交汇处，关中、河东、河南三地枢纽",
+            "history_event": "潼关之战曹操核心补给港口"
+        },
+        {
+            "id": "ferry_chibi_jin",
+            "name": "赤壁津",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "江夏郡",
+            "belong_city": "赤壁",
+            "position": {
+                "x": 3000,
+                "z": 6500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江南岸渡口，赤壁之战核心战场",
+            "history_event": "赤壁之战主战场，演义中周瑜火攻曹军核心水域"
+        },
+        {
+            "id": "ferry_caishi_jin",
+            "name": "采石津",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "丹阳郡",
+            "belong_city": "采石",
+            "position": {
+                "x": 12000,
+                "z": 3000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江南岸渡口，建业西部门户，南北渡江要道",
+            "history_event": "孙策平江东采石矶登陆战，演义中西晋灭吴核心渡江点"
+        },
+        {
+            "id": "ferry_gongan_gang",
+            "name": "公安港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "南郡",
+            "belong_city": "公安",
+            "position": {
+                "x": 500,
+                "z": 7200
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江南岸，刘备荆州时期治所港口",
+            "history_event": "刘备屯兵公安，演义中刘备入蜀前的核心据点"
+        },
+        {
+            "id": "ferry_niuzhu_gang",
+            "name": "牛渚港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "丹阳郡",
+            "belong_city": "牛渚",
+            "position": {
+                "x": 11500,
+                "z": 3500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江南岸，建业西南门户，江东防御核心",
+            "history_event": "孙策平江东核心登陆点，演义中东吴长江防线中线枢纽"
+        },
+        {
+            "id": "ferry_wankou_gang",
+            "name": "皖口港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "庐江郡",
+            "belong_city": "皖口",
+            "position": {
+                "x": 8500,
+                "z": 4500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "皖水入长江口，东吴西线防线核心",
+            "history_event": "石亭之战东吴水军集结地，演义中吕蒙皖城破敌"
+        },
+        {
+            "id": "ferry_guandu_jin",
+            "name": "官渡津",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "兖州",
+            "commandery": "陈留郡",
+            "belong_city": "官渡",
+            "position": {
+                "x": 3500,
+                "z": -500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "官渡水入黄河口，官渡之战核心水道节点",
+            "history_event": "官渡之战曹操水军核心补给基地"
+        },
+        {
+            "id": "ferry_tajin_gang",
+            "name": "沓津港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "幽州",
+            "commandery": "辽东郡",
+            "belong_city": "沓津",
+            "position": {
+                "x": 8000,
+                "z": -8000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "辽东半岛南岸，公孙氏政权核心港口",
+            "history_event": "东吴与公孙氏通商核心港口"
+        },
+        {
+            "id": "ferry_hepu_gang",
+            "name": "合浦港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "交州",
+            "commandery": "合浦郡",
+            "belong_city": "合浦",
+            "position": {
+                "x": 3000,
+                "z": 11000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "北部湾北岸，交州北部门户港口",
+            "history_event": "东吴平定交趾叛乱核心补给港"
+        },
+        {
+            "id": "ferry_xuwen_gang",
+            "name": "徐闻港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "交州",
+            "commandery": "合浦郡",
+            "belong_city": "徐闻",
+            "position": {
+                "x": 4000,
+                "z": 13000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "南海北岸，东吴岭南最南端港口",
+            "history_event": "东吴出使南海诸国出发港"
+        },
+        {
+            "id": "ferry_hukou_gang",
+            "name": "湖口港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "豫章郡",
+            "belong_city": "湖口",
+            "position": {
+                "x": 5500,
+                "z": 7000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "鄱阳湖入长江口，东吴南线水运枢纽",
+            "history_event": "周瑜平定豫章核心据点"
+        },
+        {
+            "id": "ferry_qua_gang",
+            "name": "曲阿港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "吴郡",
+            "belong_city": "曲阿",
+            "position": {
+                "x": 13500,
+                "z": 3000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江南岸，江东士族核心港口",
+            "history_event": "孙策平江东曲阿之战，演义中太史慈大战小霸王之地"
+        },
+        {
+            "id": "ferry_zigui_gang",
+            "name": "秭归港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "南郡",
+            "belong_city": "秭归",
+            "position": {
+                "x": -3000,
+                "z": 7500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "长江西陵峡西口，益州通往荆州咽喉",
+            "history_event": "刘备夷陵之战前线大本营，演义中刘备东征核心补给港"
+        },
+        {
+            "id": "ferry_dengzhou_gang",
+            "name": "登州港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "青州",
+            "commandery": "东莱郡",
+            "belong_city": "登州",
+            "position": {
+                "x": 7000,
+                "z": -6000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "渤海东岸，曹魏北方最东端港口",
+            "history_event": "曹魏征辽东海上前哨港"
+        },
+        {
+            "id": "ferry_langya_gang",
+            "name": "琅琊港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "青州",
+            "commandery": "琅琊郡",
+            "belong_city": "琅琊",
+            "position": {
+                "x": 8000,
+                "z": -2000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "黄海西岸，青州核心沿海港口",
+            "history_event": "曹操青州水军训练基地"
+        },
+        {
+            "id": "ferry_juzhang_gang",
+            "name": "句章港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "会稽郡",
+            "belong_city": "句章",
+            "position": {
+                "x": 14000,
+                "z": 6000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "东海沿岸，东吴东南核心港口",
+            "history_event": "东吴远航夷洲（台湾）出发港"
+        },
+        {
+            "id": "ferry_houguan_gang",
+            "name": "侯官港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "建安郡",
+            "belong_city": "侯官",
+            "position": {
+                "x": 13000,
+                "z": 9000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "东海沿岸，东吴闽地核心港口",
+            "history_event": "东吴平定建安叛乱核心据点"
+        },
+        {
+            "id": "ferry_yongning_gang",
+            "name": "永宁港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "会稽郡",
+            "belong_city": "永宁",
+            "position": {
+                "x": 13500,
+                "z": 7500
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "东海沿岸，东吴浙南核心港口",
+            "history_event": "东吴平定东瓯核心据点"
+        },
+        {
+            "id": "ferry_shouchun_gang",
+            "name": "寿春港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "扬州",
+            "commandery": "淮南郡",
+            "belong_city": "寿春",
+            "position": {
+                "x": 8000,
+                "z": 2000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "淮河南岸，淮南水运枢纽",
+            "history_event": "袁术称帝寿春，演义中曹操征袁术核心战场"
+        },
+        {
+            "id": "ferry_hanjin_gang",
+            "name": "汉津港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "江夏郡",
+            "belong_city": "汉津",
+            "position": {
+                "x": 3500,
+                "z": 5800
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "汉水入长江口西侧，刘备南逃核心渡口",
+            "history_event": "长坂坡之战后刘备汉津逃生，演义中关羽在此接应刘备"
+        },
+        {
+            "id": "ferry_huarong_jin",
+            "name": "华容津",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "南郡",
+            "belong_city": "华容",
+            "position": {
+                "x": 2500,
+                "z": 6800
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "演义",
+            "history_position_desc": "长江北岸，华容道旁的渡口",
+            "history_event": "赤壁之战曹操败走华容道的必经渡口"
+        },
+        {
+            "id": "ferry_youjiangkou_gang",
+            "name": "油江口港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "荆州",
+            "commandery": "南郡",
+            "belong_city": "油江口",
+            "position": {
+                "x": 300,
+                "z": 7300
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史 + 演义",
+            "history_position_desc": "油水入长江口，刘备荆南核心据点",
+            "history_event": "刘备改油江口为公安，荆南防御核心"
+        },
+        {
+            "id": "ferry_quren_gang",
+            "name": "朐忍港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "益州",
+            "commandery": "巴东郡",
+            "belong_city": "朐忍",
+            "position": {
+                "x": -6000,
+                "z": 7800
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "长江上游北岸，益州东部门户港口",
+            "history_event": "刘备入蜀东线补给港"
+        },
+        {
+            "id": "ferry_yuyang_gang",
+            "name": "渔阳港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "幽州",
+            "commandery": "渔阳郡",
+            "belong_city": "渔阳",
+            "position": {
+                "x": 4000,
+                "z": -9000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "渤海西岸，幽州北线核心港口",
+            "history_event": "曹操北征乌桓海上补给港"
+        },
+        {
+            "id": "ferry_guangling_sheyang_gang",
+            "name": "广陵射阳港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "徐州",
+            "commandery": "广陵郡",
+            "belong_city": "射阳",
+            "position": {
+                "x": 10000,
+                "z": 0
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "淮河入海口，徐州东线港口",
+            "history_event": "陈登镇守广陵抵御孙策核心据点"
+        },
+        {
+            "id": "ferry_longbian_gang",
+            "name": "龙编港",
+            "type": "ferry",
+            "faction_id": "",
+            "city_id": "",
+            "state": "交州",
+            "commandery": "交趾郡",
+            "belong_city": "龙编",
+            "position": {
+                "x": 6000,
+                "z": 13000
+            },
+            "prefab_scene": "res://scenes/prefabs/fortress_ferry_instance.tscn",
+            "model_path": "res://素材/建模/建筑单位/jindu.glb",
+            "site_scale": 1,
+            "label_height": 18,
+            "collision_extents": {
+                "x": 14,
+                "y": 8,
+                "z": 14
+            },
+            "show_label": true,
+            "label_font_size": 20,
+            "label_pixel_size": 0.012,
+            "history_source": "正史",
+            "history_position_desc": "北部湾沿岸，交州南线核心港口",
+            "history_event": "士燮家族割据交趾核心港口"
+        }
+    ]
+}

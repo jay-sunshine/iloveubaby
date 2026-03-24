@@ -1,0 +1,158 @@
+﻿{
+  "default_weather_state": "rain",
+  "default_wind_dir": [1.0, 0.0],
+  "default_wind_strength": 0.0,
+  "labels": {
+    "sunny": "\u6674",
+    "cloudy": "\u9634",
+    "rain": "\u96e8",
+    "storm": "\u96f7\u96e8",
+    "windy": "\u98ce"
+  },
+  "rain_blocks_fire": true,
+  "rain_clears_burn": true,
+  "skyfire_castable_in_rain": true,
+  "rain_skyfire_damage_mul": 0.52,
+  "rain_skyfire_burn_dps_mul": 0.5,
+  "rain_skyfire_burn_duration_mul": 0.68,
+  "rain_fire_power_mul": 0.6,
+  "rain_fire_burn_dps_mul": 0.58,
+  "rain_fire_burn_duration_mul": 0.75,
+  "wind_spread": {
+    "enabled": true,
+    "radius": 11.0,
+    "cone_angle_deg": 72.0,
+    "interval_sec": 1.0,
+    "chance": 0.55,
+    "burn_duration_sec": 6.0,
+    "burn_dps": 4.0
+  },
+  "tactics": {
+    "strat_cheer": {
+      "will_cost": 10.0,
+      "spirit_cost": 10.0,
+      "cooldown_sec": 14.0,
+      "radius": 10.0,
+      "buff_duration_sec": 4.0,
+      "will_restore": 7.0,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_delay": {
+      "will_cost": 10.0,
+      "spirit_cost": 10.0,
+      "cooldown_sec": 13.0,
+      "cast_range": 48.0,
+      "radius": 8.0,
+      "damage": 28.0,
+      "slow_duration_sec": 2.6,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_borrow_wind": {
+      "will_cost": 10.0,
+      "spirit_cost": 10.0,
+      "cooldown_sec": 18.0,
+      "mode": "set",
+      "to_state": "windy",
+      "wind_strength": 0.9,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_fire_attack": {
+      "will_cost": 12.0,
+      "spirit_cost": 12.0,
+      "cooldown_sec": 12.0,
+      "cast_range": 50.0,
+      "radius": 8.0,
+      "burn_duration_sec": 6.0,
+      "burn_dps": 5.2,
+      "caster_blocked_terrains": ["water"],
+      "target_blocked_terrains": ["water"],
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_sow_discord": {
+      "will_cost": 12.0,
+      "spirit_cost": 12.0,
+      "cooldown_sec": 14.0,
+      "cast_range": 50.0,
+      "radius": 8.4,
+      "confusion_duration_sec": 2.8,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_weather_change": {
+      "will_cost": 15.0,
+      "spirit_cost": 15.0,
+      "cooldown_sec": 18.0,
+      "mode": "toggle_sun_rain",
+      "sunny_state": "sunny",
+      "rain_state": "rain",
+      "wind_strength": 0.0,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_chain": {
+      "will_cost": 15.0,
+      "spirit_cost": 15.0,
+      "cooldown_sec": 16.0,
+      "cast_range": 54.0,
+      "radius": 8.8,
+      "damage": 50.0,
+      "slow_duration_sec": 3.2,
+      "center_paralyze_duration_sec": 0.7,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_thunder": {
+      "will_cost": 15.0,
+      "spirit_cost": 15.0,
+      "cooldown_sec": 15.0,
+      "cast_range": 56.0,
+      "radius": 9.0,
+      "damage": 118.0,
+      "paralyze_duration_sec": 0.35,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_trap": {
+      "will_cost": 15.0,
+      "spirit_cost": 15.0,
+      "cooldown_sec": 14.0,
+      "cast_range": 50.0,
+      "radius": 9.2,
+      "damage": 36.0,
+      "slow_duration_sec": 3.8,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_skyfire": {
+      "will_cost": 20.0,
+      "spirit_cost": 20.0,
+      "cooldown_sec": 20.0,
+      "cast_range": 58.0,
+      "radius": 10.0,
+      "damage": 25.0,
+      "burn_duration_sec": 9.0,
+      "burn_dps": 7.5,
+      "caster_blocked_terrains": ["water"],
+      "target_blocked_terrains": ["water"],
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_dragon_bind": {
+      "will_cost": 20.0,
+      "spirit_cost": 20.0,
+      "cooldown_sec": 18.0,
+      "cast_range": 54.0,
+      "radius": 9.5,
+      "damage": 70.0,
+      "slow_duration_sec": 4.2,
+      "paralyze_duration_sec": 1.0,
+      "taunt_duration_sec": 2.4,
+      "caster_allowed_roles": ["strategist"]
+    },
+    "strat_thunder_lock": {
+      "will_cost": 20.0,
+      "spirit_cost": 20.0,
+      "cooldown_sec": 18.0,
+      "cast_range": 62.0,
+      "radius": 10.0,
+      "damage": 155.0,
+      "paralyze_duration_sec": 1.0,
+      "slow_duration_sec": 1.2,
+      "caster_allowed_roles": ["strategist"]
+    }
+  }
+}

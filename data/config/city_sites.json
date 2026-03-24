@@ -1,0 +1,81 @@
+﻿{
+  "version": 1,
+  "source": "world_state.building_units",
+  "coordinate_rule": "Godot 3D: X+ east, X- west, Z+ north, Z- south",
+  "chunk_size": 3000,
+  "active_neighbor_radius": 1,
+  "sites": [
+    {
+      "id": "luoyang",
+      "name": "洛阳",
+      "type": "city",
+      "faction_id": "wei",
+      "city_id": "luoyang",
+      "scale": "large",
+      "position": {
+        "x": -420,
+        "z": 130
+      },
+      "prefab_scene": "res://scenes/prefabs/city_site_instance.tscn",
+      "model_path": "res://素材/建模/建筑单位/luoyang.glb",
+      "site_scale": 26,
+      "show_label": true,
+      "label_height": 26,
+      "label_font_size": 26,
+      "label_pixel_size": 0.012,
+      "collision_extents": {
+        "x": 20,
+        "y": 10,
+        "z": 20
+      }
+    },
+    {
+      "id": "xuchang",
+      "name": "许昌",
+      "type": "city",
+      "faction_id": "wei",
+      "city_id": "xuchang",
+      "scale": "medium",
+      "position": {
+        "x": -280,
+        "z": 40
+      },
+      "prefab_scene": "res://scenes/prefabs/city_site_instance.tscn",
+      "model_path": "res://素材/建模/建筑单位/chengchi.glb",
+      "site_scale": 22,
+      "show_label": true,
+      "label_height": 22,
+      "label_font_size": 22,
+      "label_pixel_size": 0.012,
+      "collision_extents": {
+        "x": 18,
+        "y": 9,
+        "z": 18
+      }
+    },
+    {
+      "id": "chengdu",
+      "name": "成都",
+      "type": "city",
+      "faction_id": "shu",
+      "city_id": "chengdu",
+      "scale": "medium",
+      "position": {
+        "x": 340,
+        "z": -190
+      },
+      "prefab_scene": "res://scenes/prefabs/city_site_instance.tscn",
+      "model_path": "res://素材/建模/建筑单位/chengchi.glb",
+      "site_scale": 22,
+      "show_label": true,
+      "label_height": 22,
+      "label_font_size": 22,
+      "label_pixel_size": 0.012,
+      "collision_extents": {
+        "x": 18,
+        "y": 9,
+        "z": 18
+      }
+    }
+  ]
+}

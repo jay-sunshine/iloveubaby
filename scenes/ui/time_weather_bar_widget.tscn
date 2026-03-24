@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dgyodvairchee"]
+
+[ext_resource type="Script" uid="uid://cc8fnhu6t8qva" path="res://scripts/presentation/time_weather_bar_widget.gd" id="1_twbar"]
+[ext_resource type="Texture2D" uid="uid://c26cge74jukhw" path="res://素材/ui/dreamina_7609992228173352201_1771839419291-removebg-preview (1).png" id="2_bg"]
+
+[node name="TimeWeatherBarWidget" type="Control" unique_id=1102994482]
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 200.0
+mouse_filter = 2
+script = ExtResource("1_twbar")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1903292842]
+texture_filter = 1
+layout_mode = 0
+offset_left = -5.0
+offset_top = -47.0
+offset_right = 245.0
+offset_bottom = 153.0
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+
+[node name="TopLabel" type="Label" parent="." unique_id=407019419]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 33.0
+offset_right = 261.0
+offset_bottom = 93.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomLabel" type="Label" parent="." unique_id=1387693562]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 30.0
+offset_right = 256.0
+offset_bottom = 90.0
+horizontal_alignment = 1
+vertical_alignment = 1

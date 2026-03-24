@@ -1,0 +1,70 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://glu7b0mfxaqv" path="res://绱犳潗/brackeys_vfx_bundle/particles/alpha/smoke_07_a.png" id="1_mist"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mist_a"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.93, 0.95, 0.98, 0.12)
+albedo_texture = ExtResource("1_mist")
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_mist_a"]
+material = SubResource("StandardMaterial3D_mist_a")
+size = Vector2(1150, 420)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mist_b"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.93, 0.95, 0.98, 0.16)
+albedo_texture = ExtResource("1_mist")
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_mist_b"]
+material = SubResource("StandardMaterial3D_mist_b")
+size = Vector2(900, 320)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mist_c"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.93, 0.95, 0.98, 0.1)
+albedo_texture = ExtResource("1_mist")
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_mist_c"]
+material = SubResource("StandardMaterial3D_mist_c")
+size = Vector2(1320, 460)
+
+[node name="MountainMist" type="Node3D"]
+
+[node name="MistCardA" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_mist_a")
+
+[node name="MistCardB" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9396926, 0, -0.34202015, 0, 1, 0, 0.34202015, 0, 0.9396926, 180, 110, 90)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_mist_b")
+
+[node name="MistCardC" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, -140, 60, -70)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_mist_c")

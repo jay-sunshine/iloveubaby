@@ -1,0 +1,1299 @@
+[gd_scene format=3 uid="uid://rr6mat471sav"]
+
+[ext_resource type="Script" uid="uid://co0e63w8pboet" path="res://scripts/presentation/china_terrain_scene.gd" id="1_vvnmj"]
+[ext_resource type="Script" uid="uid://b6okmjl0cnemw" path="res://scripts/presentation/map_camera_controller.gd" id="2_x8ej6"]
+[ext_resource type="Texture2D" uid="uid://dh4g34a54moll" path="res://素材/nature/textures/grass-02-alb.png" id="3_sfteu"]
+[ext_resource type="Texture2D" uid="uid://cwj7r3nivojxy" path="res://素材/nature/textures/grass-02-nrm.png" id="4_lknko"]
+[ext_resource type="Texture2D" uid="uid://dkttoapg125x5" path="res://素材/nature/textures/rock-alb.png" id="5_d00db"]
+[ext_resource type="Texture2D" uid="uid://ccbuw5ev72lhy" path="res://素材/nature/textures/rock-norm.png" id="6_myna3"]
+[ext_resource type="Script" uid="uid://bp53cukn0rght" path="res://scripts/presentation/china_political_mask_overlay.gd" id="7_b8g42"]
+[ext_resource type="Script" uid="uid://bn6rmg6o34xq3" path="res://scripts/presentation/china_city_overlay.gd" id="8_city"]
+[ext_resource type="Shader" uid="uid://y3dh6he3d032" path="res://scripts/presentation/political_mask_overlay.gdshader" id="8_jfqg7"]
+[ext_resource type="Texture2D" uid="uid://d1pkx3k4nx20s" path="res://data/terrain/china_30km/political/zhou_border_mask.png" id="9_5l0tr"]
+[ext_resource type="PackedScene" uid="uid://dcfce18mkmqwr" path="res://scenes/prefabs/china_city_instance.tscn" id="9_lknko"]
+[ext_resource type="Texture2D" uid="uid://c0jtddul0gc1b" path="res://data/terrain/china_30km/political/zhou_id_mask.png" id="10_ag3ks"]
+[ext_resource type="Script" uid="uid://uikjrxmt1o5l" path="res://scripts/presentation/strategic_site_manager.gd" id="10_sites"]
+[ext_resource type="Texture2D" uid="uid://cfnddtbavc0l4" path="res://data/terrain/china_30km/political/zhou_label_overlay.png" id="11_f76dj"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/fortress_pass_instance.tscn" id="11_lql8n"]
+[ext_resource type="Texture2D" path="res://素材/textures/coast_sand_rocks_02_packed_albedo_height.png" id="18_soila"]
+[ext_resource type="Texture2D" path="res://素材/textures/coast_sand_rocks_02_packed_normal_roughness.png" id="19_soiln"]
+[ext_resource type="Texture2D" path="res://素材/textures/snow_02_packed_albedo_height.png" id="20_snowa"]
+[ext_resource type="Texture2D" path="res://素材/textures/snow_02_packed_normal_roughness.png" id="21_snown"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/fortress_outpost_instance.tscn" id="14_jqesg"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/fortress_ferry_instance.tscn" id="16_33bu5"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/japanese_tree_cluster_luoyang.tscn" id="17_jptree"]
+
+[sub_resource type="Environment" id="Environment_copjr"]
+background_mode = 1
+background_color = Color(0.56, 0.58, 0.62, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.84, 0.86, 0.9, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 1.4
+
+[sub_resource type="Gradient" id="Gradient_hg1xx"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ip5hr"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o7jpb"]
+noise = SubResource("FastNoiseLite_ip5hr")
+color_ramp = SubResource("Gradient_hg1xx")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_jbihq"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": 0.56,
+&"depth_blur": null,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": null,
+&"macro_variation1": Color(0.97, 0.99, 0.96, 1),
+&"macro_variation2": Color(1.01, 1.01, 1, 1),
+&"macro_variation_slope": 0.05,
+&"mipmap_bias": null,
+&"noise1_angle": 0.62,
+&"noise1_offset": Vector2(0.37, 0.61),
+&"noise1_scale": 0.0011,
+&"noise2_scale": 0.0036,
+&"noise_texture": SubResource("NoiseTexture2D_o7jpb"),
+&"projection_threshold": 0.58
+}
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qehqp"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_jqesg"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_qehqp")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_cvcbq"]
+name = "Grass"
+albedo_texture = ExtResource("3_sfteu")
+normal_texture = ExtResource("4_lknko")
+normal_depth = 0.045
+ao_strength = 1.0
+roughness = 0.975
+uv_scale = 0.016
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_33bu5"]
+name = "Soil"
+id = 1
+albedo_texture = ExtResource("18_soila")
+normal_texture = ExtResource("19_soiln")
+normal_depth = 0.1
+ao_strength = 1.0
+roughness = 0.95
+uv_scale = 0.038
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_rock"]
+name = "Rock"
+id = 2
+albedo_texture = ExtResource("5_d00db")
+normal_texture = ExtResource("6_myna3")
+normal_depth = 0.075
+ao_strength = 1.0
+roughness = 0.97
+uv_scale = 0.038
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_snow"]
+name = "Snow"
+id = 3
+albedo_texture = ExtResource("20_snowa")
+normal_texture = ExtResource("21_snown")
+normal_depth = 0.08
+ao_strength = 1.0
+roughness = 0.98
+uv_scale = 0.088
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_d7pj1"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_jqesg")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_cvcbq"), SubResource("Terrain3DTextureAsset_33bu5"), SubResource("Terrain3DTextureAsset_rock"), SubResource("Terrain3DTextureAsset_snow")])
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6unvp"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.16, 0.34, 0.46, 0.54)
+metallic = 0.02
+roughness = 0.08
+rim_enabled = true
+rim = 0.18
+rim_tint = 0.65
+clearcoat_enabled = true
+clearcoat = 0.45
+clearcoat_roughness = 0.12
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mrc4n"]
+size = Vector2(42000, 42000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pilfu"]
+render_priority = 0
+shader = ExtResource("8_jfqg7")
+shader_parameter/id_mask = ExtResource("10_ag3ks")
+shader_parameter/border_mask = ExtResource("9_5l0tr")
+shader_parameter/label_mask = ExtResource("11_f76dj")
+shader_parameter/region_color_01 = Color(0.91, 0.89, 0.58, 0.92)
+shader_parameter/region_color_02 = Color(0.62, 0.88, 0.67, 0.92)
+shader_parameter/region_color_03 = Color(0.93, 0.82, 0.54, 0.92)
+shader_parameter/region_color_04 = Color(0.91, 0.72, 0.8, 0.92)
+shader_parameter/region_color_05 = Color(0.73, 0.9, 0.67, 0.92)
+shader_parameter/region_color_06 = Color(0.95, 0.9, 0.67, 0.92)
+shader_parameter/region_color_07 = Color(0.86, 0.69, 0.84, 0.92)
+shader_parameter/region_color_08 = Color(0.95, 0.91, 0.73, 0.92)
+shader_parameter/region_color_09 = Color(0.92, 0.81, 0.56, 0.92)
+shader_parameter/region_color_10 = Color(0.72, 0.92, 0.69, 0.92)
+shader_parameter/region_color_11 = Color(0.68, 0.88, 0.62, 0.92)
+shader_parameter/region_color_12 = Color(0.91, 0.7, 0.79, 0.92)
+shader_parameter/region_color_13 = Color(0.92, 0.79, 0.53, 0.92)
+shader_parameter/border_color = Color(0.27, 0.12, 0.06, 1)
+shader_parameter/label_color = Color(0.12, 0.07, 0.03, 1)
+shader_parameter/overlay_opacity = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6m8lx"]
+size = Vector2(30000, 30000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4lt08"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_marker"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(1, 0.78, 0.22, 0.24)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_marker"]
+top_radius = 13.3
+bottom_radius = 13.3
+height = 0.35
+radial_segments = 24
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_of2eg"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7dc5"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bfsl"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra2je"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.7, 0.9, 1, 0.22)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qqvtx"]
+top_radius = 13.3
+bottom_radius = 13.3
+height = 0.35
+radial_segments = 24
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00ivf"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lxxj"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffhdf"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vadlg"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehru8"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_546ge"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_smeif"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70sqx"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hhl1k"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tjdit"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6c7ik"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dex6f"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ik1ri"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grvjq"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.45, 0.82, 1, 0.22)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iptbf"]
+top_radius = 13.3
+bottom_radius = 13.3
+height = 0.35
+radial_segments = 24
+rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ty7nt"]
+size = Vector3(28, 16, 28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixdyg"]
+size = Vector3(28, 16, 28)
+
+[node name="ChinaTerrain30km" type="Node3D" unique_id=2114605478]
+script = ExtResource("1_vvnmj")
+
+[node name="WorldEnv" type="WorldEnvironment" parent="." unique_id=1776032175]
+environment = SubResource("Environment_copjr")
+
+[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=686303904]
+transform = Transform3D(0.7880108, -0.4575257, 0.41195792, 0, 0.66913056, 0.74314487, -0.6156615, -0.58560616, 0.5272821, 0, 0, 0)
+light_energy = 1.35
+light_indirect_energy = 0.25
+
+[node name="EditorCamera" type="Camera3D" parent="." unique_id=1304346151]
+transform = Transform3D(1, 0, 0, 0, 0.52991927, 0.8480481, 0, -0.8480481, 0.52991927, 0, 4200, 3024)
+current = true
+fov = 58.0
+far = 120000.0
+script = ExtResource("2_x8ej6")
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=2034616067]
+data_directory = "res://data/terrain/china_30km/terrain_data"
+material = SubResource("Terrain3DMaterial_jbihq")
+assets = SubResource("Terrain3DAssets_d7pj1")
+save_16_bit = true
+vertex_spacing = 7.3260074
+free_editor_textures = false
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Labels2" type="Node3D" parent="Terrain3D" unique_id=903703872]
+
+[node name="MMI2" type="Node3D" parent="Terrain3D" unique_id=1585612133]
+
+[node name="Labels3" type="Node3D" parent="Terrain3D" unique_id=1115020383]
+
+[node name="MMI3" type="Node3D" parent="Terrain3D" unique_id=52561359]
+
+[node name="SeaWater" type="MeshInstance3D" parent="." unique_id=6508570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.864502, -0.2869873, -0.94421387)
+material_override = SubResource("StandardMaterial3D_6unvp")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_mrc4n")
+
+[node name="JapaneseTreeClusterLuoyang" parent="." unique_id=1688202401 instance=ExtResource("17_jptree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6630.0728, 61.270218, 2548.638)
+
+[node name="PoliticalOverview" type="Node3D" parent="." unique_id=25663953]
+visible = false
+script = ExtResource("7_b8g42")
+
+[node name="PoliticalMaskPlane" type="MeshInstance3D" parent="PoliticalOverview" unique_id=1880334905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = SubResource("ShaderMaterial_pilfu")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_6m8lx")
+
+[node name="CityOverlay" type="Node3D" parent="." unique_id=1059719638]
+script = ExtResource("8_city")
+world_offset_x = 3800.0
+world_offset_z = 6000.0
+major_city_names = PackedStringArray("洛阳", "长安", "成都", "建业", "许昌", "邺", "襄阳")
+
+[node name="CityInstances" type="Node3D" parent="CityOverlay" unique_id=567557953]
+
+[node name="City_洛阳" parent="CityOverlay/CityInstances" unique_id=24266302 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6620.251, 23.079466, 2297.519)
+metadata/city_name = "洛阳"
+metadata/state = "司隶"
+
+[node name="City_长安" parent="CityOverlay/CityInstances" unique_id=2007529848 instance=ExtResource("9_lknko")]
+transform = Transform3D(0.72055113, 0, -0.6934018, 0, 1, 0, 0.6934018, 0, 0.72055113, 2667.8323, 66.40552, 1924.2477)
+metadata/city_name = "长安"
+metadata/state = "司隶"
+
+[node name="City_弘农" parent="CityOverlay/CityInstances" unique_id=205418600 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4571.639, 96.345116, 2245.164)
+metadata/city_name = "弘农"
+metadata/state = "司隶"
+
+[node name="City_襄平" parent="CityOverlay/CityInstances" unique_id=1358101310 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20281.166, 0, -5014)
+metadata/city_name = "襄平"
+metadata/state = "幽州"
+
+[node name="City_北平" parent="CityOverlay/CityInstances" unique_id=643226328 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12693, 5.9816895, -3675)
+metadata/city_name = "北平"
+metadata/state = "幽州"
+
+[node name="City_蓟" parent="CityOverlay/CityInstances" unique_id=622677539 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11664, 5.9816895, -3557)
+metadata/city_name = "蓟"
+metadata/state = "幽州"
+
+[node name="City_邺" parent="CityOverlay/CityInstances" unique_id=462758040 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9554, 20.88055, 311)
+metadata/city_name = "邺"
+metadata/state = "冀州"
+
+[node name="City_南皮" parent="CityOverlay/CityInstances" unique_id=1442682284 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12039, 5.9816895, -1554)
+metadata/city_name = "南皮"
+metadata/state = "冀州"
+
+[node name="City_平原" parent="CityOverlay/CityInstances" unique_id=2015082028 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11729, -290.85773, -589)
+metadata/city_name = "平原"
+metadata/state = "冀州"
+
+[node name="City_晋阳" parent="CityOverlay/CityInstances" unique_id=1625600894 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7614, 219.96149, -1361)
+metadata/city_name = "晋阳"
+metadata/state = "并州"
+
+[node name="City_北海" parent="CityOverlay/CityInstances" unique_id=80131761 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14654, 5.9816895, -129)
+metadata/city_name = "北海"
+metadata/state = "青州"
+
+[node name="City_临淄" parent="CityOverlay/CityInstances" unique_id=1190061467 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13775, 13.453125, -247)
+metadata/city_name = "临淄"
+metadata/state = "青州"
+
+[node name="City_陈留" parent="CityOverlay/CityInstances" unique_id=1330115693 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9575, 22.512032, 2036)
+metadata/city_name = "陈留"
+metadata/state = "兖州"
+
+[node name="City_濮阳" parent="CityOverlay/CityInstances" unique_id=1539519996 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10261, 20.875, 943)
+metadata/city_name = "濮阳"
+metadata/state = "兖州"
+
+[node name="City_许昌" parent="CityOverlay/CityInstances" unique_id=962115651 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8964, 22.5, 2689)
+metadata/city_name = "许昌"
+metadata/state = "豫州"
+
+[node name="City_汝南" parent="CityOverlay/CityInstances" unique_id=294248073 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9564, 20.875, 3857)
+metadata/city_name = "汝南"
+metadata/state = "豫州"
+
+[node name="City_谯" parent="CityOverlay/CityInstances" unique_id=467676201 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11064, 20.875, 2946)
+metadata/city_name = "谯"
+metadata/state = "豫州"
+
+[node name="City_宛" parent="CityOverlay/CityInstances" unique_id=2077681797 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7593, 21.3527, 3846)
+metadata/city_name = "宛"
+metadata/state = "豫州"
+
+[node name="City_下邳" parent="CityOverlay/CityInstances" unique_id=672227454 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13390, 20.875, 2443)
+metadata/city_name = "下邳"
+metadata/state = "徐州"
+
+[node name="City_小沛" parent="CityOverlay/CityInstances" unique_id=824106113 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12286, 22.286915, 1993)
+metadata/city_name = "小沛"
+metadata/state = "徐州"
+
+[node name="City_广陵" parent="CityOverlay/CityInstances" unique_id=2065800004 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14996, -293.99557, 4479)
+metadata/city_name = "广陵"
+metadata/state = "徐州"
+
+[node name="City_寿春" parent="CityOverlay/CityInstances" unique_id=749038570 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12136, 13.453125, 4318)
+metadata/city_name = "寿春"
+metadata/state = "扬州"
+
+[node name="City_庐江" parent="CityOverlay/CityInstances" unique_id=941460497 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12650, 20.875, 5732)
+metadata/city_name = "庐江"
+metadata/state = "扬州"
+
+[node name="City_建业" parent="CityOverlay/CityInstances" unique_id=2102004786 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14279, 6, 4875)
+metadata/city_name = "建业"
+metadata/state = "扬州"
+
+[node name="City_吴" parent="CityOverlay/CityInstances" unique_id=1538964515 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16207, 6, 5657)
+metadata/city_name = "吴"
+metadata/state = "扬州"
+
+[node name="City_会稽" parent="CityOverlay/CityInstances" unique_id=1787702490 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16218, -596.3293, 7071)
+metadata/city_name = "会稽"
+metadata/state = "扬州"
+
+[node name="City_柴桑" parent="CityOverlay/CityInstances" unique_id=692977813 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11268, 40.20863, 7393)
+metadata/city_name = "柴桑"
+metadata/state = "扬州"
+
+[node name="City_建安" parent="CityOverlay/CityInstances" unique_id=927392657 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14836, 26.59473, 11271)
+metadata/city_name = "建安"
+metadata/state = "扬州"
+
+[node name="City_襄阳" parent="CityOverlay/CityInstances" unique_id=2035870210 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7164, 21.428963, 4907)
+metadata/city_name = "襄阳"
+metadata/state = "荆州"
+
+[node name="City_新野" parent="CityOverlay/CityInstances" unique_id=31220969 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7143, 24.042822, 4339)
+metadata/city_name = "新野"
+metadata/state = "荆州"
+
+[node name="City_江陵" parent="CityOverlay/CityInstances" unique_id=1467618020 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7239, 38.14944, 6696)
+metadata/city_name = "江陵"
+metadata/state = "荆州"
+
+[node name="City_江夏" parent="CityOverlay/CityInstances" unique_id=1133348247 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9511, 20.926788, 6482)
+metadata/city_name = "江夏"
+metadata/state = "荆州"
+
+[node name="City_上庸" parent="CityOverlay/CityInstances" unique_id=330913576 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4925, 50.313244, 4618)
+metadata/city_name = "上庸"
+metadata/state = "荆州"
+
+[node name="City_武陵" parent="CityOverlay/CityInstances" unique_id=2090647413 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6682, 13.453125, 8089)
+metadata/city_name = "武陵"
+metadata/state = "荆州"
+
+[node name="City_长沙" parent="CityOverlay/CityInstances" unique_id=1666018700 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8086, 18.641605, 8979)
+metadata/city_name = "长沙"
+metadata/state = "荆州"
+
+[node name="City_零陵" parent="CityOverlay/CityInstances" unique_id=335892342 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6596, 22.3002, 10896)
+metadata/city_name = "零陵"
+metadata/state = "荆州"
+
+[node name="City_桂阳" parent="CityOverlay/CityInstances" unique_id=2128211908 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8107, 53.787228, 11593)
+metadata/city_name = "桂阳"
+metadata/state = "荆州"
+
+[node name="City_汉中" parent="CityOverlay/CityInstances" unique_id=742434644 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1689, 117.64031, 3771)
+metadata/city_name = "汉中"
+metadata/state = "益州"
+
+[node name="City_梓潼" parent="CityOverlay/CityInstances" unique_id=878419688 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -314, 84.78672, 5314)
+metadata/city_name = "梓潼"
+metadata/state = "益州"
+
+[node name="City_成都" parent="CityOverlay/CityInstances" unique_id=1365044060 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1488, 55.70812, 6364)
+metadata/city_name = "成都"
+metadata/state = "益州"
+
+[node name="City_永安" parent="CityOverlay/CityInstances" unique_id=558145658 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4411, 363.9361, 5957)
+metadata/city_name = "永安"
+metadata/state = "益州"
+
+[node name="City_江州" parent="CityOverlay/CityInstances" unique_id=227992648 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1186, -118.844154, 7543)
+metadata/city_name = "江州"
+metadata/state = "益州"
+
+[node name="City_建宁" parent="CityOverlay/CityInstances" unique_id=2119906934 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2929, 437.8007, 11893)
+metadata/city_name = "建宁"
+metadata/state = "益州"
+
+[node name="City_云南" parent="CityOverlay/CityInstances" unique_id=830304071 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5575, 764.02875, 12375)
+metadata/city_name = "云南"
+metadata/state = "益州"
+
+[node name="City_武威" parent="CityOverlay/CityInstances" unique_id=1092461020 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3014, 539.41187, -1425)
+metadata/city_name = "武威"
+metadata/state = "凉州"
+
+[node name="City_天水" parent="CityOverlay/CityInstances" unique_id=149525304 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286, 593.6365, 2164)
+metadata/city_name = "天水"
+metadata/state = "凉州"
+
+[node name="City_安定" parent="CityOverlay/CityInstances" unique_id=841169956 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1282, 360.66574, 1157)
+metadata/city_name = "安定"
+metadata/state = "凉州"
+
+[node name="City_南海" parent="CityOverlay/CityInstances" unique_id=1581779550 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8375, 35.776726, 14432)
+metadata/city_name = "南海"
+metadata/state = "交州"
+
+[node name="City_交趾" parent="CityOverlay/CityInstances" unique_id=1741049073 instance=ExtResource("9_lknko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 425, 58.84529, 16682)
+metadata/city_name = "交趾"
+metadata/state = "交州"
+
+[node name="StrategicSites" type="Node3D" parent="." unique_id=1019890679]
+script = ExtResource("10_sites")
+terrain_path = NodePath("../Terrain3D")
+anchor_path = NodePath("../EditorCamera")
+height_offset = 6.0
+max_spawn_per_tick = 4000
+normalize_non_city_visuals = true
+non_city_label_height = 52.0
+
+[node name="SiteInstances" type="Node3D" parent="StrategicSites" unique_id=958913952]
+
+[node name="Site_pass_hangu" parent="StrategicSites/SiteInstances" unique_id=62434701 instance=ExtResource("11_lql8n")]
+transform = Transform3D(0.47749612, 0, -0.87863386, 0, 1, 0, 0.87863386, 0, 0.47749612, 5525.513, 82.65759, 2615.792)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "虎牢关"
+state_name = "司隶州"
+faction_id = "shu"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "pass_hangu"
+metadata/building_type = "pass"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "虎牢关"
+metadata/state_name = "司隶州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_pass_hangu" unique_id=897743558]
+shape = SubResource("BoxShape3D_4lt08")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_pass_hangu" unique_id=1326598325]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "pass_hangu"
+metadata/building_type = "pass"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_pass_hangu" unique_id=2098240742]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_pass_hangu" unique_id=1915589849]
+visible = false
+material_override = SubResource("StandardMaterial3D_marker")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_marker")
+
+[node name="Site_pass_tongguan" parent="StrategicSites/SiteInstances" unique_id=67646398 instance=ExtResource("11_lql8n")]
+transform = Transform3D(-0.117624044, 0, -0.99305826, 0, 1, 0, 0.99305826, 0, -0.117624044, 3520.9958, 81.40146, 2700.498)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "潼关"
+state_name = "司隶州"
+faction_id = "wei"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "pass_tongguan"
+metadata/building_type = "pass"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "潼关"
+metadata/state_name = "司隶州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_pass_tongguan" unique_id=962860029]
+shape = SubResource("BoxShape3D_of2eg")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_pass_tongguan" unique_id=1549108348]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "pass_tongguan"
+metadata/building_type = "pass"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_pass_tongguan" unique_id=1929991066]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_pass_tongguan" unique_id=1730160905]
+visible = false
+material_override = SubResource("StandardMaterial3D_marker")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_marker")
+
+[node name="Site_pass_xiling_yiling" parent="StrategicSites/SiteInstances" unique_id=1695522641 instance=ExtResource("11_lql8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2000, 47.06019, 7000)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "西陵关"
+state_name = "荆州"
+faction_id = "wu"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "pass_xiling_yiling"
+metadata/building_type = "pass"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "西陵关"
+metadata/state_name = "荆州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_pass_xiling_yiling" unique_id=1288613126]
+shape = SubResource("BoxShape3D_f7dc5")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_pass_xiling_yiling" unique_id=661309366]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "pass_xiling_yiling"
+metadata/building_type = "pass"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_pass_xiling_yiling" unique_id=2108745188]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_pass_xiling_yiling" unique_id=1009139885]
+visible = false
+material_override = SubResource("StandardMaterial3D_marker")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_marker")
+
+[node name="Site_fort_bowang" parent="StrategicSites/SiteInstances" unique_id=1376993658 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -500, 172.16396, 3500)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "博望"
+state_name = "荆州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_bowang"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "博望"
+metadata/state_name = "荆州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_bowang" unique_id=124187266]
+shape = SubResource("BoxShape3D_0bfsl")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_bowang" unique_id=1131689601]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_bowang"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_bowang" unique_id=1264581005]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_bowang" unique_id=1094711756]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_aocang" parent="StrategicSites/SiteInstances" unique_id=1113742533 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 348, 0)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "敖仓"
+state_name = "司隶州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_aocang"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "敖仓"
+metadata/state_name = "司隶州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_aocang" unique_id=991186339]
+shape = SubResource("BoxShape3D_00ivf")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_aocang" unique_id=1687127987]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_aocang"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_aocang" unique_id=1840549508]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_aocang" unique_id=1619950823]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_zhongmou" parent="StrategicSites/SiteInstances" unique_id=354341060 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 375.20935, 300)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "中牟"
+state_name = "司隶州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_zhongmou"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "中牟"
+metadata/state_name = "司隶州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_zhongmou" unique_id=746883110]
+shape = SubResource("BoxShape3D_6lxxj")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_zhongmou" unique_id=1187484322]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_zhongmou"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_zhongmou" unique_id=1513775623]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_zhongmou" unique_id=1794089385]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_huanyuan" parent="StrategicSites/SiteInstances" unique_id=1389904367 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 274.125, 1000)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "轘辕"
+state_name = "司隶州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_huanyuan"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "轘辕"
+metadata/state_name = "司隶州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_huanyuan" unique_id=1782352116]
+shape = SubResource("BoxShape3D_ffhdf")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_huanyuan" unique_id=365764412]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_huanyuan"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_huanyuan" unique_id=55706951]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_huanyuan" unique_id=549676922]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_dingtao" parent="StrategicSites/SiteInstances" unique_id=1491917718 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5000, 240.625, 500)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "定陶"
+state_name = "兖州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_dingtao"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "定陶"
+metadata/state_name = "兖州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_dingtao" unique_id=2021149537]
+shape = SubResource("BoxShape3D_vadlg")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_dingtao" unique_id=173693860]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_dingtao"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_dingtao" unique_id=998849013]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_dingtao" unique_id=1689251147]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_changyi" parent="StrategicSites/SiteInstances" unique_id=1262618325 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5500, 130.89063, 1000)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "昌邑"
+state_name = "兖州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_changyi"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "昌邑"
+metadata/state_name = "兖州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_changyi" unique_id=1797797374]
+shape = SubResource("BoxShape3D_ehru8")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_changyi" unique_id=1040748999]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_changyi"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_changyi" unique_id=1659921562]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_changyi" unique_id=163680107]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_pingqiu" parent="StrategicSites/SiteInstances" unique_id=1976131126 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4500, 103.59375, 800)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "平丘"
+state_name = "兖州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_pingqiu"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "平丘"
+metadata/state_name = "兖州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_pingqiu" unique_id=1311358790]
+shape = SubResource("BoxShape3D_546ge")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_pingqiu" unique_id=443790070]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_pingqiu"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_pingqiu" unique_id=836544382]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_pingqiu" unique_id=621261325]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_changban" parent="StrategicSites/SiteInstances" unique_id=777544976 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 179.875, 5000)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "长坂"
+state_name = "荆州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_changban"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "长坂"
+metadata/state_name = "荆州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_changban" unique_id=933384147]
+shape = SubResource("BoxShape3D_smeif")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_changban" unique_id=1130560925]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_changban"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_changban" unique_id=1245676786]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_changban" unique_id=576259600]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_yidu" parent="StrategicSites/SiteInstances" unique_id=470149027 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1500, 51.497902, 7200)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "宜都"
+state_name = "荆州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_yidu"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "宜都"
+metadata/state_name = "荆州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_yidu" unique_id=468923892]
+shape = SubResource("BoxShape3D_70sqx")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_yidu" unique_id=1265379233]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_yidu"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_yidu" unique_id=1451246388]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_yidu" unique_id=23555873]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_linyuan" parent="StrategicSites/SiteInstances" unique_id=2131533236 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, 46.60938, 8000)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "临沅"
+state_name = "荆州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_linyuan"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "临沅"
+metadata/state_name = "荆州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_linyuan" unique_id=1123832719]
+shape = SubResource("BoxShape3D_hhl1k")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_linyuan" unique_id=1806326832]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_linyuan"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_linyuan" unique_id=1249602567]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_linyuan" unique_id=966661693]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_luoxian" parent="StrategicSites/SiteInstances" unique_id=75399763 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 351.06204, 8500)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "罗县"
+state_name = "荆州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_luoxian"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "罗县"
+metadata/state_name = "荆州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_luoxian" unique_id=1278358561]
+shape = SubResource("BoxShape3D_tjdit")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_luoxian" unique_id=545153248]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_luoxian"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_luoxian" unique_id=1674622488]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_luoxian" unique_id=196874240]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_hanchang" parent="StrategicSites/SiteInstances" unique_id=792530108 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3500, 287.71872, 7500)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "汉昌"
+state_name = "荆州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_hanchang"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "汉昌"
+metadata/state_name = "荆州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_hanchang" unique_id=910021776]
+shape = SubResource("BoxShape3D_6c7ik")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_hanchang" unique_id=900833214]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_hanchang"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_hanchang" unique_id=1920235398]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_hanchang" unique_id=1967785792]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_fort_shiyang" parent="StrategicSites/SiteInstances" unique_id=611803682 instance=ExtResource("14_jqesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4500, 473.78128, 6500)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "石阳"
+state_name = "扬州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "fort_shiyang"
+metadata/building_type = "fort"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "石阳"
+metadata/state_name = "扬州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_fort_shiyang" unique_id=1053874586]
+shape = SubResource("BoxShape3D_dex6f")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_fort_shiyang" unique_id=2047949055]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "fort_shiyang"
+metadata/building_type = "fort"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_fort_shiyang" unique_id=1575023138]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_fort_shiyang" unique_id=1709006328]
+visible = false
+material_override = SubResource("StandardMaterial3D_ra2je")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qqvtx")
+
+[node name="Site_ferry_baima_jin" parent="StrategicSites/SiteInstances" unique_id=1983820372 instance=ExtResource("16_33bu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 171.5625, 1000)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "白马津"
+state_name = "兖州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "ferry_baima_jin"
+metadata/building_type = "ferry"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "白马津"
+metadata/state_name = "兖州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_ferry_baima_jin" unique_id=827885487]
+shape = SubResource("BoxShape3D_ik1ri")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_ferry_baima_jin" unique_id=110250936]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "ferry_baima_jin"
+metadata/building_type = "ferry"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_ferry_baima_jin" unique_id=89723629]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_ferry_baima_jin" unique_id=1401985794]
+visible = false
+material_override = SubResource("StandardMaterial3D_grvjq")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_iptbf")
+
+[node name="Site_ferry_yanjin" parent="StrategicSites/SiteInstances" unique_id=573372852 instance=ExtResource("16_33bu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3000, 99.1094, 1500)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "延津"
+state_name = "兖州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "ferry_yanjin"
+metadata/building_type = "ferry"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "延津"
+metadata/state_name = "兖州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_ferry_yanjin" unique_id=908210185]
+shape = SubResource("BoxShape3D_ty7nt")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_ferry_yanjin" unique_id=2042678044]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "ferry_yanjin"
+metadata/building_type = "ferry"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_ferry_yanjin" unique_id=1959110682]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_ferry_yanjin" unique_id=578415393]
+visible = false
+material_override = SubResource("StandardMaterial3D_grvjq")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_iptbf")
+
+[node name="Site_ferry_guandu_jin" parent="StrategicSites/SiteInstances" unique_id=1359200283 instance=ExtResource("16_33bu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3500, 225.95308, 500)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+site_name = "官渡津"
+state_name = "兖州"
+site_scale = 176.0
+label_height = 52.0
+label_font_size = 16
+label_pixel_size = 0.002464
+metadata/building_id = "ferry_guandu_jin"
+metadata/building_type = "ferry"
+metadata/base_show_label = true
+metadata/base_label_height = 52.0
+metadata/base_label_font_size = 18
+metadata/base_label_pixel_size = 0.0028
+metadata/site_name = "官渡津"
+metadata/state_name = "兖州"
+
+[node name="SelectionShape2" type="CollisionShape3D" parent="StrategicSites/SiteInstances/Site_ferry_guandu_jin" unique_id=1346122700]
+shape = SubResource("BoxShape3D_ixdyg")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StrategicSites/SiteInstances/Site_ferry_guandu_jin" unique_id=1101625203]
+collision_layer = 2
+collision_mask = 5
+metadata/building_id = "ferry_guandu_jin"
+metadata/building_type = "ferry"
+
+[node name="ModelRoot2" type="Node3D" parent="StrategicSites/SiteInstances/Site_ferry_guandu_jin" unique_id=742370017]
+
+[node name="SelectionMarker2" type="MeshInstance3D" parent="StrategicSites/SiteInstances/Site_ferry_guandu_jin" unique_id=707726146]
+visible = false
+material_override = SubResource("StandardMaterial3D_grvjq")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_iptbf")
+
+[node name="RefreshTimer" type="Timer" parent="StrategicSites" unique_id=509475871]
+wait_time = 0.6

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/presentation/tree_batch_light_tuner.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/black_pine_tree_b_lod0.tscn" id="2_tree"]
+
+[node name="BlackPineTreeBBatchLight" type="Node3D"]
+script = ExtResource("1_script")
+leaf_alpha_scissor = 0.58
+leaf_roughness = 1.0
+use_double_sided_leaves = false
+disable_receive_shadows = true
+disable_cast_shadows = true
+visibility_range_end = 5200.0
+extra_cull_margin = 6.0
+
+[node name="BlackPineTreeB" parent="." instance=ExtResource("2_tree")]
+scale = Vector3(5, 5, 5)

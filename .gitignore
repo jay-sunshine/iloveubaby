@@ -1,0 +1,47 @@
+﻿# Godot generated/editor caches
+.godot/
+/android/
+
+# Local recovery backups (keep outside project root)
+本地备份/
+备忘录/
+
+# Codex/local probe areas
+tmp/
+_tmp_plugins/
+tools/__pycache__/
+tools/_tmp_*
+*.pyc
+.codex_*
+.tmp_*
+tmp_*.gd
+tmp_*.gd.uid
+_codex_*.ps1
+tmp_bad_quotes.txt
+
+# Local logs and one-off recovery artifacts
+*.log
+*.tmp
+*.TMP
+*.translation
+_backup_log.txt
+_restore_from_snapshot_*.log
+tools/perf/*.csv
+tools/perf/*.csv.import
+
+# OS/editor noise
+Thumbs.db
+.DS_Store
+~*
+
+# Backup copies and restored alternates
+*.bak
+*.bak_*
+*.codex_backup_*
+*.codex_broken_backup_*
+scenes/*backup*.tscn
+scripts/**/*.bak
+scripts/**/*.bak_*
+data/config/*backup*.json
+data/terrain/china_30km/terrain_data_backup_*/
+data/terrain/china_30km/terrain_data_flatten_pass1_snapshot/

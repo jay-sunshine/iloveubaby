@@ -1,0 +1,455 @@
+﻿{
+    "use_external_source":  true,
+    "external_source_candidates":  [
+                                       "res://docs/troop_6class_3tier_standard.json"
+                                   ],
+    "default_batch_size":  100,
+    "class_order":  [
+                        "cavalry",
+                        "spear",
+                        "shield",
+                        "bow",
+                        "crossbow",
+                        "siege",
+                        "strategist"
+                    ],
+    "class_label_overrides":  {
+                                  "cavalry":  "Cavalry",
+                                  "spear":  "Spear",
+                                  "shield":  "Shield",
+                                  "bow":  "Bow",
+                                  "crossbow":  "Crossbow",
+                                  "siege":  "攻城器械",
+                                  "strategist":  "策士"
+                              },
+    "unit_name_overrides":  {
+                                "cavalry":  "Cavalry",
+                                "spear":  "Spear Infantry",
+                                "shield":  "Shield Infantry",
+                                "bow":  "Bow Infantry",
+                                "crossbow":  "Crossbow Infantry",
+                                "siege":  "攻城器械",
+                                "strategist":  "策士"
+                            },
+    "resource_alias":  {
+                           "gold":  "money",
+                           "wood":  "wood",
+                           "iron":  "iron",
+                           "arcane":  "iron",
+                           "horse":  "horse"
+                       },
+    "class_extra_cost_per_soldier":  {
+                                         "cavalry":  {
+                                                         "horse":  1.0
+                                                     }
+                                     },
+    "siege_equipment_class_ids":  [
+                                      "siege",
+                                      "engine"
+                                  ],
+    "tech_traits":  {
+                        "cavalry":  [
+                                        {
+                                            "id":  "saddle_drill",
+                                            "name":  "闉嶉┈鎿嶇粌",
+                                            "description":  "楠戝叺鍩虹璁粌寮哄寲鏈哄姩涓庡啿鍑? 鎻愬崌琛屽啗涓庣獊鍑绘晥鐜?",
+                                            "min_tech_points":  120,
+                                            "stats_add":  {
+                                                              "move_speed":  0.4,
+                                                              "physical_attack":  6
+                                                          },
+                                            "time_sec_per_100_mul":  0.97
+                                        },
+                                        {
+                                            "id":  "shock_lance",
+                                            "name":  "绐佸嚮鏋樀",
+                                            "description":  "绐佸嚮鏋湳鎴愮啛鍚? 楠戝叺棣栬疆鎵撳嚮涓庤繛鍑昏妭濂忔樉钁楀寮?",
+                                            "min_tech_points":  360,
+                                            "stats_add":  {
+                                                              "physical_attack":  10,
+                                                              "attack_speed":  0.04
+                                                          },
+                                            "cost_per_soldier_mul":  {
+                                                                         "horse":  0.92,
+                                                                         "money":  0.95
+                                                                     },
+                                            "time_sec_per_100_mul":  0.93
+                                        },
+                                        {
+                                            "id":  "iron_hoof_charge",
+                                            "name":  "閾佽箘鐮撮樀",
+                                            "description":  "閲嶉獞缂栧埗瀹屽杽, 鍐查攱濞佸娍鏇村己, 鏁寸紪缁勭粐鏁堢巼缁х画鎻愬崌",
+                                            "min_tech_points":  720,
+                                            "stats_add":  {
+                                                              "physical_attack":  14,
+                                                              "move_speed":  0.3,
+                                                              "attack_speed":  0.03
+                                                          },
+                                            "cost_per_soldier_mul":  {
+                                                                         "horse":  0.9
+                                                                     },
+                                            "time_sec_per_100_mul":  0.9
+                                        }
+                                    ],
+                        "spear":  [
+                                      {
+                                          "id":  "anti_charge_drill",
+                                          "name":  "鎷掗┈鎿嶅吀",
+                                          "description":  "鏋叺瀛︿範绋抽樀鎷掗┈, 闃靛墠鎶楀啿鍑昏兘鍔涗笌鎺ц窛鑳藉姏鎻愬崌",
+                                          "min_tech_points":  120,
+                                          "stats_add":  {
+                                                            "physical_defense":  8,
+                                                            "attack_range":  0.2
+                                                        },
+                                          "time_sec_per_100_mul":  0.97
+                                      },
+                                      {
+                                          "id":  "phalanx_pierce",
+                                          "name":  "鏂归樀绌垮埡",
+                                          "description":  "瀵嗛泦鏂归樀璁粌鎴愬瀷, 鎺ㄨ繘涓庡埡鍑昏妭濂忔洿绋冲畾",
+                                          "min_tech_points":  360,
+                                          "stats_add":  {
+                                                            "physical_attack":  9,
+                                                            "attack_speed":  0.05
+                                                        },
+                                          "cost_per_soldier_mul":  {
+                                                                       "iron":  0.94,
+                                                                       "money":  0.96
+                                                                   },
+                                          "time_sec_per_100_mul":  0.93
+                                      },
+                                      {
+                                          "id":  "dragon_lance",
+                                          "name":  "榫欐灙杩炵獊",
+                                          "description":  "楂橀樁鏋樀鍙寔缁帇鍒跺墠绾? 鍏煎叿杩涙敾涓庨樀鍦扮ǔ瀹氭€?",
+                                          "min_tech_points":  720,
+                                          "stats_add":  {
+                                                            "physical_attack":  12,
+                                                            "physical_defense":  8,
+                                                            "attack_speed":  0.04
+                                                        },
+                                          "cost_per_soldier_mul":  {
+                                                                       "iron":  0.9
+                                                                   },
+                                          "time_sec_per_100_mul":  0.9
+                                      }
+                                  ],
+                        "shield":  [
+                                       {
+                                           "id":  "wall_training",
+                                           "name":  "鐩惧鎿嶇粌",
+                                           "description":  "鐩鹃樀鍩虹鎿嶇粌璁╁墠鎺掓壙鍘嬭兘鍔涙槑鏄炬彁楂?",
+                                           "min_tech_points":  120,
+                                           "stats_add":  {
+                                                             "physical_defense":  12,
+                                                             "magic_defense":  6
+                                                         },
+                                           "time_sec_per_100_mul":  0.97
+                                       },
+                                       {
+                                           "id":  "guard_rotation",
+                                           "name":  "杞浘鍗垪",
+                                           "description":  "杞崲鎺╂姢浣撶郴鎴愮啛, 闃茬嚎鎸佺画浣滄垬鑳藉姏澧炲己",
+                                           "min_tech_points":  360,
+                                           "stats_add":  {
+                                                             "physical_defense":  14,
+                                                             "attack_speed":  0.04
+                                                         },
+                                           "cost_per_soldier_mul":  {
+                                                                        "wood":  0.94,
+                                                                        "iron":  0.94
+                                                                    },
+                                           "time_sec_per_100_mul":  0.93
+                                       },
+                                       {
+                                           "id":  "black_armor_guard",
+                                           "name":  "鐜勭敳鍥哄畧",
+                                           "description":  "閲嶈闃插尽浣撶郴瀹屾垚, 鐩惧叺鍦ㄦ寔涔呮垬涓洿鍔犵ǔ鍥?",
+                                           "min_tech_points":  720,
+                                           "stats_add":  {
+                                                             "physical_defense":  18,
+                                                             "magic_defense":  10,
+                                                             "attack_speed":  0.03
+                                                         },
+                                           "cost_per_soldier_mul":  {
+                                                                        "wood":  0.9,
+                                                                        "iron":  0.9
+                                                                    },
+                                           "time_sec_per_100_mul":  0.9
+                                       }
+                                   ],
+                        "bow":  [
+                                    {
+                                        "id":  "range_find",
+                                        "name":  "娴嬭窛鏍″皠",
+                                        "description":  "寮撳叺鎺屾彙鍩虹娴嬭窛鍚? 杩滃皠绮惧害涓庣伀鍔涚ǔ瀹氭€ф彁鍗?",
+                                        "min_tech_points":  120,
+                                        "stats_add":  {
+                                                          "attack_range":  4.0,
+                                                          "physical_attack":  6
+                                                      },
+                                        "time_sec_per_100_mul":  0.97
+                                    },
+                                    {
+                                        "id":  "salvo_rhythm",
+                                        "name":  "榻愬皠鑺傚緥",
+                                        "description":  "榻愬皠閰嶅悎鎴愬瀷, 鎸佺画杈撳嚭涓庡帇鍒舵晥鐜囪繘涓€姝ユ彁楂?",
+                                        "min_tech_points":  360,
+                                        "stats_add":  {
+                                                          "attack_speed":  0.08,
+                                                          "physical_attack":  8
+                                                      },
+                                        "cost_per_soldier_mul":  {
+                                                                     "wood":  0.93,
+                                                                     "money":  0.96
+                                                                 },
+                                        "time_sec_per_100_mul":  0.93
+                                    },
+                                    {
+                                        "id":  "feather_storm",
+                                        "name":  "缇芥灄绠洦",
+                                        "description":  "楂橀樁寮撴湳瀹屾垚鍚? 鍙舰鎴愭洿瀵嗛泦鐨勮鐩栨墦鍑?",
+                                        "min_tech_points":  720,
+                                        "stats_add":  {
+                                                          "physical_attack":  12,
+                                                          "attack_range":  3.0,
+                                                          "attack_speed":  0.06
+                                                      },
+                                        "cost_per_soldier_mul":  {
+                                                                     "wood":  0.9
+                                                                 },
+                                        "time_sec_per_100_mul":  0.9
+                                    }
+                                ],
+                        "crossbow":  [
+                                         {
+                                             "id":  "winding_mechanism",
+                                             "name":  "鏈烘嫭鏀硅壇",
+                                             "description":  "寮╂満缁撴瀯浼樺寲鍚? 瑁呭～鏁堢巼涓庡皠鍑荤ǔ瀹氭€ф彁鍗?",
+                                             "min_tech_points":  120,
+                                             "stats_add":  {
+                                                               "attack_speed":  0.06,
+                                                               "physical_attack":  8
+                                                           },
+                                             "time_sec_per_100_mul":  0.97
+                                         },
+                                         {
+                                             "id":  "armor_break_bolt",
+                                             "name":  "鐮寸敳閲嶇煝",
+                                             "description":  "閲嶇煝宸ヨ壓鎴愮啛, 寮╁叺鐮寸敳鑳藉姏涓庡帇鍒惰窛绂绘洿寮?",
+                                             "min_tech_points":  360,
+                                             "stats_add":  {
+                                                               "physical_attack":  12,
+                                                               "attack_range":  3.0
+                                                           },
+                                             "cost_per_soldier_mul":  {
+                                                                          "iron":  0.92,
+                                                                          "money":  0.96
+                                                                      },
+                                             "time_sec_per_100_mul":  0.93
+                                         },
+                                         {
+                                             "id":  "siege_bolt",
+                                             "name":  "杩炲缉榻愬彂",
+                                             "description":  "寮╅樀鎴樻湳瀹屽杽, 褰㈡垚楂樺己搴﹁繛缁帇鍒剁伀鍔?",
+                                             "min_tech_points":  720,
+                                             "stats_add":  {
+                                                               "physical_attack":  14,
+                                                               "attack_speed":  0.05,
+                                                               "attack_range":  2.0
+                                                           },
+                                             "cost_per_soldier_mul":  {
+                                                                          "iron":  0.9
+                                                                      },
+                                             "time_sec_per_100_mul":  0.9
+                                         }
+                                     ],
+                        "strategist":  [
+                                           {
+                                               "id":  "signal_command",
+                                               "name":  "号令统筹",
+                                               "description":  "策士体系确立后, 施策节奏与防护协同明显改善",
+                                               "min_tech_points":  120,
+                                               "stats_add":  {
+                                                                 "magic_attack":  10,
+                                                                 "magic_defense":  8
+                                                             },
+                                               "time_sec_per_100_mul":  0.97
+                                           },
+                                           {
+                                               "id":  "battlefield_formula",
+                                               "name":  "阵前术式",
+                                               "description":  "术法推演深入, 策士部队输出与协同效率提高",
+                                               "min_tech_points":  360,
+                                               "stats_add":  {
+                                                                 "magic_attack":  14,
+                                                                 "attack_speed":  0.06
+                                                             },
+                                               "cost_per_soldier_mul":  {
+                                                                            "money":  0.9,
+                                                                            "iron":  0.95
+                                                                        },
+                                               "time_sec_per_100_mul":  0.93
+                                           },
+                                           {
+                                               "id":  "mystic_mastery",
+                                               "name":  "奇门总纲",
+                                               "description":  "高阶奇门体系完成, 策士在战场上的法术压制更全面",
+                                               "min_tech_points":  720,
+                                               "stats_add":  {
+                                                                 "magic_attack":  18,
+                                                                 "magic_defense":  8,
+                                                                 "attack_speed":  0.05
+                                                             },
+                                               "cost_per_soldier_mul":  {
+                                                                            "money":  0.88
+                                                                        },
+                                               "time_sec_per_100_mul":  0.9
+                                           }
+                                       ],
+                        "siege":  [
+                                       {
+                                           "id":  "wood_beast_fire_nozzle",
+                                           "name":  "木兽喷火改装",
+                                           "description":  "冲车系火攻组件成熟，器械攻坚威力提升",
+                                           "min_tech_points":  220,
+                                           "stats_add":  {
+                                                             "physical_attack":  8,
+                                                             "magic_attack":  8
+                                                         },
+                                           "cost_per_soldier_mul":  {
+                                                                        "wood":  0.96,
+                                                                        "money":  0.97
+                                                                    },
+                                           "time_sec_per_100_mul":  0.96
+                                       },
+                                       {
+                                           "id":  "jinglan_tower_platform",
+                                           "name":  "井阑高台",
+                                           "description":  "云梯系加装井阑平台，压制与射程提升",
+                                           "min_tech_points":  460,
+                                           "stats_add":  {
+                                                             "physical_attack":  10,
+                                                             "attack_range":  1.8
+                                                         },
+                                           "cost_per_soldier_mul":  {
+                                                                        "iron":  0.95
+                                                                    },
+                                           "time_sec_per_100_mul":  0.94
+                                       },
+                                       {
+                                           "id":  "counterweight_catapult",
+                                           "name":  "配重投石",
+                                           "description":  "投石车配重体系完善，重击频率与命中提升",
+                                           "min_tech_points":  760,
+                                           "stats_add":  {
+                                                             "physical_attack":  14,
+                                                             "attack_speed":  0.06,
+                                                             "attack_range":  1.2
+                                                         },
+                                           "cost_per_soldier_mul":  {
+                                                                        "iron":  0.93,
+                                                                        "money":  0.96
+                                                                    },
+                                           "time_sec_per_100_mul":  0.9
+                                       }
+                                   ]
+                    },
+    "categories":  [
+                       {
+                           "id":  "siege",
+                           "label":  "攻城器械",
+                           "units":  [
+                                         "ram",
+                                         "ladder",
+                                         "catapult"
+                                     ]
+                       }
+                   ],
+    "unit_aliases":  {
+                         "冲车":  "ram",
+                         "木兽":  "ram",
+                         "云梯":  "ladder",
+                         "井阑":  "ladder",
+                         "投石车":  "catapult",
+                         "chongche":  "ram",
+                         "wood_beast":  "ram",
+                         "yunti":  "ladder",
+                         "jinglan":  "ladder",
+                         "toushiche":  "catapult"
+                     },
+    "units":  {
+                  "ram":  {
+                              "class_id":  "siege",
+                              "name":  "冲车/木兽",
+                              "description":  "近程攻城器械，擅长破门与焚毁工事。",
+                              "min_tech_points":  0,
+                              "durability_max":  3000,
+                              "batch_size":  100,
+                              "reserve_per_soldier":  0.0,
+                              "time_sec_per_100":  140.0,
+                              "cost_per_soldier":  {
+                                                      "money":  4.0,
+                                                      "wood":  6.0,
+                                                      "iron":  3.0
+                                                  },
+                              "stats":  {
+                                            "physical_attack":  88,
+                                            "magic_attack":  16,
+                                            "physical_defense":  72,
+                                            "magic_defense":  42,
+                                            "move_speed":  3.2,
+                                            "attack_range":  2.4,
+                                            "attack_speed":  0.72
+                                        }
+                          },
+                  "ladder":  {
+                                 "class_id":  "siege",
+                                 "name":  "云梯/井阑",
+                                 "description":  "登城压制器械，偏向杀伤守军。",
+                                 "min_tech_points":  240,
+                                 "durability_max":  2800,
+                                 "batch_size":  100,
+                                 "reserve_per_soldier":  0.0,
+                                 "time_sec_per_100":  130.0,
+                                 "cost_per_soldier":  {
+                                                         "money":  4.0,
+                                                         "wood":  5.0,
+                                                         "iron":  2.0
+                                                     },
+                                 "stats":  {
+                                               "physical_attack":  78,
+                                               "magic_attack":  10,
+                                               "physical_defense":  58,
+                                               "magic_defense":  38,
+                                               "move_speed":  3.8,
+                                               "attack_range":  3.2,
+                                               "attack_speed":  0.8
+                                           }
+                             },
+                  "catapult":  {
+                                   "class_id":  "siege",
+                                   "name":  "投石车",
+                                   "description":  "远程重型攻城器械，对城防破坏极强。",
+                                   "min_tech_points":  520,
+                                   "durability_max":  2000,
+                                   "batch_size":  100,
+                                   "reserve_per_soldier":  0.0,
+                                   "time_sec_per_100":  170.0,
+                                   "cost_per_soldier":  {
+                                                           "money":  6.0,
+                                                           "wood":  6.0,
+                                                           "iron":  7.0
+                                                       },
+                                   "stats":  {
+                                                 "physical_attack":  112,
+                                                 "magic_attack":  6,
+                                                 "physical_defense":  50,
+                                                 "magic_defense":  36,
+                                                 "move_speed":  2.6,
+                                                 "attack_range":  9.0,
+                                                 "attack_speed":  0.45
+                                             }
+                               }
+               }
+}

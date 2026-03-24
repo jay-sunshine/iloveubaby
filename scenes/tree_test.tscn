@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c04pndh1kb624"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/black_pine_tree_b_preview.tscn" id="1_tree"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/sakura_tree_a_preview.tscn" id="2_sakura"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 1
+background_color = Color(0.78, 0.84, 0.92, 1)
+ambient_light_source = 2
+ambient_light_sky_contribution = 0.2
+ambient_light_energy = 0.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(160, 0.2, 140)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.34, 0.44, 0.29, 1)
+roughness = 0.96
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(160, 140)
+
+[node name="TreeTest" type="Node3D" unique_id=1319518962]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=11864972]
+environment = SubResource("Environment_1")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1531533313]
+transform = Transform3D(0.88294756, 0.30800107, -0.3543147, 0, 0.7547096, 0.656059, 0.46947157, -0.5792657, 0.666369, 0, 0, 0)
+light_energy = 1.7
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2102491404]
+transform = Transform3D(1, 0, 0, 0, 0.9335804, 0.35836795, 0, -0.35836795, 0.9335804, 0, 16, 32)
+current = true
+fov = 45.0
+far = 2500.0
+
+[node name="GroundBody" type="StaticBody3D" parent="." unique_id=562428048]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundBody" unique_id=486290973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="GroundMesh" type="MeshInstance3D" parent="." unique_id=280908690]
+material_override = SubResource("StandardMaterial3D_ground")
+mesh = SubResource("PlaneMesh_ground")
+
+[node name="Trees" type="Node3D" parent="." unique_id=1768801926]
+
+[node name="BlackPine_1" parent="Trees" unique_id=1378815941 instance=ExtResource("1_tree")]
+transform = Transform3D(0.91301423, 0, 0.2966563, 0, 0.96, 0, -0.2966563, 0, 0.91301423, -26, 0, -6)
+
+[node name="BlackPine_2" parent="Trees" unique_id=933938343 instance=ExtResource("1_tree")]
+transform = Transform3D(0.89536065, 0, -0.6039283, 0, 1.08, 0, 0.6039283, 0, 0.89536065, -6, 0, 8)
+
+[node name="BlackPine_3" parent="Trees" unique_id=827996969 instance=ExtResource("1_tree")]
+transform = Transform3D(0.49017513, 0, 0.7548035, 0, 0.9, 0, -0.7548035, 0, 0.49017513, 16, 0, -8)
+
+[node name="Sakura_1" parent="Trees" unique_id=1154498407 instance=ExtResource("2_sakura")]
+transform = Transform3D(0.9701405, 0.000997525, -0.3150021, -0.003319467, 1.0199704, -0.006993302, 0.3149862, 0.007676594, 0.9701158, 30, 0, 2)
+
+[node name="Sakura_2" parent="Trees" unique_id=1529708043 instance=ExtResource("2_sakura")]
+transform = Transform3D(0.8448664, 0, 0.41206887, 0, 0.94, 0, -0.41206887, 0, 0.8448664, 44, 0, -10)

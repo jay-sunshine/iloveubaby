@@ -1,0 +1,101 @@
+﻿{
+  "meta": {
+    "name": "map_scale_30km_standard",
+    "version": "1.0.0",
+    "map_size_m": 30000,
+    "world_unit_to_meter": 1,
+    "notes": [
+      "All distances are in meters.",
+      "Building source meshes are normalized around ~1m footprint, so model scales are large by design.",
+      "Jindu has no dedicated model in 建筑单位; current table reuses chengchi.glb with different gameplay radius."
+    ]
+  },
+  "measured_model_base_size_m": {
+    "luoyang_glb": { "x": 0.93, "z": 0.93, "y": 0.21, "footprint_ref": 0.93 },
+    "chengchi_glb": { "x": 0.98, "z": 0.94, "y": 0.20, "footprint_ref": 0.98 },
+    "guanai_glb": { "x": 1.05, "z": 0.47, "y": 0.53, "footprint_ref": 1.05 },
+    "wubao_glb": { "x": 0.81, "z": 0.84, "y": 0.31, "footprint_ref": 0.84 }
+  },
+  "unit_scale_standard": {
+    "soldier_height_target_m": 1.7,
+    "unit_parent_radius_m": {
+      "infantry": 22,
+      "cavalry": 26
+    },
+    "combat_contact_gap_m": 6,
+    "move_speed_mps": {
+      "infantry_march": 4.8,
+      "cavalry_march": 6.2,
+      "charge": 11.5
+    }
+  },
+  "settlement_classes": {
+    "luoyang_capital": {
+      "model": "res://素材/建模/建筑单位/luoyang.glb",
+      "target_footprint_diameter_m": 1800,
+      "model_scale": 1935,
+      "selection_radius_m": 900,
+      "interaction_radius_m": 1050,
+      "siege_deploy_radius_m": 1400,
+      "road_link_radius_m": 1600,
+      "min_spacing_to_same_class_m": 8000,
+      "garrison_capacity": 240000
+    },
+    "normal_city": {
+      "model": "res://素材/建模/建筑单位/chengchi.glb",
+      "target_footprint_diameter_m": 1200,
+      "model_scale": 1225,
+      "selection_radius_m": 600,
+      "interaction_radius_m": 700,
+      "siege_deploy_radius_m": 900,
+      "road_link_radius_m": 1200,
+      "min_spacing_to_same_class_m": 4500,
+      "garrison_capacity": 120000
+    },
+    "jindu": {
+      "model": "res://素材/建模/建筑单位/chengchi.glb",
+      "target_footprint_diameter_m": 760,
+      "model_scale": 775,
+      "selection_radius_m": 380,
+      "interaction_radius_m": 450,
+      "siege_deploy_radius_m": 560,
+      "road_link_radius_m": 850,
+      "min_spacing_to_same_class_m": 2800,
+      "garrison_capacity": 55000
+    },
+    "guanai": {
+      "model": "res://素材/建模/建筑单位/guanai.glb",
+      "target_footprint_diameter_m": 880,
+      "model_scale": 838,
+      "selection_radius_m": 440,
+      "interaction_radius_m": 520,
+      "siege_deploy_radius_m": 650,
+      "road_link_radius_m": 980,
+      "min_spacing_to_same_class_m": 3200,
+      "garrison_capacity": 65000
+    },
+    "wubao": {
+      "model": "res://素材/建模/建筑单位/wubao.glb",
+      "target_footprint_diameter_m": 760,
+      "model_scale": 905,
+      "selection_radius_m": 380,
+      "interaction_radius_m": 440,
+      "siege_deploy_radius_m": 540,
+      "road_link_radius_m": 820,
+      "min_spacing_to_same_class_m": 2800,
+      "garrison_capacity": 50000
+    }
+  },
+  "global_spacing_guardrails_m": {
+    "capital_to_normal_city_min": 6000,
+    "normal_city_to_normal_city_min": 4500,
+    "normal_city_to_pass_or_fort_min": 2200,
+    "pass_to_pass_min": 1800
+  },
+  "pathfinding_and_streaming": {
+    "nav_chunk_size_m": 512,
+    "streaming_tile_size_m": 1000,
+    "floating_origin_trigger_m": 4000,
+    "floating_origin_recenter_step_m": 2000
+  }
+}

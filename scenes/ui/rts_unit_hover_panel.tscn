@@ -1,0 +1,129 @@
+[gd_scene format=3]
+
+[node name="RTSUnitHoverPanel" type="Control"]
+visible = false
+custom_minimum_size = Vector2(398, 252)
+layout_mode = 0
+offset_right = 398.0
+offset_bottom = 252.0
+mouse_filter = 2
+z_index = 20
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Body" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 4
+mouse_filter = 2
+
+[node name="HeaderRow" type="HBoxContainer" parent="Content/Body"]
+layout_mode = 2
+theme_override_constants/separation = 6
+mouse_filter = 2
+
+[node name="UnitNameLabel" type="Label" parent="Content/Body/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 1
+text = "Commander"
+mouse_filter = 2
+
+[node name="RoleLabel" type="Label" parent="Content/Body/HeaderRow"]
+layout_mode = 2
+text = "Role"
+horizontal_alignment = 0
+mouse_filter = 2
+
+[node name="SubInfoLabel" type="Label" parent="Content/Body"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Troops 0   Morale 0   Spirit 0"
+mouse_filter = 2
+
+[node name="TypeAptLabel" type="Label" parent="Content/Body"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Type / Aptitude"
+mouse_filter = 2
+
+[node name="SplitRow" type="HBoxContainer" parent="Content/Body"]
+layout_mode = 2
+theme_override_constants/separation = 12
+mouse_filter = 2
+
+[node name="LeftCol" type="VBoxContainer" parent="Content/Body/SplitRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+mouse_filter = 2
+
+[node name="OfficerTitleLabel" type="Label" parent="Content/Body/SplitRow/LeftCol"]
+layout_mode = 2
+text = "Officers"
+mouse_filter = 2
+
+[node name="OfficerLabel" type="Label" parent="Content/Body/SplitRow/LeftCol"]
+layout_mode = 2
+autowrap_mode = 2
+text = "None"
+mouse_filter = 2
+
+[node name="StatTitleLabel" type="Label" parent="Content/Body/SplitRow/LeftCol"]
+layout_mode = 2
+text = "Core Stats"
+mouse_filter = 2
+
+[node name="StatLabel" type="Label" parent="Content/Body/SplitRow/LeftCol"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Lead 0\nMight 0\nInt 0\nPol 0\nCharm 0"
+mouse_filter = 2
+
+[node name="RightCol" type="VBoxContainer" parent="Content/Body/SplitRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(146, 0)
+theme_override_constants/separation = 3
+mouse_filter = 2
+
+[node name="TotalFiveTitleLabel" type="Label" parent="Content/Body/SplitRow/RightCol"]
+layout_mode = 2
+text = "Combat Stats"
+mouse_filter = 2
+
+[node name="TotalFiveLabel" type="Label" parent="Content/Body/SplitRow/RightCol"]
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 2
+text = "ATK 0\nDEF 0\nMAG 0\nRES 0\nSiege 0"
+mouse_filter = 2
+
+[node name="TraitLabel" type="Label" parent="Content/Body"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Traits"
+mouse_filter = 2
+
+[node name="StatusLabel" type="Label" parent="Content/Body"]
+layout_mode = 2
+autowrap_mode = 2
+text = "Status"
+mouse_filter = 2

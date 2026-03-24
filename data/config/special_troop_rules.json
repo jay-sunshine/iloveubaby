@@ -1,0 +1,63 @@
+﻿{
+  "special_troops": [
+    {
+      "id": "white_horse",
+      "name": "白马义从",
+      "base_class_id": "cavalry",
+      "allowed_officer_ids": ["zhaoyun", "gongsunzan"],
+      "unlock_cost": {
+        "money": 3000,
+        "horse": 800,
+        "wood": 300,
+        "command_points": 1
+      },
+      "stat_modifiers": {
+        "move_speed_mul": 1.16,
+        "physical_attack_mul": 1.12,
+        "vision_radius_mul": 1.12,
+        "crossbow_damage_taken_mul": 1.12
+      },
+      "trait_desc": "高速骑射精锐，机动与追击更强，但更惧弩兵压制。",
+      "upkeep_mul": 1.2
+    },
+    {
+      "id": "trap_guard",
+      "name": "陷阵营",
+      "base_class_id": "shield",
+      "allowed_officer_ids": ["gaoshun"],
+      "unlock_cost": {
+        "money": 2500,
+        "iron": 700,
+        "wood": 400,
+        "command_points": 1
+      },
+      "stat_modifiers": {
+        "physical_attack_mul": 1.15,
+        "physical_defense_mul": 1.18,
+        "morale_mul": 1.15,
+        "move_speed_mul": 0.94
+      },
+      "trait_desc": "重装精锐步军，正面突破与抗冲击极强，但机动稍弱。",
+      "upkeep_mul": 1.18
+    },
+    {
+      "id": "rattan_guard",
+      "name": "藤甲兵",
+      "base_class_id": "shield",
+      "allowed_officer_ids": ["wutugu"],
+      "unlock_cost": {
+        "money": 2200,
+        "wood": 900,
+        "food": 1200,
+        "command_points": 1
+      },
+      "stat_modifiers": {
+        "physical_defense_mul": 1.14,
+        "arrow_damage_taken_mul": 0.8,
+        "fire_damage_taken_mul": 1.35
+      },
+      "trait_desc": "藤甲护身，抗箭与耐打能力出众，但更怕火攻。",
+      "upkeep_mul": 1.12
+    }
+  ]
+}

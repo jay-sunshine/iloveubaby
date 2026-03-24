@@ -1,0 +1,64 @@
+﻿{
+  "officer_roles": ["taishou", "shicao", "hucao", "junxu", "bingcao", "gongcao", "duwei"],
+  "resource_income_base": {
+    "money": 130.0,
+    "food": 200.0,
+    "iron": 60.0,
+    "wood": 66.0,
+    "horse": 18.0
+  },
+  "officer_weights": {
+    "taishou": 0.20,
+    "shicao": 0.14,
+    "hucao": 0.15,
+    "junxu": 0.13,
+    "bingcao": 0.14,
+    "gongcao": 0.11,
+    "duwei": 0.13
+  },
+  "focus_bonus": {
+    "money": 0.35,
+    "food": 0.35,
+    "iron": 0.35,
+    "wood": 0.35,
+    "horse": 0.35,
+    "security": 0.25,
+    "support": 0.25,
+    "military": 0.2
+  },
+  "coefficients": {
+    "taishou_global_base": 0.7,
+    "taishou_global_scale": 0.6,
+    "role_resource_floor": 0.45,
+    "role_resource_scale": 0.95,
+    "tax_rate_base": 0.08,
+    "tax_rate_shicao_scale": 0.12,
+    "stable_horse_per_day_per_level": 10.0,
+    "gongcao_tech_gain_per_day": 1.0,
+    "bingcao_troop_gain_per_day": 120.0,
+    "bingcao_morale_gain_per_day": 0.18,
+    "duwei_defense_repair_per_day": 32.0,
+    "taishou_support_factor": 0.02,
+    "hucao_support_factor": 0.016,
+    "duwei_security_factor": 0.02,
+    "bingcao_security_factor": 0.016
+  },
+  "population_growth_per_day": 0.00036,
+  "support_security_drift": {
+    "support_to_security": 0.012,
+    "security_to_support": 0.01
+  },
+  "consumption": {
+    "food_per_troop_per_day": 0.0043,
+    "money_per_troop_per_day": 0.0025
+  },
+  "clamp": {
+    "public_support_min": 0.0,
+    "public_support_max": 100.0,
+    "security_min": 0.0,
+    "security_max": 100.0,
+    "resource_min": 0.0,
+    "population_min": 0.0,
+    "troops_min": 0.0
+  }
+}

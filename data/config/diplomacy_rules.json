@@ -1,0 +1,7 @@
+﻿{
+  "daily_relation_recover": 0.09,
+  "battle_event_penalty": 0.8,
+  "support_gap_factor": 0.03,
+  "relation_min": -100.0,
+  "relation_max": 100.0
+}

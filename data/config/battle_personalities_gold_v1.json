@@ -1,0 +1,368 @@
+﻿{
+    "version":  "battle_gold_v1",
+    "generated_at":  "2026-03-13",
+    "count":  17,
+    "traits":  [
+                   {
+                       "id":  "xionglue",
+                       "name":  "雄略",
+                       "rarity":  "gold",
+                       "trigger":  "on_skill_hit",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "战法伤害+24%",
+                                                                "战法冷却-18%",
+                                                                "战法命中附加乱阵6秒"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "战法伤害+18%",
+                                                                "战法冷却-12%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "baozhu",
+                       "name":  "暴主",
+                       "rarity":  "gold",
+                       "trigger":  "on_damage_dealt",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "士气压制提升至-12",
+                                                                "目标士气\u003c40时伤害+18%"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "命中使目标士气-8"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "longdan",
+                       "name":  "龙胆",
+                       "rarity":  "gold",
+                       "trigger":  "on_control_applied",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "解控减伤35%",
+                                                                "解控后6秒伤害+15%"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "被控自动解控并减伤25%（20秒内置）"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "xianji_gold",
+                       "name":  "先机",
+                       "rarity":  "gold",
+                       "trigger":  "on_tactic_hit",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "命中率+24%",
+                                                                "时长+30%",
+                                                                "计策命中返还20%当前计策CD（8秒内置）"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "计策命中率+16%",
+                                                                "异常时长+20%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "quanbian",
+                       "name":  "权变",
+                       "rarity":  "gold",
+                       "trigger":  "on_control_applied,on_debuff_apply",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "计策命中率+18%",
+                                                                "被控时长-45%",
+                                                                "施加异常后获4秒减伤15%"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "计策命中率+12%",
+                                                                "被控时长-35%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "huoshen",
+                       "name":  "火神",
+                       "rarity":  "gold",
+                       "trigger":  "on_fire_skill_or_tactic_hit",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "点燃8秒",
+                                                                "对点燃目标伤害+22%",
+                                                                "火系计策命中返还20%计策CD（8秒内置）"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "火系命中必附点燃6秒",
+                                                                "对点燃目标伤害+15%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "feijiang",
+                       "name":  "飞将",
+                       "rarity":  "gold",
+                       "trigger":  "on_charge_hit,on_kill",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "追加概率50%",
+                                                                "击破后获3秒霸体与移速+20%（20秒内置）"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "冲锋命中40%追加一击（6秒内置）"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "rendun",
+                       "name":  "仁遁",
+                       "rarity":  "gold",
+                       "trigger":  "on_retreat_start,on_disengage_success",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "撤退机动+40%",
+                                                                "无视封锁10秒",
+                                                                "脱离接敌后回复兵力10%并士气+12"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "撤退机动+30%",
+                                                                "无视封锁8秒"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "shenwei",
+                       "name":  "神威",
+                       "rarity":  "gold",
+                       "trigger":  "on_charge_hit",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "冲锋伤害+28%",
+                                                                "控抗+35%",
+                                                                "冲锋命中附破甲6秒（防御-15%）"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "冲锋伤害+20%",
+                                                                "冲锋后3秒控抗+25%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "huangtian_gold",
+                       "name":  "黄天",
+                       "rarity":  "gold",
+                       "trigger":  "on_tactic_hit,on_debuff_apply",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "概率30%",
+                                                                "成功施加异常时自身士气+10并返还15%计策CD"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "计策命中20%概率附加混乱4秒"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "doujiang",
+                       "name":  "斗将",
+                       "rarity":  "gold",
+                       "trigger":  "on_melee_hit_taken,on_skill_cast",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "每层提升至+4%",
+                                                                "满层后下次战法附1.5秒震慑并获4秒减伤20%"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "近战受击叠怒（每层普攻伤害+3%，上限5）"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "jueshuo",
+                       "name":  "矍铄",
+                       "rarity":  "gold",
+                       "trigger":  "on_ranged_hit,on_kill",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "暴伤+35%",
+                                                                "高兵力增伤+15%",
+                                                                "击破返还40%弓系战法CD"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "兵力\u003e=60%时远程暴伤+25%",
+                                                                "对高兵力目标增伤+10%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "wusheng",
+                       "name":  "武圣",
+                       "rarity":  "gold",
+                       "trigger":  "on_damage_calc,on_kill",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "增伤+25%",
+                                                                "暴击率+15%",
+                                                                "击破后8秒普攻无视20%防御"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "对兵力\u003e=70%目标伤害+18%",
+                                                                "暴击率+10%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "wolong",
+                       "name":  "卧龙",
+                       "rarity":  "gold",
+                       "trigger":  "on_tactic_check,on_tactic_hit",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "否则成功率+25%且时长+30%",
+                                                                "计策命中返还20%当前计策CD（8秒内置）"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "计策判定时智力高于目标则必成",
+                                                                "否则成功率+15%且时长+20%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "fengchu",
+                       "name":  "凤雏",
+                       "rarity":  "gold",
+                       "trigger":  "on_tactic_hit",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "策缚8秒且抗性-30%",
+                                                                "对策缚目标计策伤害+18%"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "计策命中附策缚6秒（计策抗性-20%）"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "shenji_gold",
+                       "name":  "神机",
+                       "rarity":  "gold",
+                       "trigger":  "on_tactic_hit",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "命中率+26%",
+                                                                "时长+30%",
+                                                                "对已异常目标再次计策命中返还25%计策CD（8秒内置）"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "计策命中率+18%",
+                                                                "异常时长+20%"
+                                                            ]
+                                            }
+                                  }
+                   },
+                   {
+                       "id":  "bawang",
+                       "name":  "霸王",
+                       "rarity":  "gold",
+                       "trigger":  "on_first_engage,on_kill",
+                       "levels":  {
+                                      "2":  {
+                                                "effects":  [
+                                                                "保留Lv1",
+                                                                "首次接敌后14秒伤害+28%",
+                                                                "控制抗性+40%",
+                                                                "窗口内击破则士气+15并返还40%当前战法CD（20秒内置）"
+                                                            ]
+                                            },
+                                      "1":  {
+                                                "effects":  [
+                                                                "首次接敌后12秒伤害+20%",
+                                                                "控制抗性+30%"
+                                                            ]
+                                            }
+                                  }
+                   }
+               ]
+}

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/presentation/chengchi_city_ground_fix.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://素材/建模/建筑单位/chengchi_ct30_low_2k_retex.glb" id="2_model"]
+
+[node name="ChengchiCt30Low2kRetexGroundFixed" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="chengchi_ct30_low_2k_retex" parent="." instance=ExtResource("2_model")]

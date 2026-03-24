@@ -1,0 +1,300 @@
+{
+  "version": "unique_skills_v1_draft",
+  "default_cooldown_sec": 55.0,
+  "default_order_cost": 1,
+  "skills": [
+    {
+      "id": "caocao_weiwuzhiling",
+      "officer_id": "caocao",
+      "owner_names": ["曹操", "caocao"],
+      "name": "魏武之令",
+      "desc": "号令周围友军奋进，提升攻防与机动，并压制敌军士气。",
+      "order_cost": 1,
+      "cooldown_sec": 55.0,
+      "target_mode": "self_area",
+      "effect_template": "team_aura_buff",
+      "duration_sec": 10.0,
+      "radius": 18.0,
+      "effects": {
+        "ally_attack_bonus_pct": 0.10,
+        "ally_defense_bonus_pct": 0.10,
+        "ally_speed_bonus_pct": 0.08,
+        "ally_morale_gain_flat": 10.0,
+        "ally_spirit_gain_flat": 8.0,
+        "enemy_morale_pressure_flat": 8.0
+      },
+      "auto_cast_rules": {
+        "min_allies_in_combat": 2,
+        "min_enemies_in_radius": 2,
+        "prefer_frontline": true
+      }
+    },
+    {
+      "id": "simayi_langgufanji",
+      "officer_id": "simayi",
+      "owner_names": ["司马懿", "simayi"],
+      "name": "狼顾反计",
+      "desc": "洞察敌机，打断敌将施谋，并施加误导与策防削弱。",
+      "order_cost": 1,
+      "cooldown_sec": 55.0,
+      "target_mode": "enemy_single",
+      "effect_template": "single_interrupt_debuff",
+      "duration_sec": 6.0,
+      "range": 22.0,
+      "effects": {
+        "interrupt_cast": true,
+        "apply_misinformation_sec": 5.0,
+        "paralyze_sec": 0.6,
+        "morale_damage_flat": 8.0
+      },
+      "auto_cast_rules": {
+        "trigger_on_enemy_cast": true,
+        "prefer_tactician_target": true,
+        "prefer_enemy_commander": true
+      }
+    },
+    {
+      "id": "zhangliao_weizhenxiaoyaojin",
+      "officer_id": "zhangliao",
+      "owner_names": ["张辽", "zhangliao"],
+      "name": "威震逍遥津",
+      "desc": "率先突入敌阵，震慑后排，重创士气。",
+      "order_cost": 1,
+      "cooldown_sec": 50.0,
+      "target_mode": "directional_charge",
+      "effect_template": "charge_break_line",
+      "duration_sec": 6.0,
+      "range": 16.0,
+      "effects": {
+        "impact_damage_mul": 1.80,
+        "impact_morale_damage_flat": 18.0,
+        "apply_disrupt_sec": 3.0,
+        "bonus_vs_ranged_pct": 0.20
+      },
+      "auto_cast_rules": {
+        "prefer_ranged_backline": true,
+        "require_path_to_target": true,
+        "min_enemies_in_line": 2,
+        "auto_proc_chance": 0.62
+      }
+    },
+    {
+      "id": "xiahoudun_bashiedanqing",
+      "officer_id": "xiahoudun",
+      "owner_names": ["夏侯惇", "xiahoudun"],
+      "name": "拔矢啖睛",
+      "desc": "以伤换勇，短时间内大幅强化自身强攻与坚韧。",
+      "order_cost": 1,
+      "cooldown_sec": 55.0,
+      "target_mode": "self",
+      "effect_template": "self_berserk_buff",
+      "duration_sec": 8.0,
+      "effects": {
+        "self_morale_gain_flat": 15.0,
+        "self_spirit_gain_flat": 12.0,
+        "self_attack_bonus_pct": 0.18,
+        "self_defense_bonus_pct": 0.15,
+        "control_resist_pct": 0.35
+      },
+      "auto_cast_rules": {
+        "self_hp_below_ratio": 0.60,
+        "under_focus_fire": true
+      }
+    },
+    {
+      "id": "liubei_rendezhishi",
+      "officer_id": "liubei",
+      "owner_names": ["刘备", "liubei"],
+      "name": "仁德之师",
+      "desc": "安定军心，鼓舞友军，解除轻度混乱与迟滞。",
+      "order_cost": 1,
+      "cooldown_sec": 55.0,
+      "target_mode": "self_area",
+      "effect_template": "morale_recover_cleanse",
+      "duration_sec": 8.0,
+      "radius": 18.0,
+      "effects": {
+        "ally_morale_gain_flat": 14.0,
+        "ally_spirit_gain_flat": 8.0,
+        "cleanse_confusion": true,
+        "cleanse_slow": true,
+        "cleanse_misinformation": true
+      },
+      "auto_cast_rules": {
+        "min_low_morale_allies": 2,
+        "cast_if_ally_controlled": true
+      }
+    },
+    {
+      "id": "zhugeliang_bazhentianji",
+      "officer_id": "zhugeliang",
+      "owner_names": ["诸葛亮", "孔明", "zhugeliang"],
+      "name": "八阵天机",
+      "desc": "布设阵域，困敌乱阵，削弱推进与施策效率。",
+      "order_cost": 1,
+      "cooldown_sec": 60.0,
+      "target_mode": "ground_area",
+      "effect_template": "area_control_zone",
+      "duration_sec": 10.0,
+      "radius": 14.0,
+      "effects": {
+        "enemy_speed_down_pct": 0.25,
+        "enemy_tactic_hit_down_pct": 0.20,
+        "apply_slow_sec": 4.5,
+        "apply_misinformation_sec": 4.0
+      },
+      "auto_cast_rules": {
+        "min_enemies_in_area": 3,
+        "prefer_chokepoint": true,
+        "prefer_enemy_advancing": true
+      }
+    },
+    {
+      "id": "guanyu_weizhenhuaxia",
+      "officer_id": "guanyu",
+      "owner_names": ["关羽", "关云长", "guanyu"],
+      "name": "威震华夏",
+      "desc": "青龙一击，斩裂敌前阵，兼具破甲与威压。",
+      "order_cost": 1,
+      "cooldown_sec": 52.0,
+      "target_mode": "frontal_cone",
+      "effect_template": "frontal_cleave_pressure",
+      "duration_sec": 5.0,
+      "range": 14.0,
+      "cone_angle_deg": 82.0,
+      "effects": {
+        "front_damage_mul": 2.00,
+        "morale_damage_flat": 16.0,
+        "apply_countered_sec": 4.0
+      },
+      "auto_cast_rules": {
+        "prefer_enemy_commander": true,
+        "min_enemies_in_cone": 2,
+        "require_front_contact": true
+      }
+    },
+    {
+      "id": "zhangfei_dangyangnuhe",
+      "officer_id": "zhangfei",
+      "owner_names": ["张飞", "张翼德", "zhangfei"],
+      "name": "当阳怒喝",
+      "desc": "震慑前方大范围敌军，强打士气并打乱阵脚。",
+      "order_cost": 1,
+      "cooldown_sec": 55.0,
+      "target_mode": "frontal_cone",
+      "effect_template": "cone_roar_disrupt",
+      "duration_sec": 4.0,
+      "range": 14.0,
+      "cone_angle_deg": 90.0,
+      "effects": {
+        "morale_damage_flat": 20.0,
+        "apply_paralyze_sec": 1.2,
+        "apply_confusion_sec": 4.0
+      },
+      "auto_cast_rules": {
+        "first_large_engage": true,
+        "or_when_surrounded": true,
+        "min_enemies_in_cone": 3
+      }
+    },
+    {
+      "id": "sunquan_zhihengtianxia",
+      "officer_id": "sunquan",
+      "owner_names": ["孙权", "sunquan"],
+      "name": "制衡天下",
+      "desc": "调度全军，缩短周围友军技能周转并稳定军心。",
+      "order_cost": 1,
+      "cooldown_sec": 55.0,
+      "target_mode": "self_area",
+      "effect_template": "team_cdr_support",
+      "duration_sec": 8.0,
+      "radius": 18.0,
+      "effects": {
+        "ally_skill_cooldown_refund_pct": 0.20,
+        "ally_morale_gain_flat": 10.0,
+        "ally_spirit_gain_flat": 6.0
+      },
+      "auto_cast_rules": {
+        "min_allies_with_skill_on_cooldown": 2,
+        "min_allies_in_combat": 2
+      }
+    },
+    {
+      "id": "zhouyu_chibifentian",
+      "officer_id": "zhouyu",
+      "owner_names": ["周瑜", "周公瑾", "zhouyu"],
+      "name": "赤壁焚天",
+      "desc": "以烈焰吞敌阵，形成爆发性火攻与持续焚烧。",
+      "order_cost": 1,
+      "cooldown_sec": 60.0,
+      "target_mode": "ground_area",
+      "effect_template": "area_fire_burst",
+      "duration_sec": 8.0,
+      "radius": 13.0,
+      "effects": {
+        "initial_magic_damage_mul": 1.60,
+        "burn_damage_per_sec": 6.5,
+        "apply_burning_sec": 8.0,
+        "apply_confusion_sec": 2.0,
+        "weather_bonus_windy_pct": 0.20,
+        "weather_penalty_rain_pct": 0.35
+      },
+      "auto_cast_rules": {
+        "min_enemies_in_area": 3,
+        "prefer_not_rain": true,
+        "prefer_dense_enemy_cluster": true
+      }
+    },
+    {
+      "id": "luxun_huoshaolianying",
+      "officer_id": "luxun",
+      "owner_names": ["陆逊", "陆伯言", "luxun"],
+      "name": "火烧连营",
+      "desc": "顺势引燃相连敌阵，令火势连绵扩散，持续崩坏敌线。",
+      "order_cost": 1,
+      "cooldown_sec": 58.0,
+      "target_mode": "enemy_cluster",
+      "effect_template": "chain_fire_spread",
+      "duration_sec": 10.0,
+      "radius": 15.0,
+      "effects": {
+        "spread_count": 3,
+        "spread_radius": 8.0,
+        "burn_damage_per_sec": 5.0,
+        "apply_burning_sec": 10.0,
+        "apply_countered_sec": 5.0,
+        "bonus_vs_burning_pct": 0.20
+      },
+      "auto_cast_rules": {
+        "require_existing_burning_target": true,
+        "or_enemy_clustered_count": 3,
+        "prefer_linked_enemy_line": true
+      }
+    },
+    {
+      "id": "ganning_jinfanpozhen",
+      "officer_id": "ganning",
+      "owner_names": ["甘宁", "ganning"],
+      "name": "锦帆破阵",
+      "desc": "高速突穿敌阵侧后，专破远程与策士单位。",
+      "order_cost": 1,
+      "cooldown_sec": 50.0,
+      "target_mode": "flank_dash",
+      "effect_template": "flank_dash_assault",
+      "duration_sec": 6.0,
+      "range": 18.0,
+      "effects": {
+        "impact_damage_mul": 1.65,
+        "impact_morale_damage_flat": 14.0,
+        "bonus_vs_ranged_pct": 0.25,
+        "bonus_vs_strategist_pct": 0.25,
+        "apply_confusion_sec": 3.0
+      },
+      "auto_cast_rules": {
+        "prefer_flank_path": true,
+        "prefer_ranged_or_strategist_target": true,
+        "require_path_to_target": true
+      }
+    }
+  ]
+}

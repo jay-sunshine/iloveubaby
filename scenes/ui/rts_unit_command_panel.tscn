@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://ea7ebwnuuvaa"]
+
+[node name="RTSUnitCommandPanel" type="Control" unique_id=1972280282]
+visible = false
+custom_minimum_size = Vector2(920, 228)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -460.0
+offset_top = -240.0
+offset_right = 460.0
+offset_bottom = -12.0
+mouse_filter = 1
+
+[node name="Background" type="Panel" parent="." unique_id=175049143]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Content" type="MarginContainer" parent="." unique_id=1483532373]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="VBoxContainer" parent="Content" unique_id=967298669]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StatusLabel" type="Label" parent="Content/Body" unique_id=1331974302]
+layout_mode = 2
+text = "Battle Ready"
+
+[node name="UnitNameLabel" type="Label" parent="Content/Body" unique_id=1821839792]
+layout_mode = 2
+
+[node name="CommandRow" type="HBoxContainer" parent="Content/Body" unique_id=1957911473]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AttackMoveButton" type="Button" parent="Content/Body/CommandRow" unique_id=911710617]
+custom_minimum_size = Vector2(118, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack Move [A]"
+
+[node name="StopButton" type="Button" parent="Content/Body/CommandRow" unique_id=419968144]
+custom_minimum_size = Vector2(82, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stop [S]"
+
+[node name="HoldButton" type="Button" parent="Content/Body/CommandRow" unique_id=1162669818]
+custom_minimum_size = Vector2(82, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hold [D]"
+
+[node name="RetreatButton" type="Button" parent="Content/Body/CommandRow" unique_id=136831294]
+custom_minimum_size = Vector2(82, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retreat [F]"
+
+[node name="FamousSkillButton" type="Button" parent="Content/Body/CommandRow" unique_id=13779974]
+custom_minimum_size = Vector2(96, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Unique Skill [R]"
+
+[node name="SlotTitleLabel" type="Label" parent="Content/Body" unique_id=1223499587]
+layout_mode = 2
+text = "Combat Skills"
+
+[node name="SlotRow" type="HBoxContainer" parent="Content/Body" unique_id=754530970]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1Button" type="Button" parent="Content/Body/SlotRow" unique_id=1608273441]
+custom_minimum_size = Vector2(160, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1 Slot"
+
+[node name="Slot2Button" type="Button" parent="Content/Body/SlotRow" unique_id=1502937047]
+custom_minimum_size = Vector2(160, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2 Slot"
+
+[node name="Slot3Button" type="Button" parent="Content/Body/SlotRow" unique_id=230718067]
+custom_minimum_size = Vector2(160, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3 Slot"

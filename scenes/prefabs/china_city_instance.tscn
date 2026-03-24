@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dcfce18mkmqwr"]
+
+[ext_resource type="Script" uid="uid://bfluj6vqdgwj" path="res://scripts/presentation/china_city_instance.gd" id="1_script"]
+
+[node name="ChinaCityInstance" type="Node3D" unique_id=24266302]
+script = ExtResource("1_script")
+
+[node name="ModelRoot" type="Node3D" parent="." unique_id=1916394515]
+
+[node name="CityLabel" type="Label3D" parent="." unique_id=1065698255]
+pixel_size = 0.0032
+billboard = 1
+no_depth_test = true
+fixed_size = true
+font_size = 20
+outline_size = 3
+
+[node name="EditorMarker" type="MeshInstance3D" parent="." unique_id=605937312]
+visible = false

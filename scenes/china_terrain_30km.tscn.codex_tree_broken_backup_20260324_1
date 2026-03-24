@@ -1,0 +1,250 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/presentation/china_terrain_scene.gd" id="1_vvnmj"]
+[ext_resource type="Script" path="res://scripts/presentation/map_camera_controller.gd" id="2_x8ej6"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/rocky_terrain_02_packed_albedo_height.png" id="3_sfteu"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/rocky_terrain_02_packed_normal_roughness.png" id="4_lknko"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/gravelly_sand_packed_albedo_height.png" id="5_d00db"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/gravelly_sand_packed_normal_roughness.png" id="6_myna3"]
+[ext_resource type="Script" path="res://scripts/presentation/china_political_mask_overlay.gd" id="7_b8g42"]
+[ext_resource type="Script" path="res://scripts/presentation/china_city_overlay.gd" id="8_city"]
+[ext_resource type="Shader" path="res://scripts/presentation/political_mask_overlay.gdshader" id="8_jfqg7"]
+[ext_resource type="Texture2D" path="res://data/terrain/china_30km/political/zhou_border_mask.png" id="9_5l0tr"]
+[ext_resource type="Texture2D" path="res://data/terrain/china_30km/political/zhou_id_mask.png" id="10_ag3ks"]
+[ext_resource type="Script" path="res://scripts/presentation/strategic_site_manager.gd" id="10_sites"]
+[ext_resource type="Texture2D" path="res://data/terrain/china_30km/political/zhou_label_overlay.png" id="11_f76dj"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/coast_sand_rocks_02_packed_albedo_height.png" id="18_soila"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/coast_sand_rocks_02_packed_normal_roughness.png" id="19_soiln"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/snow_02_packed_albedo_height.png" id="20_snowa"]
+[ext_resource type="Texture2D" path="res://绱犳潗/textures/snow_02_packed_normal_roughness.png" id="21_snown"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/mountain_mist.tscn" id="22_mistprefab"]
+
+[sub_resource type="Environment" id="Environment_copjr"]
+background_mode = 1
+background_color = Color(0.56, 0.58, 0.62, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.84, 0.86, 0.9, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 1.4
+
+[sub_resource type="Gradient" id="Gradient_hg1xx"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ip5hr"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o7jpb"]
+noise = SubResource("FastNoiseLite_ip5hr")
+color_ramp = SubResource("Gradient_hg1xx")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_jbihq"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": 0.56,
+&"depth_blur": null,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": null,
+&"macro_variation1": Color(0.97, 0.99, 0.96, 1),
+&"macro_variation2": Color(1.01, 1.01, 1, 1),
+&"macro_variation_slope": 0.05,
+&"mipmap_bias": null,
+&"noise1_angle": 0.62,
+&"noise1_offset": Vector2(0.37, 0.61),
+&"noise1_scale": 0.0011,
+&"noise2_scale": 0.0036,
+&"noise_texture": SubResource("NoiseTexture2D_o7jpb"),
+&"projection_threshold": 0.58
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qehqp"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_jqesg"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_qehqp")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_cvcbq"]
+name = "Grass"
+albedo_texture = ExtResource("3_sfteu")
+normal_texture = ExtResource("4_lknko")
+normal_depth = 0.045
+ao_strength = 1.0
+roughness = 0.975
+uv_scale = 0.016
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_33bu5"]
+name = "Soil"
+id = 1
+albedo_texture = ExtResource("18_soila")
+normal_texture = ExtResource("19_soiln")
+normal_depth = 0.1
+ao_strength = 1.0
+roughness = 0.95
+uv_scale = 0.038
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_rock"]
+name = "Rock"
+id = 2
+albedo_texture = ExtResource("5_d00db")
+normal_texture = ExtResource("6_myna3")
+normal_depth = 0.075
+ao_strength = 1.0
+roughness = 0.97
+uv_scale = 0.038
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_snow"]
+name = "Snow"
+id = 3
+albedo_texture = ExtResource("20_snowa")
+normal_texture = ExtResource("21_snown")
+normal_depth = 0.08
+ao_strength = 1.0
+roughness = 0.98
+uv_scale = 0.088
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_d7pj1"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_jqesg")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_cvcbq"), SubResource("Terrain3DTextureAsset_33bu5"), SubResource("Terrain3DTextureAsset_rock"), SubResource("Terrain3DTextureAsset_snow")])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6unvp"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.16, 0.34, 0.46, 0.54)
+metallic = 0.02
+roughness = 0.08
+rim_enabled = true
+rim = 0.18
+rim_tint = 0.65
+clearcoat_enabled = true
+clearcoat = 0.45
+clearcoat_roughness = 0.12
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mrc4n"]
+size = Vector2(42000, 42000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pilfu"]
+render_priority = 0
+shader = ExtResource("8_jfqg7")
+shader_parameter/id_mask = ExtResource("10_ag3ks")
+shader_parameter/border_mask = ExtResource("9_5l0tr")
+shader_parameter/label_mask = ExtResource("11_f76dj")
+shader_parameter/region_color_01 = Color(0.91, 0.89, 0.58, 0.92)
+shader_parameter/region_color_02 = Color(0.62, 0.88, 0.67, 0.92)
+shader_parameter/region_color_03 = Color(0.93, 0.82, 0.54, 0.92)
+shader_parameter/region_color_04 = Color(0.91, 0.72, 0.8, 0.92)
+shader_parameter/region_color_05 = Color(0.73, 0.9, 0.67, 0.92)
+shader_parameter/region_color_06 = Color(0.95, 0.9, 0.67, 0.92)
+shader_parameter/region_color_07 = Color(0.86, 0.69, 0.84, 0.92)
+shader_parameter/region_color_08 = Color(0.95, 0.91, 0.73, 0.92)
+shader_parameter/region_color_09 = Color(0.92, 0.81, 0.56, 0.92)
+shader_parameter/region_color_10 = Color(0.72, 0.92, 0.69, 0.92)
+shader_parameter/region_color_11 = Color(0.68, 0.88, 0.62, 0.92)
+shader_parameter/region_color_12 = Color(0.91, 0.7, 0.79, 0.92)
+shader_parameter/region_color_13 = Color(0.92, 0.79, 0.53, 0.92)
+shader_parameter/border_color = Color(0.27, 0.12, 0.06, 1)
+shader_parameter/label_color = Color(0.12, 0.07, 0.03, 1)
+shader_parameter/overlay_opacity = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6m8lx"]
+size = Vector2(30000, 30000)
+
+[node name="ChinaTerrain30km" type="Node3D" unique_id=2114605478]
+script = ExtResource("1_vvnmj")
+
+[node name="WorldEnv" type="WorldEnvironment" parent="." unique_id=1776032175]
+environment = SubResource("Environment_copjr")
+
+[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=686303904]
+transform = Transform3D(0.7880108, -0.4575257, 0.41195792, 0, 0.66913056, 0.74314487, -0.6156615, -0.58560616, 0.5272821, 0, 0, 0)
+light_energy = 1.35
+light_indirect_energy = 0.25
+
+[node name="EditorCamera" type="Camera3D" parent="." unique_id=1304346151]
+transform = Transform3D(1, 0, 0, 0, 0.52991927, 0.8480481, 0, -0.8480481, 0.52991927, 0, 4200, 3024)
+current = true
+fov = 58.0
+far = 120000.0
+script = ExtResource("2_x8ej6")
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=2034616067]
+data_directory = "res://data/terrain/china_30km/terrain_data"
+material = SubResource("Terrain3DMaterial_jbihq")
+assets = SubResource("Terrain3DAssets_d7pj1")
+save_16_bit = true
+vertex_spacing = 7.3260074
+free_editor_textures = false
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Labels2" type="Node3D" parent="Terrain3D" unique_id=903703872]
+
+[node name="MMI2" type="Node3D" parent="Terrain3D" unique_id=1585612133]
+
+[node name="Labels3" type="Node3D" parent="Terrain3D" unique_id=1115020383]
+
+[node name="MMI3" type="Node3D" parent="Terrain3D" unique_id=52561359]
+
+[node name="SeaWater" type="MeshInstance3D" parent="." unique_id=6508570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.360596, -0.28601074, -6.316284)
+material_override = SubResource("StandardMaterial3D_6unvp")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_mrc4n")
+
+[node name="MountainMist" type="Node3D" parent="." unique_id=567009613 instance=ExtResource("22_mistprefab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6046.9756, 197.65408, 3544.668)
+
+[node name="PoliticalOverview" type="Node3D" parent="." unique_id=25663953]
+visible = false
+script = ExtResource("7_b8g42")
+
+[node name="PoliticalMaskPlane" type="MeshInstance3D" parent="PoliticalOverview" unique_id=1880334905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = SubResource("ShaderMaterial_pilfu")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_6m8lx")
+
+[node name="CityOverlay" type="Node3D" parent="." unique_id=1059719638]
+script = ExtResource("8_city")
+world_offset_x = 3800.0
+world_offset_z = 6000.0
+major_city_names = PackedStringArray("娲涢槼", "闀垮畨", "鎴愰兘", "寤轰笟", "璁告槍", "閭?, "瑗勯槼")
+
+[node name="CityInstances" type="Node3D" parent="CityOverlay" unique_id=567557953]
+
+[node name="StrategicSites" type="Node3D" parent="." unique_id=1019890679]
+script = ExtResource("10_sites")
+preview_load_in_editor = true
+terrain_path = NodePath("../Terrain3D")
+anchor_path = NodePath("../EditorCamera")
+force_load_all = true
+height_offset = 6.0
+max_spawn_per_tick = 160
+normalize_non_city_visuals = true
+non_city_label_height = 52.0
+
+[node name="SiteInstances" type="Node3D" parent="StrategicSites" unique_id=958913952]
+`r`n

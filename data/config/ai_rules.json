@@ -1,0 +1,4 @@
+﻿{
+  "policy_switch_days": 7.0,
+  "policy_cycle": ["money", "food", "iron", "wood", "horse", "support", "security", "military"]
+}

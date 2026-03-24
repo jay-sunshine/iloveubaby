@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+
+[ext_resource type="Shader" path="res://scenes/materials/chengchi_city_ground_fix.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://素材/建模/建筑单位/chengchi_ct30_low_2k_retex_chengchi_ct30_low_2k_retex_base.png" id="2_original_albedo"]
+[ext_resource type="Texture2D" path="res://素材/建模/建筑单位/chengchi_ct30_low_2k_retex_texture_pbr_20250901_normal.png" id="3_original_normal"]
+[ext_resource type="Texture2D" path="res://素材/nature/textures/grass-02-alb.png" id="4_ground_albedo"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/original_albedo = ExtResource("2_original_albedo")
+shader_parameter/original_normal = ExtResource("3_original_normal")
+shader_parameter/ground_albedo = ExtResource("4_ground_albedo")
+shader_parameter/ground_tint = Color(0.82, 0.96, 0.78, 1)
+shader_parameter/ground_uv_scale = 7.5
+shader_parameter/ground_max_y = 0.048
+shader_parameter/ground_fade = 0.012
+shader_parameter/ground_min_up_dot = 0.72
+shader_parameter/ground_up_fade = 0.08
+shader_parameter/base_roughness = 1.0
+shader_parameter/base_specular = 0.08

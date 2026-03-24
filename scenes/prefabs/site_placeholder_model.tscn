@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_placeholder"]
+size = Vector3(1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_placeholder"]
+albedo_color = Color(0.56, 0.6, 0.66, 0.85)
+roughness = 0.8
+metallic = 0.05
+
+[node name="SitePlaceholderModel" type="Node3D"]
+
+[node name="PlaceholderMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_placeholder")
+material_override = SubResource("StandardMaterial3D_placeholder")
+cast_shadow = 0

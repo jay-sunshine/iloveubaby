@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://b7bje38cnwt78"]
+
+[ext_resource type="Script" uid="uid://co0e63w8pboet" path="res://scripts/presentation/china_terrain_scene.gd" id="1_vvnmj"]
+[ext_resource type="Script" uid="uid://b6okmjl0cnemw" path="res://scripts/presentation/map_camera_controller.gd" id="2_x8ej6"]
+[ext_resource type="Texture2D" uid="uid://dh4g34a54moll" path="res://素材/nature/textures/grass-02-alb.png" id="3_sfteu"]
+[ext_resource type="Texture2D" uid="uid://cwj7r3nivojxy" path="res://素材/nature/textures/grass-02-nrm.png" id="4_lknko"]
+[ext_resource type="Texture2D" uid="uid://dkttoapg125x5" path="res://素材/nature/textures/rock-alb.png" id="5_d00db"]
+[ext_resource type="Texture2D" uid="uid://ccbuw5ev72lhy" path="res://素材/nature/textures/rock-norm.png" id="6_myna3"]
+[ext_resource type="Script" uid="uid://bp53cukn0rght" path="res://scripts/presentation/china_political_mask_overlay.gd" id="7_b8g42"]
+
+[sub_resource type="Environment" id="Environment_copjr"]
+background_mode = 1
+background_color = Color(0.56, 0.58, 0.62, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.84, 0.86, 0.9, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 1.4
+
+[sub_resource type="Gradient" id="Gradient_td3nm"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h34wu"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lql8n"]
+noise = SubResource("FastNoiseLite_h34wu")
+color_ramp = SubResource("Gradient_td3nm")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_jbihq"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": 0.92,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": 0.33,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_lql8n"),
+&"projection_threshold": null
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qehqp"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_jqesg"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_qehqp")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_cvcbq"]
+name = "Grass"
+albedo_texture = ExtResource("3_sfteu")
+normal_texture = ExtResource("4_lknko")
+normal_depth = 0.32
+ao_strength = 1.0
+roughness = 0.97
+uv_scale = 0.075
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_33bu5"]
+name = "Rock"
+id = 1
+albedo_texture = ExtResource("5_d00db")
+normal_texture = ExtResource("6_myna3")
+normal_depth = 0.55
+ao_strength = 1.0
+roughness = 1.0
+uv_scale = 0.11
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_d7pj1"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_jqesg")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_cvcbq"), SubResource("Terrain3DTextureAsset_33bu5")])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6unvp"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.16, 0.34, 0.46, 0.54)
+metallic = 0.02
+roughness = 0.08
+rim_enabled = true
+rim = 0.18
+rim_tint = 0.65
+clearcoat_enabled = true
+clearcoat = 0.45
+clearcoat_roughness = 0.12
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mrc4n"]
+size = Vector2(42000, 42000)
+
+[node name="ChinaTerrain30km" type="Node3D" unique_id=2114605478]
+script = ExtResource("1_vvnmj")
+
+[node name="WorldEnv" type="WorldEnvironment" parent="." unique_id=1776032175]
+environment = SubResource("Environment_copjr")
+
+[node name="SunLight" type="DirectionalLight3D" parent="." unique_id=686303904]
+transform = Transform3D(0.7880108, -0.4575257, 0.41195792, 0, 0.66913056, 0.74314487, -0.6156615, -0.58560616, 0.5272821, 0, 0, 0)
+light_energy = 1.35
+light_indirect_energy = 0.25
+
+[node name="EditorCamera" type="Camera3D" parent="." unique_id=1304346151]
+transform = Transform3D(1, 0, 0, 0, 0.79262394, 0.6097108, 0, -0.6097108, 0.79262394, 15000, 15000, 34500)
+current = true
+far = 60000.0
+script = ExtResource("2_x8ej6")
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=2034616067]
+data_directory = "res://data/terrain/china_30km/terrain_data_flatten_pass1_snapshot"
+material = SubResource("Terrain3DMaterial_jbihq")
+assets = SubResource("Terrain3DAssets_d7pj1")
+save_16_bit = true
+vertex_spacing = 7.3260074
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="SeaWater" type="MeshInstance3D" parent="." unique_id=6508570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+material_override = SubResource("StandardMaterial3D_6unvp")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_mrc4n")
+
+[node name="PoliticalOverview" type="Node3D" parent="." unique_id=25663953]
+visible = false
+script = ExtResource("7_b8g42")

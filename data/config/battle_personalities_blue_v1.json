@@ -1,0 +1,2369 @@
+{
+    "version": "battle_blue_v2",
+    "generated_at": "2026-03-13",
+    "count": 62,
+    "design_rules": [
+        "no_aura_per_frame_scan",
+        "event_driven_only",
+        "lv1_3_single_effect",
+        "lv4_adds_second_effect"
+    ],
+    "traits": [
+        {
+            "id": "gongxin",
+            "name": "攻心",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_damage_dealt",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "lifesteal_pct",
+                        "value": 0.006
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "lifesteal_pct",
+                        "value": 0.009
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "lifesteal_pct",
+                        "value": 0.012
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "lifesteal_pct",
+                        "value": 0.012
+                    },
+                    "extra": {
+                        "effect": "on_kill_morale_gain",
+                        "value": 8
+                    }
+                }
+            },
+            "note": "单次吸血上限由战斗规则控制"
+        },
+        {
+            "id": "lianji",
+            "name": "连击",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_basic_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "follow_up_chance_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "follow_up_chance_pct",
+                        "value": 0.15
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "follow_up_chance_pct",
+                        "value": 0.2
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "follow_up_chance_pct",
+                        "value": 0.2
+                    },
+                    "extra": {
+                        "effect": "follow_up_penetration_pct",
+                        "value": 0.12
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "pozhu",
+            "name": "破竹",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_kill",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "on_kill_damage_buff_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "on_kill_damage_buff_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "on_kill_damage_buff_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "on_kill_damage_buff_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "on_kill_move_speed_buff_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "qiangxi",
+            "name": "强袭",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_skill_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "skill_damage_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "skill_damage_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "skill_damage_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "skill_damage_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "skill_crit_rate_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "jianjia",
+            "name": "坚甲",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_damage_taken",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "basic_damage_reduction_pct",
+                        "value": 0.06
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "basic_damage_reduction_pct",
+                        "value": 0.1
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "basic_damage_reduction_pct",
+                        "value": 0.14
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "basic_damage_reduction_pct",
+                        "value": 0.14
+                    },
+                    "extra": {
+                        "effect": "skill_damage_reduction_pct",
+                        "value": 0.08
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "jixing",
+            "name": "疾行",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_move",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "move_speed_pct",
+                        "value": 0.05
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "move_speed_pct",
+                        "value": 0.08
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "move_speed_pct",
+                        "value": 0.12
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "move_speed_pct",
+                        "value": 0.12
+                    },
+                    "extra": {
+                        "effect": "disengage_speed_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "jingzhun",
+            "name": "精准",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_hit_check",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "hit_rate_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "hit_rate_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "hit_rate_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "hit_rate_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "crit_rate_pct",
+                        "value": 0.08
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "rengu",
+            "name": "韧骨",
+            "rarity": "blue",
+            "category": "general",
+            "trigger": "on_control_applied",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "control_duration_reduction_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "control_duration_reduction_pct",
+                        "value": 0.25
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "control_duration_reduction_pct",
+                        "value": 0.35
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "control_duration_reduction_pct",
+                        "value": 0.35
+                    },
+                    "extra": {
+                        "effect": "on_control_end_shield_pct",
+                        "value": 0.05
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "qiangfeng",
+            "name": "枪锋",
+            "rarity": "blue",
+            "category": "unit",
+            "trigger": "on_damage_calc",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "anti_cavalry_damage_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "anti_cavalry_damage_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "anti_cavalry_damage_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "anti_cavalry_damage_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "charge_resist_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "qitu",
+            "name": "骑突",
+            "rarity": "blue",
+            "category": "unit",
+            "trigger": "on_charge_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "charge_damage_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "charge_damage_pct",
+                        "value": 0.16
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "charge_damage_pct",
+                        "value": 0.22
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "charge_damage_pct",
+                        "value": 0.22
+                    },
+                    "extra": {
+                        "effect": "charge_cooldown_reduction_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "gongjin",
+            "name": "弓劲",
+            "rarity": "blue",
+            "category": "unit",
+            "trigger": "on_ranged_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "bow_damage_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "bow_damage_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "bow_damage_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "bow_damage_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "attack_range_mul",
+                        "value": 1.1
+                    }
+                }
+            },
+            "note": "射程采用倍率，非格子+1"
+        },
+        {
+            "id": "nujin",
+            "name": "弩劲",
+            "rarity": "blue",
+            "category": "unit",
+            "trigger": "on_ranged_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "crossbow_armor_pen_pct",
+                        "value": 0.06
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "crossbow_armor_pen_pct",
+                        "value": 0.1
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "crossbow_armor_pen_pct",
+                        "value": 0.14
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "crossbow_armor_pen_pct",
+                        "value": 0.14
+                    },
+                    "extra": {
+                        "effect": "reload_speed_pct",
+                        "value": 0.12
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "dunwei",
+            "name": "盾卫",
+            "rarity": "blue",
+            "category": "unit",
+            "trigger": "on_damage_taken",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "ranged_damage_reduction_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "ranged_damage_reduction_pct",
+                        "value": 0.16
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "ranged_damage_reduction_pct",
+                        "value": 0.22
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "ranged_damage_reduction_pct",
+                        "value": 0.22
+                    },
+                    "extra": {
+                        "effect": "block_rate_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "zhongzhuang",
+            "name": "重装",
+            "rarity": "blue",
+            "category": "unit",
+            "trigger": "on_damage_taken",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "melee_damage_reduction_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "melee_damage_reduction_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "melee_damage_reduction_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "melee_damage_reduction_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "control_resist_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "mougong",
+            "name": "谋攻",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_tactic_cast",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "tactic_hit_rate_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "tactic_hit_rate_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "tactic_hit_rate_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "tactic_hit_rate_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "tactic_cooldown_reduction_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "guimou",
+            "name": "鬼谋",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_debuff_apply",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "debuff_duration_bonus_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "debuff_duration_bonus_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "debuff_duration_bonus_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "debuff_duration_bonus_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "bonus_vs_debuffed_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "huogong",
+            "name": "火攻",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_fire_tactic_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "burn_duration_sec",
+                        "value": 4
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "burn_duration_sec",
+                        "value": 5
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "burn_duration_sec",
+                        "value": 6
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "burn_duration_sec",
+                        "value": 6
+                    },
+                    "extra": {
+                        "effect": "bonus_vs_burning_pct",
+                        "value": 0.12
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "fanji",
+            "name": "反计",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_tactic_defense",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "anti_tactic_resist_chance_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "anti_tactic_resist_chance_pct",
+                        "value": 0.15
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "anti_tactic_resist_chance_pct",
+                        "value": 0.2
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "anti_tactic_resist_chance_pct",
+                        "value": 0.2
+                    },
+                    "extra": {
+                        "effect": "on_resist_morale_gain",
+                        "value": 8
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "jingchang",
+            "name": "净场",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_skill_or_tactic_cast",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "self_cleanse_chance_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "self_cleanse_chance_pct",
+                        "value": 0.25
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "self_cleanse_chance_pct",
+                        "value": 0.35
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "self_cleanse_chance_pct",
+                        "value": 0.35
+                    },
+                    "extra": {
+                        "effect": "on_cleanse_heal_pct",
+                        "value": 0.03
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "yazhi",
+            "name": "压制",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_skill_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "enemy_morale_loss_on_skill_hit",
+                        "value": 4
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "enemy_morale_loss_on_skill_hit",
+                        "value": 6
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "enemy_morale_loss_on_skill_hit",
+                        "value": 8
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "enemy_morale_loss_on_skill_hit",
+                        "value": 8
+                    },
+                    "extra": {
+                        "effect": "enemy_attack_speed_down_pct",
+                        "value": 0.08
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "raozhen",
+            "name": "扰阵",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_tactic_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "debuff_apply_chance_pct",
+                        "value": 0.06
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "debuff_apply_chance_pct",
+                        "value": 0.1
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "debuff_apply_chance_pct",
+                        "value": 0.14
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "debuff_apply_chance_pct",
+                        "value": 0.14
+                    },
+                    "extra": {
+                        "effect": "enemy_move_speed_down_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "dongcha",
+            "name": "洞察",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_control_applied",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "confuse_false_report_duration_reduction_pct",
+                        "value": 0.2
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "confuse_false_report_duration_reduction_pct",
+                        "value": 0.3
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "confuse_false_report_duration_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "confuse_false_report_duration_reduction_pct",
+                        "value": 0.4
+                    },
+                    "extra": {
+                        "effect": "periodic_control_immunity_cooldown_sec",
+                        "value": 25
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "gongcheng",
+            "name": "攻城",
+            "rarity": "blue",
+            "category": "siege",
+            "trigger": "on_city_defense_damage",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "city_defense_damage_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "city_defense_damage_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "city_defense_damage_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "city_defense_damage_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "siege_skill_cooldown_reduction_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "chonglei",
+            "name": "冲垒",
+            "rarity": "blue",
+            "category": "siege",
+            "trigger": "on_ram_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "ram_damage_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "ram_damage_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "ram_damage_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "ram_damage_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "ram_damage_reduction_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "jingong",
+            "name": "井攻",
+            "rarity": "blue",
+            "category": "siege",
+            "trigger": "on_tower_car_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "tower_car_damage_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "tower_car_damage_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "tower_car_damage_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "tower_car_damage_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "tower_car_range_mul",
+                        "value": 1.08
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "toushi",
+            "name": "投势",
+            "rarity": "blue",
+            "category": "siege",
+            "trigger": "on_catapult_fire",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "catapult_hit_rate_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "catapult_hit_rate_pct",
+                        "value": 0.16
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "catapult_hit_rate_pct",
+                        "value": 0.22
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "catapult_hit_rate_pct",
+                        "value": 0.22
+                    },
+                    "extra": {
+                        "effect": "catapult_splash_damage_pct",
+                        "value": 0.12
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "yunti",
+            "name": "云梯",
+            "rarity": "blue",
+            "category": "siege",
+            "trigger": "on_ladder_deploy",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "ladder_deploy_speed_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "ladder_deploy_speed_pct",
+                        "value": 0.25
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "ladder_deploy_speed_pct",
+                        "value": 0.35
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "ladder_deploy_speed_pct",
+                        "value": 0.35
+                    },
+                    "extra": {
+                        "effect": "ladder_phase_casualty_reduction_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "polei",
+            "name": "破垒",
+            "rarity": "blue",
+            "category": "siege",
+            "trigger": "on_fort_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "vs_fort_damage_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "vs_fort_damage_pct",
+                        "value": 0.22
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "vs_fort_damage_pct",
+                        "value": 0.3
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "vs_fort_damage_pct",
+                        "value": 0.3
+                    },
+                    "extra": {
+                        "effect": "on_fort_destroy_morale_gain",
+                        "value": 8
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "shuijiang",
+            "name": "水将",
+            "rarity": "blue",
+            "category": "naval",
+            "trigger": "on_water_combat",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "water_combat_bonus_pct",
+                        "value": 0.06
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "water_combat_bonus_pct",
+                        "value": 0.1
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "water_combat_bonus_pct",
+                        "value": 0.14
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "water_combat_bonus_pct",
+                        "value": 0.14
+                    },
+                    "extra": {
+                        "effect": "water_control_resist_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "louzhan",
+            "name": "楼战",
+            "rarity": "blue",
+            "category": "naval",
+            "trigger": "on_water_ranged_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "tower_ship_damage_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "tower_ship_damage_pct",
+                        "value": 0.16
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "tower_ship_damage_pct",
+                        "value": 0.22
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "tower_ship_damage_pct",
+                        "value": 0.22
+                    },
+                    "extra": {
+                        "effect": "tower_ship_vs_structure_pct",
+                        "value": 0.12
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "doujian",
+            "name": "斗舰",
+            "rarity": "blue",
+            "category": "naval",
+            "trigger": "on_ramming_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "ramming_damage_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "ramming_damage_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "ramming_damage_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "ramming_damage_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "ramming_cooldown_reduction_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "qingzhou",
+            "name": "轻舟",
+            "rarity": "blue",
+            "category": "naval",
+            "trigger": "on_water_move",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "water_move_speed_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "water_move_speed_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "water_move_speed_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "water_move_speed_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "water_disengage_speed_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "shuixi",
+            "name": "水袭",
+            "rarity": "blue",
+            "category": "naval",
+            "trigger": "on_water_first_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "water_first_hit_damage_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "water_first_hit_damage_pct",
+                        "value": 0.22
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "water_first_hit_damage_pct",
+                        "value": 0.3
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "water_first_hit_damage_pct",
+                        "value": 0.3
+                    },
+                    "extra": {
+                        "effect": "water_hit_slow_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "liangzheng",
+            "name": "粮整",
+            "rarity": "blue",
+            "category": "logistics",
+            "trigger": "on_supply_tick",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "food_consumption_reduction_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "food_consumption_reduction_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "food_consumption_reduction_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "food_consumption_reduction_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "low_supply_penalty_delay_sec",
+                        "value": 10
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "jieliang",
+            "name": "节粮",
+            "rarity": "blue",
+            "category": "logistics",
+            "trigger": "on_low_supply",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "low_supply_penalty_reduction_pct",
+                        "value": 0.2
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "low_supply_penalty_reduction_pct",
+                        "value": 0.3
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "low_supply_penalty_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "low_supply_penalty_reduction_pct",
+                        "value": 0.4
+                    },
+                    "extra": {
+                        "effect": "low_supply_move_penalty_reduction_pct",
+                        "value": 0.25
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "gucang",
+            "name": "固仓",
+            "rarity": "blue",
+            "category": "logistics",
+            "trigger": "on_supply_line_disrupted",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "anti_supply_cut_strength_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "anti_supply_cut_strength_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "anti_supply_cut_strength_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "anti_supply_cut_strength_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "supply_cut_grace_sec",
+                        "value": 10
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "chihou",
+            "name": "斥候",
+            "rarity": "blue",
+            "category": "recon",
+            "trigger": "on_spot_enemy",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "vision_radius_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "vision_radius_pct",
+                        "value": 0.16
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "vision_radius_pct",
+                        "value": 0.22
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "vision_radius_pct",
+                        "value": 0.22
+                    },
+                    "extra": {
+                        "effect": "reveal_duration_sec",
+                        "value": 2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "yeyan",
+            "name": "夜眼",
+            "rarity": "blue",
+            "category": "recon",
+            "trigger": "on_night_or_fog",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "night_fog_vision_penalty_reduction_pct",
+                        "value": 0.25
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "night_fog_vision_penalty_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "night_fog_vision_penalty_reduction_pct",
+                        "value": 0.55
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "night_fog_vision_penalty_reduction_pct",
+                        "value": 0.55
+                    },
+                    "extra": {
+                        "effect": "night_hit_rate_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "fanfu",
+            "name": "反伏",
+            "rarity": "blue",
+            "category": "recon",
+            "trigger": "on_ambushed",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "ambush_first_hit_reduction_pct",
+                        "value": 0.2
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "ambush_first_hit_reduction_pct",
+                        "value": 0.3
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "ambush_first_hit_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "ambush_first_hit_reduction_pct",
+                        "value": 0.4
+                    },
+                    "extra": {
+                        "effect": "periodic_ambush_stagger_immunity_cooldown_sec",
+                        "value": 30
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "guzhan",
+            "name": "鼓战",
+            "rarity": "blue",
+            "category": "morale_will",
+            "trigger": "on_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "on_hit_morale_gain",
+                        "value": 1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "on_hit_morale_gain",
+                        "value": 2
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "on_hit_morale_gain",
+                        "value": 3
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "on_hit_morale_gain",
+                        "value": 3
+                    },
+                    "extra": {
+                        "effect": "on_10_hits_will_gain",
+                        "value": 6
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "weihe",
+            "name": "威喝",
+            "rarity": "blue",
+            "category": "morale_will",
+            "trigger": "on_damage_dealt",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "on_damage_enemy_morale_loss",
+                        "value": 3
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "on_damage_enemy_morale_loss",
+                        "value": 5
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "on_damage_enemy_morale_loss",
+                        "value": 7
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "on_damage_enemy_morale_loss",
+                        "value": 7
+                    },
+                    "extra": {
+                        "effect": "enemy_attack_speed_down_pct",
+                        "value": 0.08
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "buqu",
+            "name": "不屈",
+            "rarity": "blue",
+            "category": "morale_will",
+            "trigger": "on_low_hp",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "low_hp_morale_loss_reduction_pct",
+                        "value": 0.3
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "low_hp_morale_loss_reduction_pct",
+                        "value": 0.45
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "low_hp_morale_loss_reduction_pct",
+                        "value": 0.6
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "low_hp_morale_loss_reduction_pct",
+                        "value": 0.6
+                    },
+                    "extra": {
+                        "effect": "low_hp_damage_bonus_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "chengsheng",
+            "name": "乘胜",
+            "rarity": "blue",
+            "category": "morale_will",
+            "trigger": "on_kill",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "on_kill_morale_gain",
+                        "value": 8
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "on_kill_morale_gain",
+                        "value": 12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "on_kill_morale_gain",
+                        "value": 16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "on_kill_morale_gain",
+                        "value": 16
+                    },
+                    "extra": {
+                        "effect": "on_kill_damage_bonus_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "baichu",
+            "name": "百出",
+            "rarity": "blue",
+            "category": "morale_will",
+            "trigger": "on_skill_or_tactic_cast",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "skill_tactic_will_refund_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "skill_tactic_will_refund_pct",
+                        "value": 0.15
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "skill_tactic_will_refund_pct",
+                        "value": 0.2
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "skill_tactic_will_refund_pct",
+                        "value": 0.2
+                    },
+                    "extra": {
+                        "effect": "low_will_flat_gain",
+                        "value": 8
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "lieyi",
+            "name": "猎意",
+            "rarity": "blue",
+            "category": "morale_will",
+            "trigger": "on_kill",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "on_kill_will_gain",
+                        "value": 10
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "on_kill_will_gain",
+                        "value": 15
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "on_kill_will_gain",
+                        "value": 20
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "on_kill_will_gain",
+                        "value": 20
+                    },
+                    "extra": {
+                        "effect": "on_kill_damage_bonus_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "suzhu",
+            "name": "速筑",
+            "rarity": "blue",
+            "category": "engineering",
+            "trigger": "on_build_start",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "build_speed_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "build_speed_pct",
+                        "value": 0.25
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "build_speed_pct",
+                        "value": 0.35
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "build_speed_pct",
+                        "value": 0.35
+                    },
+                    "extra": {
+                        "effect": "build_cost_reduction_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "qianglei",
+            "name": "强垒",
+            "rarity": "blue",
+            "category": "engineering",
+            "trigger": "on_build_complete",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "new_fort_hp_bonus_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "new_fort_hp_bonus_pct",
+                        "value": 0.25
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "new_fort_hp_bonus_pct",
+                        "value": 0.35
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "new_fort_hp_bonus_pct",
+                        "value": 0.35
+                    },
+                    "extra": {
+                        "effect": "fort_defense_bonus_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "xianzuo",
+            "name": "陷作",
+            "rarity": "blue",
+            "category": "engineering",
+            "trigger": "on_trap_build",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "trap_build_speed_pct",
+                        "value": 0.2
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "trap_build_speed_pct",
+                        "value": 0.3
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "trap_build_speed_pct",
+                        "value": 0.4
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "trap_build_speed_pct",
+                        "value": 0.4
+                    },
+                    "extra": {
+                        "effect": "trap_damage_bonus_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "chaizhu",
+            "name": "拆筑",
+            "rarity": "blue",
+            "category": "engineering",
+            "trigger": "on_dismantle",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "dismantle_speed_pct",
+                        "value": 0.15
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "dismantle_speed_pct",
+                        "value": 0.22
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "dismantle_speed_pct",
+                        "value": 0.3
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "dismantle_speed_pct",
+                        "value": 0.3
+                    },
+                    "extra": {
+                        "effect": "on_dismantle_morale_gain",
+                        "value": 8
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "shanxing",
+            "name": "山行",
+            "rarity": "blue",
+            "category": "terrain",
+            "trigger": "on_enter_mountain",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "mountain_move_penalty_reduction_pct",
+                        "value": 0.2
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "mountain_move_penalty_reduction_pct",
+                        "value": 0.3
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "mountain_move_penalty_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "mountain_move_penalty_reduction_pct",
+                        "value": 0.4
+                    },
+                    "extra": {
+                        "effect": "mountain_damage_bonus_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "linzhan",
+            "name": "林战",
+            "rarity": "blue",
+            "category": "terrain",
+            "trigger": "on_enter_forest",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "forest_hit_rate_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "forest_hit_rate_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "forest_hit_rate_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "forest_hit_rate_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "forest_evasion_pct",
+                        "value": 0.08
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "zhaoxing",
+            "name": "沼行",
+            "rarity": "blue",
+            "category": "terrain",
+            "trigger": "on_enter_swamp",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "swamp_move_penalty_reduction_pct",
+                        "value": 0.25
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "swamp_move_penalty_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "swamp_move_penalty_reduction_pct",
+                        "value": 0.55
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "swamp_move_penalty_reduction_pct",
+                        "value": 0.55
+                    },
+                    "extra": {
+                        "effect": "swamp_cast_penalty_reduction_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "qiaobian",
+            "name": "巧变",
+            "rarity": "blue",
+            "category": "terrain",
+            "trigger": "on_skill_or_tactic_cast",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "terrain_cast_penalty_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "terrain_cast_penalty_reduction_pct",
+                        "value": 0.7
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "terrain_cast_penalty_reduction_pct",
+                        "value": 1
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "terrain_cast_penalty_reduction_pct",
+                        "value": 1
+                    },
+                    "extra": {
+                        "effect": "complex_terrain_cooldown_reduction_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "zhanxing",
+            "name": "栈行",
+            "rarity": "blue",
+            "category": "terrain",
+            "trigger": "on_plank_road",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "plank_road_penalty_reduction_pct",
+                        "value": 0.2
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "plank_road_penalty_reduction_pct",
+                        "value": 0.35
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "plank_road_penalty_reduction_pct",
+                        "value": 0.5
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "plank_road_penalty_reduction_pct",
+                        "value": 0.5
+                    },
+                    "extra": {
+                        "effect": "plank_road_control_resist_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "qingfeng",
+            "name": "晴锋",
+            "rarity": "blue",
+            "category": "weather",
+            "trigger": "on_weather_sunny",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "sunny_damage_bonus_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "sunny_damage_bonus_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "sunny_damage_bonus_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "sunny_damage_bonus_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "sunny_move_speed_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "yumu",
+            "name": "雨幕",
+            "rarity": "blue",
+            "category": "weather",
+            "trigger": "on_weather_rain_storm",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "rain_storm_ranged_damage_reduction_pct",
+                        "value": 0.1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "rain_storm_ranged_damage_reduction_pct",
+                        "value": 0.16
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "rain_storm_ranged_damage_reduction_pct",
+                        "value": 0.22
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "rain_storm_ranged_damage_reduction_pct",
+                        "value": 0.22
+                    },
+                    "extra": {
+                        "effect": "rain_storm_fire_damage_reduction_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "fengjie",
+            "name": "风借",
+            "rarity": "blue",
+            "category": "weather",
+            "trigger": "on_weather_windy_storm",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "windy_storm_fire_duration_bonus_sec",
+                        "value": 1
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "windy_storm_fire_duration_bonus_sec",
+                        "value": 2
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "windy_storm_fire_duration_bonus_sec",
+                        "value": 3
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "windy_storm_fire_duration_bonus_sec",
+                        "value": 3
+                    },
+                    "extra": {
+                        "effect": "borrow_wind_cooldown_reduction_pct",
+                        "value": 0.2
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "wuzhan",
+            "name": "雾战",
+            "rarity": "blue",
+            "category": "weather",
+            "trigger": "on_weather_fog",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "fog_hit_penalty_reduction_pct",
+                        "value": 0.2
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "fog_hit_penalty_reduction_pct",
+                        "value": 0.3
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "fog_hit_penalty_reduction_pct",
+                        "value": 0.4
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "fog_hit_penalty_reduction_pct",
+                        "value": 0.4
+                    },
+                    "extra": {
+                        "effect": "fog_first_hit_damage_bonus_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "leiding",
+            "name": "雷定",
+            "rarity": "blue",
+            "category": "weather",
+            "trigger": "on_weather_thunder",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "thunderstorm_control_resist_pct",
+                        "value": 0.12
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "thunderstorm_control_resist_pct",
+                        "value": 0.18
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "thunderstorm_control_resist_pct",
+                        "value": 0.24
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "thunderstorm_control_resist_pct",
+                        "value": 0.24
+                    },
+                    "extra": {
+                        "effect": "thunderstorm_first_control_duration_reduction_pct",
+                        "value": 0.3
+                    }
+                }
+            },
+            "note": ""
+        },
+        {
+            "id": "bufu",
+            "name": "捕缚",
+            "rarity": "blue",
+            "category": "tactic",
+            "trigger": "on_control_applied",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "capture_chance_pct",
+                        "value": 0.06
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "capture_chance_pct",
+                        "value": 0.1
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "capture_chance_pct",
+                        "value": 0.14
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "capture_chance_pct",
+                        "value": 0.14
+                    },
+                    "extra": {
+                        "effect": "capture_duration_sec",
+                        "value": 2
+                    }
+                }
+            },
+            "note": "仅在造成束缚/缴械/混乱类控制时判定，不做每帧扫描"
+        },
+        {
+            "id": "fuzhu",
+            "name": "辅助",
+            "rarity": "blue",
+            "category": "support",
+            "trigger": "on_skill_or_tactic_cast",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "assist_followup_chance_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "assist_followup_chance_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "assist_followup_chance_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "assist_followup_chance_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "assist_target_damage_reduction_pct",
+                        "value": 0.1
+                    }
+                }
+            },
+            "note": "触发时仅结算本次协同，不做范围光环常驻检测"
+        },
+        {
+            "id": "huwei",
+            "name": "护卫",
+            "rarity": "blue",
+            "category": "support",
+            "trigger": "on_ally_hit",
+            "levels": {
+                "1": {
+                    "main": {
+                        "effect": "guard_intercept_chance_pct",
+                        "value": 0.08
+                    }
+                },
+                "2": {
+                    "main": {
+                        "effect": "guard_intercept_chance_pct",
+                        "value": 0.12
+                    }
+                },
+                "3": {
+                    "main": {
+                        "effect": "guard_intercept_chance_pct",
+                        "value": 0.16
+                    }
+                },
+                "4": {
+                    "main": {
+                        "effect": "guard_intercept_chance_pct",
+                        "value": 0.16
+                    },
+                    "extra": {
+                        "effect": "intercept_damage_reduction_pct",
+                        "value": 0.15
+                    }
+                }
+            },
+            "note": "仅在友军受击事件触发时判定，不做持续光环"
+        }
+    ]
+}

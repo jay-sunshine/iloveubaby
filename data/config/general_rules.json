@@ -1,0 +1,8 @@
+﻿{
+  "officer_roles": ["taishou", "shicao", "hucao", "junxu", "bingcao", "gongcao", "duwei"],
+  "daily_training_rate": 0.04,
+  "daily_decay_rate": 0.012,
+  "military_focus_bonus": 0.03,
+  "max_officer_value": 100.0,
+  "min_officer_value": 1.0
+}

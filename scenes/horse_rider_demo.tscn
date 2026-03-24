@@ -1,0 +1,135 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="PackedScene" path="res://assets_imports/horse_rider_demo/horse/Horse_001_animated_textured.glb" id="1_horse"]
+[ext_resource type="Script" path="res://scripts/demo/horse_controller.gd" id="2_horse_ctrl"]
+[ext_resource type="PackedScene" path="res://assets_imports/horse_rider_demo/rider/rider_soldier_qingqibing.glb" id="3_rider"]
+[ext_resource type="PackedScene" path="res://assets_imports/horse_rider_demo/trees/tree_oak_stylized.fbx" id="4_oak"]
+[ext_resource type="PackedScene" path="res://assets_imports/horse_rider_demo/trees/tree_cn_02.fbx" id="5_tree_a"]
+[ext_resource type="PackedScene" path="res://assets_imports/horse_rider_demo/trees/tree_cn_04.fbx" id="6_tree_b"]
+[ext_resource type="PackedScene" path="res://assets_imports/rpg_troops/troop_infantry.glb" id="7_t_infantry"]
+[ext_resource type="PackedScene" path="res://assets_imports/mixamo_troops/out/shield_final.glb" id="8_t_shield"]
+[ext_resource type="PackedScene" path="res://assets_imports/rpg_troops/troop_spear.glb" id="9_t_spear"]
+[ext_resource type="PackedScene" path="res://assets_imports/rpg_troops/troop_archer.glb" id="10_t_archer"]
+[ext_resource type="PackedScene" path="res://assets_imports/rpg_troops/troop_cavalry.glb" id="11_t_cavalry"]
+[ext_resource type="Script" path="res://scripts/demo/anim_autoplay.gd" id="12_anim_auto"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 1
+background_color = Color(0.75, 0.87, 1, 1)
+ambient_light_source = 2
+ambient_light_sky_contribution = 0.14
+ambient_light_energy = 0.82
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+size = Vector2(90, 90)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.34, 0.47, 0.30, 1)
+roughness = 0.95
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(90, 0.2, 90)
+
+[node name="HorseRiderDemo" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-44, -34, 0)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 11.6, 19)
+rotation_degrees = Vector3(-24, 0, 0)
+current = true
+fov = 45.0
+
+[node name="GroundBody" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundBody"]
+position = Vector3(0, -0.1, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="GroundMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ground")
+material_override = SubResource("StandardMaterial3D_ground")
+
+[node name="Horse" parent="." instance=ExtResource("1_horse")]
+script = ExtResource("2_horse_ctrl")
+position = Vector3(0, 0, 0)
+
+[node name="Rider" parent="Horse" instance=ExtResource("3_rider")]
+position = Vector3(0, 0.95, -0.18)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(0.95, 0.95, 0.95)
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Oak_1" parent="Trees" instance=ExtResource("4_oak")]
+position = Vector3(-9, 0, -8)
+rotation_degrees = Vector3(0, 20, 0)
+
+[node name="Oak_2" parent="Trees" instance=ExtResource("4_oak")]
+position = Vector3(11, 0, -6)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(0.92, 0.92, 0.92)
+
+[node name="TreeA_1" parent="Trees" instance=ExtResource("5_tree_a")]
+position = Vector3(-18, 0, 9)
+rotation_degrees = Vector3(0, -34, 0)
+
+[node name="TreeA_2" parent="Trees" instance=ExtResource("5_tree_a")]
+position = Vector3(-6, 0, 15)
+rotation_degrees = Vector3(0, 56, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="TreeB_1" parent="Trees" instance=ExtResource("6_tree_b")]
+position = Vector3(7, 0, 11)
+rotation_degrees = Vector3(0, 68, 0)
+
+[node name="TreeB_2" parent="Trees" instance=ExtResource("6_tree_b")]
+position = Vector3(14, 0, -14)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.06, 1.06, 1.06)
+
+[node name="RpgTroopShowcase" type="Node3D" parent="."]
+
+[node name="Troop_Infantry" parent="RpgTroopShowcase" instance=ExtResource("7_t_infantry")]
+position = Vector3(-14, 0, -16)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="Troop_Shield" parent="RpgTroopShowcase" instance=ExtResource("8_t_shield")]
+script = ExtResource("12_anim_auto")
+position = Vector3(-7, 0, -16)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="Troop_Shield_Focus" parent="RpgTroopShowcase" instance=ExtResource("8_t_shield")]
+script = ExtResource("12_anim_auto")
+position = Vector3(-2.2, 0, -6.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(1.1, 1.1, 1.1)
+
+[node name="Troop_Spear" parent="RpgTroopShowcase" instance=ExtResource("9_t_spear")]
+position = Vector3(0, 0, -16)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="Troop_Archer" parent="RpgTroopShowcase" instance=ExtResource("10_t_archer")]
+position = Vector3(7, 0, -16)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="Troop_Cavalry" parent="RpgTroopShowcase" instance=ExtResource("11_t_cavalry")]
+position = Vector3(14, 0, -16)
+rotation_degrees = Vector3(0, 180, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Tips" type="Label" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 980.0
+offset_bottom = 88.0
+text = "Horse + Rider Demo + RPG Troops  |  WASD move  Shift run  E eat  |  Shield_Focus at front-left"

@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/battlefield_controller.gd" id="1_0xy8d"]
+[ext_resource type="PackedScene" path="res://scenes/units/unit_controller.tscn" id="2_unit"]
+[ext_resource type="PackedScene" path="res://scenes/battle_demo_simple_terrain.tscn" id="3_terrain"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_0xy8d")
+unit_node_scale = 6.75
+soldier_formation_spacing = 0.18
+tactic_vfx_intensity_mul = 1.2
+thunder_vfx_size_mul = 56.0
+thunder_vfx_cloud_mul = 62.4
+
+[node name="TerrainScene" parent="." instance=ExtResource("3_terrain")]
+
+[node name="UnitsRoot" type="Node3D" parent="."]
+
+[node name="TeamA" type="Node3D" parent="UnitsRoot"]
+
+[node name="TeamB" type="Node3D" parent="UnitsRoot"]
+
+[node name="Tpl_A_01" parent="UnitsRoot/TeamA" instance=ExtResource("2_unit")]
+position = Vector3(-50, 0, 0)
+
+[node name="Tpl_A_02" parent="UnitsRoot/TeamA" instance=ExtResource("2_unit")]
+position = Vector3(-30, 0, 0)
+
+[node name="Tpl_A_03" parent="UnitsRoot/TeamA" instance=ExtResource("2_unit")]
+position = Vector3(-10, 0, 0)
+
+[node name="Tpl_A_04" parent="UnitsRoot/TeamA" instance=ExtResource("2_unit")]
+position = Vector3(10, 0, 0)
+
+[node name="Tpl_A_05" parent="UnitsRoot/TeamA" instance=ExtResource("2_unit")]
+position = Vector3(30, 0, 0)
+
+[node name="Tpl_A_06" parent="UnitsRoot/TeamA" instance=ExtResource("2_unit")]
+position = Vector3(50, 0, 0)
+
+[node name="Tpl_B_01" parent="UnitsRoot/TeamB" instance=ExtResource("2_unit")]
+position = Vector3(-50, 0, 0)
+
+[node name="Tpl_B_02" parent="UnitsRoot/TeamB" instance=ExtResource("2_unit")]
+position = Vector3(-30, 0, 0)
+
+[node name="Tpl_B_03" parent="UnitsRoot/TeamB" instance=ExtResource("2_unit")]
+position = Vector3(-10, 0, 0)
+
+[node name="Tpl_B_04" parent="UnitsRoot/TeamB" instance=ExtResource("2_unit")]
+position = Vector3(10, 0, 0)
+
+[node name="Tpl_B_05" parent="UnitsRoot/TeamB" instance=ExtResource("2_unit")]
+position = Vector3(30, 0, 0)
+
+[node name="Tpl_B_06" parent="UnitsRoot/TeamB" instance=ExtResource("2_unit")]
+position = Vector3(50, 0, 0)
+
+

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/debug_charge_unit.gd" id="1_unit"]
+
+[node name="DebugChargeUnit" type="Node3D"]
+script = ExtResource("1_unit")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.7, 0)
+
+[node name="SelectionRing" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.04, 0)
+visible = false
+
+[node name="NameLabel" type="Label3D" parent="."]
+position = Vector3(0, 2.3, 0)
+billboard = 1
+font_size = 34
+outline_size = 8
+modulate = Color(0.95, 0.9, 0.8, 1)
+
+[node name="PickArea" type="Area3D" parent="."]
+collision_layer = 1
+collision_mask = 1
+input_ray_pickable = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickArea"]

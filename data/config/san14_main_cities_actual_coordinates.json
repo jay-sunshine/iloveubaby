@@ -1,0 +1,404 @@
+{
+  "san14_main_cities_actual_coordinates": [
+    {
+      "name": "洛阳",
+      "longitude": 112.645178,
+      "latitude": 34.709917,
+      "state": "司隶",
+      "modern_location": "河南省洛阳市瀍河回族区岳佃路汉魏洛阳故城",
+      "remark": "东汉都城，三国时期曹魏前期都城，政治文化中心"
+    },
+    {
+      "name": "长安",
+      "longitude": 108.900000,
+      "latitude": 34.200000,
+      "state": "雍州",
+      "modern_location": "陕西省西安市未央区汉长安城遗址",
+      "remark": "西京，关中平原核心城市，丝绸之路起点"
+    },
+    {
+      "name": "邺",
+      "longitude": 114.406127,
+      "latitude": 36.275124,
+      "state": "冀州",
+      "modern_location": "河北省邯郸市临漳县邺城镇铜雀三台遗址公园",
+      "remark": "曹魏后期都城，曹操所建，铜雀台所在地，河北政治中心"
+    },
+    {
+      "name": "许昌",
+      "longitude": 113.850789,
+      "latitude": 34.034197,
+      "state": "豫州",
+      "modern_location": "河南省许昌市魏都区许都遗址",
+      "remark": "曹魏都城，曹操挟天子以令诸侯之地，又称许都"
+    },
+    {
+      "name": "下邳",
+      "longitude": 117.899913,
+      "latitude": 34.127445,
+      "state": "徐州",
+      "modern_location": "江苏省徐州市睢宁县古邳镇下邳故城遗址",
+      "remark": "徐州核心城市，吕布被擒杀之地，白门楼所在地"
+    },
+    {
+      "name": "建邺",
+      "longitude": 118.800408,
+      "latitude": 32.042196,
+      "state": "扬州",
+      "modern_location": "江苏省南京市玄武区六朝建康都城遗址",
+      "remark": "东吴都城，又称建业、建康，江南政治经济中心"
+    },
+    {
+      "name": "成都",
+      "longitude": 104.045822,
+      "latitude": 30.644037,
+      "state": "益州",
+      "modern_location": "四川省成都市武侯区蜀汉城遗址",
+      "remark": "蜀汉都城，天府之国核心，三国时期西南地区政治中心"
+    },
+    {
+      "name": "襄阳",
+      "longitude": 112.147939,
+      "latitude": 32.014049,
+      "state": "荆州",
+      "modern_location": "湖北省襄阳市襄城区襄阳古城",
+      "remark": "荆州核心城市，诸葛亮隐居地，三国时期军事战略要地"
+    },
+    {
+      "name": "汉中",
+      "longitude": 107.030000,
+      "latitude": 33.070000,
+      "state": "益州",
+      "modern_location": "陕西省汉中市南郑区汉中古城遗址",
+      "remark": "蜀地门户，连接关中与巴蜀的咽喉要道，诸葛亮北伐基地"
+    },
+    {
+      "name": "南皮",
+      "longitude": 116.708603,
+      "latitude": 38.038761,
+      "state": "冀州",
+      "modern_location": "河北省沧州市南皮县古皮城遗址",
+      "remark": "河北东部核心城市，袁绍早期根据地之一"
+    },
+    {
+      "name": "平原",
+      "longitude": 116.450000,
+      "latitude": 37.150000,
+      "state": "青州",
+      "modern_location": "山东省德州市平原县平原古城遗址",
+      "remark": "青州核心城市，刘备曾在此任平原相"
+    },
+    {
+      "name": "北海",
+      "longitude": 119.100000,
+      "latitude": 36.850000,
+      "state": "青州",
+      "modern_location": "山东省潍坊市昌乐县营丘镇古城遗址",
+      "remark": "青州东部城市，孔融曾在此任北海相"
+    },
+    {
+      "name": "濮阳",
+      "longitude": 115.033800,
+      "latitude": 35.696400,
+      "state": "兖州",
+      "modern_location": "河南省濮阳市濮阳县濮阳古城遗址",
+      "remark": "兖州核心城市，曹操早期根据地之一"
+    },
+    {
+      "name": "陈留",
+      "longitude": 114.620000,
+      "latitude": 34.890000,
+      "state": "兖州",
+      "modern_location": "河南省开封市祥符区陈留镇古城遗址",
+      "remark": "兖州西部城市，曹操起兵之地"
+    },
+    {
+      "name": "汝南",
+      "longitude": 114.000000,
+      "latitude": 33.000000,
+      "state": "豫州",
+      "modern_location": "河南省驻马店市汝南县汝南古城遗址",
+      "remark": "豫州南部核心城市，袁绍、袁术家族发源地"
+    },
+    {
+      "name": "宛",
+      "longitude": 112.530000,
+      "latitude": 33.010000,
+      "state": "荆州",
+      "modern_location": "河南省南阳市宛城区宛城遗址",
+      "remark": "荆州北部城市，张绣曾在此驻守"
+    },
+    {
+      "name": "新野",
+      "longitude": 112.300000,
+      "latitude": 32.500000,
+      "state": "荆州",
+      "modern_location": "河南省南阳市新野县新野古城遗址",
+      "remark": "蜀汉早期据点，刘备曾在此屯兵"
+    },
+    {
+      "name": "江夏",
+      "longitude": 114.380000,
+      "latitude": 30.350000,
+      "state": "荆州",
+      "modern_location": "湖北省武汉市江夏区江夏古城遗址",
+      "remark": "荆扬交界核心城市，三国时期水军重镇"
+    },
+    {
+      "name": "江陵",
+      "longitude": 112.240000,
+      "latitude": 30.350000,
+      "state": "荆州",
+      "modern_location": "湖北省荆州市荆州区江陵古城遗址",
+      "remark": "荆州南部核心城市，南郡治所，关羽曾在此镇守"
+    },
+    {
+      "name": "武陵",
+      "longitude": 111.450000,
+      "latitude": 29.050000,
+      "state": "荆州",
+      "modern_location": "湖南省常德市武陵区武陵古城遗址",
+      "remark": "荆州西南部城市，三国时期蛮族聚居地"
+    },
+    {
+      "name": "长沙",
+      "longitude": 112.950000,
+      "latitude": 28.200000,
+      "state": "荆州",
+      "modern_location": "湖南省长沙市芙蓉区长沙古城遗址",
+      "remark": "荆南核心城市，三国时期长沙郡治所"
+    },
+    {
+      "name": "桂阳",
+      "longitude": 112.550000,
+      "latitude": 25.700000,
+      "state": "荆州",
+      "modern_location": "湖南省郴州市桂阳县桂阳古城遗址",
+      "remark": "荆南东部城市，三国时期桂阳郡治所"
+    },
+    {
+      "name": "零陵",
+      "longitude": 111.660000,
+      "latitude": 26.230000,
+      "state": "荆州",
+      "modern_location": "湖南省永州市零陵区零陵古城遗址",
+      "remark": "荆南南部城市，三国时期零陵郡治所"
+    },
+    {
+      "name": "庐江",
+      "longitude": 117.250000,
+      "latitude": 31.250000,
+      "state": "扬州",
+      "modern_location": "安徽省合肥市庐江县庐江古城遗址",
+      "remark": "扬州西部城市，三国时期庐江郡治所"
+    },
+    {
+      "name": "寿春",
+      "longitude": 116.780000,
+      "latitude": 32.540000,
+      "state": "扬州",
+      "modern_location": "安徽省淮南市寿县寿春古城遗址",
+      "remark": "扬州北部核心城市，三国时期淮南地区政治中心"
+    },
+    {
+      "name": "柴桑",
+      "longitude": 115.950000,
+      "latitude": 29.700000,
+      "state": "扬州",
+      "modern_location": "江西省九江市柴桑区柴桑古城遗址",
+      "remark": "荆扬交界东部城市，三国时期东吴水军基地"
+    },
+    {
+      "name": "吴",
+      "longitude": 120.600000,
+      "latitude": 31.320000,
+      "state": "扬州",
+      "modern_location": "江苏省苏州市吴中区吴县古城遗址",
+      "remark": "江东核心城市，三国时期吴郡治所"
+    },
+    {
+      "name": "会稽",
+      "longitude": 120.580000,
+      "latitude": 30.010000,
+      "state": "扬州",
+      "modern_location": "浙江省绍兴市越城区会稽古城遗址",
+      "remark": "江东南部城市，三国时期会稽郡治所"
+    },
+    {
+      "name": "建安",
+      "longitude": 118.230000,
+      "latitude": 26.630000,
+      "state": "扬州",
+      "modern_location": "福建省南平市建瓯市建安古城遗址",
+      "remark": "江东东南部城市，三国时期建安郡治所"
+    },
+    {
+      "name": "永安",
+      "longitude": 109.500000,
+      "latitude": 31.150000,
+      "state": "益州",
+      "modern_location": "重庆市奉节县白帝城遗址",
+      "remark": "蜀地东门，刘备托孤之地"
+    },
+    {
+      "name": "江州",
+      "longitude": 106.500000,
+      "latitude": 29.550000,
+      "state": "益州",
+      "modern_location": "重庆市渝中区江州古城遗址",
+      "remark": "益州东部核心城市，三国时期巴郡治所"
+    },
+    {
+      "name": "梓潼",
+      "longitude": 105.060000,
+      "latitude": 31.750000,
+      "state": "益州",
+      "modern_location": "四川省绵阳市梓潼县梓潼古城遗址",
+      "remark": "成都北部屏障，三国时期梓潼郡治所"
+    },
+    {
+      "name": "绵竹",
+      "longitude": 104.250000,
+      "latitude": 31.320000,
+      "state": "益州",
+      "modern_location": "四川省德阳市绵竹市绵竹古城遗址",
+      "remark": "成都北部据点，三国时期绵竹关所在地"
+    },
+    {
+      "name": "建宁",
+      "longitude": 103.250000,
+      "latitude": 26.850000,
+      "state": "益州",
+      "modern_location": "云南省曲靖市麒麟区建宁古城遗址",
+      "remark": "南中核心城市，三国时期建宁郡治所"
+    },
+    {
+      "name": "云南",
+      "longitude": 102.730000,
+      "latitude": 25.040000,
+      "state": "益州",
+      "modern_location": "云南省昆明市晋宁区云南古城遗址",
+      "remark": "南中南部城市，三国时期云南郡治所"
+    },
+    {
+      "name": "永昌",
+      "longitude": 99.180000,
+      "latitude": 25.080000,
+      "state": "益州",
+      "modern_location": "云南省保山市隆阳区永昌古城遗址",
+      "remark": "南中最南端城市，三国时期永昌郡治所"
+    },
+    {
+      "name": "天水",
+      "longitude": 105.720000,
+      "latitude": 34.580000,
+      "state": "雍州",
+      "modern_location": "甘肃省天水市秦州区天水古城遗址",
+      "remark": "雍州西部核心城市，三国时期天水郡治所"
+    },
+    {
+      "name": "陇西",
+      "longitude": 104.620000,
+      "latitude": 34.980000,
+      "state": "雍州",
+      "modern_location": "甘肃省定西市陇西县陇西古城遗址",
+      "remark": "雍州西部屏障，三国时期陇西郡治所"
+    },
+    {
+      "name": "安定",
+      "longitude": 107.780000,
+      "latitude": 35.450000,
+      "state": "雍州",
+      "modern_location": "甘肃省庆阳市镇原县安定古城遗址",
+      "remark": "雍州北部据点，三国时期安定郡治所"
+    },
+    {
+      "name": "武威",
+      "longitude": 102.640000,
+      "latitude": 37.920000,
+      "state": "凉州",
+      "modern_location": "甘肃省武威市凉州区武威古城遗址",
+      "remark": "凉州核心城市，三国时期凉州治所"
+    },
+    {
+      "name": "西平",
+      "longitude": 101.770000,
+      "latitude": 36.730000,
+      "state": "凉州",
+      "modern_location": "青海省西宁市城中区西平古城遗址",
+      "remark": "凉州南部城市，三国时期西平郡治所"
+    },
+    {
+      "name": "晋阳",
+      "longitude": 112.550000,
+      "latitude": 37.870000,
+      "state": "并州",
+      "modern_location": "山西省太原市晋源区晋阳古城遗址",
+      "remark": "并州核心城市，三国时期并州治所"
+    },
+    {
+      "name": "上党",
+      "longitude": 113.080000,
+      "latitude": 36.180000,
+      "state": "并州",
+      "modern_location": "山西省长治市上党区上党古城遗址",
+      "remark": "并州南部城市，三国时期上党郡治所"
+    },
+    {
+      "name": "乐浪",
+      "longitude": 124.480000,
+      "latitude": 39.950000,
+      "state": "幽州",
+      "modern_location": "朝鲜平壤市乐浪区乐浪古城遗址",
+      "remark": "幽州最东端城市，三国时期乐浪郡治所"
+    },
+    {
+      "name": "襄平",
+      "longitude": 123.430000,
+      "latitude": 41.800000,
+      "state": "幽州",
+      "modern_location": "辽宁省辽阳市文圣区襄平古城遗址",
+      "remark": "幽州核心城市，三国时期辽东郡治所"
+    },
+    {
+      "name": "北平",
+      "longitude": 117.390000,
+      "latitude": 40.000000,
+      "state": "幽州",
+      "modern_location": "北京市密云区北平古城遗址",
+      "remark": "幽州南部城市，三国时期右北平郡治所"
+    },
+    {
+      "name": "蓟",
+      "longitude": 116.400000,
+      "latitude": 39.900000,
+      "state": "幽州",
+      "modern_location": "北京市西城区蓟城遗址",
+      "remark": "幽州西南部城市，三国时期燕国治所"
+    },
+    {
+      "name": "合浦",
+      "longitude": 109.120000,
+      "latitude": 21.520000,
+      "state": "交州",
+      "modern_location": "广西壮族自治区北海市合浦县合浦古城遗址",
+      "remark": "交州北部城市，三国时期合浦郡治所"
+    },
+    {
+      "name": "交趾",
+      "longitude": 109.550000,
+      "latitude": 16.450000,
+      "state": "交州",
+      "modern_location": "越南河内市交趾古城遗址",
+      "remark": "交州核心城市，三国时期交趾郡治所"
+    },
+    {
+      "name": "日南",
+      "longitude": 108.800000,
+      "latitude": 15.100000,
+      "state": "交州",
+      "modern_location": "越南广治省日南古城遗址",
+      "remark": "交州最南端城市，三国时期日南郡治所"
+    }
+  ]
+}

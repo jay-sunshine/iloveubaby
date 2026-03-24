@@ -1,0 +1,1049 @@
+{
+    "meta":  {
+                 "calendar_day":  1.0,
+                 "player_faction_id":  "wei",
+                 "phase":  "internal",
+                 "command_points":  12.0,
+                 "max_command_points":  12.0,
+                 "military_orders":  6.0,
+                 "max_military_orders":  6.0,
+                 "city_orders":  {
+
+                                 }
+             },
+    "map":  {
+                "size":  {
+                             "x":  30000.0,
+                             "z":  30000.0
+                         },
+                "city_marker_height":  8.0
+            },
+    "factions":  [
+                     {
+                         "id":  "wei",
+                         "name":  "曹魏",
+                         "leader_name":  "曹操",
+                         "flag_surname":  "曹",
+                         "color":  [
+                                       0.88,
+                                       0.22,
+                                       0.22
+                                   ]
+                     },
+                     {
+                         "id":  "shu",
+                         "name":  "蜀汉",
+                         "leader_name":  "刘备",
+                         "flag_surname":  "刘",
+                         "color":  [
+                                       0.24,
+                                       0.78,
+                                       0.36
+                                   ]
+                     }
+                 ],
+    "cities":  [
+                   {
+                       "id":  "luoyang",
+                       "name":  "洛阳",
+                       "faction_id":  "wei",
+                       "position":  {
+                                        "x":  6620.0,
+                                        "z":  2298.0
+                                    },
+                       "classification":  {
+                                              "scale":  "large"
+                                          },
+                       "personnel":  {
+                                         "governor_name":  "曹仁",
+                                         "officer_count":  8,
+                                         "assignments":  {
+                                                             "taishou":  "caoren",
+                                                             "shicao":  "xunyou",
+                                                             "hucao":  "chengyu",
+                                                             "bingcao":  "zhangliao",
+                                                             "gongcao":  "manchong",
+                                                             "duwei":  "xuchu"
+                                                         }
+                                     },
+                       "resources":  {
+                                         "money":  45000.0,
+                                         "food":  65000.0,
+                                         "iron":  18000.0,
+                                         "wood":  18000.0,
+                                         "horse":  12000.0
+                                     },
+                        "stats":  {
+                                      "public_support":  74.0,
+                                      "security":  76.0,
+                                      "population":  860000.0,
+                                      "conscription_population":  152000.0,
+                                      "reserve_troops":  13200.0,
+                                      "organized_troops":  19300.0,
+                                      "troops":  32500.0
+                                  },
+                        "defense":  {
+                                        "current":  31500.0,
+                                        "max":  42000.0
+                                    },
+                       "development":  {
+                                           "commerce":  8,
+                                           "agriculture":  7,
+                                           "industry":  7,
+                                           "barracks":  8,
+                                           "stables":  4
+                                       },
+                       "officers":  {
+                                        "taishou":  89.0,
+                                        "shicao":  76.0,
+                                        "hucao":  82.0,
+                                        "bingcao":  85.0,
+                                        "gongcao":  78.0,
+                                        "duwei":  87.0
+                                    },
+                       "officer_roster":  [
+                                              {
+                                                  "id":  "caoren",
+                                                  "name":  "曹仁",
+                                                  "domestic_personality":  "稳健屯田",
+                                                  "stats":  {
+                                                                "lead":  90,
+                                                                "might":  84,
+                                                                "intellect":  68,
+                                                                "politics":  81,
+                                                                "charm":  75
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  89,
+                                                                      "shicao":  76,
+                                                                      "hucao":  78,
+                                                                      "bingcao":  86,
+                                                                      "gongcao":  73,
+                                                                      "duwei":  88
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xuchu",
+                                                  "name":  "许褚",
+                                                  "domestic_personality":  "军纪严明",
+                                                  "stats":  {
+                                                                "lead":  86,
+                                                                "might":  96,
+                                                                "intellect":  42,
+                                                                "politics":  40,
+                                                                "charm":  58
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  60,
+                                                                      "shicao":  48,
+                                                                      "hucao":  45,
+                                                                      "bingcao":  82,
+                                                                      "gongcao":  50,
+                                                                      "duwei":  90
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "zhangliao",
+                                                  "name":  "张辽",
+                                                  "domestic_personality":  "整军练兵",
+                                                  "stats":  {
+                                                                "lead":  94,
+                                                                "might":  89,
+                                                                "intellect":  76,
+                                                                "politics":  70,
+                                                                "charm":  80
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  80,
+                                                                      "shicao":  72,
+                                                                      "hucao":  70,
+                                                                      "bingcao":  90,
+                                                                      "gongcao":  68,
+                                                                      "duwei":  92
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xunyou",
+                                                  "name":  "荀攸",
+                                                  "domestic_personality":  "精于筹划",
+                                                  "stats":  {
+                                                                "lead":  61,
+                                                                "might":  33,
+                                                                "intellect":  93,
+                                                                "politics":  88,
+                                                                "charm":  79
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  84,
+                                                                      "shicao":  88,
+                                                                      "hucao":  85,
+                                                                      "bingcao":  72,
+                                                                      "gongcao":  86,
+                                                                      "duwei":  60
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "chengyu",
+                                                  "name":  "程昱",
+                                                  "domestic_personality":  "务实理财",
+                                                  "stats":  {
+                                                                "lead":  70,
+                                                                "might":  58,
+                                                                "intellect":  89,
+                                                                "politics":  84,
+                                                                "charm":  72
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  82,
+                                                                      "shicao":  84,
+                                                                      "hucao":  86,
+                                                                      "bingcao":  75,
+                                                                      "gongcao":  80,
+                                                                      "duwei":  68
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "manchong",
+                                                  "name":  "满宠",
+                                                  "domestic_personality":  "工务督造",
+                                                  "stats":  {
+                                                                "lead":  73,
+                                                                "might":  66,
+                                                                "intellect":  82,
+                                                                "politics":  81,
+                                                                "charm":  67
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  78,
+                                                                      "shicao":  80,
+                                                                      "hucao":  79,
+                                                                      "bingcao":  76,
+                                                                      "gongcao":  85,
+                                                                      "duwei":  71
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "caohong",
+                                                  "name":  "曹洪",
+                                                  "domestic_personality":  "后勤统筹",
+                                                  "stats":  {
+                                                                "lead":  79,
+                                                                "might":  78,
+                                                                "intellect":  61,
+                                                                "politics":  64,
+                                                                "charm":  69
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  70,
+                                                                      "shicao":  66,
+                                                                      "hucao":  69,
+                                                                      "bingcao":  80,
+                                                                      "gongcao":  67,
+                                                                      "duwei":  79
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "yujin",
+                                                  "name":  "于禁",
+                                                  "domestic_personality":  "守纪治军",
+                                                  "stats":  {
+                                                                "lead":  84,
+                                                                "might":  77,
+                                                                "intellect":  62,
+                                                                "politics":  63,
+                                                                "charm":  64
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  68,
+                                                                      "shicao":  62,
+                                                                      "hucao":  64,
+                                                                      "bingcao":  82,
+                                                                      "gongcao":  65,
+                                                                      "duwei":  84
+                                                                  }
+                                              }
+                                          ]
+                   },
+                   {
+                       "id":  "xinye",
+                       "name":  "新野",
+                       "faction_id":  "shu",
+                       "position":  {
+                                        "x":  7143.0,
+                                        "z":  4339.0
+                                    },
+                       "classification":  {
+                                              "scale":  "medium"
+                                          },
+                       "personnel":  {
+                                         "governor_name":  "诸葛亮",
+                                         "officer_count":  8,
+                                         "assignments":  {
+                                                             "taishou":  "zhugeliang",
+                                                             "shicao":  "fayi",
+                                                             "hucao":  "jiangwan",
+                                                             "bingcao":  "jiangwei",
+                                                             "gongcao":  "huangyueying",
+                                                             "duwei":  "zhaoyun"
+                                                         }
+                                     },
+                       "resources":  {
+                                         "money":  12800.0,
+                                         "food":  30200.0,
+                                         "iron":  6700.0,
+                                         "wood":  9800.0,
+                                         "horse":  3600.0
+                                     },
+                       "stats":  {
+                                     "public_support":  81.0,
+                                     "security":  79.0,
+                                     "population":  790000.0,
+                                     "conscription_population":  141000.0,
+                                     "reserve_troops":  10000.0,
+                                     "organized_troops":  16000.0,
+                                     "troops":  26000.0
+                                 },
+                       "defense":  {
+                                       "current":  34000.0,
+                                       "max":  39000.0
+                                   },
+                       "development":  {
+                                           "commerce":  6,
+                                           "agriculture":  7,
+                                           "industry":  6,
+                                           "barracks":  6,
+                                           "stables":  3
+                                       },
+                       "officers":  {
+                                        "taishou":  96.0,
+                                        "shicao":  84.0,
+                                        "hucao":  88.0,
+                                        "bingcao":  83.0,
+                                        "gongcao":  86.0,
+                                        "duwei":  79.0
+                                    },
+                       "officer_roster":  [
+                                              {
+                                                  "id":  "zhugeliang",
+                                                  "name":  "诸葛亮",
+                                                  "domestic_personality":  "内政大师",
+                                                  "stats":  {
+                                                                "lead":  87,
+                                                                "might":  38,
+                                                                "intellect":  99,
+                                                                "politics":  98,
+                                                                "charm":  92
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  96,
+                                                                      "shicao":  93,
+                                                                      "hucao":  95,
+                                                                      "bingcao":  88,
+                                                                      "gongcao":  94,
+                                                                      "duwei":  74
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "jiangwei",
+                                                  "name":  "姜维",
+                                                  "domestic_personality":  "强军备战",
+                                                  "stats":  {
+                                                                "lead":  92,
+                                                                "might":  86,
+                                                                "intellect":  84,
+                                                                "politics":  72,
+                                                                "charm":  77
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  80,
+                                                                      "shicao":  74,
+                                                                      "hucao":  72,
+                                                                      "bingcao":  90,
+                                                                      "gongcao":  76,
+                                                                      "duwei":  89
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "zhaoyun",
+                                                  "name":  "赵云",
+                                                  "domestic_personality":  "军纪清整",
+                                                  "stats":  {
+                                                                "lead":  91,
+                                                                "might":  90,
+                                                                "intellect":  74,
+                                                                "politics":  69,
+                                                                "charm":  88
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  78,
+                                                                      "shicao":  71,
+                                                                      "hucao":  70,
+                                                                      "bingcao":  88,
+                                                                      "gongcao":  73,
+                                                                      "duwei":  90
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "jiangwan",
+                                                  "name":  "蒋琬",
+                                                  "domestic_personality":  "政务统筹",
+                                                  "stats":  {
+                                                                "lead":  62,
+                                                                "might":  38,
+                                                                "intellect":  86,
+                                                                "politics":  90,
+                                                                "charm":  80
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  86,
+                                                                      "shicao":  85,
+                                                                      "hucao":  88,
+                                                                      "bingcao":  72,
+                                                                      "gongcao":  84,
+                                                                      "duwei":  62
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "fayi",
+                                                  "name":  "费祎",
+                                                  "domestic_personality":  "财政稳健",
+                                                  "stats":  {
+                                                                "lead":  60,
+                                                                "might":  35,
+                                                                "intellect":  85,
+                                                                "politics":  89,
+                                                                "charm":  83
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  85,
+                                                                      "shicao":  86,
+                                                                      "hucao":  87,
+                                                                      "bingcao":  70,
+                                                                      "gongcao":  82,
+                                                                      "duwei":  60
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "huangyueying",
+                                                  "name":  "黄月英",
+                                                  "domestic_personality":  "工造巧思",
+                                                  "stats":  {
+                                                                "lead":  52,
+                                                                "might":  24,
+                                                                "intellect":  90,
+                                                                "politics":  82,
+                                                                "charm":  70
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  80,
+                                                                      "shicao":  82,
+                                                                      "hucao":  78,
+                                                                      "bingcao":  66,
+                                                                      "gongcao":  92,
+                                                                      "duwei":  52
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "guanxing",
+                                                  "name":  "关兴",
+                                                  "domestic_personality":  "练兵督阵",
+                                                  "stats":  {
+                                                                "lead":  83,
+                                                                "might":  82,
+                                                                "intellect":  67,
+                                                                "politics":  58,
+                                                                "charm":  65
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  68,
+                                                                      "shicao":  62,
+                                                                      "hucao":  60,
+                                                                      "bingcao":  84,
+                                                                      "gongcao":  64,
+                                                                      "duwei":  80
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "zhangyi",
+                                                  "name":  "张翼",
+                                                  "domestic_personality":  "守备缮修",
+                                                  "stats":  {
+                                                                "lead":  76,
+                                                                "might":  70,
+                                                                "intellect":  63,
+                                                                "politics":  66,
+                                                                "charm":  60
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  66,
+                                                                      "shicao":  64,
+                                                                      "hucao":  66,
+                                                                      "bingcao":  78,
+                                                                      "gongcao":  72,
+                                                                      "duwei":  74
+                                                                  }
+                                              }
+                                          ]
+                   },
+                   {
+                       "id":  "xuchang",
+                       "name":  "许昌",
+                       "faction_id":  "wei",
+                       "position":  {
+                                        "x":  6128.0,
+                                        "z":  3176.0
+                                    },
+                       "classification":  {
+                                              "scale":  "medium"
+                                          },
+                       "personnel":  {
+                                         "governor_name":  "司马懿",
+                                         "officer_count":  8,
+                                         "assignments":  {
+                                                             "taishou":  "xc_simayi",
+                                                             "shicao":  "xc_guojia",
+                                                             "hucao":  "xc_zhongyao",
+                                                             "bingcao":  "xc_xiahouyuan",
+                                                             "gongcao":  "xc_liuye",
+                                                             "duwei":  "xc_zhanghe"
+                                                         }
+                                     },
+                       "resources":  {
+                                         "money":  16800.0,
+                                         "food":  33800.0,
+                                         "iron":  9100.0,
+                                         "wood":  10100.0,
+                                         "horse":  4500.0
+                                     },
+                       "stats":  {
+                                     "public_support":  78.0,
+                                     "security":  82.0,
+                                     "population":  920000.0,
+                                     "conscription_population":  168000.0,
+                                     "reserve_troops":  14800.0,
+                                     "organized_troops":  21600.0,
+                                     "troops":  36400.0,
+                                     "tech_points":  860.0
+                                 },
+                       "defense":  {
+                                       "current":  35600.0,
+                                       "max":  43800.0
+                                   },
+                       "development":  {
+                                           "commerce":  8,
+                                           "agriculture":  8,
+                                           "industry":  8,
+                                           "barracks":  8,
+                                           "stables":  5
+                                       },
+                       "officers":  {
+                                        "taishou":  92.0,
+                                        "shicao":  89.0,
+                                        "hucao":  86.0,
+                                        "bingcao":  88.0,
+                                        "gongcao":  84.0,
+                                        "duwei":  87.0
+                                    },
+                       "unit_composition":  {
+                                                "ram":  700.0,
+                                                "ladder":  500.0,
+                                                "catapult":  280.0
+                                            },
+                       "siege_durability":  {
+                                                "ram":  1950.0,
+                                                "ladder":  1520.0,
+                                                "catapult":  860.0
+                                            },
+                       "officer_roster":  [
+                                              {
+                                                  "id":  "xc_simayi",
+                                                  "name":  "司马懿",
+                                                  "domestic_personality":  "权谋稳政",
+                                                  "stats":  {
+                                                                "lead":  82,
+                                                                "might":  62,
+                                                                "intellect":  97,
+                                                                "politics":  94,
+                                                                "charm":  78
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  92,
+                                                                      "shicao":  90,
+                                                                      "hucao":  88,
+                                                                      "bingcao":  82,
+                                                                      "gongcao":  86,
+                                                                      "duwei":  74
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xc_guojia",
+                                                  "name":  "郭嘉",
+                                                  "domestic_personality":  "奇谋机断",
+                                                  "stats":  {
+                                                                "lead":  70,
+                                                                "might":  46,
+                                                                "intellect":  96,
+                                                                "politics":  88,
+                                                                "charm":  75
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  84,
+                                                                      "shicao":  89,
+                                                                      "hucao":  87,
+                                                                      "bingcao":  74,
+                                                                      "gongcao":  82,
+                                                                      "duwei":  66
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xc_zhongyao",
+                                                  "name":  "钟繇",
+                                                  "domestic_personality":  "法度治政",
+                                                  "stats":  {
+                                                                "lead":  66,
+                                                                "might":  40,
+                                                                "intellect":  88,
+                                                                "politics":  92,
+                                                                "charm":  80
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  86,
+                                                                      "shicao":  84,
+                                                                      "hucao":  90,
+                                                                      "bingcao":  68,
+                                                                      "gongcao":  88,
+                                                                      "duwei":  62
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xc_xiahouyuan",
+                                                  "name":  "夏侯渊",
+                                                  "domestic_personality":  "疾战练兵",
+                                                  "stats":  {
+                                                                "lead":  90,
+                                                                "might":  91,
+                                                                "intellect":  63,
+                                                                "politics":  58,
+                                                                "charm":  68
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  72,
+                                                                      "shicao":  63,
+                                                                      "hucao":  66,
+                                                                      "bingcao":  90,
+                                                                      "gongcao":  64,
+                                                                      "duwei":  88
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xc_zhanghe",
+                                                  "name":  "张郃",
+                                                  "domestic_personality":  "严整军务",
+                                                  "stats":  {
+                                                                "lead":  88,
+                                                                "might":  86,
+                                                                "intellect":  69,
+                                                                "politics":  62,
+                                                                "charm":  70
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  74,
+                                                                      "shicao":  66,
+                                                                      "hucao":  68,
+                                                                      "bingcao":  86,
+                                                                      "gongcao":  67,
+                                                                      "duwei":  87
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xc_liuye",
+                                                  "name":  "刘晔",
+                                                  "domestic_personality":  "筹划统筹",
+                                                  "stats":  {
+                                                                "lead":  72,
+                                                                "might":  52,
+                                                                "intellect":  90,
+                                                                "politics":  83,
+                                                                "charm":  76
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  82,
+                                                                      "shicao":  86,
+                                                                      "hucao":  84,
+                                                                      "bingcao":  75,
+                                                                      "gongcao":  83,
+                                                                      "duwei":  68
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xc_caoxiu",
+                                                  "name":  "曹休",
+                                                  "domestic_personality":  "督军守备",
+                                                  "stats":  {
+                                                                "lead":  84,
+                                                                "might":  80,
+                                                                "intellect":  60,
+                                                                "politics":  57,
+                                                                "charm":  69
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  70,
+                                                                      "shicao":  60,
+                                                                      "hucao":  62,
+                                                                      "bingcao":  84,
+                                                                      "gongcao":  63,
+                                                                      "duwei":  82
+                                                                  }
+                                              },
+                                              {
+                                                  "id":  "xc_xuhuang",
+                                                  "name":  "徐晃",
+                                                  "domestic_personality":  "稳阵强攻",
+                                                  "stats":  {
+                                                                "lead":  89,
+                                                                "might":  88,
+                                                                "intellect":  64,
+                                                                "politics":  56,
+                                                                "charm":  67
+                                                            },
+                                                  "role_scores":  {
+                                                                      "taishou":  72,
+                                                                      "shicao":  61,
+                                                                      "hucao":  64,
+                                                                      "bingcao":  87,
+                                                                      "gongcao":  62,
+                                                                      "duwei":  86
+                                                                  }
+                                              }
+                                          ]
+                   }
+               ],
+    "building_units":  [
+                           {
+                               "id":  "luoyang",
+                               "city_id":  "luoyang",
+                               "name":  "洛阳",
+                               "faction_id":  "wei",
+                               "type":  "city",
+                               "scale":  "large",
+                               "position":  {
+                                                "x":  6620,
+                                                "z":  2298
+                                            }
+                           },
+                           {
+                               "id":  "xinye",
+                               "city_id":  "xinye",
+                               "name":  "新野",
+                               "faction_id":  "shu",
+                               "type":  "city",
+                               "scale":  "medium",
+                               "position":  {
+                                                "x":  7143,
+                                                "z":  4339
+                                            }
+                           },
+                           {
+                               "id":  "xuchang",
+                               "city_id":  "xuchang",
+                               "name":  "许昌",
+                               "faction_id":  "wei",
+                               "type":  "city",
+                               "scale":  "medium",
+                               "position":  {
+                                                "x":  6128,
+                                                "z":  3176
+                                            }
+                           },
+                           {
+                               "id":  "baidi_ferry",
+                               "name":  "白帝津渡",
+                               "faction_id":  "",
+                               "type":  "ferry",
+                               "position":  {
+                                                "x":  510,
+                                                "z":  -40
+                                            }
+                           },
+                            {
+                                "id":  "pass_hangu",
+                                "city_id":  "luoyang",
+                                "name":  "虎牢关",
+                                "faction_id":  "shu",
+                                "type":  "pass",
+                                "position":  {
+                                                 "x":  7503,
+                                                 "z":  2001
+                                            },
+                                "stats":  {
+                                              "troops":  6800,
+                                              "reserve_troops":  2400,
+                                              "organized_troops":  4400,
+                                              "security":  72
+                                          },
+                                "defense":  {
+                                                "current":  16000,
+                                                "max":  18000
+                                            }
+                            },
+                           {
+                               "id":  "jiange_fort",
+                               "name":  "剑阁坞堡",
+                               "faction_id":  "",
+                               "type":  "fort",
+                               "position":  {
+                                                "x":  170,
+                                                "z":  -120
+                                            }
+                           },
+                           {
+                               "id":  "shu_hulao_guard_shield_01",
+                               "name":  "蜀军虎牢守军",
+                               "faction_id":  "shu",
+                               "type":  "field_unit",
+                               "combat_role_id":  "shield",
+                               "is_field_troop":  true,
+                               "city_id":  "xinye",
+                               "position":  {
+                                                "x":  7240,
+                                                "z":  1820
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "关羽",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  6200,
+                                             "reserve_troops":  2200,
+                                             "organized_troops":  3900,
+                                             "security":  61
+                                         },
+                               "resources":  {
+                                                 "food":  2800,
+                                                 "wood":  170,
+                                                 "horse":  80,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           },
+                           {
+                               "id":  "wei_hulao_raider_spear_01",
+                               "name":  "魏军虎牢突击",
+                               "faction_id":  "wei",
+                               "type":  "field_unit",
+                               "combat_role_id":  "spear",
+                               "is_field_troop":  true,
+                               "city_id":  "luoyang",
+                               "position":  {
+                                                "x":  7980,
+                                                "z":  2360
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "徐晃",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  6100,
+                                             "reserve_troops":  2100,
+                                             "organized_troops":  3800,
+                                             "security":  58
+                                         },
+                               "resources":  {
+                                                 "food":  2700,
+                                                 "wood":  160,
+                                                 "horse":  110,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           },
+                           {
+                               "id":  "wei_demo_luoyang_shield_01",
+                               "name":  "魏军洛阳盾阵",
+                               "faction_id":  "wei",
+                               "type":  "field_unit",
+                               "combat_role_id":  "shield",
+                               "is_field_troop":  true,
+                               "city_id":  "luoyang",
+                               "position":  {
+                                                "x":  6460,
+                                                "z":  2450
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "曹仁",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  7600,
+                                             "reserve_troops":  3000,
+                                             "organized_troops":  4600,
+                                             "security":  63
+                                         },
+                               "resources":  {
+                                                 "food":  3600,
+                                                 "wood":  220,
+                                                 "horse":  140,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           },
+                           {
+                               "id":  "wei_demo_luoyang_cavalry_01",
+                               "name":  "魏军洛阳骑军",
+                               "faction_id":  "wei",
+                               "type":  "field_unit",
+                               "combat_role_id":  "cavalry",
+                               "is_field_troop":  true,
+                               "city_id":  "luoyang",
+                               "position":  {
+                                                "x":  6310,
+                                                "z":  2130
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "张辽",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  7000,
+                                             "reserve_troops":  2500,
+                                             "organized_troops":  4300,
+                                             "security":  60
+                                         },
+                               "resources":  {
+                                                 "food":  3100,
+                                                 "wood":  160,
+                                                 "horse":  280,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           },
+                           {
+                               "id":  "wei_demo_luoyang_crossbow_01",
+                               "name":  "魏军洛阳弩兵",
+                               "faction_id":  "wei",
+                               "type":  "field_unit",
+                               "combat_role_id":  "crossbow",
+                               "is_field_troop":  true,
+                               "city_id":  "luoyang",
+                               "position":  {
+                                                "x":  6760,
+                                                "z":  2200
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "于禁",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  6800,
+                                             "reserve_troops":  2400,
+                                             "organized_troops":  4200,
+                                             "security":  58
+                                         },
+                               "resources":  {
+                                                 "food":  3000,
+                                                 "wood":  180,
+                                                 "horse":  120,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           },
+                           {
+                               "id":  "shu_demo_xinye_spear_01",
+                               "name":  "蜀军新野枪阵",
+                               "faction_id":  "shu",
+                               "type":  "field_unit",
+                               "combat_role_id":  "spear",
+                               "is_field_troop":  true,
+                               "city_id":  "xinye",
+                               "position":  {
+                                                "x":  7000,
+                                                "z":  4480
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "姜维",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  7300,
+                                             "reserve_troops":  2800,
+                                             "organized_troops":  4500,
+                                             "security":  62
+                                         },
+                               "resources":  {
+                                                 "food":  3400,
+                                                 "wood":  210,
+                                                 "horse":  140,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           },
+                           {
+                               "id":  "shu_demo_xinye_archer_01",
+                               "name":  "蜀军新野弓阵",
+                               "faction_id":  "shu",
+                               "type":  "field_unit",
+                               "combat_role_id":  "archer",
+                               "is_field_troop":  true,
+                               "city_id":  "xinye",
+                               "position":  {
+                                                "x":  7320,
+                                                "z":  4380
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "黄忠",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  6700,
+                                             "reserve_troops":  2400,
+                                             "organized_troops":  4100,
+                                             "security":  56
+                                         },
+                               "resources":  {
+                                                 "food":  3000,
+                                                 "wood":  190,
+                                                 "horse":  100,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           },
+                           {
+                               "id":  "shu_demo_xinye_strategist_01",
+                               "name":  "蜀军新野策士",
+                               "faction_id":  "shu",
+                               "type":  "field_unit",
+                               "combat_role_id":  "strategist",
+                               "is_field_troop":  true,
+                               "city_id":  "xinye",
+                               "position":  {
+                                                "x":  7140,
+                                                "z":  4170
+                                            },
+                               "personnel":  {
+                                                 "governor_name":  "诸葛亮",
+                                                 "officer_count":  3
+                                             },
+                               "stats":  {
+                                             "troops":  6200,
+                                             "reserve_troops":  2400,
+                                             "organized_troops":  3600,
+                                             "security":  64
+                                         },
+                               "resources":  {
+                                                 "food":  2800,
+                                                 "wood":  260,
+                                                 "horse":  80,
+                                                 "money":  0,
+                                                 "iron":  0
+                                             }
+                           }
+                       ],
+    "diplomacy":  {
+                      "relations":  [
+                                        {
+                                            "a":  "wei",
+                                            "b":  "shu",
+                                            "value":  -52.0
+                                        }
+                                    ]
+                  }
+}

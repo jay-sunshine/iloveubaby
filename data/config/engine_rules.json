@@ -1,0 +1,251 @@
+﻿{
+  "seconds_per_day": 6.0,
+  "battle_phase_days": 10.0,
+  "max_battle_step_seconds_per_frame": 0.2,
+  "command_costs": {
+    "all": 1.0,
+    "city_patch": 1.0,
+    "city_action": 1.0
+  },
+  "command_effects": {
+    "regroup_security_gain": 1.2,
+    "regroup_troop_gain_ratio": 0.015,
+    "merchant_money_gain": 300.0
+  },
+  "default_command_points": 12.0,
+  "default_max_command_points": 12.0,
+  "default_military_orders": 6.0,
+  "default_max_military_orders": 6.0,
+  "module_order": [
+    "diplomacy",
+    "ai",
+    "internal_affairs",
+    "general",
+    "battle"
+  ],
+  "supply_fog_rules": {
+    "enabled": true,
+    "base_range_default": 1600.0,
+    "base_range_by_type": {
+      "city": 1000.0,
+      "pass": 1800.0,
+      "fort": 1700.0,
+      "ferry": 1900.0,
+      "resource": 1500.0,
+      "site": 1500.0,
+      "field_unit": 500.0,
+      "granary": 1300.0,
+      "convoy": 900.0,
+      "supply_convoy": 900.0,
+      "transport": 900.0,
+      "muzhai": 1200.0,
+      "chengzhai": 1500.0,
+      "jianlou": 1400.0,
+      "gaojijianlou": 1700.0,
+      "zhalan": 500.0,
+      "taigutai": 1000.0,
+      "junyuetai": 1100.0
+    },
+    "granary_range_bonus": 1300.0,
+    "convoy_range_bonus": 1700.0,
+    "link_distance_mul": 0.82,
+    "link_distance_max": 5200.0,
+    "enemy_reveal_range_mul": 1.0,
+    "enemy_reveal_padding": 0.0,
+    "enemy_reveal_min_distance": 480.0
+  },
+  "time_weather_rules": {
+    "enabled": true,
+    "days_per_turn": 10.0,
+    "battle_phase_cycle": [
+      "day",
+      "night"
+    ],
+    "battle_phase_day_ratio": 0.6,
+    "turn_day_phase_cycle": [
+      "day",
+      "night"
+    ],
+    "default_weather_state": "rain",
+    "default_wind_dir": [
+      1.0,
+      0.0
+    ],
+    "default_wind_strength": 0.0,
+    "weather_cycle_by_turn": [
+      "rain",
+      "cloudy",
+      "sunny",
+      "windy",
+      "sunny",
+      "fog",
+      "sunny",
+      "rain"
+    ],
+    "day_phase_visibility_mul": {
+      "day": 1.0,
+      "night": 0.9
+    },
+    "weather_visibility_mul": {
+      "sunny": 1.0,
+      "clear": 1.0,
+      "cloudy": 0.98,
+      "windy": 0.99,
+      "rain": 0.95,
+      "storm": 0.92,
+      "fog": 0.98,
+      "mist": 0.98
+    },
+    "sun_energy_by_phase": {
+      "day": 1.55,
+      "night": 0.75
+    },
+    "ambient_energy_by_phase": {
+      "day": 1.34,
+      "night": 1.05
+    },
+    "fog_density_by_weather": {
+      "sunny": 0.0,
+      "clear": 0.0,
+      "cloudy": 0.0002,
+      "windy": 0.0001,
+      "rain": 0.00035,
+      "storm": 0.00055,
+      "fog": 0.0004,
+      "mist": 0.00035
+    },
+    "map_weather_vfx": {
+      "enabled": true,
+      "follow_lerp": 0.24,
+      "rain_ground_height_offset": 760.0,
+      "fog_ground_height_offset": 95.0,
+      "rain_adds_mist": true,
+      "rain": {
+        "amount": 1900,
+        "lifetime": 1.28,
+        "box_extents": [
+          1900.0,
+          180.0,
+          1900.0
+        ],
+        "velocity_min": 610.0,
+        "velocity_max": 820.0,
+        "scale_min": 0.9,
+        "scale_max": 1.45,
+        "quad_size": [
+          3.4,
+          19.0
+        ],
+        "color_day": [
+          0.72,
+          0.8,
+          0.9,
+          0.34
+        ],
+        "color_night": [
+          0.52,
+          0.6,
+          0.74,
+          0.3
+        ]
+      },
+      "fog": {
+        "amount": 90,
+        "lifetime": 9.6,
+        "box_extents": [
+          2100.0,
+          80.0,
+          2100.0
+        ],
+        "velocity_min": 8.0,
+        "velocity_max": 18.0,
+        "scale_min": 1.0,
+        "scale_max": 1.65,
+        "quad_size": [
+          90.0,
+          54.0
+        ],
+        "color_day": [
+          0.9,
+          0.94,
+          0.97,
+          0.08
+        ],
+        "color_night": [
+          0.7,
+          0.76,
+          0.84,
+          0.1
+        ]
+      }
+    }
+  },
+  "china_terrain_runtime_rules": {
+    "enable_dynamic_markers": true,
+    "enable_supply_fog": true,
+    "show_supply_route_overlay": true,
+    "refresh_interval_seconds": 0.8,
+    "mobile_unit_scale": 4.5,
+    "allow_control_all_units_for_testing": false,
+    "dynamic_unit_types": [
+      "field_unit",
+      "granary",
+      "convoy",
+      "supply_convoy",
+      "transport",
+      "muzhai",
+      "chengzhai",
+      "jianlou",
+      "gaojijianlou",
+      "zhalan",
+      "taigutai",
+      "junyuetai"
+    ],
+    "dynamic_model_paths": {
+      "granary": "res://素材/建模/军事设施/liangcang.glb",
+      "granary_advanced": "res://素材/建模/军事设施/junliangbao.glb",
+      "convoy": "res://素材/建模/兵种/muniuliuima.glb",
+      "supply_convoy": "res://素材/建模/兵种/muniuliuima.glb",
+      "transport": "res://素材/建模/兵种/muniuliuima.glb"
+    },
+    "dynamic_model_scales": {
+      "granary": 122.0,
+      "granary_advanced": 126.0,
+      "convoy": 116.0,
+      "supply_convoy": 116.0,
+      "transport": 116.0
+    },
+    "supply_use_scene_faction_fallback": false,
+    "supply_fog_perf": {
+      "enabled": true,
+      "signature_grid_meters": 48.0,
+      "unit_threshold_mid": 320,
+      "unit_threshold_heavy": 760,
+      "camera_height_far": 9800.0,
+      "refresh_scale_mid": 1.35,
+      "refresh_scale_heavy": 1.85,
+      "refresh_scale_far": 1.55,
+      "marker_stride_mid": 2,
+      "marker_stride_heavy": 3,
+      "marker_stride_far": 4,
+      "reveal_center_cap_mid": 180,
+      "reveal_center_cap_heavy": 128,
+      "reveal_center_cap_far": 96
+    },
+    "supply_settlement": {
+      "mode": "daily",
+      "interval_days": 1.0
+    }
+  },
+  "runtime_save_path": "res://data/config/world_state.json",
+  "preload_resources": [
+    "res://素材/建模/兵种/dunbing.glb",
+    "res://素材/建模/兵种/qingqibing.glb",
+    "res://素材/建模/建筑单位/guanai.glb",
+    "res://scripts/unit_controller.gd",
+    "res://scripts/battlefield_controller.gd",
+    "res://素材/建模/建筑单位/wubao.glb",
+    "res://素材/建模/建筑单位/chengchi.glb",
+    "res://素材/建模/建筑单位/jindu.glb"
+  ]
+}
