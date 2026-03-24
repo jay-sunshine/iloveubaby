@@ -1,0 +1,139 @@
+﻿{
+    "size":  4096,
+    "id_mask":  "res://data/terrain/china_30km/political/zhou_id_mask.png",
+    "border_mask":  "res://data/terrain/china_30km/political/zhou_border_mask.png",
+    "label_overlay":  "res://data/terrain/china_30km/political/zhou_label_overlay.png",
+    "preview":  "res://data/terrain/china_30km/political/zhou_preview.png",
+    "regions":  [
+                    {
+                        "index":  1,
+                        "id":  "yizhou",
+                        "name":  "益州",
+                        "mask_rgb":  [
+                                         1,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  2,
+                        "id":  "liangzhou",
+                        "name":  "凉州",
+                        "mask_rgb":  [
+                                         2,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  3,
+                        "id":  "bingzhou",
+                        "name":  "并州",
+                        "mask_rgb":  [
+                                         3,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  4,
+                        "id":  "youzhou",
+                        "name":  "幽州",
+                        "mask_rgb":  [
+                                         4,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  5,
+                        "id":  "jizhou",
+                        "name":  "冀州",
+                        "mask_rgb":  [
+                                         5,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  6,
+                        "id":  "qingzhou",
+                        "name":  "青州",
+                        "mask_rgb":  [
+                                         6,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  7,
+                        "id":  "silizhou",
+                        "name":  "司隶",
+                        "mask_rgb":  [
+                                         7,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  8,
+                        "id":  "yanzhou",
+                        "name":  "兖州",
+                        "mask_rgb":  [
+                                         8,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  9,
+                        "id":  "yuzhou",
+                        "name":  "豫州",
+                        "mask_rgb":  [
+                                         9,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  10,
+                        "id":  "xuzhou",
+                        "name":  "徐州",
+                        "mask_rgb":  [
+                                         10,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  11,
+                        "id":  "jingzhou",
+                        "name":  "荆州",
+                        "mask_rgb":  [
+                                         11,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  12,
+                        "id":  "yangzhou",
+                        "name":  "扬州",
+                        "mask_rgb":  [
+                                         12,
+                                         0,
+                                         0
+                                     ]
+                    },
+                    {
+                        "index":  13,
+                        "id":  "jiaozhou",
+                        "name":  "交州",
+                        "mask_rgb":  [
+                                         13,
+                                         0,
+                                         0
+                                     ]
+                    }
+                ]
+}
