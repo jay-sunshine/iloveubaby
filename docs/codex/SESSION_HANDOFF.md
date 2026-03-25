@@ -1958,3 +1958,268 @@ ormal_depth 0.075, oughness 0.97, uv_scale 0.038.
   - Some staged plugin binaries inside `addons/` are large but appear to be real runtime/plugin dependencies rather than disposable temp output.
 - Next:
   - After this baseline commit, decide which runtime asset folders must be tracked next and whether to put them under Git LFS before any large asset commit.
+
+## 2026-03-24 17:22 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Expand the already-mounted Luoyang tree cluster into a small grove using only the two new large-map lightweight tree species, while keeping the main scene reference stable.
+- Done:
+  - Replaced `scenes/prefabs/vegetation/japanese_tree_cluster_luoyang.tscn` to use only `black_pine_tree_b_batch_light.tscn` and `sakura_tree_a_batch_light.tscn` instead of the older preview wrappers.
+  - Expanded the Luoyang cluster from 3 trees to 18 trees total: 12 green pines + 6 sakuras.
+  - Kept the species count low and varied only local position, Y rotation, and relative scale so the visible size range stays around the intended old-scale 4.2x‚Äì6.0x band on top of the new 5x baseline wrappers.
+  - Left `scenes/china_terrain_30km.tscn` untouched this pass because it already instances the Luoyang cluster scene; the change is therefore localized and safe to reload.
+  - Re-ran a focused load check for the Luoyang cluster and main terrain scene; no blocking parse/load failure appeared.
+- Risks:
+  - Godot may still show a stale cached instance if `china_terrain_30km.tscn` stayed open throughout edits; a scene tab reload is likely required before the new grove becomes visible.
+  - This is still scene-instance based planting, not Terrain3D region-file instancing yet; it is a safe first grove, not the final highest-scale foliage solution.
+- Next:
+  - Reload `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\china_terrain_30km.tscn`, inspect Luoyang again, and if the grove density/size feels right, convert this two-species setup into Terrain3D instancer data for wider regional planting.
+
+## 2026-03-24 20:06 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Repair the live `china_terrain_30km.tscn` terrain texture bindings after the map appeared white again in the editor.
+- Done:
+  - Rechecked `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scenes\china_terrain_30km.tscn` and confirmed the grass/rock ext_resources had drifted back to the old `nature/textures` set instead of the intended packed terrain textures.
+  - Rebound the scene's 4 Terrain3D texture slots to the packed texture set under `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\Àÿ≤ƒ\textures\`: grass=`rocky_terrain_02_packed_*`, soil=`coast_sand_rocks_02_packed_*`, rock=`gravelly_sand_packed_*`, snow=`snow_02_packed_*`.
+  - Re-verified the scene file now points all four texture asset slots at the expected packed resources.
+  - Ran a headless load check and confirmed the terrain scene still opens; current blocking load noise is from unrelated `strategy_ui_layer.gd` parse errors, not missing terrain texture files.
+- Risks:
+  - Godot can still overwrite the repaired scene if an old in-memory `china_terrain_30km.tscn` tab is saved after the fix; the scene should be closed without saving and reopened fresh from disk.
+  - There is still an unrelated script parse failure in `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\presentation\strategy_ui_layer.gd` referenced by `china_terrain_scene.gd`; this is not the white-texture root cause but may confuse editor refresh behavior.
+- Next:
+  - Reopen `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scenes\china_terrain_30km.tscn` fresh in Godot 3D view, verify the terrain is no longer white, and only then continue tuning tiling/color parameters.
+
+## 2026-03-24 17:37 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Make the Luoyang two-species grove visually readable against the green terrain by improving canopy contrast/fullness and increasing local density.
+- Done:
+  - Updated `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scripts\presentation\tree_batch_light_tuner.gd` to support explicit `leaf_tint` and `bark_tint`, so large-map tree wrappers can push species-specific color contrast without touching the source imported materials.
+  - Tuned `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\prefabs\vegetation\black_pine_tree_b_batch_light.tscn` toward darker cooler foliage, lower alpha scissor, and double-sided leaves so the green trees read fuller and stand apart from the grass.
+  - Tuned `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\prefabs\vegetation\sakura_tree_a_batch_light.tscn` toward brighter pink foliage, lower alpha scissor, and double-sided leaves so sakura stands out more clearly.
+  - Rebuilt `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\prefabs\vegetation\japanese_tree_cluster_luoyang.tscn` into a denser grove with 30 trees total (18 green + 12 sakura) arranged in tighter local clumps around Luoyang.
+  - Verified the grove scene text is intact; the follow-up main scene headless load was blocked by an unrelated existing parse error in `res://scripts/presentation/strategy_ui_layer.gd`, not by the tree cluster files touched this pass.
+- Risks:
+  - Double-sided leaves and lower alpha scissor improve readability but cost more than the prior ultra-light setting; this is still acceptable for the current small Luoyang grove, but wide-map blanket planting should move to Terrain3D instancing next.
+  - If `china_terrain_30km.tscn` remains open in the editor, instance caching may still hide the refreshed grove until the scene tab is reloaded.
+- Next:
+  - Reload `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\china_terrain_30km.tscn` and judge whether the darker pine + brighter sakura + denser clumps are now visible enough; if still not, the next step should be reducing local grass around the grove area or adding a small contrasting ground patch under tree groups.
+## 2026-03-24 20:26 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Align the expedition officer picker with the user's San11-style UI expectation: remove the Tactic field, split five officer stats into separate columns/lines, enlarge the secondary menu, and start reusing a shared officer basic-overview presentation.
+- Done:
+  - Updated E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\presentation\strategy_ui_layer.gd expedition picker table from Officer/Battle/Tactic/Stats/Special to Officer/Battle/Lead/Might/Int/Pol/Charm/Special and widened the picker panel so the secondary menu is closer to the primary panel footprint.
+  - Updated expedition slot cards to show Battle + Special only; removed the unwanted Tactic label from those slot summaries.
+  - Added reusable officer overview helpers (_officer_stat_value, _officer_stat_lines, _append_officer_basic_overview_lines) and switched the expedition picker detail plus aide-tooltip/detail builders to use that shared basic-overview formatting.
+  - Recorded the new UI rule in E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\docs\codex\PROJECT_MEMORY.md: officer overview should be reusable, five stats should split into separate fields when space allows, and Battle should be preferred over Tactic in default officer-overview UIs.
+  - Verified the focused headless parse still succeeds with E:\SteamLibrary\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe --headless --path E:\…Ω∫”÷æ∑Á∆∫∫ƒ© -s res://tmp/_tmp_verify_expedition_parse.gd.
+- Risks:
+  - The expedition picker now has more columns, so on narrower resolutions the table may still need one more width pass or a slightly smaller font size; that would be a layout-only follow-up.
+  - The repository still contains other officer-related UIs that do not yet consume the new shared overview helper; this turn only converted the expedition picker/detail path and aide detail/tooltip path.
+- Next:
+  - Reopen the expedition officer picker in runtime and confirm the table reads cleanly as Officer/Battle/Lead/Might/Int/Pol/Charm/Special; if any column still feels cramped, do one more tiny width/font pass without changing the structure again.
+
+## 2026-03-24 20:14 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Make the ChinaTerrain30km grass look less grid-like and less obviously repeated without adding runtime-heavy detail.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scenes\china_terrain_30km.tscn` Terrain3D anti-tiling noise from a cellular-style pattern to a smoother continuous pattern by changing the `FastNoiseLite` setup.
+  - Softened Terrain3D layer blending and widened the macro variation scales so the grass no longer breaks into obvious small square-like patches.
+  - Increased the apparent grass texture size by lowering the grass `uv_scale`, and reduced grass `normal_depth` slightly so the surface reads broader and less busy from strategy-camera height.
+- Risks:
+  - This tuning affects the shared Terrain3D material, so soil/rock transitions may also look a bit softer and broader than before.
+  - If a stale in-memory scene tab is saved again, Godot can still overwrite the tuned scene file; inspect from a freshly reopened `china_terrain_30km.tscn` tab.
+- Next:
+  - Reopen the terrain scene in 3D view and judge two things only: whether the grass patching now reads as broader/natural, and whether transitions became too soft; if needed, do one more small pass instead of another big retune.
+
+## 2026-03-24 17:46 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Make the green tree species read much larger than before by doubling the current large-map wrapper scale again.
+- Done:
+  - Updated `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\prefabs\vegetation\black_pine_tree_b_batch_light.tscn` so the built-in green tree base scale is now `Vector3(10, 10, 10)` instead of `Vector3(5, 5, 5)`.
+  - Increased the green tree wrapper visibility range and cull margin slightly to better fit the larger canopy footprint.
+  - Verified the Luoyang tree cluster still instantiates successfully after the green-tree size increase.
+- Risks:
+  - This doubles the green trees only; if they now feel too dominant relative to sakura, the next pass should rebalance the cluster layout or slightly enlarge sakura too.
+- Next:
+  - Reload `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\china_terrain_30km.tscn` and judge whether the enlarged green canopy is now readable enough against the grass.
+
+## 2026-03-24 20:21 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Soften the visible terrain layer cut lines after the grass anti-tiling pass reduced repetition but transitions still looked too hard.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scenes\china_terrain_30km.tscn` Terrain3D material to reduce layer transition sharpness further by lowering `blend_sharpness` to `0.12`.
+  - Added explicit Terrain3D auto-blend parameters in the same scene: `auto_slope = 0.62`, `auto_height_reduction = 0.02`, to make slope/height-driven layer changes read less like a hard cut.
+- Risks:
+  - If transitions become too wide in flatter mid-altitude areas, the next correction should be a very small `blend_sharpness` increase rather than another broad texture retune.
+  - A stale open scene tab in Godot can still overwrite the tuned scene if saved without reloading from disk first.
+- Next:
+  - Reopen the terrain scene and inspect the same hilltop edge; if the line is still too crisp, the next step should be brushing/softening the control map in those specific regions rather than globally changing texture scales again.
+
+## 2026-03-24 17:55 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Soften the current grove color grading slightly while adding only a modest number of new trees.
+- Done:
+  - Relaxed the green tree tint in `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\prefabs\vegetation\black_pine_tree_b_batch_light.tscn` so the canopy is still visible but less aggressively dark/saturated.
+  - Relaxed the sakura tint in `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\prefabs\vegetation\sakura_tree_a_batch_light.tscn` so the pink reads softer and less punchy.
+  - Added a modest outer ring to `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\prefabs\vegetation\japanese_tree_cluster_luoyang.tscn`: 6 extra green trees and 4 extra sakura.
+  - Verified the Luoyang grove scene still instantiates successfully after the softening + density pass.
+- Risks:
+  - This pass keeps the current scene-instance approach; if the user later wants a much larger forest footprint, the next scaling step should move to Terrain3D instancing rather than continuing to hand-grow this one cluster scene.
+- Next:
+  - Reload `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\scenes\china_terrain_30km.tscn` and judge whether the colors now feel softer while the grove is slightly fuller.
+
+## 2026-03-24 20:34 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Stabilize `strategy_ui_layer.gd` after editor-side script resolution noise and remove corrupted resource path constants.
+- Done:
+  - Rechecked `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\presentation\strategy_ui_layer.gd` and confirmed the top-level cloud icon / aide portrait constants had mojibake-corrupted paths.
+  - Replaced them with valid project paths: `res://Àÿ≤ƒ/icon/xiangyun.png` and `res://Àÿ≤ƒ/¡¢ªÊ`.
+  - Re-ran a headless load for `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scenes\china_terrain_30km.tscn`; the scene now loads cleanly without the earlier `StrategyUILayer` resolution noise.
+- Risks:
+  - Godot editor can still show stale parse/highlight state in already-open script tabs until they are reopened.
+  - `strategy_ui_layer.gd` still carries many in-flight expedition UI edits from earlier work; future merges there should stay surgical.
+- Next:
+  - Reopen the script tab / scene tab fresh in Godot, confirm the red script error markers are gone, then continue with the next gameplay/UI task instead of more terrain churn.
+
+## 2026-03-24 21:24 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Bind the new Gitee remote, push the lightweight baseline if possible, and prepare a first-pass Git LFS plan for the large asset trees.
+- Done:
+  - Bound `origin` to `https://gitee.com/sunny-ling/shanhezhi-fengqihanmo.git`.
+  - Verified the current push blocker is HTTPS authentication, not local Git setup: with terminal prompts disabled, `git push -u origin master` fails with `could not read Username for 'https://gitee.com': terminal prompts disabled`.
+  - Added an initial LFS tracking plan in `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\.gitattributes` and committed it as `3ca3427 chore: add initial lfs tracking rules`.
+  - Scoped the first-pass LFS rules to the currently untracked large asset trees most clearly tied to runtime use: `assets_imports/` heavy binary media, `data/terrain/china_30km` height/terrain region payloads, and selected runtime-facing subtrees under `Á¥†Êùê/`.
+- Risks:
+  - Push is still blocked until Gitee credentials are available in this environment (HTTPS username + password/token, or a working SSH key setup).
+  - The LFS rules are intentionally conservative-first; before tracking the entire raw asset universe, verify which `Á¥†Êùê/` subtrees are truly required for distributable runtime history.
+- Next:
+  - Authenticate this machine to Gitee, then run `git push -u origin master` and only after that start staging selected large asset folders under the new LFS rules.
+
+## 2026-03-24 21:32 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Finish the expedition officer picker so the player can click up to three officers continuously and let the system auto-assign main/vice commanders by office rank first, then lead.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\presentation\strategy_ui_layer.gd` expedition setup flow to ingest `panel_data["assignments"]`, rebuild the officer->office map, restore saved `selected_officer_ids`, and auto-sort them into commander order before padding the three visible slots.
+  - Added focused expedition-selection helpers in the same file for clean selected-id extraction, office-priority sorting, role-prefix display, and shared team-apply logic.
+  - Implemented the missing expedition picker table/detail/button handlers so the picker now supports continuous add/remove selection up to three officers, shows `[Main] / [Vice I] / [Vice II]` prefixes in the table, updates button states to `Add Officer` / `Remove` / `Team Full`, and clears the whole team via `Clear Team`.
+  - Kept the existing user-facing hint aligned with the agreed rule: main and vice commanders are assigned automatically.
+  - Verified the focused headless parse succeeds with `E:\SteamLibrary\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe --headless --path E:\…Ω∫”÷æ∑Á∆∫∫ƒ© -s res://tmp/_tmp_verify_expedition_parse.gd`.
+- Risks:
+  - The team is now auto-ranked globally, so after the team is full, replacing one officer requires removing one first and then adding the new one; this is intentional for now, but if the user wants slot-click replacement behavior later it should be added explicitly rather than mixed back into the current picker.
+  - `strategy_ui_layer.gd` still carries many earlier local changes outside this turn, so any further edits in this file should stay surgical and revalidated immediately.
+- Next:
+  - Open the expedition picker in runtime and check one thing only: continuous three-officer selection should auto-place the highest-office/highest-lead officer into the main slot and label the table rows with the resulting `[Main] / [Vice I] / [Vice II]` order.
+
+## 2026-03-24 21:40 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Remove redundant expedition picker UI noise so the officer list carries the screen instead of repeating main/vice labels and officer stats below the table.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\presentation\strategy_ui_layer.gd` so the expedition picker table no longer prepends `[Main] / [Vice I] / [Vice II]` to officer names; commander ordering remains automatic but is now implicit through the top slot cards only.
+  - Simplified the picker title back to `Select Officers` instead of repeating the selected-count reminder.
+  - Hid the lower picker detail text block and reclaimed that space for the table, so more officers are visible at once and the UI stops re-reading the selected officer's Battle/stat lines under the list.
+  - Re-verified the focused parse path with `E:\SteamLibrary\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe --headless --path E:\…Ω∫”÷æ∑Á∆∫∫ƒ© -s res://tmp/_tmp_verify_expedition_parse.gd`.
+- Risks:
+  - The picker now relies entirely on the slot cards above for visible main/vice feedback; if the user later wants a subtler in-list cue, add only a very light row tint or icon rather than text prefixes.
+- Next:
+  - Reopen the expedition picker and judge whether the expanded officer list now feels clean enough; if not, the next tiny pass should be row-height/font-density only, not new info blocks.
+
+## 2026-03-24 22:02 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Land the first large-asset batch to the active Gitee remote, using a Gitee-compatible strategy after discovering free-tier LFS upload limits.
+- Done:
+  - Identified that Gitee rejected LFS uploads for this repository tier (`LFS only supported repository in paid or trial enterprise`), so the earlier LFS-first terrain attempt was intentionally converted to a normal Git fallback.
+  - Reverted `.gitattributes` back to text normalization only, removing active LFS tracking rules from the live branch so future pushes to this Gitee repo are not blocked.
+  - Added the first runtime terrain batch as ordinary Git content and pushed it successfully in commit `9b75ea0 feat: add china_30km terrain runtime data`.
+  - Scoped that batch to the live `data/terrain/china_30km/terrain_data` region files, the primary `china_height_30km.r16`, and the main political mask assets/metadata used by the live terrain scene and related runtime/tooling scripts.
+- Risks:
+  - This Gitee remote cannot currently be used as an LFS-backed asset remote without upgrading the repo tier or moving large-asset history to a different host that supports standard Git LFS.
+  - Other large trees such as `assets_imports/` and `Á¥†Êùê/` remain outside version control; adding them to plain Git should be done carefully in smaller runtime-focused batches.
+- Next:
+  - If continuing on Gitee, stage the next runtime-critical asset batch in plain Git (recommended: only the exact `assets_imports/rpg_troops` subset referenced by `battle_rules.json`), or switch future large-asset storage to a Git LFS-capable remote before adding `Á¥†Êùê/`.
+
+## 2026-03-24 22:00 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Match the user's preferred expedition picker flow: single-click rows should directly add/remove officers, selected rows should be visibly marked, and the bottom confirm button should only return to the first expedition screen.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\presentation\strategy_ui_layer.gd` to connect expedition picker table `gui_input` and added `_toggle_expedition_picker_officer(...)`, so left-clicking a row now directly toggles that officer in/out of the current three-officer team without using the bottom button to add/remove.
+  - Updated the picker table rebuild to tint currently selected officers with a different row background, keeping the chosen team visible directly in the list.
+  - Simplified picker bottom actions so `Confirm` now just closes the picker and returns to the first expedition screen; the old clear/remove action remains hidden.
+  - Kept the lower repeated detail block hidden so the table remains the main focus.
+  - Re-ran the focused headless check; `strategy_ui_layer.gd` itself still loads cleanly, while the verifier script also reports an unrelated pre-existing parse problem in `res://scripts/battlefield_controller.gd` preload from `china_terrain_scene.gd`.
+- Risks:
+  - The new row-toggle flow now depends on `Tree.gui_input`; if Godot changes row-click ordering in-editor, the first thing to recheck is whether row selection and row toggle are both still firing once per click.
+  - The broader verifier currently hits an unrelated `battlefield_controller.gd` preload parse issue outside this turn, so use the expedition picker runtime itself as the practical check for this UI pass.
+- Next:
+  - Open expedition picker in runtime and verify the exact intended loop: click up to three rows to select them, click a selected row again to remove it, then press `Confirm` to return to the first expedition screen with the chosen team preserved.
+
+## 2026-03-24 21:02 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Adjust player-facing battle loss reports so friendly unit destruction / line collapse / site loss are reported by relay rather than by the defeated side speaking in third person, while still allowing a short first-person line from the defeated friendly unit.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\battlefield_controller.gd` loss-report routing for player-side unit defeat branches.
+  - Added helpers to separate relay HUD lines from unit self-lines: player loss events now push the left report entry, then show bottom HUD speaker `¥´¡Ó`, then queue one short first-person line from the defeated friendly unit.
+  - Converted player-side bad-news wording from commander-style `÷˜π´£¨Œ“æ¸...` voice to relay-style `º±±®£¨...` for unit defeat, site loss, and facility destruction loss branches.
+  - Kept player-side victory branches on commander voice, so only bad-news routing changed.
+  - Re-validated `battlefield_controller.gd` parses and `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scenes\china_terrain_30km.tscn` headless-loads again.
+- Risks:
+  - I did not find a currently wired standalone officer-capture event entry point in the live battlefield runtime, so this pass covers friendly unit defeat / site loss / facility loss first; officer capture should reuse the same relay + first-person pattern once that event hook is exposed.
+  - The first-person line currently uses fallback text through `pick_commander_dialogue_line("defeat_unit", ...)`; if you later want named generals to have bespoke defeat/capture quotes, add that event key in `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\unit_controller.gd` dialogue tables.
+- Next:
+  - Play one battle where a friendly unit is destroyed and confirm the sequence reads as: left report `º±±®...`, bottom HUD speaker `¥´¡Ó`, then a short first-person defeated-unit line; after that, wire the same pattern into officer-capture once the event source is identified.
+
+## 2026-03-25 00:13 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Land the next smallest runtime-critical asset batch by tracking only the `assets_imports/rpg_troops` files directly referenced by battle runtime config/scenes.
+- Done:
+  - Confirmed the live runtime references only five troop assets under `assets_imports/rpg_troops`: `troop_spear`, `troop_archer`, `troop_infantry`, `troop_cavalry`, and `troop_infantry_shield`.
+  - Added only those five GLBs plus their adjacent texture and `.import` files; intentionally left the many `_tmp_*` experiment files in the same folder untracked.
+  - Tightened `E:\Â±±Ê≤≥ÂøóÈ£éËµ∑Ê±âÊú´\.gitignore` with `assets_imports/**/_tmp_*` so imported scratch outputs stop polluting future Git status scans.
+  - Committed and pushed the batch successfully as `bd8700f feat: add rpg troop runtime assets`.
+- Risks:
+  - `assets_imports/horse_rider_demo` and `assets_imports/mixamo_troops` remain outside version control; if gameplay/runtime starts depending on them directly, they should be added in similarly explicit subsets rather than by staging the whole tree.
+  - `battle_rules.json` and `horse_rider_demo.tscn` now have their immediate `rpg_troops` dependencies covered, but other preview/demo scenes may still reference files elsewhere in `assets_imports/`.
+- Next:
+  - If continuing resource onboarding, do the next batch either from `assets_imports/mixamo_troops/out` (runtime-ready character assets) or from a tightly scoped `Á¥†Êùê/` runtime subset such as `Á¥†Êùê/icon`, `Á¥†Êùê/ui`, and directly referenced VFX textures.
+
+## 2026-03-25 00:07 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Make the expedition officer picker behave like a true secondary menu inside the same primary command panel: same footprint as the“ªº∂≤Àµ•, and reuse the primary confirm/cancel buttons instead of adding a separate bottom button row.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\presentation\strategy_ui_layer.gd` so the expedition picker overlay now expands to the full command-panel footprint and the picker content area is laid out against the same panel bounds instead of using the previous smaller floating subpanel.
+  - Added picker pending-selection state so row clicks now only change the temporary secondary-menu selection; `Confirm` on the primary bottom button applies that pending three-officer selection and returns to the first expedition screen, while `Back` discards it and returns without applying.
+  - Reused the primary bottom command buttons while the expedition picker is open by switching the main decide text to `Confirm`, keeping `Back` on cancel, and hiding the picker's own confirm/clear/close button row.
+  - Kept the direct row-toggle and selected-row background highlighting from the previous pass.
+  - Re-verified with `E:\SteamLibrary\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe --headless --path E:\…Ω∫”÷æ∑Á∆∫∫ƒ© -s res://tmp/_tmp_verify_expedition_parse.gd`.
+- Risks:
+  - This turn only converted the expedition officer picker to primary-panel sizing/button reuse; if the user wants the troop subpanel and other secondary panels to follow the exact same pattern, they should be migrated one by one with the same temporary-state approach rather than by broad UI rewrites.
+- Next:
+  - Open the expedition officer picker and verify the exact loop: row clicks only mark temporary selection, `Back` returns without changing the first screen, and the primary `Confirm` button applies the three-officer selection then returns to the expedition main screen.
+
+## 2026-03-25 00:24 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Remove redundant relay HUD lines when the defeated friendly unit already speaks in first person.
+- Done:
+  - Updated `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scripts\battlefield_controller.gd` so the player-side unit-defeat branches no longer enqueue `¥´¡Ó` when a first-person defeated-unit line is already queued.
+  - Kept the left battle report entry intact; only the bottom HUD sequence changed.
+  - Revalidated `battlefield_controller.gd` parse and `E:\…Ω∫”÷æ∑Á∆∫∫ƒ©\scenes\china_terrain_30km.tscn` headless load.
+- Risks:
+  - This pass only changes friendly unit defeat; standalone officer-capture still needs its own event hook, but should follow the same rule: self line first, no extra relay if self line exists.
+- Next:
+  - Trigger one friendly unit defeat in battle and confirm the bottom HUD now shows only the unit's first-person line instead of `¥´¡Ó + ◊‘ ˆ`.
