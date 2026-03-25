@@ -45,3 +45,6 @@ scripts/**/*.bak_*
 data/config/*backup*.json
 data/terrain/china_30km/terrain_data_backup_*/
 data/terrain/china_30km/terrain_data_flatten_pass1_snapshot/
+
+# Imported asset scratch outputs
+assets_imports/**/_tmp_*
