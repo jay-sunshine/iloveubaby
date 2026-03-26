@@ -3527,3 +3527,104 @@ ormal_depth 0.075, oughness 0.97, uv_scale 0.038.
   - The new GitHub repository still needs the current local code pushed before the `Love Web Pages` workflow can appear and run.
 - Next:
   - Push `master` to the updated `github` remote, then open the Actions tab for `jay-sunshine/iloveubaby` and run the web deployment workflow.
+## 2026-03-26 10:32 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Continue the parse-blocker cleanup after the rain-fire pass, focusing only on the newly exposed script-load errors in `strategy_bootstrap.gd` and `china_terrain_scene.gd`.
+- Done:
+  - Replaced the two faction-strategy signal connections in `E:\山河志风起汉末\scripts\engine\strategy_bootstrap.gd` with explicit `Callable(self, ...)` wiring to avoid the earlier handler-resolution parse blocker.
+  - Added a compatibility alias in `E:\山河志风起汉末\scripts\presentation\china_terrain_scene.gd` so the player-faction technology panel builder is reachable under both naming variants.
+  - Fixed corrupted VFX texture preload paths at the top of `E:\山河志风起汉末\scripts\presentation\china_terrain_scene.gd` to the real on-disk `res://素材/brackeys_vfx_bundle/...` assets.
+  - Surgically replaced several mojibake-broken strings in `E:\山河志风起汉末\scripts\engine\strategy_bootstrap.gd` that were breaking parse in regroup / siege / officer-book / faction-technology / expedition panel data blocks.
+  - Confirmed `godot.windows.opt.tools.64.exe --headless --path E:\山河志风起汉末 -s res://tmp/_codex_parse_check.gd` now reports `bootstrap_script_ok=true` and `ui_script_ok=true` with no remaining parse error.
+  - Re-ran `godot.windows.opt.tools.64.exe --headless --path E:\山河志风起汉末 --quit --scene res://scenes/china_terrain_30km.tscn`; the scene now loads past the earlier script parse blockers and only emits existing non-fatal material/deprecation warnings.
+- Risks:
+  - This pass fixed the exposed parse blockers but did not do a broad text-quality review; some nearby strings may still be placeholder English or legacy mixed-encoding content.
+  - The main-scene headless run still prints existing warnings from `tree_batch_light_tuner.gd`, but they are not blocking script load.
+- Next:
+  - If continuing this cleanup branch, switch from parse recovery to a narrow runtime smoke test inside `ChinaTerrain30km`, or do one more tiny pass only if another concrete parse blocker appears.
+## 2026-03-26 11:06 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Fix the failed GitHub Pages CI run for `jay-sunshine/iloveubaby` after the first workflow reported missing Godot web export templates.
+- Done:
+  - Diagnosed the failure from the GitHub Actions log: Godot looked for `web_nothreads_debug.zip` and `web_nothreads_release.zip` directly under `~/.local/share/godot/export_templates/4.6.1.stable`, while the workflow had unzipped the `.tpz` one level too deep.
+  - Updated `E:\灞辨渤蹇楅璧锋眽鏈玕.github\workflows\love_web_pages.yml` to unzip the export templates into a temp directory and copy `templates/.` into the exact Godot version folder expected by the exporter.
+  - Committed the CI fix as `a05a345` with message `Fix Godot web template install path` and pushed it to `github/master` for `jay-sunshine/iloveubaby`.
+- Risks:
+  - The next workflow run may still fail on a different export/runtime issue because this repository is large and the web export path is being exercised for the first time.
+- Next:
+  - Watch the new run triggered by commit `a05a345`; if it fails, inspect the next error block rather than retrying the old run.
+## 2026-03-26 12:05 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Continue the faction-level `Strategy` menu pass, stabilize the new `Personnel` branch, and make the new grand-strategy titles consistent.
+- Done:
+  - Confirmed `scripts/engine/strategy_bootstrap.gd`, `scripts/presentation/strategy_ui_layer.gd`, and `scripts/presentation/china_terrain_scene.gd` now parse with the new `Strategy` / `Personnel` / `Technology` wiring in place.
+  - Kept the new grand-strategy labels English-first (`Personnel`, `Talent`, `Technology`, `Intelligence`, `Diplomacy`, `Council`) to avoid adding more mojibake-prone UI text.
+  - Finalized the new faction-level personnel overview path by reusing the existing `aides` panel in read-only mode instead of inventing a separate menu.
+  - Unified the bootstrap-side technology panel title to `Grand Strategy - Technology` so it matches the runtime path and the rest of the new strategy naming.
+  - Revalidated with `res://tmp/_codex_parse_check.gd`; `bootstrap_script_ok=true` and `ui_script_ok=true`.
+- Risks:
+  - Only `Personnel` and `Technology` are meaningfully wired under `Strategy`; the other faction branches still return the placeholder not-wired message.
+  - The repository still contains older mixed-encoding text and path history outside this narrow grand-strategy scope, so future edits in nearby blocks should remain surgical.
+- Next:
+  - Wire the next faction-level branch the player wants (recommended: `Talent` or `Council`) using the same full-size secondary-menu pattern and English-first labels.
+## 2026-03-26 20:15 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Continue the English battle-facing unique-skill pass by polishing in-battle skill/tactic prompts, cast broadcast wording, and tactic VFX separation.
+- Done:
+  - Fixed the malformed function signatures that were blocking clean script parsing in `E:\山河志风起汉末\scripts\unit_controller.gd` and `E:\山河志风起汉末\scripts\battlefield_controller.gd`.
+  - Kept the English cast-report pipeline on one path only: unique skill, normal skill, and tactic success now all funnel through `_report_player_ability_cast(...)` in `E:\山河志风起汉末\scripts\battlefield_controller.gd`.
+  - Finished a second VFX differentiation pass in `E:\山河志风起汉末\scripts\battlefield_controller.gd`: `support`, `control`, and `wind` field effects now use distinct ring/disc geometry, orbit spacing, pulse speed, mark silhouettes, and ornament intensity so battlefield reads are easier at a glance.
+  - Re-ran Godot headless verification with `E:\SteamLibrary\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe --headless --path E:\山河志风起汉末 -s res://tmp/_tmp_verify_unique_skills.gd` and it exited cleanly.
+- Risks:
+  - `scripts/battlefield_controller.gd` and `scripts/unit_controller.gd` already carried a large pre-existing working-tree diff before this pass, so later commit staging should still be hunk-based.
+  - The current English fallback strategy only guarantees skill-related commander lines; broader battle chatter outside skill keys may still contain mixed language in some paths.
+- Next:
+  - If continuing this branch, do one focused runtime polish pass on battle cast feedback: tighten the remaining English wording in bottom commander lines / left report, or add one more readability layer such as style-colored icons for support/control/offense skill casts.
+## 2026-03-26 12:28 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Change the faction `Strategy` interaction so the first-level menu stays small and the second-level branch menu also reuses the same small-menu size instead of opening the large command panel directly.
+- Done:
+  - Reworked `scripts/presentation/strategy_ui_layer.gd` so the existing small submenu panel is now reusable as a generic second-level strategy submenu, not only for `Move`.
+  - Added small second-level submenu definitions for `Personnel`, `Technology`, `Talent`, `Intelligence`, `Diplomacy`, and `Council`; only `Personnel -> Overview` and `Technology -> Tree` currently open real content pages.
+  - Changed faction-menu click flow so `Strategy` first-level buttons now open a same-size second-level submenu before entering the large content panel.
+  - Updated bootstrap and ChinaTerrain30km runtime handlers to accept the new submenu action ids `faction_personnel_overview` and `faction_technology_tree`.
+  - Revalidated with `res://tmp/_codex_parse_check.gd`; `bootstrap_script_ok=true` and `ui_script_ok=true`.
+- Risks:
+  - `Talent`, `Intelligence`, `Diplomacy`, and `Council` second-level entries are menu placeholders only; they still land on the existing not-wired message until their actual pages are built.
+  - This pass only changes the strategy branch navigation pattern; it does not restyle the large detail panels themselves.
+- Next:
+  - If the user accepts this small second-level pattern, build the next real branch page behind one of those submenu entries, preferably `Talent` or `Council`.
+## 2026-03-26 11:24 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Replace the heavy whole-project web export with a dedicated lightweight confession-only web subproject and change the web app title to `iloveu`.
+- Done:
+  - Added a new isolated web subproject at `E:\灞辨渤蹇楅璧锋眽鏈玕web\iloveu_web` containing only the love scene, the two tree prefabs, required shaders/scripts/sky, and the pine textures/import cache needed by that scene.
+  - Created a minimal `project.godot` inside that subproject with `config/name="iloveu"` and its own `export_presets.cfg`, so the browser title/runtime identity no longer uses the main game name.
+  - Rewrote `E:\灞辨渤蹇楅璧锋眽鏈玕.github\workflows\love_web_pages.yml` so GitHub Actions now imports and exports `web/iloveu_web` instead of the full repository project.
+  - Revalidated the lightweight subproject locally: the scene now loads from the isolated path with only the existing tree-material remap warnings; no missing-resource errors remain after copying the required `.import` / `.ctex` files.
+- Risks:
+  - The lightweight web build should be much faster, but the first redeploy still depends on GitHub Pages propagation time and GitHub Pages network speed from the user's region.
+  - The tree cinematic tuner still prints legacy material-remap warnings; they do not block export, but a later beauty pass could clean them up.
+- Next:
+  - Wait for the new `Love Web Pages` run triggered by `Add lightweight iloveu web subproject`; once it goes green, hard-refresh `https://jay-sunshine.github.io/iloveubaby/` and confirm the lighter build plus `iloveu` title.
+## 2026-03-26 21:05 (Asia/Shanghai)
+- Owner: Codex
+- Goal:
+  - Preserve Chinese source text while keeping the current English battle-facing skill/tactic pass usable.
+- Done:
+  - Added lightweight bilingual selectors in `E:\山河志风起汉末\scripts\battlefield_controller.gd` and `E:\山河志风起汉末\scripts\unit_controller.gd` via `battle_text_language` + `_battle_text(...)`, so skill names, skill/tactic tooltips, cast broadcasts, and key commander fallback lines now keep both Chinese source text and English output text together.
+  - Replaced the skill-related hard-overwrite English strings with paired Chinese/English text in the two runtime scripts.
+  - Repaired several legacy mojibake parse blockers exposed while preserving Chinese fallback text in `E:\山河志风起汉末\scripts\unit_controller.gd`, including commander dialogue constant tables, famous-commander aliases, personality archetype fallback parsing, status-display names, and several state/status fallback lines.
+  - Restored four broken VFX preload paths in `E:\山河志风起汉末\scripts\unit_controller.gd` back to the real `res://素材/brackeys_vfx_bundle/...` assets.
+  - Revalidated with `E:\SteamLibrary\steamapps\common\Godot Engine\godot.windows.opt.tools.64.exe --headless --path E:\山河志风起汉末 -s res://tmp/_tmp_verify_unique_skills.gd` and the check passed.
+- Risks:
+  - `battle_text_language` is currently per-script/per-instance, not a full project-wide localization pipeline yet.
+  - There are still many older English-first changes elsewhere in the repo outside this narrow battle-skill pass; this handoff only covers the touched skill/tactic/broadcast/runtime text paths.
+- Next:
+  - If continuing, centralize the battle text language switch into a shared config / world meta / localization layer so one toggle can swap the whole battle UI between Chinese and English.

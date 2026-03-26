@@ -48,3 +48,8 @@
 - Dedicated web project root: E:\山河志风起汉末\web\iloveu_web`r
 - Web title/app name: iloveu`r
 - This path is isolated from the main game project and exists only to make the confession web build load much faster.
+
+## Horizon variant
+- Current lightweight default page stays at the root URL.
+- New alternate sunset composition page: https://jay-sunshine.github.io/iloveubaby/horizon/`r
+- This version keeps the island lower in frame so the sunset sits over open sea instead of over the beach.

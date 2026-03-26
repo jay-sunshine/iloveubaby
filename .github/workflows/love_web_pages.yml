@@ -26,6 +26,7 @@ jobs:
       GODOT_TEMPLATES_TPZ: Godot_v4.6.1-stable_export_templates.tpz
       GODOT_RELEASE_BASE: https://github.com/godotengine/godot-builds/releases/download/4.6.1-stable
       LOVE_WEB_PATH: web/iloveu_web
+      LOVE_HORIZON_PATH: web/iloveu_web_horizon
 
     steps:
       - name: Checkout
@@ -51,24 +52,28 @@ jobs:
           unzip -q "$RUNNER_TEMP/godot/export_templates.tpz" -d "$RUNNER_TEMP/godot/export_templates"
           cp -R "$RUNNER_TEMP/godot/export_templates/templates/." "$TEMPLATE_DIR/"
 
-      - name: Import lightweight web project
+      - name: Import lightweight projects
         shell: bash
         run: |
           set -euo pipefail
           "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE/$LOVE_WEB_PATH" --import --quit
+          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE/$LOVE_HORIZON_PATH" --import --quit
 
-      - name: Export lightweight web build
+      - name: Export both web builds
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$GITHUB_WORKSPACE/$LOVE_WEB_PATH/build/web"
-          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE/$LOVE_WEB_PATH" --export-release "Web" "$GITHUB_WORKSPACE/$LOVE_WEB_PATH/build/web/index.html"
-          touch "$GITHUB_WORKSPACE/$LOVE_WEB_PATH/build/web/.nojekyll"
+          SITE_DIR="$GITHUB_WORKSPACE/site"
+          mkdir -p "$SITE_DIR"
+          mkdir -p "$SITE_DIR/horizon"
+          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE/$LOVE_WEB_PATH" --export-release "Web" "$SITE_DIR/index.html"
+          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE/$LOVE_HORIZON_PATH" --export-release "Web" "$SITE_DIR/horizon/index.html"
+          touch "$SITE_DIR/.nojekyll"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web/iloveu_web/build/web
+          path: site
 
       - name: Deploy to GitHub Pages
         id: deployment
