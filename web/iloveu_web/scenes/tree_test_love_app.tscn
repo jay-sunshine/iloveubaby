@@ -1,0 +1,2447 @@
+[gd_scene format=3 uid="uid://cw7rl331pavsp"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/black_pine_tree_b_cinematic.tscn" id="1_pine"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/vegetation/sakura_tree_a_cinematic.tscn" id="2_sakura"]
+[ext_resource type="Sky" path="res://sky_assets/sunset_procedural_sky.tres" id="3_sky"]
+[ext_resource type="Script" path="res://scripts/presentation/tree_test_free_camera.gd" id="4_cam"]
+[ext_resource type="Shader" path="res://scripts/shaders/tree_test_curved_ocean.gdshader" id="5_water_shader"]
+[ext_resource type="Shader" path="res://scripts/shaders/tree_test_curved_beach.gdshader" id="6_sand_shader"]
+[ext_resource type="Shader" path="res://scripts/shaders/tree_test_lagoon_floor.gdshader" id="7_floor_shader"]
+[ext_resource type="Script" path="res://scripts/presentation/tree_test_touch_camera.gd" id="8_touch_cam"]
+[ext_resource type="Shader" path="res://scripts/shaders/tree_test_sunset_sky_dome.gdshader" id="9_shell_shader"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 2
+sky = ExtResource("3_sky")
+ambient_light_source = 3
+ambient_light_energy = 0.92
+tonemap_mode = 2
+fog_enabled = false
+fog_mode = 1
+fog_light_color = Color(1, 0.64, 0.46, 1)
+fog_density = 0.00025
+fog_depth_end = 14000.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_water"]
+shader = ExtResource("5_water_shader")
+shader_parameter/deep_color = Color(0.08, 0.54, 0.80, 1)
+shader_parameter/shallow_color = Color(0.24, 0.88, 0.96, 1)
+shader_parameter/lagoon_color = Color(0.54, 1, 0.98, 1)
+shader_parameter/horizon_tint = Color(0.56, 0.78, 0.92, 1)
+shader_parameter/warm_reflect = Color(1, 0.78, 0.58, 1)
+shader_parameter/sun_reflect = Color(1, 0.84, 0.62, 1)
+shader_parameter/island_extent = Vector2(470, 250)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sand"]
+shader = ExtResource("6_sand_shader")
+shader_parameter/dry_sand = Color(0.95, 0.89, 0.72, 1)
+shader_parameter/warm_sand = Color(0.91, 0.83, 0.63, 1)
+shader_parameter/wet_sand = Color(0.82, 0.75, 0.56, 1)
+shader_parameter/island_extent = Vector2(470, 250)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_floor"]
+shader = ExtResource("7_floor_shader")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shell"]
+shader = ExtResource("9_shell_shader")
+
+[sub_resource type="SphereMesh" id="SphereMesh_shell"]
+radius = 70000.0
+height = 140000.0
+radial_segments = 96
+rings = 48
+
+[sub_resource type="SphereMesh" id="SphereMesh_water_world"]
+radius = 30000.0
+height = 60000.0
+radial_segments = 128
+rings = 64
+
+[sub_resource type="SphereMesh" id="SphereMesh_island_world"]
+radius = 30003.0
+height = 60006.0
+radial_segments = 128
+rings = 64
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_water"]
+size = Vector2(60000, 60000)
+subdivide_width = 256
+subdivide_depth = 256
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_island"]
+size = Vector2(1300, 900)
+subdivide_width = 96
+subdivide_depth = 48
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+size = Vector2(60000, 60000)
+
+[node name="TreeTest" type="Node3D" unique_id=1319518962]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-2.4, 180, 0)
+light_energy = 0.92
+light_color = Color(1, 0.72, 0.46, 1)
+shadow_enabled = true
+
+[node name="PreviewCamera" type="Camera3D" parent="."]
+script = ExtResource("4_cam")
+current = true
+fov = 32.0
+far = 160000.0
+default_distance = 2200.0
+default_focus_point = Vector3(0, 0, 0)
+default_yaw_deg = 0.0
+default_pitch_deg = -4.0
+min_distance = 260.0
+max_distance = 8000.0
+
+[node name="LagoonFloorMesh" type="MeshInstance3D" parent="."]
+visible = false
+position = Vector3(0, -2.6, 0)
+material_override = SubResource("ShaderMaterial_floor")
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="WaterMesh" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.9, 0)
+material_override = SubResource("ShaderMaterial_water")
+mesh = SubResource("PlaneMesh_water")
+
+[node name="SkyDome" type="MeshInstance3D" parent="."]
+visible = false
+position = Vector3(0, 0, 0)
+cast_shadow = 0
+material_override = SubResource("ShaderMaterial_shell")
+mesh = SubResource("SphereMesh_shell")
+
+[node name="IslandMesh" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.35, 0)
+material_override = SubResource("ShaderMaterial_sand")
+mesh = SubResource("PlaneMesh_island")
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="GreenTree_001" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, 31)
+rotation_degrees = Vector3(0, 9, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_002" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, 37.09)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_003" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-446.09, 0, 31)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_004" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, 31)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_005" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, 37.09)
+rotation_degrees = Vector3(0, -6, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_006" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, 31)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_007" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, 37.09)
+rotation_degrees = Vector3(0, 11, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_008" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, 31)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_009" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, 37.09)
+rotation_degrees = Vector3(0, 28, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_010" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-398, 0, 31)
+rotation_degrees = Vector3(0, 17, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_011" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-398, 0, 37.09)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_012" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-387.5, 0, 31)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_013" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-387.5, 0, 37.09)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_014" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-377, 0, 31)
+rotation_degrees = Vector3(0, -9, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_015" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-377, 0, 37.09)
+rotation_degrees = Vector3(0, 19, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_016" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, 31)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_017" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, 37.09)
+rotation_degrees = Vector3(0, -24, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_018" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, 31)
+rotation_degrees = Vector3(0, 25, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_019" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, 37.09)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_020" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, 31)
+rotation_degrees = Vector3(0, -18, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_021" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, 37.09)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_022" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, 31)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_023" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, 37.09)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_024" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-328.91, 0, 31)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_025" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, 20.5)
+rotation_degrees = Vector3(0, -20, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_026" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, 14.41)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_027" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-446.09, 0, 20.5)
+rotation_degrees = Vector3(0, 4, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_028" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, 20.5)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_029" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, 14.41)
+rotation_degrees = Vector3(0, -9, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_030" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, 20.5)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_031" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, 14.41)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_001" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-408.5, 0, 20.5)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_002" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, 20.5)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_003" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, 20.5)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_004" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, 20.5)
+rotation_degrees = Vector3(0, 22, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_005" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-366.5, 0, 20.5)
+rotation_degrees = Vector3(0, -21, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_032" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, 20.5)
+rotation_degrees = Vector3(0, -4, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_033" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, 14.41)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_034" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, 20.5)
+rotation_degrees = Vector3(0, 13, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_035" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, 14.41)
+rotation_degrees = Vector3(0, 7, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_036" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, 20.5)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_037" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, 14.41)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_038" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-328.91, 0, 20.5)
+rotation_degrees = Vector3(0, 28, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_039" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, 10)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_040" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, 10)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_006" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, 10)
+rotation_degrees = Vector3(0, 19, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_007" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, 10)
+rotation_degrees = Vector3(0, -24, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_008" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, 10)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_041" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, 10)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_042" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, 10)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_043" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -0.5)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_044" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -0.5)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="BlossomTree_009" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -0.5)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_010" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -0.5)
+rotation_degrees = Vector3(0, 7, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_011" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -0.5)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_045" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -0.5)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_046" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -0.5)
+rotation_degrees = Vector3(0, -21, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_047" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -11)
+rotation_degrees = Vector3(0, 4, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_048" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -11)
+rotation_degrees = Vector3(0, 28, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_012" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -11)
+rotation_degrees = Vector3(0, 21, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_013" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -11)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_014" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -11)
+rotation_degrees = Vector3(0, -5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_049" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -11)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_050" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -11)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_051" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -21.5)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_052" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -21.5)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_015" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -21.5)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_016" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -21.5)
+rotation_degrees = Vector3(0, 9, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_017" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -21.5)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="GreenTree_053" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -21.5)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_054" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -21.5)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_055" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -32)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_056" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -32)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_018" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -32)
+rotation_degrees = Vector3(0, 23, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_019" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -32)
+rotation_degrees = Vector3(0, -20, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_020" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -32)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_057" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -32)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_058" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -32)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_059" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -42.5)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_060" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -42.5)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="BlossomTree_021" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -42.5)
+rotation_degrees = Vector3(0, -6, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_022" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -42.5)
+rotation_degrees = Vector3(0, 11, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_023" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -42.5)
+rotation_degrees = Vector3(0, 28, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_061" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -42.5)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_062" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -42.5)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_063" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -53)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_064" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -53)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_024" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -53)
+rotation_degrees = Vector3(0, 25, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_025" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -53)
+rotation_degrees = Vector3(0, -18, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_026" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -53)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_065" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -53)
+rotation_degrees = Vector3(0, 16, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_066" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -53)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_067" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -63.5)
+rotation_degrees = Vector3(0, -21, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_068" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -63.5)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_027" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -63.5)
+rotation_degrees = Vector3(0, -4, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_028" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -63.5)
+rotation_degrees = Vector3(0, 13, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_029" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -63.5)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_069" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -63.5)
+rotation_degrees = Vector3(0, -13, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_070" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -63.5)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_071" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -74)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_072" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-414.59, 0, -74)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_030" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -74)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_031" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -74)
+rotation_degrees = Vector3(0, -16, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_032" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -74)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="GreenTree_073" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -74)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_074" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-360.41, 0, -74)
+rotation_degrees = Vector3(0, 16, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_075" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, -84.5)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_076" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, -78.41)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_077" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-446.09, 0, -84.5)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_078" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, -84.5)
+rotation_degrees = Vector3(0, 7, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_079" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, -78.41)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_080" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, -84.5)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_081" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, -78.41)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_033" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-408.5, 0, -84.5)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_034" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-398, 0, -84.5)
+rotation_degrees = Vector3(0, -2, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_035" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-387.5, 0, -84.5)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_036" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-377, 0, -84.5)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_037" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-366.5, 0, -84.5)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_082" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, -84.5)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_083" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, -78.41)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_084" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, -84.5)
+rotation_degrees = Vector3(0, 23, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_085" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, -78.41)
+rotation_degrees = Vector3(0, -9, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_086" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, -84.5)
+rotation_degrees = Vector3(0, -20, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_087" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, -78.41)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_088" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-328.91, 0, -84.5)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_089" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, -95)
+rotation_degrees = Vector3(0, 21, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_090" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-440, 0, -101.09)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_091" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-446.09, 0, -95)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_092" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, -95)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_093" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-429.5, 0, -101.09)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_094" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, -95)
+rotation_degrees = Vector3(0, -5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_095" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-419, 0, -101.09)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_096" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -95)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_097" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-408.5, 0, -101.09)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_098" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-398, 0, -95)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_099" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-398, 0, -101.09)
+rotation_degrees = Vector3(0, 23, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_100" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-387.5, 0, -95)
+rotation_degrees = Vector3(0, -14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_101" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-387.5, 0, -101.09)
+rotation_degrees = Vector3(0, -20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_102" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-377, 0, -95)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_103" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-377, 0, -101.09)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_104" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -95)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_105" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-366.5, 0, -101.09)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_106" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, -95)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_107" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-356, 0, -101.09)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_108" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, -95)
+rotation_degrees = Vector3(0, -6, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_109" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-345.5, 0, -101.09)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_110" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, -95)
+rotation_degrees = Vector3(0, 11, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_111" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-335, 0, -101.09)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_112" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-328.91, 0, -95)
+rotation_degrees = Vector3(0, 9, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_113" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-63.5, 0, -85)
+rotation_degrees = Vector3(0, -18, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_114" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-63.5, 0, -91.09)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_115" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-69.59, 0, -85)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_116" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-53, 0, -85)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_117" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-53, 0, -91.09)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_118" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-42.5, 0, -85)
+rotation_degrees = Vector3(0, 16, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_119" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-42.5, 0, -91.09)
+rotation_degrees = Vector3(0, -16, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_120" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-36.41, 0, -85)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_121" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-0.5, 0, -85)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_122" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-0.5, 0, -91.09)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_123" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-6.59, 0, -85)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_124" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(10, 0, -85)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_125" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(10, 0, -91.09)
+rotation_degrees = Vector3(0, 9, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_126" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(20.5, 0, -85)
+rotation_degrees = Vector3(0, -2, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_127" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(20.5, 0, -91.09)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_128" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(26.59, 0, -85)
+rotation_degrees = Vector3(0, -4, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_129" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-74, 0, -74.5)
+rotation_degrees = Vector3(0, -4, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_130" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-74, 0, -80.59)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_131" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-80.09, 0, -74.5)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_038" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-63.5, 0, -74.5)
+rotation_degrees = Vector3(0, 13, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_039" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -74.5)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_040" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -74.5)
+rotation_degrees = Vector3(0, -13, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_132" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-32, 0, -74.5)
+rotation_degrees = Vector3(0, 4, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_133" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-32, 0, -80.59)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_134" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-25.91, 0, -74.5)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_135" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-11, 0, -74.5)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_136" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-11, 0, -80.59)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_137" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-17.09, 0, -74.5)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_041" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -74.5)
+rotation_degrees = Vector3(0, -5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_042" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(10, 0, -74.5)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_138" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(20.5, 0, -74.5)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_139" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(26.59, 0, -74.5)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_140" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-84.5, 0, -64)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_141" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-84.5, 0, -70.09)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_142" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-90.59, 0, -64)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_043" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-74, 0, -64)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_044" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-63.5, 0, -64)
+rotation_degrees = Vector3(0, -16, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_045" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -64)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_046" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -64)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_047" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, -64)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_143" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-21.5, 0, -64)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_144" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-21.5, 0, -70.09)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_048" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, -64)
+rotation_degrees = Vector3(0, 9, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_049" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -64)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_050" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(10, 0, -64)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_051" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(20.5, 0, -64)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_145" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(31, 0, -64)
+rotation_degrees = Vector3(0, 17, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_146" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(31, 0, -70.09)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_147" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(37.09, 0, -64)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_148" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-95, 0, -53.5)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_149" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-95, 0, -59.59)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_150" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-101.09, 0, -53.5)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_052" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-84.5, 0, -53.5)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_053" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-74, 0, -53.5)
+rotation_degrees = Vector3(0, -2, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_054" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-63.5, 0, -53.5)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_055" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -53.5)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_056" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -53.5)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_057" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, -53.5)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_058" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, -53.5)
+rotation_degrees = Vector3(0, 23, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_059" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, -53.5)
+rotation_degrees = Vector3(0, -20, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_060" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -53.5)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_061" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(10, 0, -53.5)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_062" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(20.5, 0, -53.5)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_063" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(31, 0, -53.5)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_151" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(41.5, 0, -53.5)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_152" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(41.5, 0, -59.59)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_153" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(47.59, 0, -53.5)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_154" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-95, 0, -43)
+rotation_degrees = Vector3(0, -5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_155" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-101.09, 0, -43)
+rotation_degrees = Vector3(0, 19, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_064" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-84.5, 0, -43)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_065" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-74, 0, -43)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_066" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-63.5, 0, -43)
+rotation_degrees = Vector3(0, -14, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_067" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -43)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_068" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -43)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_069" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, -43)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_070" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, -43)
+rotation_degrees = Vector3(0, -6, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_071" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, -43)
+rotation_degrees = Vector3(0, 11, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_072" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -43)
+rotation_degrees = Vector3(0, 28, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_073" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(10, 0, -43)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_074" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(20.5, 0, -43)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_075" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(31, 0, -43)
+rotation_degrees = Vector3(0, 19, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_156" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(41.5, 0, -43)
+rotation_degrees = Vector3(0, -24, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_157" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(47.59, 0, -43)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_158" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-95, 0, -32.5)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_159" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-95, 0, -26.41)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_160" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-101.09, 0, -32.5)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_076" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-84.5, 0, -32.5)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_077" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-74, 0, -32.5)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_078" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-63.5, 0, -32.5)
+rotation_degrees = Vector3(0, 17, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_079" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -32.5)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_080" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -32.5)
+rotation_degrees = Vector3(0, -9, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_081" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, -32.5)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_082" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, -32.5)
+rotation_degrees = Vector3(0, 25, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_083" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, -32.5)
+rotation_degrees = Vector3(0, -18, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_084" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -32.5)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_085" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(10, 0, -32.5)
+rotation_degrees = Vector3(0, 16, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_086" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(20.5, 0, -32.5)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_087" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(31, 0, -32.5)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_161" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(41.5, 0, -32.5)
+rotation_degrees = Vector3(0, 7, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_162" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(41.5, 0, -26.41)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_163" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(47.59, 0, -32.5)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_164" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-84.5, 0, -22)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_165" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-84.5, 0, -15.91)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_166" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-90.59, 0, -22)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_088" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-74, 0, -22)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_089" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-63.5, 0, -22)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_090" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -22)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_091" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -22)
+rotation_degrees = Vector3(0, 22, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_092" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, -22)
+rotation_degrees = Vector3(0, -21, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_093" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, -22)
+rotation_degrees = Vector3(0, -4, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_094" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, -22)
+rotation_degrees = Vector3(0, 13, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_095" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -22)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_096" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(10, 0, -22)
+rotation_degrees = Vector3(0, -13, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_097" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(20.5, 0, -22)
+rotation_degrees = Vector3(0, 4, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_167" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(31, 0, -22)
+rotation_degrees = Vector3(0, 21, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_168" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(31, 0, -15.91)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_169" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(37.09, 0, -22)
+rotation_degrees = Vector3(0, 19, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_170" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-74, 0, -11.5)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_171" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-74, 0, -5.41)
+rotation_degrees = Vector3(0, -4, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_172" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-80.09, 0, -11.5)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_098" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-63.5, 0, -11.5)
+rotation_degrees = Vector3(0, 19, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_099" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -11.5)
+rotation_degrees = Vector3(0, -24, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_100" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -11.5)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_101" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, -11.5)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_102" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, -11.5)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_103" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, -11.5)
+rotation_degrees = Vector3(0, -16, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_104" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -11.5)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_105" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(10, 0, -11.5)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_173" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(20.5, 0, -11.5)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_174" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(20.5, 0, -5.41)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_175" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(26.59, 0, -11.5)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_176" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-63.5, 0, -1)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_177" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-63.5, 0, 5.09)
+rotation_degrees = Vector3(0, -16, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_178" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-69.59, 0, -1)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_106" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-53, 0, -1)
+rotation_degrees = Vector3(0, 7, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_107" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, -1)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_108" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, -1)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_109" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, -1)
+rotation_degrees = Vector3(0, -2, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_110" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, -1)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_111" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-0.5, 0, -1)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_179" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(10, 0, -1)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_180" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(10, 0, 5.09)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_181" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(16.09, 0, -1)
+rotation_degrees = Vector3(0, -13, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_182" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-53, 0, 9.5)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_183" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-53, 0, 15.59)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_184" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-59.09, 0, 9.5)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_112" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-42.5, 0, 9.5)
+rotation_degrees = Vector3(0, -5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="BlossomTree_113" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, 9.5)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_114" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, 9.5)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="BlossomTree_115" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-11, 0, 9.5)
+rotation_degrees = Vector3(0, -14, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="GreenTree_185" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-0.5, 0, 9.5)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_186" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-0.5, 0, 15.59)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_187" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(5.59, 0, 9.5)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_188" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-42.5, 0, 20)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_189" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-42.5, 0, 26.09)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_190" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-48.59, 0, 20)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_116" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-32, 0, 20)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_117" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(-21.5, 0, 20)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_191" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-11, 0, 20)
+rotation_degrees = Vector3(0, 17, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_192" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-11, 0, 26.09)
+rotation_degrees = Vector3(0, 11, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_193" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-4.91, 0, 20)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_194" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-32, 0, 30.5)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_195" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-32, 0, 36.59)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_196" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-38.09, 0, 30.5)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_197" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-21.5, 0, 30.5)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_198" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-21.5, 0, 36.59)
+rotation_degrees = Vector3(0, 25, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_199" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(-15.41, 0, 30.5)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_200" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -85)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_201" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -91.09)
+rotation_degrees = Vector3(0, 25, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_202" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -85)
+rotation_degrees = Vector3(0, 21, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_203" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(300.5, 0, -85)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_204" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(300.5, 0, -91.09)
+rotation_degrees = Vector3(0, -18, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_205" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -85)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_206" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -91.09)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_207" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -85)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_208" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -85)
+rotation_degrees = Vector3(0, 13, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_209" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -91.09)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_210" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -85)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_211" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(384.5, 0, -85)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_212" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(384.5, 0, -91.09)
+rotation_degrees = Vector3(0, -2, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_213" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -85)
+rotation_degrees = Vector3(0, -13, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_214" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -91.09)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_215" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -85)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_216" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -74.5)
+rotation_degrees = Vector3(0, 28, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_217" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -74.5)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_118" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -74.5)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_218" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -74.5)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_219" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -74.5)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_220" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -74.5)
+rotation_degrees = Vector3(0, -16, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_221" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -74.5)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_119" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -74.5)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="GreenTree_222" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -74.5)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_223" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -74.5)
+rotation_degrees = Vector3(0, 16, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_224" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -64)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_225" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -64)
+rotation_degrees = Vector3(0, 23, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_120" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -64)
+rotation_degrees = Vector3(0, 16, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="GreenTree_226" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -64)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_227" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -64)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_228" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -64)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_229" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -64)
+rotation_degrees = Vector3(0, -21, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_121" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -64)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_230" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -64)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_231" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -64)
+rotation_degrees = Vector3(0, -13, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_232" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -53.5)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_233" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -53.5)
+rotation_degrees = Vector3(0, -6, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_122" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -53.5)
+rotation_degrees = Vector3(0, -13, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_234" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -53.5)
+rotation_degrees = Vector3(0, 4, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_235" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -53.5)
+rotation_degrees = Vector3(0, 2, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_236" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -53.5)
+rotation_degrees = Vector3(0, -14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_237" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -53.5)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_123" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -53.5)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_238" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -53.5)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_239" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -53.5)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_240" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -43)
+rotation_degrees = Vector3(0, 1, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_241" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -43)
+rotation_degrees = Vector3(0, 25, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="BlossomTree_124" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -43)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_242" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -43)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_243" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -43)
+rotation_degrees = Vector3(0, -27, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_244" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -43)
+rotation_degrees = Vector3(0, 17, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_245" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -43)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="BlossomTree_125" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -43)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_246" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -43)
+rotation_degrees = Vector3(0, -9, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_247" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -43)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_248" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -32.5)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_249" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -32.5)
+rotation_degrees = Vector3(0, -4, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_126" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -32.5)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_250" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -32.5)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_251" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -32.5)
+rotation_degrees = Vector3(0, 4, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_252" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -32.5)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_253" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -32.5)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_127" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -32.5)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_254" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -32.5)
+rotation_degrees = Vector3(0, 22, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_255" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -32.5)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_256" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -22)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_257" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -22)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_128" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -22)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_258" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -22)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_259" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -22)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_260" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -22)
+rotation_degrees = Vector3(0, 19, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_261" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -22)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_129" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -22)
+rotation_degrees = Vector3(0, -24, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="GreenTree_262" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -22)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_263" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -22)
+rotation_degrees = Vector3(0, -9, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_264" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -11.5)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_265" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -11.5)
+rotation_degrees = Vector3(0, -2, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_130" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -11.5)
+rotation_degrees = Vector3(0, -9, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="GreenTree_266" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -11.5)
+rotation_degrees = Vector3(0, 8, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_267" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -11.5)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_268" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -11.5)
+rotation_degrees = Vector3(0, -10, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_269" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -11.5)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="BlossomTree_131" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -11.5)
+rotation_degrees = Vector3(0, 7, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_270" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -11.5)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_271" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -11.5)
+rotation_degrees = Vector3(0, 22, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_272" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, -1)
+rotation_degrees = Vector3(0, 5, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_273" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, -1)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="BlossomTree_132" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, -1)
+rotation_degrees = Vector3(0, 22, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="GreenTree_274" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, -1)
+rotation_degrees = Vector3(0, -21, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_275" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(317.09, 0, -1)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_276" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, -1)
+rotation_degrees = Vector3(0, 21, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_277" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(367.91, 0, -1)
+rotation_degrees = Vector3(0, -15, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="BlossomTree_133" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, -1)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_278" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, -1)
+rotation_degrees = Vector3(0, -5, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_279" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, -1)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_280" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, 9.5)
+rotation_degrees = Vector3(0, -24, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_281" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(290, 0, 15.59)
+rotation_degrees = Vector3(0, -30, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_282" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(283.91, 0, 9.5)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_134" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(300.5, 0, 9.5)
+rotation_degrees = Vector3(0, -7, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="BlossomTree_135" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(311, 0, 9.5)
+rotation_degrees = Vector3(0, 10, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_283" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(321.5, 0, 9.5)
+rotation_degrees = Vector3(0, 27, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_284" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(321.5, 0, 3.41)
+rotation_degrees = Vector3(0, -5, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_285" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(327.59, 0, 9.5)
+rotation_degrees = Vector3(0, 25, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_286" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(363.5, 0, 9.5)
+rotation_degrees = Vector3(0, -25, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_287" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(363.5, 0, 3.41)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_288" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(357.41, 0, 9.5)
+rotation_degrees = Vector3(0, -1, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="BlossomTree_136" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(374, 0, 9.5)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.42, 1.42, 1.42)
+
+[node name="BlossomTree_137" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(384.5, 0, 9.5)
+rotation_degrees = Vector3(0, 9, 0)
+scale = Vector3(1.58, 1.58, 1.58)
+
+[node name="GreenTree_289" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, 9.5)
+rotation_degrees = Vector3(0, 26, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_290" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(395, 0, 15.59)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_291" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(401.09, 0, 9.5)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_292" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(300.5, 0, 20)
+rotation_degrees = Vector3(0, 24, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_293" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(300.5, 0, 26.09)
+rotation_degrees = Vector3(0, 18, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_294" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(294.41, 0, 20)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="BlossomTree_138" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(311, 0, 20)
+rotation_degrees = Vector3(0, -19, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_139" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(321.5, 0, 20)
+rotation_degrees = Vector3(0, -2, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_295" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(332, 0, 20)
+rotation_degrees = Vector3(0, 15, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_296" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(332, 0, 13.91)
+rotation_degrees = Vector3(0, -17, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_297" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(342.5, 0, 20)
+rotation_degrees = Vector3(0, -28, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_298" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(342.5, 0, 13.91)
+rotation_degrees = Vector3(0, 0, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_299" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(353, 0, 20)
+rotation_degrees = Vector3(0, -11, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_300" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(353, 0, 13.91)
+rotation_degrees = Vector3(0, 17, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="BlossomTree_140" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(363.5, 0, 20)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(1.34, 1.34, 1.34)
+
+[node name="BlossomTree_141" parent="Trees" instance=ExtResource("2_sakura")]
+position = Vector3(374, 0, 20)
+rotation_degrees = Vector3(0, 23, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="GreenTree_301" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(384.5, 0, 20)
+rotation_degrees = Vector3(0, -20, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_302" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(384.5, 0, 26.09)
+rotation_degrees = Vector3(0, -26, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_303" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(390.59, 0, 20)
+rotation_degrees = Vector3(0, -22, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_304" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, 30.5)
+rotation_degrees = Vector3(0, 12, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_305" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(311, 0, 36.59)
+rotation_degrees = Vector3(0, 6, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_306" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(304.91, 0, 30.5)
+rotation_degrees = Vector3(0, -24, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_307" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(321.5, 0, 30.5)
+rotation_degrees = Vector3(0, 29, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_308" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(321.5, 0, 36.59)
+rotation_degrees = Vector3(0, 23, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_309" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(332, 0, 30.5)
+rotation_degrees = Vector3(0, -14, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_310" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(332, 0, 36.59)
+rotation_degrees = Vector3(0, -20, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_311" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(342.5, 0, 30.5)
+rotation_degrees = Vector3(0, 3, 0)
+scale = Vector3(1.26, 1.26, 1.26)
+
+[node name="GreenTree_312" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(342.5, 0, 36.59)
+rotation_degrees = Vector3(0, -3, 0)
+scale = Vector3(1.14, 1.14, 1.14)
+
+[node name="GreenTree_313" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(353, 0, 30.5)
+rotation_degrees = Vector3(0, 20, 0)
+scale = Vector3(1.32, 1.32, 1.32)
+
+[node name="GreenTree_314" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(353, 0, 36.59)
+rotation_degrees = Vector3(0, 14, 0)
+scale = Vector3(0.96, 0.96, 0.96)
+
+[node name="GreenTree_315" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(363.5, 0, 30.5)
+rotation_degrees = Vector3(0, -23, 0)
+scale = Vector3(1.38, 1.38, 1.38)
+
+[node name="GreenTree_316" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(363.5, 0, 36.59)
+rotation_degrees = Vector3(0, -29, 0)
+scale = Vector3(1.02, 1.02, 1.02)
+
+[node name="GreenTree_317" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, 30.5)
+rotation_degrees = Vector3(0, -6, 0)
+scale = Vector3(1.2, 1.2, 1.2)
+
+[node name="GreenTree_318" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(374, 0, 36.59)
+rotation_degrees = Vector3(0, -12, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+[node name="GreenTree_319" parent="Trees" instance=ExtResource("1_pine")]
+position = Vector3(380.09, 0, 30.5)
+rotation_degrees = Vector3(0, -8, 0)
+scale = Vector3(1.08, 1.08, 1.08)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

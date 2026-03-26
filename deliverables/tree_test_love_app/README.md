@@ -1,4 +1,4 @@
-﻿# Tree Test Love App
+# Tree Test Love App
 
 ## Isolated scene
 - Main presentation scene: `E:\山河志风起汉末\scenes\tree_test_love_app.tscn`
@@ -43,3 +43,8 @@
 - Keeps your local main game entry untouched during normal work.
 - In CI only, rewrites `run/main_scene` to `res://scenes/tree_test_love_app.tscn`.
 - Exports a Web build and deploys only that isolated confession scene to Pages.
+
+## Lightweight web subproject
+- Dedicated web project root: E:\山河志风起汉末\web\iloveu_web`r
+- Web title/app name: iloveu`r
+- This path is isolated from the main game project and exists only to make the confession web build load much faster.

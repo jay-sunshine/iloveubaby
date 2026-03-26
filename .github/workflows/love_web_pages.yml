@@ -1,4 +1,4 @@
-﻿name: Love Web Pages
+name: Love Web Pages
 
 on:
   workflow_dispatch:
@@ -25,6 +25,7 @@ jobs:
       GODOT_EDITOR_ZIP: Godot_v4.6.1-stable_linux.x86_64.zip
       GODOT_TEMPLATES_TPZ: Godot_v4.6.1-stable_export_templates.tpz
       GODOT_RELEASE_BASE: https://github.com/godotengine/godot-builds/releases/download/4.6.1-stable
+      LOVE_WEB_PATH: web/iloveu_web
 
     steps:
       - name: Checkout
@@ -50,29 +51,25 @@ jobs:
           unzip -q "$RUNNER_TEMP/godot/export_templates.tpz" -d "$RUNNER_TEMP/godot/export_templates"
           cp -R "$RUNNER_TEMP/godot/export_templates/templates/." "$TEMPLATE_DIR/"
 
-      - name: Point CI build to love scene
-        run: python3 tools/export/prepare_love_web.py
-
-      - name: Import project assets
+      - name: Import lightweight web project
         shell: bash
         run: |
           set -euo pipefail
-          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE" --import --quit
+          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE/$LOVE_WEB_PATH" --import --quit
 
-      - name: Export web build
+      - name: Export lightweight web build
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p build/web
-          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE" --export-release "Web" build/web/index.html
-          touch build/web/.nojekyll
+          mkdir -p "$GITHUB_WORKSPACE/$LOVE_WEB_PATH/build/web"
+          "$GODOT_BIN" --headless --path "$GITHUB_WORKSPACE/$LOVE_WEB_PATH" --export-release "Web" "$GITHUB_WORKSPACE/$LOVE_WEB_PATH/build/web/index.html"
+          touch "$GITHUB_WORKSPACE/$LOVE_WEB_PATH/build/web/.nojekyll"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build/web
+          path: web/iloveu_web/build/web
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
