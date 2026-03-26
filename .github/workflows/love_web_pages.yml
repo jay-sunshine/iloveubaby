@@ -1,4 +1,4 @@
-name: Love Web Pages
+﻿name: Love Web Pages
 
 on:
   workflow_dispatch:
@@ -44,9 +44,11 @@ jobs:
           chmod +x "$GODOT_BIN"
           echo "GODOT_BIN=$GODOT_BIN" >> "$GITHUB_ENV"
 
-          mkdir -p "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_STATUS}"
+          TEMPLATE_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_STATUS}"
+          mkdir -p "$TEMPLATE_DIR"
           curl -L "$GODOT_RELEASE_BASE/$GODOT_TEMPLATES_TPZ" -o "$RUNNER_TEMP/godot/export_templates.tpz"
-          unzip -q "$RUNNER_TEMP/godot/export_templates.tpz" -d "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.${GODOT_STATUS}"
+          unzip -q "$RUNNER_TEMP/godot/export_templates.tpz" -d "$RUNNER_TEMP/godot/export_templates"
+          cp -R "$RUNNER_TEMP/godot/export_templates/templates/." "$TEMPLATE_DIR/"
 
       - name: Point CI build to love scene
         run: python3 tools/export/prepare_love_web.py
@@ -73,3 +75,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
