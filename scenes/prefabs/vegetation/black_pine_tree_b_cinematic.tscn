@@ -7,11 +7,11 @@
 script = ExtResource("1_script")
 bark_roughness = 0.98
 bark_tint = Color(0.9, 0.86, 0.81, 1)
-leaf_tint = Color(0.72, 0.81, 0.68, 1)
+leaf_tint = Color(0.42, 0.62, 0.28, 1)
 leaf_alpha_scissor = 0.27
-leaf_backlight = Color(0.68, 0.8, 0.63, 1)
-leaf_roughness = 0.96
-leaf_specular = 0.3
+leaf_backlight = Color(0.36, 0.56, 0.22, 1)
+leaf_roughness = 0.9
+leaf_specular = 0.12
 leaf_disable_receive_shadows = false
 leaf_disable_cast_shadows = false
 leaf_transmittance_depth = 0.24
